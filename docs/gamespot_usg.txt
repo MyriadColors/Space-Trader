@@ -1,0 +1,1435 @@
+
+
+                                
+                          Space Trader
+                                
+                Unofficial Strategy Guide and FAQ
+                                
+                         by Kasey Chang
+                                
+                    last revised Dec 14, 2020
+
+
+0    Introduction
+   
+This section is for "what the FAQ is about" and things like that.
+Feel free to skip this section.
+
+If you like the FAQ, please send me a dollar. :-)  See [0.3]
+
+This FAQ is about Space Trader, the Palm platform game by Pieter
+Spronck.
+
+
+0.1   A WORD FROM THE AUTHOR
+
+There doesn't seem to be any FAQ for this fun little game, so
+here it comes.
+
+This is a FAQ, NOT a manual. Not that you really need a manual to
+play this little gem.
+
+This USG only covers the Palm Version, which is the only one that
+exists.
+
+Some of you may recognize my name as the editor for the XCOM and
+XCOM2: TFTD FAQ's, among others.
+
+
+0.2   TERMS OF DISTRIBUTION
+
+This document is copyrighted by Kasey Chang (c) 2003,2020,
+all rights reserved excepted as noted above in the disclaimer
+section.
+
+This document is available FREE of charge subjected to the
+following conditions:
+
+1)This notice and author's name must accompany all copies of
+  this document: "Space Trader Unofficial Strategy Guide and
+  FAQ" is copyrighted (c) 2003,2020 by Kasey Chang, all rights
+  reserved except as noted in the disclaimer."
+  
+2)This document must NOT be modified in any form or manner
+  without prior permission of the author with the following
+  exception: if you wish to convert this document to a different
+  file format or archive format, with no change to the content,
+  then no permission is needed.
+  
+  2a) In case you can't read, that means TXT only. No banners,
+  no HTML borders, no cutting up into multiple pages to get you
+  more banner hits, and esp. no adding your site name to the
+  site list. [Small exception: a "small" toolbar with no banners
+  embedded is okay. See IGN or Neoseeker for examples.]
+  
+3)No charge other than "reasonable" compensation should charged
+  for its distribution. Free is preferred, of course. Sale of
+  this information is expressly prohibited. If you see any one
+  selling this guide, contact me (see below).
+  
+4)If you used material from this, PLEASE ACKNOWLEDGE the source,
+  else it is plagiarism.
+  
+5)The author hereby grants all games-related websites the right
+  to archive and link to this document to share among the game
+  fandom, provided that all above restrictions are followed.
+  
+  Sidenote: The above conditions are known as a statutory
+  contract. If you meet them, then you are entitled to the
+  rights I give you in 5), i.e. archive and display this
+  document on your website. If you don't follow them, then you
+  did not meet the statutory contract conditions, and therefore
+  you have no right to display this document. If you do so, then
+  you are infringing upon my copyright. This section was added
+  for any websites that don't seem to understand this.
+  
+  For the gamers: You are under NO obligation to send me ANY
+  compensation.  However, I do ask for a VOLUNTARY contribution
+  of one (1) US Dollar to my Paypal at paypal.me/kschang77
+  
+  If you don't live in the US, please send me some local stamps.
+  I collect stamps too.
+
+0.3   VOLUNTARY CONTRIBUTION
+
+Gamers who read this guide are under NO obligation to send me ANY
+compensation.
+
+However, a VOLUNTARY contribution of one (1) US Dollar would be
+very appreciated.
+
+If you choose to do so, please make a $1.00 USD donation to my
+Paypal at paypal.me/kschang77
+
+For the record, out of ALL the FAQs I wrote (37 at last count)
+over the past nine years or so, I've received exactly 7 dollars
+and 2 sets of stamps, as of release of this guide. So I'm NOT
+making any money off these guides, folks.
+
+
+0.4   HOW AND WHEN TO CONTACT ME
+
+PLEASE let me know if there's a confusing or missing remark,
+mistakes, and thereof... If you find a question about this game
+that is not covered in the USG, e-mail it to me at the address
+specified below.  I'll try to answer it and include it in the
+next update.
+
+Please do NOT write me for technical support. This game is free
+under GPL license and I haven't seen it crash even once, after
+HOURS of playing.
+
+Please do NOT ask me to answer questions that have already
+answered in this FAQ/guide. It makes you REALLY idiotic.
+
+I will NOT answer stupid questions like the ones above unless I'm
+in a really good mood. If you send questions like that, do NOT
+expect a reply.
+
+The address below is spelled out phonetically so spammers can't
+use spambots on it:
+
+Kilo-Sierra-Charlie-Hotel-Alpha-November-Golf-Seven-Seven AT
+Yankee-Alpha-Hotel-Oscar-Oscar DOT Charlie-Oscar-Mike
+
+To decipher this, simply read the first letter off each word
+except for the numbers and the punctuation. This is "military
+phonetics" or "aeronautical phonetics" in case you're wondering.
+
+This document was produced on Microsoft Word 97. Some editing was
+done with Editpad and Notepad++.
+
+
+0.5    THE AUTHOR
+
+I am just a game player who decided to write my own FAQs when the
+ones I find don't cover what I want to see.  Lots of people like
+what I did, so I kept doing it.
+
+Previously, I've written Unofficial Strategy Guides (USGs) for
+XCOM, XCOM2:TFTD, Wing Commander, Wing Commander 2, Wing
+Commander 3, Wing Commander 4, Privateer, Spycraft, 688(I)
+Hunter/Killer. Mechwarrior 3, MW3 Expansion Pack, Mechwarrior 4,
+Mechwarrior 4: Black Knight, Need for Speed: Porsche Unleashed,
+The Sting!, Terranova, Fallout Tactics, Starfleet Command Volume
+II, DS9: The Fallen, DS9: Dominion War, Driver, Warlords:
+Battlecry, Monopoly Tycoon, Dungeon Siege, and a few others.
+
+To contact me, see 0.4 above.
+
+
+0.6   DISCLAIMER / COPYRIGHT INFORMATION
+
+Pieter Spronck created Space Trader.
+
+This USG is not endorsed or authorized by Mr. Spronck.
+
+The information compiled in this USG has been gathered
+independently through the author's efforts except where noted
+otherwise.
+
+This document is based on the V1.2.0 release, and thus the
+information listed here may NOT apply fully to earlier versions.
+
+
+0.7  HISTORY
+
+11-MAR-2003         Initial release
+14-DEC-2020         Revision added Princess Ziyal quest
+
+
+
+1    Space Trader General Info
+   
+
+1.1   THE MOST FREQUENTLY ASKED QUESTIONS
+
+Q: Can you send me the game (or portions thereof)?
+A: It's free, go download it yourself at
+http://www.picoverse.com/spacetrader/
+
+Q: Can you tell me how to play the game?
+A: It's a Palm game! How hard can it be?
+
+Q: Is there going to be a sequel?
+A: Apparently not. 
+
+Q: How should I allocate the points at the start?
+A: I prefer 9 to 10 pts in piloting, some pts in Engineering, the
+rest divided up in fighting and trading as you see fit.
+
+Q: I want something with more combat!
+A: Look for a Palm game called "VOID". It has 3D space flight,
+whereas Space Trader does not.
+
+Q: Can I play this on a PC?
+A: There is a Windows version ported by Jay French
+http://spacetraderwin.sourceforge.net/
+
+Q: How about iOS? Android? 
+A: As the original game was released under GPL, there were many ports. 
+However, the original author, Peter Spronck, was impressed by a port
+by Dead Jim Studios called Dark Nova
+
+
+1.2   SPACE TRADER HISTORY
+
+Space Trader is basically a Palm adaptation of the classic space
+game "Elite", but without the flight-sim section.
+
+It was inspired by Solar Wars (which in turn was inspired by
+DopeWars, another Palm classic game) and influenced by Elite.
+
+
+1.3   SPACE TRADER HARDWARE REQUIREMENTS
+
+You need Palm OS 2.0 or later to run the basic B&W version. If
+you want grayscale or color (and have the appropriate machines),
+you'll need Palm OS 3.5 or later. The game itself takes less than
+400KB of space.
+
+
+1.4   HOW DOES THE GAMEPLAY works?
+
+You basically run a little trading outfit from your own ship.
+Take commodities from one system to another, run into pirates and
+police along the way. Even encounter some special events (sorry,
+can't say more now!). Make money, fight, flee, it's up to you.
+Your eventual goal is to make 500000 credits, buy a moon, and
+retire to it.
+
+
+1.5   BUGS AND FIXES
+
+No significant bugs noted for the V1.2.0 release.
+
+
+1.6   EXPANSION PACKS? SEQUELS? RELATED TITLES?
+
+A sequel is in the works, according to the official website at
+
+http://www.picoverse.com/spacetrader/
+
+"Void" is a similar game that gives you a 3D flight portion. You
+also need to dock with space stations and such.
+
+Dark Nova is probably the most recent version and is available for
+both iOS and Android
+
+
+
+2    Beginner's Guide
+   
+Here's a guide for those of you just getting started.
+
+
+2.1   HOW DO I SETUP MY CHARACTER?
+
+In general, I prefer a high piloting rating for the beginning. It
+makes running away from pirates much easier. Of course, you also
+want to avoid pirate hotspots. The rest can be divided up between
+engineering, fighting, and trading as you see fit. On the other
+hand, you should really hire mercenaries to compensate for
+deficiencies in those areas.
+
+
+2.2   HOW DO I VIEW MY CURRENT ATTRIBUTES?
+
+Command / Commander Status. The first number is your stat. The
+next number is the "overall stat" (i.e. after any mercenaries and
+gadgets have been counted).
+
+
+2.3   HOW DO I IMPROVE SPECIFIC ATTRIBUTES?
+
+You... can't. Space Trader does not allow one to enhance specific
+attributes. You may occasionally run into "alien learning
+machines" or the special 'elite captains', or even the occasional
+'bottle of brew' which will improve one of your stats (it may
+cost you though). However, you can't choose what to improve...
+it's all random.
+
+The proper way to enhance a specific attribute is to hire a
+mercenary with better ratings than you in that area. In general,
+you want to hire mercs that are 9 or 10 in the area you are weak
+at, while weak in the area you're good at to make them cheaper.
+Mercs are pretty expensive at up to 95 credits DAILY. If you have
+more than one, the costs can really add up.
+
+You can also enhance the ship rating in the four areas by
+installing a gadget. Damage Control computer increases
+engineering, navigation computer enhances piloting, and targeting
+computer enhances fighting.
+
+
+2.4   HOW SHOULD I START?
+
+Some players suggested you trade in your Gnat for a Flea, which
+gives you more working capital, but a smaller ship. If you are in
+a peaceful sector (minimal pirates), this may be workable.
+
+Sell your pulse laser, as you probably don't need to fight. That
+gives you extra money as well. You don't want to fight anyone in
+the beginning anyway.
+
+Borrow money from the bank. Even newbies can borrow 1000 cr,
+which should be enough to help you get started.
+
+When you got enough capital to buy goods, consider investing in
+the gadget that adds a 5-unit cargo bay expansion. This allows
+you to trade more goods, and thus, more profit.
+
+
+2.5   HOW DO I SURVIVE?
+
+You need to upgrade to a ship that has shields ASAP, and of
+course, buy a shield! Even Firefly is more survivable than the
+Gnat. (See Ship References in [3])  Of course, making that
+initial 20k cr is going to take some serious trading on your
+part.
+
+Remember, you can always surrender. You may lose most of your
+cargo, but it's better than losing the entire ship.
+
+
+2.6   HOW DO I MAKE MONEY?
+
+Trading makes more money than anything else. It is possible to
+make up to 30-50K credits in a single trip, NOT counting
+contraband. Contraband can make 75K or more per run.
+
+Initially, you have only 1000 cr, so you can't afford much. Try
+borrowing 1000 cr from the bank to give you 2000 cr. That should
+be able to increase your profit substantially. Just remember to
+pay it back when you can. Interest DOES accumulate...
+
+Pirating makes a bit of money, but you'll be constantly chased by
+the police and not able to move to different planets in search of
+better prey or trading. You also never know what you can find in
+those ships... Could be anything from water to robots.
+
+Bounty-hunting is a very dangerous profession. In Space Trader,
+your shields only regenerate when you reach the next planet. So
+you can only take on one or two enemies per trip (depending on
+how much damage do you take on your shields). That means only a
+few thousand credits per trip, and the risks are tremendous.
+
+
+2.7   HOW DO I SAVE MONEY?
+
+Your expenses are pretty minimal but let's analyze them
+nonetheless...
+
+Fuel: you must pay this, no matter what. The larger the ship and
+longer the jump, the more fuel you use. This is not controllable,
+so don't worry about it. Usually, it is under 20 cr per trip.
+
+Repairs: get a ship with shields, and let shields take the damage
+to minimize repairs. Don't travel to planets where you're likely
+to encounter pirates or attackers. That way, no repairs, no
+repair expenses. However, in general, repairs are just somewhat
+more expensive than fuel.
+
+Wormhole transit fee: if you use a wormhole you need to pay a
+transit fee. This cannot be avoided except by avoiding wormholes
+altogether. The cost is minimal (about 100 cr), so forget about
+it.
+
+Newspaper: reading news costs 2 credits. When you have a lot,
+this is nothing. But in the beginning, don't read any news.
+
+Mercenary: every mercenary must be paid a daily salary, from 40
+cr to 95 cr. The better the merc, the more he/she/it costs. Don't
+hire mercenaries until you can afford them.
+
+Insurance: you usually don't need insurance, esp. in the early
+parts of the game. The cost outweighs the benefits and cuts into
+your operating capital. Only buy insurance when you go on very
+dangerous assignments, like take out the Acamar space monster,
+take out the Firefly, and so on.
+
+
+2.8   HOW DO I AVOID PIRATES?
+
+You need a high pilot rating to be successful in fleeing from
+pirates. Select the FLEE option, and hopefully, you'll get away
+from the pirate.
+
+You can always SURRENDER the ship. The pirate gets to pick the
+cargo to take from your cargo bay. However, they cannot take your
+ship equipment or your cash.
+
+There is an exception...  If you don't have any cargo in the
+cargo bay, the pirate will extort you for money. Therefore,
+ALWAYS keep 1 piece of cargo on the ship, doesn't matter what
+type.
+
+Worst case... use the escape pod... If you bought one. It's only
+2000 credits, so you should definitely get one.
+
+
+2.9   WHAT DO I DO WITH THE SPECIAL EVENTS?
+
+Do NOT touch the "special" button until you are ready! (Read: At
+least a fully-equipped Hornet) Some of those quests have a time
+limit, and if you fail, there can be serious consequences!
+
+
+
+3    The Galaxy
+   
+
+3.1   HOW GALAXY IS CREATED (I THINK)
+
+The galaxy is randomly created for each game at the beginning.
+Each system is randomly placed (roughly equal distribution), but
+with one constraint: each system MUST have at least one other
+system within 13 parsecs. The government type, system size, tech
+level, and such are also randomly generated.
+
+Then the wormholes are randomly added to the worlds, but at least
+a certain number of parsecs apart. Most of them cross the galaxy,
+but some may travel shorter distances.
+
+
+3.2   HOW THE SUPPLY AND DEMAND WORKS (I THINK)
+
+Every planet has resources it generates every game day. The
+amount depends on the planet size.
+
+In the beginning, the game gives about 5-8 days of "stockpile" to
+each planet, depending again on the planet's size.
+
+If you empty the stockpile (buy out the inventory), it will take
+the planet many days to replenish the stockpile. So if you
+revisit the planet, again and again, you'll eventually find
+nothing for sale (or at least nothing that'll make money).
+
+Tech level and government affect the price of the item. Communist
+governments have lower prices than capitalist governments, and so
+on.
+
+
+3.3   THE PLANETS
+
+The quests that involve specific planet names will always use the
+same planet names. For example, the space monster will ALWAYS
+attack Acamar, and so on.
+
+Other quests and special events may show up at random planets.
+
+
+3.4   TRAVELLING
+
+Your ship has a jump range, and cannot be extended.
+
+EXCEPTION: one of the quests, when complete, gives you a "fuel
+compactor", which allows any ship to do an 18-parsec jump. You will
+need a gadget slot to install it, and the compactor costs 20000
+to move to another ship.
+
+While on the way, you may run into other ships, who can be
+traders, pirates, police, aliens, or special encounters. See [4]
+for more discussions on other ships.
+
+If you have the Cloaking Device, the chances of you running into
+others are decreased (but NOT eliminated!)
+
+
+3.5   HOW TO LOOK FOR MARKET OPPORTUNITIES
+
+In general, you want to shuttle between agricultural planets and
+industrial/hi-tech planets, the more of them in a sector, the
+better. The planets need to be as big as possible (they generate
+more cargo).
+
+You take food, fur, and low-tech items from the low-tech planets
+to the high-tech planets, and you bring back things like
+medicine, robots, machines, and so on.
+
+Use the galactic chart and look for the different systems and
+their governments, and look for the two near each other. You
+should be able to locate some nearby. Also, avoid anarchy
+governments as such planets are always full of pirates.
+
+One very lucrative route is to smuggle narcotics between hi-tech
+(or post-industrial) and theocracy. You can make more than 1000
+credits per cargo unit if you make it, depending on exact
+circumstances. I've seen the profit go as high as 1500 cr per
+cargo unit.
+
+
+3.6   GOING LONG DISTANCES VIA WORMHOLES
+
+When you need to go to a specific place for a quest, look at the
+galactic chart first. It may be possible to go through the
+wormhole and get there much faster.
+
+
+
+4     Fighting and Fleeing
+   
+You will do a lot of fighting and fleeing in Space Trader. They
+are the only ways your ship can stay alive.
+
+
+4.1   FIGHTING
+
+I haven't looked in the source code, so this is my impression of
+how it works. it may not be accurate.
+
+You have your ship, the other side has their ship.
+
+One side initiates the attack (usually, that's the attacker). He
+uses his FIGHT rating and "shoots".
+
+The target uses the PILOT rating to see if the shot lands.
+
+If the shot lands, the ship then have the ENGINEER run a dice
+roll to see how much damage is actually done.
+
+The damage is applied to shields if there are some installed. The
+remaining is applied to the hull strength. When the hull strength
+reaches 0 (the hull is all black) the ship blows up.
+
+The two sides will take turns shooting at each other until either
+one side is destroyed or flees, or surrenders.
+
+
+4.2   IMPLICATIONS OF FIGHTING
+
+The better your pilot rating, the fewer hits you will take.
+
+The better your fight rating, the more hits you will make.
+
+The better your engineer rating, the less damage you will take.
+
+The more weapons you have (and the better they are, military
+laser being best), the more damage you will do when you hit.
+
+
+4.3   FLEEING
+
+When one of the ships in a battle chooses to flee, the other ship
+may choose to continue the attack. Depending on the piloting
+skill of the fleeing ship, this chase can be very short, or quite
+long. The fleeing ship may continue to take damage.
+
+Success in fleeing depends on the pilot rating. The better the
+pilot rating and the smaller the escaping ship, the more likely
+he will get away.
+
+
+4.4   CHASING
+
+If the ship you're targeting chooses to flee, you can elect
+continue ATTACK (which means you chase him), or IGNORE (which
+ends the encounter).
+
+If you attack, he MAY still successfully flee, or he may even 
+surrender to you.
+
+The better your pilot rating, the less likely your target will
+successfully flee.
+
+
+4.5   YOU SURRENDER
+
+If you surrender to pirates, they will take all your cargo. If
+you have no cargo, they will take a LOT of your money, or if you
+have no money, they will extort you for more.
+
+[Developer's Tip: Always carry one unit of cargo, even if it's
+just water]
+
+If you surrender to the police (contraband?) you'll likely go to 
+jail and receive a big fine.
+
+You may surrender in other instances, that will be discussed
+later.
+
+
+4.6   YOUR OPPONENT SURRENDERS
+
+If your opponent surrenders, you can choose to accept the
+surrender, or continue to attack.
+
+If you accept the surrender, you get to loot his cargo (anything
+he has). You can "dump" some of your existing cargo to make room
+if needed.
+
+If you continue to attack, your opponent will attempt to flee.
+
+
+4.7   GENERAL FIGHT/FLEE  TIPS
+
+Invest in good equipment when you can. A military laser does a
+LOT of damage compared to pulse laser. On the other hand, a pulse
+laser is better than no laser at all.
+
+Hire mercenaries to help you flee or fight as you see fit.
+
+Get shields as soon as possible. You need those to survive. Even
+the cheap energy shield is better than nothing.
+
+Get gadgets that improve those ratings.
+
+
+
+5     Other ships
+   
+The other ships you encounter roughly falls into the following
+categories: police, pirates, neutral traders, aliens, and special
+encounters.
+
+
+5.1   POLICE
+
+Police use all sorts of ships, everything from Gnats to Wasps,
+with all sorts of crew and equipment.
+
+They may occasionally demand you to stop for inspections. You can
+FLEE, SUBMIT, FIGHT, or BRIBE.
+
+If you FLEE, you will run away from the ship via the standard
+"flee" procedure. The chances of you doing that is dependent on
+your pilot rating vs. their pilot rating.  As you are running
+away from the police, your record immediately changes to
+"dubious". This has consequences, as you will make less money on
+sales, you lose credit at the bank, and so on.
+
+If you SUBMIT, the police will check your cargo for contraband.
+If you actually have contraband on board, you'll get a chance to
+countermand that. However, if you do let them search and they DID
+find contraband, you may be fined heavily and/or go to jail for a
+period of time.
+
+If you FIGHT, you fight the cops similar to the pirates, and you
+get the "dubious" reputation. Depending on how far you go (like
+destroying dozens of cops), you can go as far as "psycho".
+
+If you BRIBE, the police will shut up in exchange for payment.
+Beware that SOME police cannot be bribed. The payment is usually
+QUITE expensive (10000 cr or more). However, if you make enough,
+this may not be a bad idea.
+
+
+5.2   PIRATES
+
+Pirates come in all sizes as well, and all sorts of equipment
+and crew levels.
+
+When you encounter a pirate, you can FIGHT, FLEE, or SURRENDER.
+
+Pirates want you to surrender. If you surrender, they take as
+much of your cargo as they can fit into their cargo bay. Mostly,
+they leave you with nothing.
+
+You can FLEE, which means you outrun the pirate. The chances of
+you doing that is dependent on your pilot rating vs. their pilot
+rating.
+
+You can FIGHT, which means you hit the pirate until either of you
+decided to flee instead, and actually succeeds, or surrenders.
+
+
+5.3   NEUTRAL TRADERS
+
+You can find fellow traders in the spaceways. You can choose to
+ignore them, or you can trade with them in space. It's up to you.
+
+Personally, I don't trade in space, as I have NO IDEA what the
+prices SHOULD be.
+
+You can set Preferences so you ALWAYS ignore neutral traders.
+
+
+5.4   ALIENS
+
+You may encounter alien ships in the galaxy, esp. if you are on
+specific quests. The alien ships are tough, but not impossible to
+beat. In any case, it is quite possible to run from them.
+
+In one of the quests, you have an artifact you must deliver, but
+it's an alien artifact and the aliens want it. If you surrender
+in one of those fights with aliens, the aliens will take the
+artifact, and the quest will end.
+
+
+5.5   OTHER ENCOUNTERS
+
+You may occasionally encounter other ships, esp. on quests, but
+sometimes at random.
+
+One of the random encounters is a special captain. The name is
+randomly picked from a list, but they're always in a Wasp, and
+they want to meet you. Basically, you have either military
+laser(s) or reflective shield(s). That captain needs one in a
+hurry, and they will raise one of your skills in exchange for the
+item. Basically, you're trading 20000 to 30000 cr to raise one
+stat.
+
+Another random encounter is for a bottle of enhancing tonic.
+However, the chances for this tonic to work are... low. The
+expiration date can't be read. Still, it doesn't hurt to try it.
+
+Another random encounter is for Marie Celeste, a Flea that
+appears to be abandoned. There's some cargo on board, but if you
+attempt to remove it, the police may come after you.
+
+
+
+6    Career Paths
+   
+There are many career paths in Space Trader... Trader, Bounty
+Hunter, Pirate, and Smuggler.
+
+
+6.1   TRADER
+
+A trader is the best way to make the most money. Some commodities 
+(non-contraband) can make up to 150 cr profit per unit. Some really
+expensive stuff like robots and such may even reach 1000 cr per
+unit profit.
+
+To make money trading, you need to locate the right market, make
+money both ways, and be ready to move to another market when this
+market runs out of things to buy and sell.
+
+
+6.2   BOUNTY-HUNTER
+
+Bounty-hunters go out and hunt pirates. This is a VERY dangerous
+profession, and the rewards aren't that good. You make anywhere
+between 50 to 2500 per kill, depending on the ship and the
+equipment onboard.
+
+You need to be very nicely equipped and don't fight more than
+you can handle. It is tough living.
+
+Occasionally you may be able to pick up a unit of cargo from the
+wreckage of the pirate you killed, but that's few and far in
+between.
+
+You can also accept pirate surrender, in which case you take as
+much of cargo as you can, and let them go.
+
+
+6.3   PIRATE
+
+Piracy actually is a lousy way to live. Other pirates are
+constantly trying to kill you. The police are after you, and the
+traders can fight back. And you have NO IDEA what you're going to
+get from the next target... Water, or robots? Or anything in
+between? You may not even be able to sell that cargo!
+
+Still, piracy is almost pure profit (except fuel costs, and
+initial outfitting of the ship).
+
+You will need a decent ship, preferably one with more weapons
+than shields, and good FIGHT and PILOT ratings.
+
+
+6.4   SMUGGLER
+
+Smuggler is basically a trader that deals in contraband. His ship
+is usually fast, nicely protected, and probably has a cloaking
+device. Profit in contraband can be very good, but the police
+will always be after you.
+
+
+6.5   MIXED
+
+The best way to make money is to be a trader until you worked your way
+all the way up to the Hornet or Wasp. Then you can start making
+kills, indulge occasionally in smuggling, and start making your
+reputation.
+
+
+
+7    Developer's Tips
+   
+These tips are found on the official website.
+
+  ú    It is best to travel with at least one of your cargo bays
+     full, if only with a canister of water. That way, if you have to
+     surrender to pirates, they will find at least something to steal
+     and won't resort to extorting you. Besides, when one of the
+     pirate ships in a system have robbed you, he will probably have
+     sent the message to the other pirates in the system that you are
+     picked clean, and in all likelihood, the others will leave you
+     alone after that.
+     
+  ú    Special situations in a system, like war, a cold spell, or
+     boredom, last a while. It may be worth your while to bring such a
+     system the goods they require from neighboring systems since
+     you can sell them with great profit. Newspapers may give
+     information on special situations on nearby systems.
+     
+  ú    When you find two systems close to each other which require
+     goods which the other one produces cheaply, you might find it
+     tempting to keep travelling between them. However, since it will
+     take a while before the stock of a system is replenished, this
+     usually works only for a few short days. After that, you better
+     seek your luck elsewhere.
+     
+  ú    Be warned that when you become richer, you will attract
+     stronger types of pirates. Also, when the police starts to
+     consider you a real villain, they will send more and stronger
+     ships after you.
+     
+  ú    Sometimes you get an offer to go on a special assignment for
+     someone. You should remember, that if this assignment would be
+     easy, the person who offers it to you would probably do it
+     himself. So don't be too eager to follow up on such an
+     assignment, unless you are fairly sure that you can stand your
+     ground when things get a bit troublesome.
+     
+  ú    Don't be a hero. You have only got one life. Fleeing is an
+     option.
+     
+
+
+8    Kasey's Tips
+   
+I generally play a regular trader and only later branch into
+smuggling and bounty-hunting. I don't do pirating as it doesn't
+make enough money for me. Initially, you don't have enough of a
+ship to do pirating anyway.
+
+
+8.1   USE THE AVERAGE PRICE LIST A LOT
+
+The average price list is your most important screen in Space
+Trader. Set it to "relative price" mode, and it will tell you
+what commodities are available in the current system can be sold
+for a profit if taken to the target system.
+
+For example, if the screen says Cheron, medicine is in bold and
+says +22 cr, that means if you take medicine to Cheron, you can
+make 22 credits for every unit you sell (subject to fuel costs,
+price fluctuations, and so on).
+
+However, before you buy the commodity, use the system info to
+make sure you're not flying into a pirate's nest.
+
+
+8.2   SMUGGLING ONLY WHEN IT'S REALLY WORTH IT
+
+In general, you should not smuggle unless the profit is extreme,
+and I mean over 300 credits per unit, more like 500-1000 cr per
+unit.
+
+It is best to earn a "trusted" police rating before you even
+attempt smuggling. At that rating, police inspect you less than
+normal.
+
+Having a cloaking device would help, but that cost 90000 cr!
+
+If you get caught, try bribing. Usually, the bribe is not that bad
+compared to the profit margin, and it preserves your police
+rating.
+
+However, sometimes, you just have to FLEE. Run for it, and with a
+high enough pilot rating, you should be able to get away. Then
+just make it to your destination, sell the stuff, buy some
+innocent stuff, and leave. You have to survive until the "next
+day" when the police will simply inspect you rather than
+demanding you to surrender.
+
+
+8.3   TRY TO MAKE PROFIT ON EVERY RUN
+
+Even if you have to carry commodities that only shows like 1 or 2
+cr profit. At least you've covered the fuel costs.
+
+
+8.4   AVOID FIGHTS UNTIL YOU CAN WIN THEM
+
+That means don't fight anyone until you have a fully outfitted
+fighter, like Hornet or Wasp. Before, then, just FLEE.
+
+
+8.5   GET ESCAPE POD ASAP
+
+If your ship was destroyed, your game ends, unless you have an
+escape pod.
+
+Also, you MUST have an escape pod in order to buy insurance.
+
+Thus, an escape pod is a "must-have".
+
+
+8.6   BORROW FROM THE BANK INITIALLY FOR MORE CAPITAL
+
+You start with only 1000 cr, which can't buy much. By borrowing
+another 1000 cr from the bank, you should be able to buy some
+more commodities for trading, and earn more profit as a result.
+
+
+8.7   BUY INSURANCE ONLY WHEN YOU NEED IT
+
+Insurance in Space Trader is expensive in general. However, the
+rate goes down for every day of no-claim, up to 90% discount.
+
+Still, insurance is not really needed until you have a bit of
+money, and maybe not even then (it's called "self-insured").
+
+Consider buying insurance just before going on a dangerous quest.
+It'll cost a LOT to buy insurance with zero no-claim, but
+spending 1000 cr a day for 5 days is better than not buying it
+and losing a 250000 cr ship, right?
+
+
+
+9    Ship References
+   
+The ships will be listed with all their stats. The WSGC stands
+for weapon slots, shield slots, gadget slots, and crew quarters.
+
+
+9.1   FLEA
+
+A Flea is cheap and tiny. It is essentially your escape pod with
+a fuel tank and a cargo bay. It has ONLY 25 hull pts and 10 cargo
+spaces. However, it can jump 20 parsecs, the longest of all
+ships.
+
+If you eject from a dying ship, your escape pod can be converted
+into Flea for 500 credits.
+
+Hull: 25  Cargo: 10 Jump: 20  W/S/G/C: 0 / 0 / 0 / 1
+
+Suitable for: nothing, except getting you to a system where you
+can buy another ship
+
+Survivability: F (a kick in the shins will blow this ship up)
+
+Pros: cheap, long-range
+
+Cons: not likely to survive in this ship except in the quietest
+sectors.
+
+
+9.2   GNAT
+
+Gnat is your starting ship. It is a suitable ship for a starting
+trader, but lack of shields means it wouldn't last in anything
+except for the safest systems.
+
+Hull: 100 Cargo: 15 Jump: 14  W/S/G/C: 1 / 0 / 1 / 1
+
+Suitable for: trading
+
+Survivability: D (no shields!)
+
+Pros: you start with this ship for free, and it's... bearable
+
+Cons: no shields, low cargo
+
+
+9.3   FIREFLY
+
+Firefly is the ultimate small ship. It has an excellent jump range,
+large cargo bay, and a shield slot, making it far more survivable
+than the Gnat.
+
+Hull: 100 Cargo: 20 Jump: 17  W/S/G/C: 1 / 1 / 1 / 1
+
+Suitable for: trading
+
+Survivability: C (single shield slot)
+
+Pros: has some of everything, good all-around beginner's ship
+
+Cons: expensive for a small ship, no extra quarters for mercs and
+such
+
+
+9.4   MOSQUITO
+
+Mosquito is the smallest combat-oriented ship you can buy,
+excellent for bounty-hunting or pirating. Its main problem is its
+short legs, at only 13 parsecs.
+
+Hull: 100 Cargo: 15 Jump: 13  W/S/G/C: 2 / 1 / 1 / 1
+
+Suitable for: pirating / bounty-hunting
+
+Survivability: C
+
+Pros: 2 weapons put you ahead of other small ships (except other
+Mosquitos)
+
+Cons: low jump range, low cargo space
+
+
+9.5   BUMBLEBEE
+
+Bumblebee is a larger firefly, with slightly more cargo space,
+gadget slot, shield slot, AND crew quarter, so now you can
+finally, hire a mercenary.
+
+Hull: 100 Cargo: 25 Jump: 15  W/S/G/C: 1 / 2 / 2 / 2
+
+Suitable for: trading
+
+Survivability: B (double shields)
+
+Pros: survivable, lots of gadgets, room for mercenary
+
+Cons: small cargo space for a medium-size ship
+
+
+9.6   BEETLE
+
+The Beetle is a very weak freighter, with a weak hull, and NO weapons.
+It, however, has a huge cargo bay, and THREE crew quarters.
+Still, it is not really survivable, and thus not recommended. If
+you must use it, visit only safe systems.
+
+Hull: 50  Cargo: 50 Jump: 14  W/S/G/C: 0 / 1 / 1 / 3
+
+Suitable for: trading
+
+Survivability: C- (single shield)
+
+Pros: huge cargo bay, lots of crew
+
+Cons: lousy hull, no weapons, lousy jump range
+
+
+9.7   HORNET
+
+Hornet is mainly meant as a shooter, with 3 weapon slots. It can
+be a dangerous ship in hands of the right crew.
+
+Hull: 150 Cargo: 20 Jump: 16  W/S/G/C: 3 / 2 / 1 / 2
+
+Suitable for: pirating / bounty-hunting
+
+Survivability: B (double shields)
+
+Pros: 3 weapon slots for lots of firepower
+
+Cons: lousy cargo room, minimal gadget space
+
+
+9.8   GRASSHOPPER
+
+Grasshopper is a more "civilized" Hornet. It gave up one weapon
+for the larger cargo bay, 2 more gadget slots, and one more crew
+quarter.
+
+Hull: 150 Cargo 30  Jump: 15  W/S/G/C: 2 / 2 / 3 / 3
+
+Suitable for: everything
+
+Survivability: B+ (extra gadget slots)
+
+Pros: very "average" ship, okay in everything
+
+Cons: jack of all trades, expert at nothing
+
+
+9.9   TERMITE
+
+Termite is the largest trading ship you can get, and the only
+ship with 3 shield slots! With a monstrous 60 space cargo bay,
+you can buy out the entire inventory of a planet! Its only problem is
+its lack of range...
+
+Hull: 200 Cargo: 60 Jump: 13  W/S/G/C: 1 / 3 / 2 / 3
+
+Suitable for: trading
+
+Survivability: A+ (3 shield slots!)
+
+Pros: HUGE cargo bay, 3 shield slots
+
+Cons: lousy jump range, minimal weapons
+
+
+9.10  WASP
+
+Wasp is the ultimate ship, with a strong hull, 3 weapon slots, two
+shield slots, 2 gadget slots, and three crew quarters, AND 35
+spaces of cargo.
+
+Hull: 200 Cargo: 35 Jump: 14  W/S/G/C: 3 / 2 / 2 / 3
+
+Suitable for: everything
+
+Survivability: A- (2 shield slots, but lots of room for gadgets)
+
+Pros: 3 weapons AND 2 shield slots makes this the ultimate
+attacker
+
+Cons: extremely expensive, lousy jump range
+
+
+
+10   Gadget and Equipment references
+   
+Note: Special items, such as lightning shield and trash compactor
+cost 20000 cr to move to a new ship. The special anti-laser
+coating of the Scarab cannot be moved to another ship.
+
+
+10.1  WEAPONS
+
+There are three types of lasers: pulse lasers, beam lasers and
+military lasers, in order of damage done.
+
+Two weak lasers is better than one medium laser.
+
+Military lasers are only sold on hi-tech worlds.
+
+
+10.2  SHIELDS
+
+There are two types of shields: energy shields and reflective
+shields.
+
+You need at least "industrial" world to buy reflective shields.
+
+
+10.3  GADGETS
+
+extended cargo bay (5 extra spaces): useful for most traders,
+this extends the cargo bay so you can carry more commodities. It
+is also cheap
+
+navigation computer: increases your effective piloting skill by 3
+
+targeting computer: increases your effective fighting skill by 3
+
+auto-repair system: increases your effective engineering skill by
+3
+
+cloaking device: reduces your chance of being detected, also
+depends on your engineering skill (the better you are, the less
+likely someone will find you). In a fight, it also makes you
+harder to hit and more likely to escape.
+
+
+10.4  TRADE-IN
+
+Equipment cannot be transferred between ships in ST. When you
+sell off a ship, you sell off all the equipment with it as well.
+The total value of the and the equipment is given as the trade-in
+value for the ship. You then buy a ship with nothing in it and
+must outfit it again.
+
+
+10.5  ESCAPE POD
+
+You can buy an escape pod for 2000 cr at most shipyards.
+
+If your ship has an escape pod, it will be used automatically
+when your ship blows up. Rescue service will pick you up and drop
+you off at the nearest planet, where you can convert that pod to
+a Flea to continue your journey.
+
+If you had purchased insurance, see next section.
+
+
+10.6  INSURANCE
+
+If you have an escape pod installed, you can at the bank buy
+insurance for your ship.
+
+If you have insurance the bank will refund your ship's trade-in
+value in the case of an escape pod ejection. Remember, trade-in
+is 25% lower, so this is nowhere NEAR the replacement cost of the
+ship. Still, it's better than losing everything.
+
+You have to pay a daily rate, which depends on the worth of your
+ship, for the insurance. This rate will drop 1% for every day you
+don't claim, up to a reduction of 90%.
+
+Since the no-claim gets transferred to a new ship when you buy
+one, it may be useful to rack up your no-claim days with a cheap
+ship, before you buy an expensive one.
+
+After an ejection, you have to buy a new escape pod and thus new
+insurance. Your no-claim will be reset to 0% when that happens.
+
+
+
+11   Quest and Special Events
+   
+Note: You can have maximum of 4 quests active at once (except the
+final "go to your moon and claim it" quest, which counts
+separately).
+
+This list is by no means complete. If you spot one that's not
+here, or if you have more details, please contact me!
+
+
+11.1  QUESTS YOU GET ON PLANETS
+
+You get one of these quests when you click on the "special"
+button at the system information screen. Or you can get one of
+the special events (next section).
+
+
+11.1.1     Space Monster
+     
+Quest: Space Monster is attacking Acamar. Go destroy it.
+
+Opponent: The space monster is a pretty tough opponent. Do not
+tackle unless you have a Hornet or Wasp, 2 reflective shields, 3
+military lasers, and a GOOD fight rating.
+
+Reward: ??
+
+
+11.1.2     Scarab
+     
+Quest: The Scarab, an advanced ship with a hull coating that can
+ONLY be damaged by a pulse laser, has been stolen. Go destroy it.
+
+Opponent: Scarab can only be damaged by a pulse laser, and you'll
+have to chase it down
+
+Reward: You can get that coating applied to your ship. However,
+the coating cannot be transferred to another ship.
+
+
+11.1.3     Firefly
+     
+Quest: Firefly, the ship with an advanced lightning shield
+prototype, has been stolen. It was last seen at _____
+
+Opponent: Firefly is not a difficult ship to destroy if you have a
+fully outfitted warship (Hornet or Wasp, fight rating of 9 or
+higher, and so on)
+
+Reward: you get a lightning shield as reward
+
+
+11.1.4     Warn the doctor
+     
+Quest: Travel to _____ and warn the doctor not to perform the
+experiment, or the universe will be ripped apart!
+
+Opponent: just time... 6 days or less
+
+Reward: Portable Singularity for an instant jump to any planet
+
+Failure: if you warp between systems you may be thrown in a
+random direction and emerge elsewhere.
+
+
+11.1.5     Warn alien invasion
+     
+Quest: You must travel to _____ and warn the local defenses about
+an alien invasion.
+
+Opponent: just time
+
+Reward: fuel compactor? (gives any ship range 18 jumps)
+
+Failure: the planet gets blasted back into pre-agricultural
+anarchy
+
+
+11.1.6     Take the diplomat home
+     
+Quest: Take the diplomat home to Devidia.
+
+Requires: an available living quarter
+
+Reward: price haggling computer?
+
+
+11.1.7     Take the Criminal Home
+     
+Quest: Take the crimianl home to ________
+
+Requires: a free living quarter, negative reputation (you only
+get this quest if you have negative reputation. If you have
+positive reputation, you'll see the diplomat quest instead).
+
+Complications: the police will be after you all the way
+
+Reward: You get a Merc for free (supposedly?) and your record's
+reset to "neutral".
+
+
+11.1.8     Deliver medicine to plague planet
+     
+Quest: Deliever special medicine to a plague-stricken planet
+
+Requires: 10 cargo space
+
+Run the cargo to that colony
+
+Reward: _____
+
+
+11.1.9    Alien Artifact
+     
+Quest: Take this alien artifact, and search for the scientist,
+who only said he'll be visiting a hi-tech system (but not which
+one!)
+
+Requires: none
+
+Complications: Alien Mantis ships will be chasing you all over
+the place. If you can't fight them, surrender, and they'll take
+the artifact.
+
+Reward: just some more credits.
+
+
+11.1.10    Save the Princess
+
+Quest: Hunt down the Scorpion, disable with disruptors, then
+take the princess back to Galvon. 
+
+Requires: photon disruptor(s), a free living quarter (preferred),
+a clean police record (probably)
+
+Complications: Must NOT destroy the Scorpion, if you do not have a 
+available living quarter, one of your crew will be retired to make room. 
+
+Reward: Quantum disruptor
+
+NOTE: I never personally ran into this quest, but apparently it is 
+in the game and discovered by Scott Johnson who clued me in by examining
+the GPL'ed source code. 
+
+
+11.2  SPECIAL EVENTS
+
+
+11.2.1    Alien Learning Machine
+     
+You get to use the alien learning machine for 3000 cr, but you
+can't pick the skill to learn
+
+
+11.2.2    A Wondrous Item
+     
+Someone offers to sell you a "wondrous item" for 1000 cr.
+
+It turns out to be a tribble. And yes, just like the tribbles on
+Star Trek.
+
+If you load up any food, they multiply like crazy.
+
+If you load up any narcotics, some of them turn into fur.
+
+The only way to get rid of them permanently is to visit a planet
+where they'll pay you 5 cr per tribble onboard. However, to
+locate such a planet, you'll have to check the "News".
+
+
+11.2.3     Erase your Record
+     
+Someone offers to erase your police record if you pay him
+________
+
+It works, and if you trade or smuggle a lot, it may be worth it.
+
+
+11.2.4     Buy a Moon
+     
+If you pay 500000 cr, you can obtain a small moon at Utopia
+system, and retire to it. That would be the ultimate retirement.
+
+
+11.2.5     Sealed containers
+     
+A second-hand dealer wants to sell you 3 sealed cargo units for
+1000 cr. It could be anything from water to robots. Do you buy?
+
+
+11.3  SPACE WAY ENCOUNTERS
+
+There aren't that many space encounters, but they are usually
+beneficial.
+
+
+11.3.1    Captain needs shield
+     
+This only happen if you have at least one reflective shield
+onboard.
+
+A captain in a Wasp requests a meeting. He asks that you give him
+your reflective shield in exchange for some training.
+
+
+11.3.2    Captain needs laser
+     
+This only happen if you have at least one military laser onboard.
+
+A captain in a Wasp requests a meeting. He asks that you give him
+your military laser in exchange for some training.
+
+
+11.3.3    Marie Celeste
+     
+You ran into this tiny Flea that seem to be abandoned. It has 10
+units of cargo onboard. Do take a chance and grab it?
+
+If you grab the cargo, there's a GOOD chance cops will shop up
+and attempt to arrest you. You can flee. It's up to you.
+
+
+11.3.4    Enhancing Tonic
+     
+You may run into a bottle of enhancing tonic, with no readable
+expiration date. It will do something to your stats, but what it
+will do precisely is not known.
+
+
+
+12   Miscellaneous
+   
+Nothing at this time.
+
+--THE END--
+
