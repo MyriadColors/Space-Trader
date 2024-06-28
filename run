@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This script is used to start the application
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+python "$DIR/space_trader.py"
