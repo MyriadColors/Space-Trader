@@ -178,12 +178,25 @@ NAMES = [
     "Zuul",
 ]
 
-REGIM = {
-    1: "dictatorship",  # Ore and Weapons in demand
-    2: "monarchy",  # Ore, Furs and Narcotics in demand
-    3: "democracy",
-}  # Uneventful
-# feodalism, imperium
+GOVERNMENT = {
+    0: "Anarchy",
+    1: "Capitalist",
+    2: "Communist",
+    3: "Confederacy",
+    4: "Corporate",
+    5: "Cybernetic",
+    6: "Democracy",
+    7: "Dictatorship",
+    8: "Fascist",
+    9: "Feudal",
+    10: "Military",
+    11: "Monarchy",
+    12: "Pacifist",
+    13: "Socialist",
+    14: "Satori",
+    15: "Technocracy",
+    16: "Theocracy",
+}
 
 TECHLEVEL = {
     0: "Pre-agricultural",
