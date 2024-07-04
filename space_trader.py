@@ -44,7 +44,7 @@ class Game:
         # Set up the game window
         self.screen_width = int(self.config["game"]["screen_width"])
         self.screen_height = int(self.config["game"]["screen_height"])
-        self.canvas = pygame.Surface((170, 170))
+        self.canvas = pygame.Surface((160, 160))
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         pygame.display.set_caption("Space Trader")
 
