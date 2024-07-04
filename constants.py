@@ -12,22 +12,51 @@
     https://github.com/blind-coder/SpaceTrader/tree/master/SpaceTrader/src/main/java/de/anderdonau/spacetrader/DataTypes
 """
 
-VERSION = "v0.3"
+# Galaxy
+GALAXYWIDTH = 154
+GALAXYHEIGHT = 110
+MIN_DISTANCE = 7
+MAX_DISTANCE = 20
+WORMHOLE_DISTANCE = 25
+SECTOR_DIAMETER = 13
 
-# width, x = 640, height, y = 480 (Tk)
-GRIDMIN = -100
-GRIDMAX = 100
-XMIN = 0
-MAXWIDTH = 680
-YMIN = 0
-MAXHEIGHT = 480
-MAXPARSEC = 120  # must be dividable by 15
-MAXPLANET = 120
-MIN_DISTANCE = 12
-
-# Economy constants
+# Economy
 INTEREST_RATE = 0.1
+INSURANCE_RATE = 0.0025
+DEBT_WARN = 75000
+DEBT_LIMIT = 100000
+MAX_NOCLAIM = 90  # TODO define
 START_CREDITS = 1000
+
+# Crime
+BOUNTYMOD = 1000  # Price paid by govt for each neg police point
+POLICE_RECORDS = {
+    -100: "Psychopath",
+    -70: "Villain",
+    -30: "Criminal",
+    -10: "Crook",
+    -5: "Dubious",
+    0: "Clean",
+    5: "Lawful",
+    10: "Trusted",
+    25: "Liked",
+    75: "Hero",
+    100: "ErrNo",
+}
+
+# Combat
+REPUTATION = {
+    0: "Harmless",
+    10: "Mostly Harmless",
+    20: "Poor",
+    40: "Average",
+    80: "Above Average",
+    150: "Competent",
+    300: "Dangerous",
+    600: "Deadly",
+    1500: "Elite",
+    3000: "Borg",
+}
 
 COLORS = {
     "default": "brown",
@@ -54,7 +83,9 @@ OVERVIEW = [
     "to get rich quickly, but the police force will go after you.",
 ]
 
-NAMES = [
+# System
+ACTIVITY = {0: "Absent", 1: "Minimal", 2: "Few", 3: "Some", 4: "Moderate", 5: "Abundant", 6: "Many", 7: "Swarms"}
+SYSTEM_NAMES = [
     "Acamar",
     "Adahn",
     "Aldea",
@@ -177,7 +208,6 @@ NAMES = [
     "Zalkon",
     "Zuul",
 ]
-
 GOVERNMENT = {
     0: "Anarchy",
     1: "Capitalist",
@@ -197,7 +227,6 @@ GOVERNMENT = {
     15: "Technocracy",
     16: "Theocracy",
 }
-
 TECHLEVEL = {
     0: "Pre-agricultural",
     1: "Agricultural",
@@ -208,9 +237,7 @@ TECHLEVEL = {
     6: "Post-industrial",
     7: "Hi-tech",
 }
-
 SYSTEMSIZE = {0: "Tiny", 1: "Small", 2: "Medium", 3: "Large", 4: "Huge"}
-
 SPECIALRESOURCES = {
     "nothing": "Nothing special",  # Uneventful
     "mineralrich": "Mineral rich",  # produce Ore
@@ -226,7 +253,6 @@ SPECIALRESOURCES = {
     "artistic": "Artistic populace",  # Narcotics in demand
     "warlike": "Warlike populace",
 }  # Weapons in demand
-
 STATUS = {
     "nopressure": "under no particular pressure",  # Uneventful
     "war": "at war",  # Ore and Weapons in demand

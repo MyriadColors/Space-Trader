@@ -182,3 +182,14 @@ class StarSystem:
 
     def set_quest_system(self, value):
         self.quest_system = value
+
+
+class Universe:
+    """
+    The Universe class is responsible for managing the game world, including
+    planets locations and attributes.
+    """
+
+    def __init__(self):
+        self.systems = {}
+        self.generate_systems()

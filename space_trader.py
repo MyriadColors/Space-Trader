@@ -46,6 +46,7 @@ class Game:
         self.screen_height = int(self.config["game"]["screen_height"])
         self.canvas = pygame.Surface((160, 160))
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        self.clock = pygame.time.Clock()
         pygame.display.set_caption("Space Trader")
 
         self.background_image = pygame.image.load("images/splash.jpg")
@@ -72,6 +73,7 @@ class Game:
         transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
         self.screen.blit(transform, (0, 0))
         pygame.display.flip()
+        self.clock.tick(30)
 
     def handle_events(self):
         """
@@ -94,7 +96,7 @@ class Game:
         # Load the directories for the game assets
         self.images = os.path.join("images")
         self.resources = os.path.join("resources")
-        self.data = os.path.join("data")
+        # self.data = os.path.join("data")
         self.font = pygame.font.Font()
 
     def update(self):
