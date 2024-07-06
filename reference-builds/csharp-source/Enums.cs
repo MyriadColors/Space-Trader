@@ -220,21 +220,6 @@ namespace Fryz.Apps.SpaceTrader
 	};
 	#endregion
 
-	#region Activity
-	public enum Activity: int
-	{
-		Absent							= 0,
-		Minimal							= 1,
-		Few									= 2,
-		Some								= 3,
-		Moderate						= 4,
-		Many								= 5,
-		Abundant						= 6,
-		Swarms							= 7,
-		NA									= 100
-	};
-	#endregion
-
 	#region CargoBuyOp
 	public enum CargoBuyOp: int
 	{
@@ -316,17 +301,6 @@ namespace Fryz.Apps.SpaceTrader
 	};
 	#endregion
 
-	#region Difficulty
-	public enum Difficulty: int
-	{
-		Beginner						= 0,
-		Easy								= 1,
-		Normal							= 2,
-		Hard								= 3,
-		Impossible					= 4
-	};
-	#endregion
-
 	#region EncounterResult
 	public enum EncounterResult: int
 	{
@@ -376,28 +350,6 @@ namespace Fryz.Apps.SpaceTrader
 		TraderDisabled			= 32,
 		TraderBuy						= 33,
 		TraderSell					= 34
-	};
-	#endregion
-
-	#region EquipmentType
-	public enum EquipmentType: int
-	{
-		Weapon							= 0,
-		Shield							= 1,
-		Gadget							= 2
-	};
-	#endregion
-
-	#region GadgetType
-	public enum GadgetType: int
-	{
-		ExtraCargoBays			= 0,
-		AutoRepairSystem		= 1,
-		NavigatingSystem		= 2,
-		TargetingSystem			= 3,
-		CloakingDevice			= 4,
-		FuelCompactor				= 5,
-		HiddenCargoBays			= 6
 	};
 	#endregion
 
@@ -469,138 +421,6 @@ namespace Fryz.Apps.SpaceTrader
 	};
 	#endregion
 
-	#region PoliceRecordType
-	public enum PoliceRecordType: int
-	{
-		Psychopath					= 0,
-		Villain							= 1,
-		Criminal						= 2,
-		Crook								= 3,
-		Dubious							= 4,
-		Clean								= 5,
-		Lawful							= 6,
-		Trusted							= 7,
-		Liked								= 8,
-		Hero								= 9
-	};
-	#endregion
-
-	#region PoliticalSystemType
-	public enum PoliticalSystemType: int
-	{
-		Anarchy							= 0,
-		Capitalist					= 1,
-		Communist						= 2,
-		Confederacy					= 3,
-		Corporate						= 4,
-		Cybernetic					= 5,
-		Democracy						= 6,
-		Dictatorship				= 7,
-		Fascist							= 8,
-		Feudal							= 9,
-		Military						= 10,
-		Monarchy						= 11,
-		Pacifist						= 12,
-		Socialist						= 13,
-		Satori							= 14,
-		Technocracy					= 15,
-		Theocracy						= 16
-	};
-	#endregion
-
-	#region ReputationType
-	public enum ReputationType: int
-	{
-		Harmless						= 0,
-		MostlyHarmless			= 1,
-		Poor								= 2,
-		Average							= 3,
-		AboveAverage				= 4,
-		Competent						= 5,
-		Dangerous						= 6,
-		Deadly							= 7,
-		Elite								= 8
-	};
-	#endregion
-
-	#region ShieldType
-	public enum ShieldType: int
-	{
-		Energy							= 0,
-		Reflective					= 1,
-		Lightning						= 2
-	};
-	#endregion
-
-	#region ShipType
-	public enum ShipType: int
-	{
-		Flea								= 0,
-		Gnat								= 1,
-		Firefly							= 2,
-		Mosquito						= 3,
-		Bumblebee						= 4,
-		Beetle							= 5,
-		Hornet							= 6,
-		Grasshopper					= 7,
-		Termite							= 8,
-		Wasp								= 9,
-		SpaceMonster				= 10,
-		Dragonfly						= 11,
-		Mantis							= 12,
-		Scarab							= 13,
-		Bottle							= 14,
-		Custom							= 15,
-		Scorpion						= 16
-	};
-	#endregion
-
-	#region ShipyardId
-	public enum ShipyardId: int
-	{
-		NA									= -1,
-		Corellian						= 0,
-		Incom								= 1,
-		Kuat								= 2,
-		Sienar							= 3,
-		Sorosuub						= 4
-	};
-	#endregion
-
-	#region ShipyardSkill
-	public enum ShipyardSkill: int
-	{
-		CrewQuarters				= 0,	// Crew Quarters take up 2 fewer units
-		FuelBase						= 1,	// Fuel Base is 2 greater
-		HullPerUnit					= 2,	// Number of Hull Points per unit is 5 greater
-		ShieldSlotUnits			= 3,	// Shield Slots take up 2 fewer units
-		WeaponSlotUnits			= 4		// Weapon Slots take up 2 fewer units
-	};
-	#endregion
-
-	#region Size
-	public enum Size: int
-	{
-		Tiny								= 0,
-		Small								= 1,
-		Medium							= 2,
-		Large								= 3,
-		Huge								= 4,
-		Gargantuan					= 5
-	};
-	#endregion
-
-	#region SkillType
-	public enum SkillType: int
-	{
-		NA									= -1,
-		Pilot								= 0,
-		Fighter							= 1,
-		Trader							= 2,
-		Engineer						= 3
-	};
-	#endregion
-
 	#region SpecialEventType
 	public enum SpecialEventType: int
 	{
@@ -651,26 +471,6 @@ namespace Fryz.Apps.SpaceTrader
 		PrincessQonos				= 43,
 		PrincessQuantum			= 44,
 		PrincessReturned		= 45
-	};
-	#endregion
-
-	#region SpecialResource
-	public enum SpecialResource: int
-	{
-		NA									= -1,
-		Nothing							= 0,
-		MineralRich					= 1,
-		MineralPoor					= 2,
-		Desert							= 3,
-		SweetOceans					= 4,
-		RichSoil						= 5,
-		PoorSoil						= 6,
-		RichFauna						= 7,
-		Lifeless						= 8,
-		WeirdMushrooms			= 9,
-		SpecialHerbs				= 10,
-		Artistic						= 11,
-		Warlike							= 12
 	};
 	#endregion
 
@@ -809,52 +609,6 @@ namespace Fryz.Apps.SpaceTrader
 	};
 	#endregion
 
-	#region SystemPressure
-	public enum SystemPressure: int
-	{
-		None								= 0,
-		War									= 1,
-		Plague							= 2,
-		Drought							= 3,
-		Boredom							= 4,
-		Cold								= 5,
-		CropFailure					= 6,
-		Employment					= 7
-	};
-	#endregion
-
-	#region TechLevel
-	public enum TechLevel: int
-	{
-		PreAgricultural			= 0,
-		Agricultural				= 1,
-		Medieval						= 2,
-		Renaissance					= 3,
-		EarlyIndustrial			= 4,
-		Industrial					= 5,
-		PostIndustrial			= 6,
-		HiTech							= 7,
-		Unavailable					= 8
-	};
-	#endregion
-
-	#region TradeItemType
-	public enum TradeItemType: int
-	{
-		NA									= -1,
-		Water								= 0,
-		Furs								= 1,
-		Food								= 2,
-		Ore									= 3,
-		Games								= 4,
-		Firearms						= 5,
-		Medicine						= 6,
-		Machines						= 7,
-		Narcotics						= 8,
-		Robots							= 9
-	};
-	#endregion
-
 	#region VeryRareEncounter
 	public enum VeryRareEncounter: int
 	{
@@ -867,15 +621,4 @@ namespace Fryz.Apps.SpaceTrader
 	};
 	#endregion
 
-	#region WeaponType
-	public enum WeaponType: int
-	{
-		PulseLaser					= 0,
-		BeamLaser						= 1,
-		MilitaryLaser				= 2,
-		MorgansLaser				= 3,
-		PhotonDisruptor			= 4,
-		QuantumDistruptor		= 5
-	};
-	#endregion
 }

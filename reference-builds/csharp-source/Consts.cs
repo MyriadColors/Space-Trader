@@ -45,29 +45,7 @@ namespace Fryz.Apps.SpaceTrader
 		public static	string	HighScoreFile									= Path.Combine(DataDirectory, "HighScores.bin");
 		public static	string	DefaultSettingsFile						= Path.Combine(DataDirectory, "DefaultSettings.bin");
 
-		public const	string	CurrentVersion								= "2.00";
-
-		// Price paid by government for each negative PoliceScore point
-		public const	int			BountyModifier								= 1000;
-
-		public const	int			GalaxyWidth										= 154;
-		public const	int			GalaxyHeight									= 110;
-		public const	int			MinDistance										= 7;
-		public const	int			CloseDistance									= 13;
-		public const	int			MaxRange											= 20;
-		public const	int			WormDist											= 25;
-
-		public const	int			DebtWarning										= 75000;
-		public const	int			DebtTooLarge									= 100000;
-		public const	double	InsRate												= 0.0025;
-		public const	double	IntRate												= 0.1;
-		public const	int			MaxNoClaim										= 90;
-
-		public const	int			SkillBonus										= 3;
-		public const	int			CloakBonus										= 2;
-
-		public const	int			MaxSkill											= 10;
-
+	
 		public const	int			StartClicks										= 20;
 		public const	int			MaxFuelTanks									= 20;
 		public const	int			FuelCompactorTanks						= 3;
@@ -99,77 +77,10 @@ namespace Fryz.Apps.SpaceTrader
 
 		public const	int			DisruptorSystemsMultiplier		= 3;
 
-		public const	int			MaxTribbles										= 100000;
-
-		public const	int			PoliceRecordScorePsychopath		= -100;
-		public const	int			PoliceRecordScoreVillain			=  -70;
-		public const	int			PoliceRecordScoreCriminal			=  -30;
-		public const	int			PoliceRecordScoreCrook				=  -10;
-		public const	int			PoliceRecordScoreDubious			=   -5;
-		public const	int			PoliceRecordScoreClean				=    0;
-		public const	int			PoliceRecordScoreLawful				=    5;
-		public const	int			PoliceRecordScoreTrusted			=   10;
-		public const	int			PoliceRecordScoreLiked				=   25;
-		public const	int			PoliceRecordScoreHero					=   75;
-
-		public const	int			ReputationScoreHarmless				=    0;
-		public const	int			ReputationScoreMostlyHarmless	=   10;
-		public const	int			ReputationScorePoor						=   20;
-		public const	int			ReputationScoreAverage				=   40;
-		public const	int			ReputationScoreAboveAverage		=   80;
-		public const	int			ReputationScoreCompetent			=  150;
-		public const	int			ReputationScoreDangerous			=  300;
-		public const	int			ReputationScoreDeadly					=  600;
-		public const	int			ReputationScoreElite					= 1500;
-
-		public const	int			ScoreAttackPirate							=   0;
-		public const	int			ScoreAttackPolice							=  -3;
-		public const	int			ScoreAttackTrader							=  -2;
-		public const	int			ScoreCaughtWithWild						=  -4;
-		public const	int			ScoreFleePolice								=  -2;
-		public const	int			ScoreKillCaptain							= 100;
-		public const	int			ScoreKillPirate								=   1;
-		public const	int			ScoreKillPolice								=  -6;
-		public const	int			ScoreKillTrader								=  -4;
-		public const	int			ScorePlunderPirate						=  -1;
-		public const	int			ScorePlunderTrader						=  -2;
-		public const	int			ScoreTrafficking							=  -1;
-
-		public const	string	ShipTemplateSeparator					= "----------------------------";
-
+		
 		#endregion
 
 		#region Constant Arrays
-
-		#region Gadgets
-		public static Gadget[]	Gadgets	= new Gadget[]
-		{
-			new Gadget(GadgetType.ExtraCargoBays,   SkillType.NA,         2500, TechLevel.EarlyIndustrial, 35), // 5 extra holds
-			new Gadget(GadgetType.AutoRepairSystem, SkillType.Engineer,   7500, TechLevel.Industrial,      20), // Increases engineer's effectivity
-			new Gadget(GadgetType.NavigatingSystem, SkillType.Pilot,     15000, TechLevel.PostIndustrial,  20), // Increases pilot's effectivity
-			new Gadget(GadgetType.TargetingSystem,  SkillType.Fighter,   25000, TechLevel.PostIndustrial,  20), // Increases fighter's effectivity
-			new Gadget(GadgetType.CloakingDevice,   SkillType.Pilot,    100000, TechLevel.HiTech,           5), // If you have a good engineer, neither pirates nor police will notice you
-			// The gadgets below can't be bought
-			new Gadget(GadgetType.FuelCompactor,    SkillType.NA,        30000, TechLevel.Unavailable,      0),
-			new Gadget(GadgetType.HiddenCargoBays,  SkillType.NA,        60000, TechLevel.Unavailable,      0)
-		};
-		#endregion
-
-		#region PoliceRecords
-		public static PoliceRecord[]	PoliceRecords	= new PoliceRecord[]
-		{
-			new PoliceRecord(PoliceRecordType.Psychopath, PoliceRecordScorePsychopath),
-			new PoliceRecord(PoliceRecordType.Villain,    PoliceRecordScoreVillain),
-			new PoliceRecord(PoliceRecordType.Criminal,   PoliceRecordScoreCriminal),
-			new PoliceRecord(PoliceRecordType.Crook,      PoliceRecordScoreCrook),
-			new PoliceRecord(PoliceRecordType.Dubious,    PoliceRecordScoreDubious),
-			new PoliceRecord(PoliceRecordType.Clean,      PoliceRecordScoreClean),
-			new PoliceRecord(PoliceRecordType.Lawful,     PoliceRecordScoreLawful),
-			new PoliceRecord(PoliceRecordType.Trusted,    PoliceRecordScoreTrusted),
-			new PoliceRecord(PoliceRecordType.Liked,      PoliceRecordScoreLiked),
-			new PoliceRecord(PoliceRecordType.Hero,       PoliceRecordScoreHero)
-		};
-		#endregion
 
 		#region PoliticalSystems
 		public static PoliticalSystem[]	PoliticalSystems	= new PoliticalSystem[]
@@ -194,31 +105,6 @@ namespace Fryz.Apps.SpaceTrader
 		};
 		#endregion
 
-		#region Reputations
-		public static Reputation[]	Reputations	= new Reputation[]
-		{
-			new Reputation(ReputationType.Harmless,       ReputationScoreHarmless),
-			new Reputation(ReputationType.MostlyHarmless, ReputationScoreMostlyHarmless),
-			new Reputation(ReputationType.Poor,           ReputationScorePoor),
-			new Reputation(ReputationType.Average,        ReputationScoreAverage),
-			new Reputation(ReputationType.AboveAverage,   ReputationScoreAboveAverage),
-			new Reputation(ReputationType.Competent,      ReputationScoreCompetent),
-			new Reputation(ReputationType.Dangerous,      ReputationScoreDangerous),
-			new Reputation(ReputationType.Deadly,         ReputationScoreDeadly),
-			new Reputation(ReputationType.Elite,          ReputationScoreElite)
-		};
-		#endregion
-
-		#region Shields
-		public static Shield[]	Shields	= new Shield[]
-		{
-			new Shield(ShieldType.Energy,     100,  5000, TechLevel.Industrial,	    70),
-			new Shield(ShieldType.Reflective, 200, 20000, TechLevel.PostIndustrial, 30),
-			// The weapons below cannot be bought
-			new Shield(ShieldType.Lightning,  350, 45000, TechLevel.Unavailable,     0)
-		};
-		#endregion
-
 		#region ShipImageOffsets
 		public static Rectangle[]	ShipImageOffsets	= new Rectangle[]
 		{
@@ -240,42 +126,6 @@ namespace Fryz.Apps.SpaceTrader
 			new Rectangle( 9, 0, 46, 0),	// Bottle
 			new Rectangle( 2, 0, 60, 0),	// Custom
 			new Rectangle( 2, 0, 60, 0)		// Scorpion
-		};
-		#endregion
-
-		#region ShipSpecs
-		public static ShipSpec[]	ShipSpecs = new ShipSpec[]
-		{
-			//           Type                   Size        Bays W  S  G Cr   F FC Hull  RC   Price   %  Police             Pirates            Traders            MinTechLevel
-			new ShipSpec(ShipType.Flea,         Size.Tiny,   10, 0, 0, 0, 1, 20, 1,  25,  1,   2000,  2, Activity.NA,       Activity.NA,       Activity.Absent,   TechLevel.EarlyIndustrial),
-			new ShipSpec(ShipType.Gnat,         Size.Small,  15, 1, 0, 1, 1, 14, 1, 100,  2,  10000, 28, Activity.Absent,   Activity.Absent,   Activity.Absent,   TechLevel.Industrial),
-			new ShipSpec(ShipType.Firefly,      Size.Small,  20, 1, 1, 1, 1, 17, 1, 100,  3,  25000, 20, Activity.Absent,   Activity.Absent,   Activity.Absent,   TechLevel.Industrial),
-			new ShipSpec(ShipType.Mosquito,     Size.Small,  15, 2, 1, 1, 1, 13, 1, 100,  5,  30000, 20, Activity.Absent,   Activity.Minimal,  Activity.Absent,   TechLevel.Industrial),
-			new ShipSpec(ShipType.Bumblebee,    Size.Medium, 25, 1, 2, 2, 2, 15, 1, 100,  7,  60000, 15, Activity.Minimal,  Activity.Minimal,  Activity.Absent,   TechLevel.Industrial),
-			new ShipSpec(ShipType.Beetle,       Size.Medium, 50, 0, 1, 1, 3, 14, 1,  50, 10,  80000,  3, Activity.NA,       Activity.NA,       Activity.Absent,   TechLevel.Industrial),
-			new ShipSpec(ShipType.Hornet,       Size.Large,  20, 3, 2, 1, 2, 16, 2, 150, 15, 100000,  6, Activity.Few,      Activity.Some,     Activity.Minimal,  TechLevel.PostIndustrial),
-			new ShipSpec(ShipType.Grasshopper,  Size.Large,  30, 2, 2, 3, 3, 15, 3, 150, 15, 150000,  2, Activity.Some,     Activity.Moderate, Activity.Few,      TechLevel.PostIndustrial),
-			new ShipSpec(ShipType.Termite,      Size.Huge,   60, 1, 3, 2, 3, 13, 4, 200, 20, 225000,  2, Activity.Moderate, Activity.Many,     Activity.Some,     TechLevel.HiTech),
-			new ShipSpec(ShipType.Wasp,         Size.Huge,   35, 3, 2, 2, 3, 14, 5, 200, 20, 300000,  2, Activity.Many,     Activity.Abundant, Activity.Moderate, TechLevel.HiTech),
-			// The ships below can't be bought (mostly)
-			new ShipSpec(ShipType.SpaceMonster, Size.Huge,    0, 3, 0, 0, 1,  1, 1, 500,  1, 500000,  0, Activity.NA,       Activity.NA,       Activity.NA,       TechLevel.Unavailable),
-			new ShipSpec(ShipType.Dragonfly,    Size.Small,   0, 2, 3, 2, 1,  1, 1,  10,  1, 500000,  0, Activity.NA,       Activity.NA,       Activity.NA,       TechLevel.Unavailable),
-			new ShipSpec(ShipType.Mantis,       Size.Medium,  0, 3, 1, 3, 3,  1, 1, 300,  1, 500000,  0, Activity.NA,       Activity.NA,       Activity.NA,       TechLevel.Unavailable),
-			new ShipSpec(ShipType.Scarab,       Size.Large,  20, 2, 0, 0, 2,  1, 1, 400,  1, 500000,  0, Activity.NA,       Activity.NA,       Activity.NA,       TechLevel.Unavailable),
-			new ShipSpec(ShipType.Bottle,       Size.Small,   0, 0, 0, 0, 0,  1, 1,  10,  1,    100,  0, Activity.NA,       Activity.NA,       Activity.NA,       TechLevel.Unavailable),
-			new ShipSpec(ShipType.Custom,       Size.Huge,    0, 0, 0, 0, 0,  0, 0,   0,  0,      0,  0, Activity.NA,       Activity.NA,       Activity.NA,       TechLevel.Unavailable),
-			new ShipSpec(ShipType.Scorpion,     Size.Huge,   30, 2, 2, 2, 2,  1, 1, 300,  1, 500000,  0, Activity.NA,       Activity.NA,       Activity.NA,       TechLevel.Unavailable)
-		};
-		#endregion
-
-		#region Shipyards
-		public static Shipyard[]	Shipyards = new Shipyard[]
-		{
-			new Shipyard(ShipyardId.Corellian,	Size.Large,		ShipyardSkill.CrewQuarters),
-			new Shipyard(ShipyardId.Incom,			Size.Medium,	ShipyardSkill.ShieldSlotUnits),
-			new Shipyard(ShipyardId.Kuat,				Size.Huge,		ShipyardSkill.HullPerUnit),
-			new Shipyard(ShipyardId.Sienar,			Size.Tiny,		ShipyardSkill.WeaponSlotUnits),
-			new Shipyard(ShipyardId.Sorosuub,		Size.Small,		ShipyardSkill.FuelBase)
 		};
 		#endregion
 
@@ -360,18 +210,6 @@ namespace Fryz.Apps.SpaceTrader
 			new TradeItem(TradeItemType.Machines,  TechLevel.EarlyIndustrial, TechLevel.Renaissance,     TechLevel.Industrial,       900,  -30,   5, SystemPressure.Employment,  SpecialResource.NA,             SpecialResource.NA,           600,  800,  25),
 			new TradeItem(TradeItemType.Narcotics, TechLevel.Industrial,      TechLevel.PreAgricultural, TechLevel.Industrial,      3500, -125, 150, SystemPressure.Boredom,     SpecialResource.WeirdMushrooms, SpecialResource.NA,          2000, 3000,  50),
 			new TradeItem(TradeItemType.Robots,    TechLevel.PostIndustrial,  TechLevel.EarlyIndustrial, TechLevel.HiTech,          5000, -150, 100, SystemPressure.Employment,  SpecialResource.NA,             SpecialResource.NA,          3500, 5000, 100)
-		};
-		#endregion
-
-		#region Weapons
-		public static Weapon[]	Weapons	= new Weapon[]
-		{
-			new Weapon(WeaponType.PulseLaser,        15, false,  2000, TechLevel.Industrial,     50),
-			new Weapon(WeaponType.BeamLaser,         25, false, 12500, TechLevel.PostIndustrial, 35),
-			new Weapon(WeaponType.MilitaryLaser,     35, false, 35000, TechLevel.HiTech,         15),
-			new Weapon(WeaponType.MorgansLaser,      85, false, 50000, TechLevel.Unavailable,     0),
-			new Weapon(WeaponType.PhotonDisruptor,   20, true,  15000, TechLevel.PostIndustrial,  0),
-			new Weapon(WeaponType.QuantumDistruptor, 60, true,  50000, TechLevel.Unavailable,     0)
 		};
 		#endregion
 
