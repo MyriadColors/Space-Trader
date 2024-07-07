@@ -22,8 +22,8 @@ class Planet:
     params: y - y coordinate of the planet
     params: size - planet size
     params: tech_level - tech level of the planet
-    params: political_system_type - political system type of the planet
-    params: planet_pressure - current pressure on the planet
+    params: govt_type - political system type of the planet
+    params: soci_pressure - current pressure on the planet
     params: special_resource - current special resource of the planet
     params: quest_system - whether the planet is a quest host
     params: trade_items - items available for trade on the planet
@@ -32,15 +32,15 @@ class Planet:
     #? params: shipyard_id - id of the shipyard in the system
     """
 
-    def __init__(self, name, x, y, size, political_system_type):
+    def __init__(self, name, x, y, size, govt_type, tech_level, soci_pressure, special_resource):
         self.name = name
         self.x = x
         self.y = y
         self.size = size
-        self.political_system_type = political_system_type
-        self.tech_level = None
-        self.planet_pressure = None
-        self.special_resource = None
+        self.govt_type = govt_type
+        self.tech_level = tech_level
+        self.soci_pressure = soci_pressure
+        self.special_resource = special_resource
         self.quest_system = False
         self.trade_items = [0] * 10
         self.count_down = 0
@@ -99,14 +99,14 @@ class Planet:
 
     # Political Interfaces
     # TODO maybe change to alter_ and handle political shift logic here
-    def set_political_system_type(self, value):
-        self.political_system_type = value
+    def set_govt_type(self, value):
+        self.govt_type = value
 
-    def get_political_system_type(self):
-        return self.political_system_type
+    def get_govt_type(self):
+        return self.govt_type
 
     def get_government_name(self):
-        return GOVT_NAMES[self.political_system_type]
+        return GOVT_NAMES[self.govt_type]
 
     # Economic Interfaces
     def get_pressure(self):
@@ -122,10 +122,10 @@ class Planet:
         6 = suffering from a crop failure; Food in demand
         7 = lacking enough workers; Machinery and Robots in demand
         """
-        return self.planet_pressure
+        return self.soci_pressure
 
     def set_pressure(self, value):
-        self.planet_pressure = value
+        self.soci_pressure = value
 
     def get_special_resource(self):
         """
