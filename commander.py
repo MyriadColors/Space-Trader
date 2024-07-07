@@ -1,4 +1,14 @@
-from constants import INSURANCE_RATE, INTEREST_RATE, Skills
+"""
+    Space Trader | RPINerd, 2024
+    An elite-inspired space trading RPG originally on PalmOS
+
+    Commander Module
+    Handles the players stats, skills and progress through the game as well as crew info.
+"""
+
+import random
+
+from constants import INSURANCE_RATE, INTEREST_RATE, MAXSKILL, MERCENARYNAMES, Skills
 
 
 class Commander:
@@ -61,3 +71,58 @@ class Commander:
             self.engineerSkill -= deterioration
         else:
             raise ValueError(f"Invalid skill type, expected [0-3] but got {skill}!")
+
+
+class Crew:
+
+    def __init__(self, id):
+        self.id = id
+        self.pilotSkill = None
+        self.fighterSkill = None
+        self.traderSkill = None
+        self.engineerSkill = None
+        self.currentSystem = None
+
+    def __str__(self) -> str:
+        return MERCENARYNAMES[self.id]
+
+    def __repr__(self) -> str:
+        return self.id
+
+    def get_salary(self):
+        """
+        I think special crewmembers are free? Or something like that
+
+        return Consts.SpecialCrewMemberIds.Contains(Id) || Id == CrewMemberId.Zeethibal ? 0 :
+        """
+        return sum([self.pilotSkill, self.fighterSkill, self.traderSkill, self.engineerSkill]) * 3
+
+    def get_skills(self):
+        return [self.pilotSkill, self.fighterSkill, self.traderSkill, self.engineerSkill]
+
+    def mod_random_skill(self, amount: int):
+        """
+        Modifies a random skill by the given amount. The value can be negative,
+        but the skill will not go below 1 or above {MAXSKILL}.
+
+        #TODO In source, looks like there is some recalculation done as well
+            int	curTrader	= Game.CurrentGame.Commander.Ship.Trader;
+                                Skills[skill]	+= amount;
+                                if (Game.CurrentGame.Commander.Ship.Trader != curTrader)
+                                        Game.CurrentGame.RecalculateBuyPrices(Game.CurrentGame.Commander.CurrentSystem);
+
+        param amount: The amount to modify the skill by.
+        """
+
+        # Create a sublist of skills that will be within the bounds
+        skills = [skill for skill in self.get_skills() if 1 <= skill + amount <= MAXSKILL]
+
+        # If there are no skills that can be modified, return
+        if not skills:
+            return
+        else:
+            # Choose a random skill from the sublist
+            skill = random.choice(skills)
+
+            # Modify the skill by the given amount
+            skill += amount

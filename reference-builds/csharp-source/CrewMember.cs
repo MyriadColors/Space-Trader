@@ -29,70 +29,9 @@ namespace Fryz.Apps.SpaceTrader
 {
 	public class CrewMember : STSerializableObject
 	{
-		#region Member Declarations
-
-		private CrewMemberId	_id;
-		private int[]					_skills				= new int[4];
-		private StarSystemId	_curSystemId	= StarSystemId.NA;
-
-		#endregion
 
 		#region Methods
 
-		public CrewMember(CrewMemberId id, int pilot, int fighter, int trader, int engineer, StarSystemId curSystemId)
-		{
-			_id						= id;
-			Pilot					= pilot;
-			Fighter				= fighter;
-			Trader				= trader;
-			Engineer			= engineer;
-			_curSystemId	= curSystemId;
-		}
-
-		public CrewMember(CrewMember baseCrewMember)
-		{
-			_id						= baseCrewMember.Id;
-			Pilot					= baseCrewMember.Pilot;
-			Fighter				= baseCrewMember.Fighter;
-			Trader				= baseCrewMember.Trader;
-			Engineer			= baseCrewMember.Engineer;
-			_curSystemId	= baseCrewMember.CurrentSystemId;
-		}
-
-		public CrewMember(Hashtable hash): base(hash)
-		{
-			_id						= (CrewMemberId)GetValueFromHash(hash, "_id");
-			_skills				= (int[])GetValueFromHash(hash, "_skills", _skills);
-			_curSystemId	= (StarSystemId)GetValueFromHash(hash, "_curSystemId", _curSystemId);
-		}
-
-		private void ChangeRandomSkill(int amount)
-		{
-			ArrayList	skillIdList	= new ArrayList(4);
-			for (int i = 0; i < Skills.Length; i++)
-			{
-				if (Skills[i] + amount > 0 && Skills[i] + amount < Consts.MaxSkill)
-					skillIdList.Add(i);
-			}
-
-			if (skillIdList.Count > 0)
-			{
-				int	skill	= (int)skillIdList[Functions.GetRandom(skillIdList.Count)];
-
-				int	curTrader	= Game.CurrentGame.Commander.Ship.Trader;
-				Skills[skill]	+= amount;
-				if (Game.CurrentGame.Commander.Ship.Trader != curTrader)
-					Game.CurrentGame.RecalculateBuyPrices(Game.CurrentGame.Commander.CurrentSystem);
-			}
-		}
-
-		// *************************************************************************
-		// Increase one of the skills.
-		// *************************************************************************
-		public void IncreaseRandomSkill()
-		{
-			ChangeRandomSkill(1);
-		}
 
 		// *************************************************************************
 		// NthLowest Skill. Returns skill with the nth lowest score
@@ -118,17 +57,6 @@ namespace Fryz.Apps.SpaceTrader
 			}
 
 			return skillIds[n - 1];
-		}
-
-		public override Hashtable Serialize()
-		{
-			Hashtable	hash	= base.Serialize();
-
-			hash.Add("_id",						(int)_id);
-			hash.Add("_skills",				_skills);
-			hash.Add("_curSystemId",	(int)_curSystemId);
-
-			return hash;
 		}
 
 		// *************************************************************************
@@ -157,120 +85,9 @@ namespace Fryz.Apps.SpaceTrader
 			}
 		}
 
-		public override string ToString()
-		{
-			return Name;
-		}
+
 
 		#endregion
 
-		#region Properties
-
-		public StarSystem CurrentSystem
-		{
-			get
-			{
-				return _curSystemId == StarSystemId.NA ? null : Game.CurrentGame.Universe[(int)_curSystemId];
-			}
-			set
-			{
-				_curSystemId	= value.Id;
-			}
-		}
-
-		public StarSystemId CurrentSystemId
-		{
-			get
-			{
-				return _curSystemId;
-			}
-			set
-			{
-				_curSystemId	= value;
-			}
-		}
-
-		public int Engineer
-		{
-			get
-			{
-				return _skills[(int)SkillType.Engineer];
-			}
-			set
-			{
-				_skills[(int)SkillType.Engineer]	= value;
-			}
-		}
-
-		public int Fighter
-		{
-			get
-			{
-				return _skills[(int)SkillType.Fighter];
-			}
-			set
-			{
-				_skills[(int)SkillType.Fighter]	= value;
-			}
-		}
-
-		public CrewMemberId	Id
-		{
-			get
-			{
-				return _id;
-			}
-		}
-
-		public string Name
-		{
-			get
-			{
-				return Strings.CrewMemberNames[(int)_id];
-			}
-		}
-
-		public int Pilot
-		{
-			get
-			{
-				return _skills[(int)SkillType.Pilot];
-			}
-			set
-			{
-				_skills[(int)SkillType.Pilot]	= value;
-			}
-		}
-
-		public int Rate
-		{
-			get
-			{
-				return Consts.SpecialCrewMemberIds.Contains(Id) || Id == CrewMemberId.Zeethibal ? 0 :
-					(Pilot + Fighter + Trader + Engineer) * 3;
-			}
-		}
-
-		public int[] Skills
-		{
-			get
-			{
-				return _skills;
-			}
-		}
-
-		public int Trader
-		{
-			get
-			{
-				return _skills[(int)SkillType.Trader];
-			}
-			set
-			{
-				_skills[(int)SkillType.Trader]	= value;
-			}
-		}
-
-		#endregion
 	}
 }
