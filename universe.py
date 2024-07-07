@@ -7,44 +7,129 @@
     contains all the systems, their respective governments and traits.
 """
 
-from random import randint
+from random import choice, randint
 
-from constants import GOVT_NAMES, PLANET_NAMES, Government, PlanetId, SocietalPressure, TechLevel, TradeItemType
+from constants import (
+    GALAXYHEIGHT,
+    GALAXYWIDTH,
+    MIN_DISTANCE,
+    PLANET_NAMES,
+    SECTOR_DIAMETER,
+    GovernmentId,
+    Size,
+    SocietalPressure,
+    SpecialResource,
+)
+from government import GOVERNMENTS
 from planet import Planet
+from utils import array_index_of, distance, wormhole_exists
 
 
 class Universe:
     """
-    The Universe class is responsible for managing the game world, including
+    Responsible for managing the game world, including
     planets locations and attributes.
     """
 
     def __init__(self):
-        self.systems = {}
-        self.generate_systems()
+        self.planets = {}
+        self.wormholes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        self.generate_planets()
+        self.extra_planet_shuffle()
 
-    def generate_systems(self):
+    def generate_planets(self):
         """
-        Generate the star systems for the game world.
+        Generate the planets for the game world.
         """
 
-        for id, system_name in PLANET_NAMES:
+        for id, planet_name in PLANET_NAMES:
 
-            system_size = randint(0, 5)
-            system_govt = randint(0, len(GOVT_NAMES) - 1)
-            tech_level = randint()
-            system_pressure
-            special_resource
+            planet_size = choice(Size)
+            planet_govt = choice(GovernmentId)
+
+            # TODO can transition this to a choice of valid_tech_levels
+            tech_level = randint(GOVERNMENTS[planet_govt].minTech, GOVERNMENTS[planet_govt].maxTech)
+
+            # As per the original code, ~15% of planets have no societal pressure
+            if randint(100) >= 15:
+                soci_pressure = SocietalPressure.NONE
+            else:
+                soci_pressure = choice([sp for sp in SocietalPressure if sp != SocietalPressure.NONE])
+
+            # As per the original code, ~40% of planets have no special resource
+            if randint(5) < 3:
+                special_resource = SpecialResource.NOTHING
+            else:
+                special_resource = choice([sr for sr in SpecialResource if sr != SpecialResource.NOTHING])
 
             # Generate system position
-            x, y = randint(0, 100), randint(0, 100)
+            x, y = self.pick_valid_xy(id)
 
-            new_system = Planet(
-                system_name,
-                x,
-                y,
-                system_size,
-                system_govt,
+            new_planet = Planet(
+                planet_name, x, y, planet_size, planet_govt, tech_level, soci_pressure, special_resource
             )
 
-            self.systems[id] = new_system
+            self.planets[id] = new_planet
+
+    def pick_valid_xy(self, id: int) -> tuple[int, int]:
+        """
+        Pick a valid x, y coordinate for a new planet
+
+        This first pass is as close a 1:1 translation as possible,
+        there is likely a good way to refactor this, if nothing else as a
+        good exercise in algorithm design!
+        """
+
+        x, y = 0, 0
+
+        # Place the first planet somewhere in the center of the galaxy
+        if id < len(self.wormholes):
+            x = ((GALAXYWIDTH * (1 + 2 * (id % 3))) / 6) - randint(-SECTOR_DIAMETER + 1, SECTOR_DIAMETER)
+            y = ((GALAXYHEIGHT * (1 if id < 3 else 3)) / 4) - randint(-SECTOR_DIAMETER + 1, SECTOR_DIAMETER)
+            self.wormholes[id] = id
+
+        else:
+            valid = False
+            while not valid:
+                x = randint(1, GALAXYWIDTH)
+                y = randint(1, GALAXYHEIGHT)
+
+                close_found = False
+                too_close = False
+                j = 0
+                while j < id and not too_close:
+
+                    # Minimum distance between any two systems not to be accepted.
+                    if distance(Universe[j], x, y) < MIN_DISTANCE:
+                        too_close = True
+
+                    # There should be at least one system which is close enough.
+                    if distance(Universe[j], x, y) < SECTOR_DIAMETER:
+                        close_found = True
+
+                    j += 1
+
+                valid = close_found and not too_close
+
+        return (x, y)
+
+    def extra_planet_shuffle(self):
+        """
+        This function is responsible for shuffling the planets around the universe.
+        Apparently without this extra step, the planets with names at the beginning
+        of the alphabet are all clustered in the center of the galaxy.
+        """
+
+        for _, planet in self.planets:
+            i = randint(0, len(self.planets) - 1)
+            if not wormhole_exists(i, -1):
+                planet.x, self.planets[i].x = self.planets[i].x, planet.x
+                planet.y, self.planets[i].y = self.planets[i].y, planet.y
+                w = array_index_of(self.wormholes, i)
+                if w >= 0:
+                    self.wormholes[w] = i
+
+        # Randomize wormhole order
+        for wh in self.wormholes:
+            new_index = randint(0, len(self.wormholes) - 1)
+            wh, self.wormholes[new_index] = self.wormholes[new_index], wh
