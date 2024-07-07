@@ -1,3 +1,11 @@
+"""
+    Space Trader | RPINerd, 2024
+    An elite-inspired space trading RPG originally on PalmOS
+
+    Ships Module
+    This module contains the classes and functions for the game ships, weapons, shields and gadgets.
+"""
+
 from constants import Activity, GadgetID, SheildID, ShipID, Size, Skills, TechLevel, WeaponID
 
 

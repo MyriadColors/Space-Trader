@@ -70,16 +70,6 @@ namespace Fryz.Apps.SpaceTrader
 			return skill;
 		}
 
-		public static string[] ArrayListToStringArray(ArrayList list)
-		{
-			string[]	items		= new string[list.Count];
-
-			for (int i = 0; i < items.Length; i++)
-				items[i]	= (string)list[i];
-
-			return items;
-		}
-
 		public static int Distance(StarSystem a, StarSystem b)
 		{
 			return (int)Math.Floor(Math.Sqrt(Math.Pow(a.X - b.X, 2) + Math.Pow(a.Y - b.Y, 2)));

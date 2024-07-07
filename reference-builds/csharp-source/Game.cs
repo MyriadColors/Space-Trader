@@ -2180,19 +2180,19 @@ namespace Fryz.Apps.SpaceTrader
 
 			for (i = 0; i < Universe.Length; i++)
 			{
-				StarSystemId		id				= (StarSystemId)i;
-				SystemPressure	pressure	= SystemPressure.None;
-				SpecialResource	specRes		= SpecialResource.Nothing;
-				Size						size			= (Size)Functions.GetRandom((int)Size.Huge + 1);
-				PoliticalSystem	polSys		= Consts.PoliticalSystems[Functions.GetRandom(Consts.PoliticalSystems.Length)];
-				TechLevel				tech			= (TechLevel)Functions.GetRandom((int)polSys.MinimumTechLevel, (int)polSys.MaximumTechLevel + 1);
+				StarSystemId id	= (StarSystemId)i;
+				SystemPressure	pressure = SystemPressure.None;
+				SpecialResource	specRes = SpecialResource.Nothing;
+				Size size = (Size)Functions.GetRandom((int)Size.Huge + 1);
+				PoliticalSystem	polSys = Consts.PoliticalSystems[Functions.GetRandom(Consts.PoliticalSystems.Length)];
+				TechLevel tech = (TechLevel)Functions.GetRandom((int)polSys.MinimumTechLevel, (int)polSys.MaximumTechLevel + 1);
 
 				// Galvon must be a Monarchy.
 				if (id == StarSystemId.Galvon)
 				{
-					size		= Size.Large;
+					size = Size.Large;
 					polSys	= Consts.PoliticalSystems[(int)PoliticalSystemType.Monarchy];
-					tech		= TechLevel.HiTech;
+					tech = TechLevel.HiTech;
 				}
 
 				if (Functions.GetRandom(100) < 15)
@@ -3043,64 +3043,6 @@ namespace Fryz.Apps.SpaceTrader
 				FormAlert.Alert(AlertType.Alert, ParentWindow, NewspaperHead, NewspaperText);
 		}
 
-		public override Hashtable Serialize()
-		{
-			Hashtable	hash	= base.Serialize();
-
-			hash.Add("_version",										"2.00");
-			hash.Add("_universe",										ArrayToArrayList(_universe));
-			hash.Add("_commander",									_commander.Serialize());
-			hash.Add("_wormholes",									_wormholes);
-			hash.Add("_mercenaries",								ArrayToArrayList(_mercenaries));
-			hash.Add("_dragonfly",									_dragonfly.Serialize());
-			hash.Add("_scarab",											_scarab.Serialize());
-			hash.Add("_scorpion",										_scorpion.Serialize());
-			hash.Add("_spaceMonster",								_spaceMonster.Serialize());
-			hash.Add("_opponent",										_opponent.Serialize());
-			hash.Add("_chanceOfTradeInOrbit",				_chanceOfTradeInOrbit);
-			hash.Add("_clicks",											_clicks);
-			hash.Add("_raided",											_raided);
-			hash.Add("_inspected",									_inspected);
-			hash.Add("_tribbleMessage",							_tribbleMessage);
-			hash.Add("_arrivedViaWormhole",					_arrivedViaWormhole);
-			hash.Add("_paidForNewspaper",						_paidForNewspaper);
-			hash.Add("_litterWarning",							_litterWarning);
-			hash.Add("_newsEvents",									ArrayListToIntArray(_newsEvents));
-			hash.Add("_difficulty",									(int)_difficulty);
-			hash.Add("_cheatEnabled",								_cheatEnabled);
-			hash.Add("_autoSave",										_autoSave);
-			hash.Add("_easyEncounters",							_easyEncounters);
-			hash.Add("_endStatus",									(int)_endStatus);
-			hash.Add("_encounterType",							(int)_encounterType);
-			hash.Add("_selectedSystemId",						(int)_selectedSystemId);
-			hash.Add("_warpSystemId",								(int)_warpSystemId);
-			hash.Add("_trackedSystemId",						(int)_trackedSystemId);
-			hash.Add("_targetWormhole",							_targetWormhole);
-			hash.Add("_priceCargoBuy",							_priceCargoBuy);
-			hash.Add("_priceCargoSell",							_priceCargoSell);
-			hash.Add("_questStatusArtifact",				_questStatusArtifact);
-			hash.Add("_questStatusDragonfly",				_questStatusDragonfly);
-			hash.Add("_questStatusExperiment",			_questStatusExperiment);
-			hash.Add("_questStatusGemulon",					_questStatusGemulon);
-			hash.Add("_questStatusJapori",					_questStatusJapori);
-			hash.Add("_questStatusJarek",						_questStatusJarek);
-			hash.Add("_questStatusMoon",						_questStatusMoon);
-			hash.Add("_questStatusPrincess",				_questStatusPrincess);
-			hash.Add("_questStatusReactor",					_questStatusReactor);
-			hash.Add("_questStatusScarab",					_questStatusScarab);
-			hash.Add("_questStatusSculpture",				_questStatusSculpture);
-			hash.Add("_questStatusSpaceMonster",		_questStatusSpaceMonster);
-			hash.Add("_questStatusWild",						_questStatusWild);
-			hash.Add("_fabricRipProbability",				_fabricRipProbability);
-			hash.Add("_justLootedMarie",						_justLootedMarie);
-			hash.Add("_canSuperWarp",								_canSuperWarp);
-			hash.Add("_chanceOfVeryRareEncounter",	_chanceOfVeryRareEncounter);
-			hash.Add("_veryRareEncounters",					ArrayListToIntArray(_veryRareEncounters));
-			hash.Add("_options",										_options.Serialize());
-
-			return hash;
-		}
-
 		// Returns true if an encounter occurred.
 		public bool Travel()
 		{
@@ -3221,112 +3163,6 @@ namespace Fryz.Apps.SpaceTrader
 
 		#endregion
 
-		#region Properties
-
-		public static Game		CurrentGame
-		{
-			get
-			{
-				return _game;
-			}
-			set
-			{
-				_game	= value;
-			}
-		}
-
-		public bool						ArrivedViaWormhole
-		{
-			get
-			{
-				return _arrivedViaWormhole;
-			}
-			set
-			{
-				_arrivedViaWormhole = value;
-			}
-		}
-
-		public bool						AutoSave
-		{
-			get
-			{
-				return _autoSave;
-			}
-			set
-			{
-				_autoSave = value;
-			}
-		}
-
-		public bool						CanSuperWarp
-		{
-			get
-			{
-				return _canSuperWarp;
-			}
-			set
-			{
-				_canSuperWarp	= value;
-			}
-		}
-
-		public int						ChanceOfTradeInOrbit
-		{
-			get
-			{
-				return _chanceOfTradeInOrbit;
-			}
-			set
-			{
-				_chanceOfTradeInOrbit = value;
-			}
-		}
-
-		public int						ChanceOfVeryRareEncounter
-		{
-			get
-			{
-				return _chanceOfVeryRareEncounter;
-			}
-			set
-			{
-				_chanceOfVeryRareEncounter = value;
-			}
-		}
-
-		public bool						CheatEnabled
-		{
-			get
-			{
-				return _cheatEnabled;
-			}
-			set
-			{
-				_cheatEnabled = value;
-			}
-		}
-
-		public int						Clicks
-		{
-			get
-			{
-				return _clicks;
-			}
-			set
-			{
-				_clicks = value;
-			}
-		}
-
-		public Commander			Commander
-		{
-			get
-			{
-				return _commander;
-			}
-		}
-
 		public int						CountDownStart
 		{
 			get
@@ -3358,46 +3194,6 @@ namespace Fryz.Apps.SpaceTrader
 					ids[i]	= (int)list[i];
 
 				return ids;
-			}
-		}
-
-		public Difficulty			Difficulty
-		{
-			get
-			{
-				return _difficulty;
-			}
-		}
-
-		public Ship						Dragonfly
-		{
-			get
-			{
-				return _dragonfly;
-			}
-		}
-
-		public bool						EasyEncounters
-		{
-			get
-			{
-				return _easyEncounters;
-			}
-			set
-			{
-				_easyEncounters = value;
-			}
-		}
-
-		public bool						EncounterContinueFleeing
-		{
-			get
-			{
-				return _encounterContinueFleeing;
-			}
-			set
-			{
-				_encounterContinueFleeing = value;
 			}
 		}
 
@@ -3498,42 +3294,6 @@ namespace Fryz.Apps.SpaceTrader
 			}
 		}
 
-		public bool						EncounterCmdrFleeing
-		{
-			get
-			{
-				return _encounterCmdrFleeing;
-			}
-			set
-			{
-				_encounterCmdrFleeing = value;
-			}
-		}
-
-		public bool						EncounterCmdrHit
-		{
-			get
-			{
-				return _encounterCmdrHit;
-			}
-			set
-			{
-				_encounterCmdrHit = value;
-			}
-		}
-
-		public bool						EncounterContinueAttacking
-		{
-			get
-			{
-				return _encounterContinueAttacking;
-			}
-			set
-			{
-				_encounterContinueAttacking = value;
-			}
-		}
-
 		public int						EncounterImageIndex
 		{
 			get
@@ -3597,42 +3357,6 @@ namespace Fryz.Apps.SpaceTrader
 				}
 
 				return encounterImage;
-			}
-		}
-
-		public bool						EncounterOppFleeing
-		{
-			get
-			{
-				return _encounterOppFleeing;
-			}
-			set
-			{
-				_encounterOppFleeing = value;
-			}
-		}
-
-		public bool						EncounterOppFleeingPrev
-		{
-			get
-			{
-				return _encounterOppFleeingPrev;
-			}
-			set
-			{
-				_encounterOppFleeingPrev = value;
-			}
-		}
-
-		public bool						EncounterOppHit
-		{
-			get
-			{
-				return _encounterOppHit;
-			}
-			set
-			{
-				_encounterOppHit = value;
 			}
 		}
 
@@ -3780,54 +3504,6 @@ namespace Fryz.Apps.SpaceTrader
 			}
 		}
 
-		public EncounterType	EncounterType
-		{
-			get
-			{
-				return _encounterType;
-			}
-			set
-			{
-				_encounterType	= value;
-			}
-		}
-
-		public GameEndType		EndStatus
-		{
-			get
-			{
-				return _endStatus;
-			}
-			set
-			{
-				_endStatus = value;
-			}
-		}
-
-		public int						FabricRipProbability
-		{
-			get
-			{
-				return _fabricRipProbability;
-			}
-			set
-			{
-				_fabricRipProbability = value;
-			}
-		}
-
-		public bool						Inspected
-		{
-			get
-			{
-				return _inspected;
-			}
-			set
-			{
-				_inspected = value;
-			}
-		}
-
 		public int						InsuranceCosts
 		{
 			get
@@ -3845,30 +3521,6 @@ namespace Fryz.Apps.SpaceTrader
 			}
 		}
 
-		public bool						JustLootedMarie
-		{
-			get
-			{
-				return _justLootedMarie;
-			}
-			set
-			{
-				_justLootedMarie = value;
-			}
-		}
-
-		public bool						LitterWarning
-		{
-			get
-			{
-				return _litterWarning;
-			}
-			set
-			{
-				_litterWarning = value;
-			}
-		}
-
 		public int						MercenaryCosts
 		{
 			get
@@ -3879,22 +3531,6 @@ namespace Fryz.Apps.SpaceTrader
 					total	+= Commander.Ship.Crew[i].Rate;
 
 				return total;
-			}
-		}
-
-		public CrewMember[]		Mercenaries
-		{
-			get
-			{
-				return _mercenaries;
-			}
-		}
-
-		public ArrayList			NewsEvents
-		{
-			get
-			{
-				return _newsEvents;
 			}
 		}
 
@@ -3995,254 +3631,6 @@ namespace Fryz.Apps.SpaceTrader
 			}
 		}
 
-		public Ship						Opponent
-		{
-			get
-			{
-				return _opponent;
-			}
-			set
-			{
-				_opponent	= value;
-			}
-		}
-
-		public bool						OpponentDisabled
-		{
-			get
-			{
-				return _opponentDisabled;
-			}
-			set
-			{
-				_opponentDisabled	= value;
-			}
-		}
-
-		public GameOptions		Options
-		{
-			get
-			{
-				return _options;
-			}
-		}
-
-		public bool						PaidForNewspaper
-		{
-			get
-			{
-				return _paidForNewspaper;
-			}
-			set
-			{
-				_paidForNewspaper	= value;
-			}
-		}
-
-		public SpaceTrader		ParentWindow
-		{
-			get
-			{
-				return _parentWin;
-			}
-			set
-			{
-				_parentWin	= value;
-			}
-		}
-
-		public int[]					PriceCargoBuy
-		{
-			get
-			{
-				return _priceCargoBuy;
-			}
-		}
-
-		public int[]					PriceCargoSell
-		{
-			get
-			{
-				return _priceCargoSell;
-			}
-		}
-
-		public int						QuestStatusArtifact
-		{
-			get
-			{
-				return _questStatusArtifact;
-			}
-			set
-			{
-				_questStatusArtifact	= value;
-			}
-		}
-
-		public int						QuestStatusDragonfly
-		{
-			get
-			{
-				return _questStatusDragonfly;
-			}
-			set
-			{
-				_questStatusDragonfly	= value;
-			}
-		}
-
-		public int						QuestStatusExperiment
-		{
-			get
-			{
-				return _questStatusExperiment;
-			}
-			set
-			{
-				_questStatusExperiment	= value;
-			}
-		}
-
-		public int						QuestStatusGemulon
-		{
-			get
-			{
-				return _questStatusGemulon;
-			}
-			set
-			{
-				_questStatusGemulon= value;
-			}
-		}
-
-		public int						QuestStatusJapori
-		{
-			get
-			{
-				return _questStatusJapori;
-			}
-			set
-			{
-				_questStatusJapori	= value;
-			}
-		}
-
-		public int						QuestStatusJarek
-		{
-			get
-			{
-				return _questStatusJarek;
-			}
-			set
-			{
-				_questStatusJarek	= value;
-			}
-		}
-
-		public int						QuestStatusMoon
-		{
-			get
-			{
-				return _questStatusMoon;
-			}
-			set
-			{
-				_questStatusMoon	= value;
-			}
-		}
-
-		public int						QuestStatusPrincess
-		{
-			get
-			{
-				return _questStatusPrincess;
-			}
-			set
-			{
-				_questStatusPrincess = value;
-			}
-		}
-
-		public int						QuestStatusReactor
-		{
-			get
-			{
-				return _questStatusReactor;
-			}
-			set
-			{
-				_questStatusReactor	= value;
-			}
-		}
-
-		public int						QuestStatusScarab
-		{
-			get
-			{
-				return _questStatusScarab;
-			}
-			set
-			{
-				_questStatusScarab	= value;
-			}
-		}
-
-		public int						QuestStatusSculpture
-		{
-			get
-			{
-				return _questStatusSculpture;
-			}
-			set
-			{
-				_questStatusSculpture	= value;
-			}
-		}
-
-		public int						QuestStatusSpaceMonster
-		{
-			get
-			{
-				return _questStatusSpaceMonster;
-			}
-			set
-			{
-				_questStatusSpaceMonster	= value;
-			}
-		}
-
-		public int						QuestStatusWild
-		{
-			get
-			{
-				return _questStatusWild;
-			}
-			set
-			{
-				_questStatusWild	= value;
-			}
-		}
-
-		public bool						Raided
-		{
-			get
-			{
-				return _raided;
-			}
-			set
-			{
-				_raided = value;
-			}
-		}
-
-		public Ship						Scarab
-		{
-			get
-			{
-				return _scarab;
-			}
-		}
-
 		public int						Score
 		{
 			get
@@ -4266,14 +3654,6 @@ namespace Fryz.Apps.SpaceTrader
 				}
 
 				return ((int)Difficulty + 1) * modifier * (daysMoon * 1000 + worth) / 250000;
-			}
-		}
-
-		public Ship						Scorpion
-		{
-			get
-			{
-				return _scorpion;
 			}
 		}
 
@@ -4317,14 +3697,6 @@ namespace Fryz.Apps.SpaceTrader
 			}
 		}
 
-		public Ship						SpaceMonster
-		{
-			get
-			{
-				return _spaceMonster;
-			}
-		}
-
 		public bool						TargetWormhole
 		{
 			get
@@ -4351,59 +3723,11 @@ namespace Fryz.Apps.SpaceTrader
 			}
 		}
 
-		public StarSystemId		TrackedSystemId
-		{
-			get
-			{
-				return _trackedSystemId;
-			}
-			set
-			{
-				_trackedSystemId	= value;
-			}
-		}
-
-		public bool						TribbleMessage
-		{
-			get
-			{
-				return _tribbleMessage;
-			}
-			set
-			{
-				_tribbleMessage	= value;
-			}
-		}
-
-		public StarSystem[]		Universe
-		{
-			get
-			{
-				return _universe;
-			}
-		}
-
-		public ArrayList			VeryRareEncounters
-		{
-			get
-			{
-				return _veryRareEncounters;
-			}
-		}
-
 		public StarSystem			WarpSystem
 		{
 			get
 			{
 				return (_warpSystemId == StarSystemId.NA ? null : Universe[(int)_warpSystemId]);
-			}
-		}
-
-		public StarSystemId		WarpSystemId
-		{
-			get
-			{
-				return _warpSystemId;
 			}
 		}
 
@@ -4413,14 +3737,6 @@ namespace Fryz.Apps.SpaceTrader
 			{
 				return Functions.WormholeExists(Commander.CurrentSystem, WarpSystem) ?
 					Consts.WormDist * Commander.Ship.FuelCost : 0;
-			}
-		}
-
-		public int[]					Wormholes
-		{
-			get
-			{
-				return _wormholes;
 			}
 		}
 

@@ -982,8 +982,8 @@ namespace Fryz.Apps.SpaceTrader
 		};
 		#endregion
 
-		#region SystemPressures
-		public static string[]	SystemPressures	= new string[]
+		#region SocietalPressures
+		public static string[]	SocietalPressures	= new string[]
 		{
 			"under no particular pressure",		// Uneventful
 			"at war",													// Ore and Weapons in demand
@@ -1208,7 +1208,7 @@ namespace Fryz.Apps.SpaceTrader
 		public static string	FireMercenaryString							= "If you fire a mercenary, he or she returns to his or her home system.";
 		public static string	ErrGraphicsSupportString				= "There are three versions of Space Trader:\r\n\r\n1) SpaceTrader_black&white.prc contains 1-bit graphics and can run on any Palm with OS version 2.0 or higher.\r\n2) SpaceTrader_gray.prc contains 4-bit grayscale graphics and needs at least Palm OS 3.5 and hardware that supports 4-bit grayscales.\r\n3) SpaceTrader_color.prc contains 8-bit color graphics and needs at least Palm OS 3.5 and hardware that supports colors.\r\n\r\nGet the right version for your Palm.";
 		public static string	LootMarieCelesteString					= "The Marie Celeste is completely abandoned, and drifting through space. The ship's log is unremarkable except for a Tribble infestation a few months ago, and the note that the last system visited was Lowry.\r\n\r\nThe crew's quarters are in good shape, with no signs of struggle. There is still food sitting on the table and beer in the mugs in the mess hall. Except for the fact that it's abandoned, the ship is normal in every way.\r\n\r\nBy Intergalactic Salvage Law, you have the right to claim the cargo as your own if you decide to.";
-		public static string	CreditsString										= "Space Trader\r\n\r\nCopyright © 2000-2002 by Pieter Spronck\r\n\r\nDesign and programming:\r\nPieter Spronck\r\n\r\nAdditional design and programming:\r\nSamuel Goldstein\r\nSam Anderson\r\n\r\nGraphics:\r\nAlexander Lawrence\r\n\r\nAdditional graphics:\r\nSamuel Goldstein\r\nPieter Spronck\r\n\r\nSpecial thanks to:\r\nDavid Braben and Ian Bell for \"Elite\"\r\nDavid J. Webb for \"Solar Wars\"\r\nMatt Lee for \"Dope Wars\"\r\nAll the beta testers\r\nAnd all the players that sent me their ideas\r\n\r\nSpace Trader is released under a GNU General Public License";
+		public static string	CreditsString										= "Space Trader\r\n\r\nCopyright ï¿½ 2000-2002 by Pieter Spronck\r\n\r\nDesign and programming:\r\nPieter Spronck\r\n\r\nAdditional design and programming:\r\nSamuel Goldstein\r\nSam Anderson\r\n\r\nGraphics:\r\nAlexander Lawrence\r\n\r\nAdditional graphics:\r\nSamuel Goldstein\r\nPieter Spronck\r\n\r\nSpecial thanks to:\r\nDavid Braben and Ian Bell for \"Elite\"\r\nDavid J. Webb for \"Solar Wars\"\r\nMatt Lee for \"Dope Wars\"\r\nAll the beta testers\r\nAnd all the players that sent me their ideas\r\n\r\nSpace Trader is released under a GNU General Public License";
 		public static string	NoDumpNoScoopString							= "If you wanted to pick up the floating canister, you had to dump something from your cargo holds.";
 		public static string	TradeCaptainAhabString					= "Captain Ahab is in need of a spare shield for an upcoming mission. Since he's in a rush, he'd rather not stop to get one on-planet.\r\n\r\nThe deal he's offering is a trade, rather than cash, for the shield. He'll trade you some piloting lessons in exchange for your reflective shield (he only needs one, so if you have more than one, you'll keep the others).\r\n\r\nCaptain Ahab is one of the greatest pilots of all time, and still holds the speed record for cross-galaxy transport.";
 		public static string	TrainingString									= "Under the watchful eye of the Captain, you demonstrate your abilities. The Captain provides some helpful pointers and tips, and teaches you a few new techniques. The few hours pass quickly, but you feel you've gained a lot from the experience.";

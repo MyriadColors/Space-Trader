@@ -1,15 +1,9 @@
-#!/usr/bin/env python3
-# coding: utf-8
-#
-# $Id: constants.py 1546.v0.2-dev.1 $
-# SPDX-License-Identifier: BSD-2-Clause
-
 """
-    Game constants, to be imported
+    Space Trader | RPINerd, 2024
+    An elite-inspired space trading RPG originally on PalmOS
 
-    From:
-    https://github.com/blind-coder/SpaceTrader/blob/master/SpaceTrader/src/main/java/de/anderdonau/spacetrader/Main.java
-    https://github.com/blind-coder/SpaceTrader/tree/master/SpaceTrader/src/main/java/de/anderdonau/spacetrader/DataTypes
+    Constants Module
+    Game constants and enums, to be imported by other modules.
 """
 
 from enum import Enum
@@ -46,7 +40,22 @@ MAX_DISTANCE = 20
 WORMHOLE_DISTANCE = 25
 SECTOR_DIAMETER = 13
 
+
 # Economy
+class TradeItemType(Enum):
+    WATER = 0
+    FURS = 1
+    FOOD = 2
+    ORE = 3
+    GAMES = 4
+    FIREARMS = 5
+    MEDICINE = 6
+    MACHINERY = 7
+    NARCOTICS = 8
+    ROBOTS = 9
+    NONE = 10
+
+
 INTEREST_RATE = 0.1
 INSURANCE_RATE = 0.0025
 DEBT_WARN = 75000
@@ -85,6 +94,130 @@ class CombatReputation(Enum):
 
 
 # System
+class PlanetId(Enum):
+    ACAMAR = 0
+    ADAHN = 1
+    ALDEA = 2
+    ANDEVIAN = 3
+    ANTEDI = 4
+    BALOSNEE = 5
+    BARATAS = 6
+    BOB = 7
+    BRAX = 8
+    BRETEL = 9
+    CALONDIA = 10
+    CAMPOR = 11
+    CAPELLE = 12
+    CARZON = 13
+    CASTOR = 14
+    CESTUS = 15
+    CHERON = 16
+    COURTENEY = 17
+    DALED = 18
+    DAMAST = 19
+    DAVLOS = 20
+    DENEB = 21
+    DENEVA = 22
+    DEVIDIA = 23
+    DRAYLON = 24
+    DREMA = 25
+    ENDOR = 26
+    ESMEE = 27
+    EXO = 28
+    FERRIS = 29
+    FESTEN = 30
+    FOURMI = 31
+    FROLIX = 32
+    GEMULON = 33
+    GUINIFER = 34
+    HADES = 35
+    HAMLET = 36
+    HELENA = 37
+    HULST = 38
+    IODINE = 39
+    IRALIUS = 40
+    JANUS = 41
+    JAPORI = 42
+    JARADA = 43
+    JASON = 44
+    KAYLON = 45
+    KHEFKA = 46
+    KIRA = 47
+    KLAATU = 48
+    KLAESTRON = 49
+    KORMA = 50
+    KRAVAT = 51
+    KRIOS = 52
+    LAERTES = 53
+    LARGO = 54
+    LAVE = 55
+    LIGON = 56
+    LOWRY = 57
+    MAGRAT = 58
+    MALCORIA = 59
+    MELINA = 60
+    MENTAR = 61
+    MERIK = 62
+    MINTAKA = 63
+    MONTOR = 64
+    MORDAN = 65
+    MYRTHE = 66
+    NELVANA = 67
+    NIX = 68
+    NYLE = 69
+    ODET = 70
+    OG = 71
+    OMEGA = 72
+    OMPHALOS = 73
+    ORIAS = 74
+    OTHELLO = 75
+    PARADE = 76
+    PENTHARA = 77
+    PICARD = 78
+    POLLUX = 79
+    QUATOR = 80
+    RAKHAR = 81
+    RAN = 82
+    REGULAS = 83
+    RELVA = 84
+    RHYMUS = 85
+    ROCHANI = 86
+    RUBICUM = 87
+    RUTIA = 88
+    SARPEIDON = 89
+    SEFALLA = 90
+    SELTRICE = 91
+    SIGMA = 92
+    SOL = 93
+    SOMARI = 94
+    STAKORON = 95
+    STYRIS = 96
+    TALANI = 97
+    TAMUS = 98
+    TANTALOS = 99
+    TANUGA = 100
+    TARCHANNEN = 101
+    TEROSA = 102
+    THERA = 103
+    TITAN = 104
+    TORIN = 105
+    TRIACUS = 106
+    TURKANA = 107
+    TYRUS = 108
+    UMBERLEE = 109
+    UTOPIA = 110
+    VADERA = 111
+    VAGRA = 112
+    VANDOR = 113
+    VENTAX = 114
+    XENON = 115
+    XERXES = 116
+    YEW = 117
+    YOJIMBO = 118
+    ZALKON = 119
+    ZUUL = 120
+
+
 class Activity(Enum):
     ABSENT = 0
     MINIMAL = 1
@@ -97,7 +230,7 @@ class Activity(Enum):
     UNAVAILABLE = 100
 
 
-class Government(Enum):
+class GovernmentId(Enum):
     ANARCHY = 0
     CAPITALIST = 1
     COMMUNIST = 2
@@ -154,7 +287,7 @@ class SpecialResource(Enum):
     WARLIKE = 12
 
 
-class SystemPressure(Enum):
+class SocietalPressure(Enum):
     NONE = 0
     WAR = 1
     PLAGUE = 2
@@ -165,13 +298,155 @@ class SystemPressure(Enum):
     EMPLOYMENT = 7
 
 
+PLANET_NAMES = {
+    PlanetId.ACAMAR: "Acamar",
+    PlanetId.ADAHN: "Adahn",
+    PlanetId.ALDEA: "Aldea",
+    PlanetId.ANDEVIAN: "Andevian",
+    PlanetId.ANTEDI: "Antedi",
+    PlanetId.BALOSNEE: "Balosnee",
+    PlanetId.BARATAS: "Baratas",
+    PlanetId.BOB: "Bob",
+    PlanetId.BRAX: "Brax",
+    PlanetId.BRETEL: "Bretel",
+    PlanetId.CALONDIA: "Calondia",
+    PlanetId.CAMPOR: "Campor",
+    PlanetId.CAPELLE: "Capelle",
+    PlanetId.CARZON: "Carzon",
+    PlanetId.CASTOR: "Castor",
+    PlanetId.CESTUS: "Cestus",
+    PlanetId.CHERON: "Cheron",
+    PlanetId.COURTENEY: "Courteney",
+    PlanetId.DALED: "Daled",
+    PlanetId.DAMAST: "Damast",
+    PlanetId.DAVLOS: "Davlos",
+    PlanetId.DENEB: "Deneb",
+    PlanetId.DENEVA: "Deneva",
+    PlanetId.DEVIDIA: "Devidia",
+    PlanetId.DRAYLON: "Draylon",
+    PlanetId.DREMA: "Drema",
+    PlanetId.ENDOR: "Endor",
+    PlanetId.ESMEE: "Esmee",
+    PlanetId.EXO: "Exo",
+    PlanetId.FERRIS: "Ferris",
+    PlanetId.FESTEN: "Festen",
+    PlanetId.FOURMI: "Fourmi",
+    PlanetId.FROLIX: "Frolix",
+    PlanetId.GEMULON: "Gemulon",
+    PlanetId.GUINIFER: "Guinifer",
+    PlanetId.HADES: "Hades",
+    PlanetId.HAMLET: "Hamlet",
+    PlanetId.HELENA: "Helena",
+    PlanetId.HULST: "Hulst",
+    PlanetId.IODINE: "Iodine",
+    PlanetId.IRALIUS: "Iralius",
+    PlanetId.JANUS: "Janus",
+    PlanetId.JAPORI: "Japori",
+    PlanetId.JARADA: "Jarada",
+    PlanetId.JASON: "Jason",
+    PlanetId.KAYLON: "Kaylon",
+    PlanetId.KHEFKA: "Khefka",
+    PlanetId.KIRA: "Kira",
+    PlanetId.KLAATU: "Klaatu",
+    PlanetId.KLAESTRON: "Klaestron",
+    PlanetId.KORMA: "Korma",
+    PlanetId.KRAVAT: "Kravat",
+    PlanetId.KRIOS: "Krios",
+    PlanetId.LAERTES: "Laertes",
+    PlanetId.LARGO: "Largo",
+    PlanetId.LAVE: "Lave",
+    PlanetId.LIGON: "Ligon",
+    PlanetId.LOWRY: "Lowry",
+    PlanetId.MAGRAT: "Magrat",
+    PlanetId.MALCORIA: "Malcoria",
+    PlanetId.MELINA: "Melina",
+    PlanetId.MENTAR: "Mentar",
+    PlanetId.MERIK: "Merik",
+    PlanetId.MINTAKA: "Mintaka",
+    PlanetId.MONTOR: "Montor",
+    PlanetId.MORDAN: "Mordan",
+    PlanetId.MYRTHE: "Myrthe",
+    PlanetId.NELVANA: "Nelvana",
+    PlanetId.NIX: "Nix",
+    PlanetId.NYLE: "Nyle",
+    PlanetId.ODET: "Odet",
+    PlanetId.OG: "Og",
+    PlanetId.OMEGA: "Omega",
+    PlanetId.OMPHALOS: "Omphalos",
+    PlanetId.ORIAS: "Orias",
+    PlanetId.OTHELLO: "Othello",
+    PlanetId.PARADE: "Parade",
+    PlanetId.PENTHARA: "Penthara",
+    PlanetId.PICARD: "Picard",
+    PlanetId.POLLUX: "Pollux",
+    PlanetId.QUATOR: "Quator",
+    PlanetId.RAKHAR: "Rakhar",
+    PlanetId.RAN: "Ran",
+    PlanetId.REGULAS: "Regulas",
+    PlanetId.RELVA: "Relva",
+    PlanetId.RHYMUS: "Rhymus",
+    PlanetId.ROCHANI: "Rochani",
+    PlanetId.RUBICUM: "Rubicum",
+    PlanetId.RUTIA: "Rutia",
+    PlanetId.SARPEIDON: "Sarpeidon",
+    PlanetId.SEFALLA: "Sefalla",
+    PlanetId.SELTRICE: "Seltrice",
+    PlanetId.SIGMA: "Sigma",
+    PlanetId.SOL: "Sol",
+    PlanetId.SOMARI: "Somari",
+    PlanetId.STAKORON: "Stakoron",
+    PlanetId.STYRIS: "Styris",
+    PlanetId.TALANI: "Talani",
+    PlanetId.TAMUS: "Tamus",
+    PlanetId.TANTALOS: "Tantalos",
+    PlanetId.TANUGA: "Tanuga",
+    PlanetId.TARCHANNEN: "Tarchannen",
+    PlanetId.TEROSA: "Terosa",
+    PlanetId.THERA: "Thera",
+    PlanetId.TITAN: "Titan",
+    PlanetId.TORIN: "Torin",
+    PlanetId.TRIACUS: "Triacus",
+    PlanetId.TURKANA: "Turkana",
+    PlanetId.TYRUS: "Tyrus",
+    PlanetId.UMBERLEE: "Umberlee",
+    PlanetId.UTOPIA: "Utopia",
+    PlanetId.VADERA: "Vadera",
+    PlanetId.VAGRA: "Vagra",
+    PlanetId.VANDOR: "Vandor",
+    PlanetId.VENTAX: "Ventax",
+    PlanetId.XENON: "Xenon",
+    PlanetId.XERXES: "Xerxes",
+    PlanetId.YEW: "Yew",
+    PlanetId.YOJIMBO: "Yojimbo",
+    PlanetId.ZALKON: "Zalkon",
+    PlanetId.ZUUL: "Zuul",
+}
+GOVT_NAMES = {
+    GovernmentId.ANARCHY: "Anarchy",
+    GovernmentId.CAPITALIST: "Capitalist",
+    GovernmentId.COMMUNIST: "Communist",
+    GovernmentId.CONFEDERACY: "Confederacy",
+    GovernmentId.CORPORATE: "Corporate",
+    GovernmentId.CYBERNETIC: "Cybernetic",
+    GovernmentId.DEMOCRACY: "Democracy",
+    GovernmentId.DICTATORSHIP: "Dictatorship",
+    GovernmentId.FASCIST: "Facist",
+    GovernmentId.FEUDAL: "Feudal",
+    GovernmentId.MILITARY: "Military",
+    GovernmentId.MONARCHY: "Monarchy",
+    GovernmentId.PACIFIST: "Pacifist",
+    GovernmentId.SOCIALIST: "Socialist",
+    GovernmentId.SATORI: "Satori",
+    GovernmentId.TECHNOCRACY: "Technocracy",
+    GovernmentId.THEOCRACY: "Theocracy",
+}
 SYSTEMSIZE = {
-    SystemSize.TINY: "Tiny",
-    SystemSize.SMALL: "Small",
-    SystemSize.MEDIUM: "Medium",
-    SystemSize.LARGE: "Large",
-    SystemSize.HUGE: "Huge",
-    SystemSize.GARGANTUAN: "Gargantuan",
+    Size.TINY: "Tiny",
+    Size.SMALL: "Small",
+    Size.MEDIUM: "Medium",
+    Size.LARGE: "Large",
+    Size.HUGE: "Huge",
+    Size.GARGANTUAN: "Gargantuan",
 }
 SPECIALRESOURCES = {
     SpecialResource.NOTHING: "Nothing special",  # Uneventful
@@ -189,14 +464,14 @@ SPECIALRESOURCES = {
     SpecialResource.WARLIKE: "Warlike populace",  # Weapons in demand
 }
 PRESSURE = {
-    SystemPressure.NONE: "under no particular pressure",  # Uneventful
-    SystemPressure.WAR: "at war",  # Ore and Weapons in demand
-    SystemPressure.PLAGUE: "ravaged by a plague",  # Medicine in demand
-    SystemPressure.DROUGHT: "suffering from a drought",  # Water in demand
-    SystemPressure.BOREDOM: "suffering from extreme boredom",  # Games and Narcotics in demand
-    SystemPressure.COLD: "suffering from a cold spell",  # Furs in demand
-    SystemPressure.CROPFAILURE: "suffering from a crop failure",  # Food in demand
-    SystemPressure.EMPLOYMENT: "lacking enough workers",
+    SocietalPressure.NONE: "under no particular pressure",  # Uneventful
+    SocietalPressure.WAR: "at war",  # Ore and Weapons in demand
+    SocietalPressure.PLAGUE: "ravaged by a plague",  # Medicine in demand
+    SocietalPressure.DROUGHT: "suffering from a drought",  # Water in demand
+    SocietalPressure.BOREDOM: "suffering from extreme boredom",  # Games and Narcotics in demand
+    SocietalPressure.COLD: "suffering from a cold spell",  # Furs in demand
+    SocietalPressure.CROPFAILURE: "suffering from a crop failure",  # Food in demand
+    SocietalPressure.EMPLOYMENT: "lacking enough workers",
 }  # Machinery and Robots in demand
 
 
@@ -452,161 +727,71 @@ SHIPTYPES = {
 
 
 # Names
-SYSTEM_NAMES = [
-    "Acamar",
-    "Adahn",
-    "Aldea",
-    "Andevian",
-    "Antedi",
-    "Balosnee",
-    "Baratas",
-    "Bob",
-    "Brax",
-    "Bretel",
-    "Calondia",
-    "Campor",
-    "Capelle",
-    "Carzon",
-    "Castor",
-    "Cestus",
-    "Cheron",
-    "Courteney",
-    "Daled",
-    "Damast",
-    "Davlos",
-    "Deneb",
-    "Deneva",
-    "Devidia",
-    "Draylon",
-    "Drema",
-    "Endor",
-    "Esmee",
-    "Exo",
-    "Ferris",
-    "Festen",
-    "Fourmi",
-    "Frolix",
-    "Gemulon",
-    "Guinifer",
-    "Hades",
-    "Hamlet",
-    "Helena",
-    "Hulst",
-    "Iodine",
-    "Iralius",
-    "Janus",
-    "Japori",
-    "Jarada",
-    "Jason",
-    "Kaylon",
-    "Khefka",
-    "Kira",
-    "Klaatu",
-    "Klaestron",
-    "Korma",
-    "Kravat",
-    "Krios",
-    "Laertes",
-    "Largo",
-    "Lave",
-    "Ligon",
-    "Lowry",
-    "Magrat",
-    "Malcoria",
-    "Melina",
-    "Mentar",
-    "Merik",
-    "Mintaka",
-    "Montor",
-    "Mordan",
-    "Myrthe",
-    "Nelvana",
-    "Nix",
-    "Nyle",
-    "Odet",
-    "Og",
-    "Omega",
-    "Omphalos",
-    "Orias",
-    "Othello",
-    "Parade",
-    "Penthara",
-    "Picard",
-    "Pollux",
-    "Quator",
-    "Rakhar",
-    "Ran",
-    "Regulas",
-    "Relva",
-    "Rhymus",
-    "Rochani",
-    "Rubicum",
-    "Rutia",
-    "Sarpeidon",
-    "Sefalla",
-    "Seltrice",
-    "Sigma",
-    "Sol",
-    "Somari",
-    "Stakoron",
-    "Styris",
-    "Talani",
-    "Tamus",
-    "Tantalos",
-    "Tanuga",
-    "Tarchannen",
-    "Terosa",
-    "Thera",
-    "Titan",
-    "Torin",
-    "Triacus",
-    "Turkana",
-    "Tyrus",
-    "Umberlee",
-    "Utopia",
-    "Vadera",
-    "Vagra",
-    "Vandor",
-    "Ventax",
-    "Xenon",
-    "Xerxes",
-    "Yew",
-    "Yojimbo",
-    "Zalkon",
-    "Zuul",
-]
-MERCENARYNAMES = [
-    "Alyssa",
-    "Armatur",
-    "Bentos",
-    "C2U2",
-    "Chi'Ti",
-    "Crystal",
-    "Dane",
-    "Deirdre",
-    "Doc",
-    "Draco",
-    "Iranda",
-    "Jeremiah",
-    "Jujubal",
-    "Krydon",
-    "Luis",
-    "Mercedez",
-    "Milete",
-    "Muri-L",
-    "Mystyc",
-    "Nandi",
-    "Orestes",
-    "Pancho",
-    "PS37",
-    "Quarck",
-    "Sosumi",
-    "Uma",
-    "Wesley",
-    "Wonton",
-    "Yorvick",
-    "Zeethibal",  # anagram of Elizabeth
-]
+class Merc(Enum):
+    ALYSSA = 1
+    ARMATUR = 2
+    BENTOS = 3
+    C2U2 = 4
+    CHITI = 5
+    CRYSTAL = 6
+    DANE = 7
+    DEIRDRE = 8
+    DOC = 9
+    DRACO = 10
+    IRANDA = 11
+    JEREMIAH = 12
+    JUJUBAL = 13
+    KRYDON = 14
+    LUIS = 15
+    MERCEDZ = 16
+    MILETE = 17
+    MURIL = 18
+    MYSTYC = 19
+    NANDI = 20
+    ORESTES = 21
+    PANCHO = 22
+    PS37 = 23
+    QUARCK = 24
+    SOSUMI = 25
+    UMA = 26
+    WESLEY = 27
+    WONTON = 28
+    YORVICK = 29
+    ZEETHIBAL = 30
+
+
+MERCENARYNAMES = {
+    Merc.ALYSSA: "Alyssa",
+    Merc.ARMATUR: "Armatur",
+    Merc.BENTOS: "Bentos",
+    Merc.C2U2: "C2U2",
+    Merc.CHITI: "Chi'Ti",
+    Merc.CRYSTAL: "Crystal",
+    Merc.DANE: "Dane",
+    Merc.DEIRDRE: "Deirdre",
+    Merc.DOC: "Doc",
+    Merc.DRACO: "Draco",
+    Merc.IRANDA: "Iranda",
+    Merc.JEREMIAH: "Jeremiah",
+    Merc.JUJUBAL: "Jujubal",
+    Merc.KRYDON: "Krydon",
+    Merc.LUIS: "Luis",
+    Merc.MERCEDZ: "Mercedez",
+    Merc.MILETE: "Milete",
+    Merc.MURIL: "Muri-L",
+    Merc.MYSTYC: "Mystyc",
+    Merc.NANDI: "Nandi",
+    Merc.ORESTES: "Orestes",
+    Merc.PANCHO: "Pancho",
+    Merc.PS37: "PS37",
+    Merc.QUARCK: "Quarck",
+    Merc.SOSUMI: "Sosumi",
+    Merc.UMA: "Uma",
+    Merc.WESLEY: "Wesley",
+    Merc.WONTON: "Wonton",
+    Merc.YORVICK: "Yorvick",
+    Merc.ZEETHIBAL: "Zeethibal",  # anagram of Elizabeth
+}
 
 
 # Character
@@ -673,3 +858,34 @@ SCOREPLUNDERTRADER = -2
 SCORETRAFFICKING = -1
 
 SHIPTEMPLATESEPARATOR = "----------------------------"
+
+STARTCLICKS = 20
+MAXFUELTANKS = 20
+FUELCOMPACTORTANKS = 3
+HULLUPGRADE = 50
+MAXSHIP = 9
+MAXSLOTS = 5
+FLEACONVERSIONCOST = 500
+PODTRANSFERCOST = 200
+
+IMAGESPERSHIP = 4
+SHIPIMGOFFSETNORMAL = 0
+SHIPIMGOFFSETDAMAGE = 1
+SHIPIMGOFFSETSHIELD = 2
+SHIPIMGOFFSETSHEILDDAMAGE = 3
+SHIPIMGUSEDEFAULT = -1
+ENCOUNTERIMGALIEN = 0
+ENCOUNTERIMGPIRATE = 1
+ENCOUNTERIMGPOLICE = 2
+ENCOUNTERIMGSPECIAL = 3
+ENCOUNTERIMGTRADER = 4
+
+STORYPROBABILITY = 50 / 8
+FABRICRIPINITIALPROBABILITY = 25
+
+DIRECTIONUP = 0
+DIRECTIONDOWN = 1
+DIRECTIONLEFT = 2
+DIRECTIONRIGHT = 3
+
+DISRUPTORSYSTEMSMULTIPLIER = 3
