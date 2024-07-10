@@ -17,6 +17,9 @@ import os
 
 import pygame
 
+from constants import GameStateID
+from interface import commander, splash
+
 
 class Game:
     """
@@ -42,15 +45,14 @@ class Game:
         self.load_assets()
 
         # Set up the game window
-        self.screen_width = int(self.config["game"]["screen_width"])
-        self.screen_height = int(self.config["game"]["screen_height"])
+        self.screen_width = int(self.config["graphics"]["screen_width"])
+        self.screen_height = int(self.config["graphics"]["screen_height"])
         self.canvas = pygame.Surface((160, 160))
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Space Trader")
-
-        self.background_image = pygame.image.load("images/splash.jpg")
-        self.background_image = pygame.transform.scale(self.background_image, (self.screen_width, self.screen_height))
+        pygame.display.set_icon(pygame.image.load("images/App.ico"))
+        self.manager = GameStateManager(GameStateID.SPLASH)
 
         self.running = True
 
@@ -97,10 +99,42 @@ class Game:
         self.images = os.path.join("images")
         self.resources = os.path.join("resources")
         # self.data = os.path.join("data")
-        self.font = pygame.font.Font()
+        self.font_sm = pygame.font.Font("fonts/palm-pilot-small.ttf", 8)
+        self.font_sm_bold = pygame.font.Font("fonts/palm-pilot-bold.ttf", 8)
+        self.font_lg = pygame.font.Font("fonts/palm-pilot-large.ttf", 8)
+        self.font_lg_bold = pygame.font.Font("fonts/palm-pilot-large-bold.ttf", 8)
 
     def update(self):
-        pass
+        self.splash_image = pygame.image.load("images/splash.jpg")
+        self.canvas.blit(self.splash_image, (0, 0))
+
+
+class GameStateManager:
+    """
+    Class to manage different game states.
+    """
+
+    def __init__(self, initial_state):
+        self.state = initial_state
+        self.previous_state = None
+
+    def get_state(self) -> str:
+        return self.state
+
+    def set_state(self, new_state) -> None:
+        """
+        Set the current game state.
+
+        param state: The new game state.
+        """
+        try:
+            self.previous_state = self.state
+            self.state = new_state
+        except ValueError:
+            print(f"Invalid state: {new_state}")
+
+    def get_previous_state(self) -> str:
+        return self.previous_state
 
 
 def main():
