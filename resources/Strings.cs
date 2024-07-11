@@ -135,9 +135,6 @@ namespace Fryz.Apps.SpaceTrader
 		public static string	EquipmentNoSlots								= "No slots";
 		public static string	EquipmentFreeSlot								= " - FREE SLOT - ";
 
-		public static string	FileFormatBad										= "The file is not a Space Trader for Windows file, or is the wrong version or has been corrupted.";
-		public static string	FileFutureVersion								= "The version of the file is greater than the current version. You should upgrade to the latest version of Space Trader for Windows.";
-
 		public static string	HighScoreStatus									= "^1 in ^2, worth ^3 on ^4 level.";
 
 		public static string	Mercenaries											= " mercenaries";
@@ -152,7 +149,6 @@ namespace Fryz.Apps.SpaceTrader
 		public static string	NA															= "N/A";
 
 		public static string	NewsMoonForSale									= "Seller in ^1 System has Utopian Moon available.";
-		public static string	NewsShipyard										= "Shipyard in ^1 System offers to design custom ships.";
 		public static string	NewsTribbleBuyer								= "Collector in ^1 System seeks to purchase Tribbles.";
 
 		public static string	PersonnelNoMercenaries					= "No one for hire";
@@ -200,12 +196,6 @@ namespace Fryz.Apps.SpaceTrader
 
 		public static string	ShipInfoEscapePod								= "Escape Pod";
 
-		public static string	ShipNameCurrentShip							= "<current ship>";
-		public static string	ShipNameCustomShip							= "Custom Ship";
-		public static string	ShipNameModified								= "<modified>";
-		public static string	ShipNameTemplateSuffixDefault		= " (Default)";
-		public static string	ShipNameTemplateSuffixMinimum		= " (Minimum)";
-
 		public static string	ShipyardEquipForSale						= "There is equipment for sale.";
 		public static string	ShipyardEquipNoSale							= "No equipment for sale.";
 		public static string	ShipyardPodCost									= "You can buy an escape pod for 2,000 cr.";
@@ -214,11 +204,6 @@ namespace Fryz.Apps.SpaceTrader
 		public static string	ShipyardPodNoSale								= "No escape pods for sale.";
 		public static string	ShipyardShipForSale							= "There are ships for sale.";
 		public static string	ShipyardShipNoSale							= "No ships for sale.";
-		public static string	ShipyardSizeItem								= "^1 (Max ^2)";
-		public static string	ShipyardTitle										= "Ship Design at ^1 Shipyards";
-		public static string	ShipyardUnit										= "Unit";
-		public static string	ShipyardWarning									= "Bear in mind that getting too close to the maximum number of units will result in a \"Crowding Penalty\" due to the engineering difficulty of squeezing everything in.  There is a modest penalty at 80%, and a more severe one at 90%.";
-		public static string	ShipyardWelcome									= "Welcome to ^1 Shipyards! Our best engineer, ^2, is at your service.";
 
 		public static string	SpecialCargoArtifact						= "An alien artifact.";
 		public static string	SpecialCargoExperiment					= "A portable singularity.";
@@ -241,20 +226,6 @@ namespace Fryz.Apps.SpaceTrader
 
 		#region String Arrays
 
-		#region ActivityLevels
-		public static string[]	ActivityLevels	= new string[]
-		{
-			"Absent",
-			"Minimal",
-			"Few",
-			"Some",
-			"Moderate",
-			"Many",
-			"Abundant",
-			"Swarms"
-		};
-		#endregion
-
 		#region CargoBuyOps
 		public static string[]	CargoBuyOps	= new string[]
 		{
@@ -271,80 +242,6 @@ namespace Fryz.Apps.SpaceTrader
 			"Sell",
 			"Dump",
 			"Jettison"
-		};
-		#endregion
-
-		#region CrewMemberNames
-		public static string[]	CrewMemberNames	= new string[]
-		{
-			"Commander",
-			"Alyssa",
-			"Armatur",
-			"Bentos",
-			"C2U2",
-			"Chi'Ti",
-			"Crystal",
-			"Dane",
-			"Deirdre",
-			"Doc",
-			"Draco",
-			"Iranda",
-			"Jeremiah",
-			"Jujubal",
-			"Krydon",
-			"Luis",
-			"Mercedez",
-			"Milete",
-			"Muri-L",
-			"Mystyc",
-			"Nandi",
-			"Orestes",
-			"Pancho",
-			"PS37",
-			"Quarck",
-			"Sosumi",
-			"Uma",
-			"Wesley",
-			"Wonton",
-			"Yorvick",
-			"Zeethibal",			// anagram for Elizabeth
-
-			// The rest are mercenaries I added - JAF
-			"Opponent",				// crew of opponent mantis, pirate, police, and trader ships
-			"Wild",						// now earns his keep!
-			"Jarek",					// now earns his keep!
-			"Captain",				// crew of famous captain ships
-			"Dragonfly",			// dummy crew member used in opponent ship
-			"Scarab",					// dummy crew member used in opponent ship
-			"SpaceMonster",		// dummy crew member used in opponent ship
-			"Aragorn",				// My first son's middle name, and from Lord of the Rings
-			"Brady",					// My third son's middle name, and QB of the New England Patriots
-			"Eight of Nine",	// From Star Trek - Seven's younger sibling ;)
-			"Fangorn",				// From Lord of the Rings
-			"Gagarin",				// The first man in space
-			"Hoshi",					// From ST: Enterprise
-			"Jackson",				// From Stargate - and my nephew's first name
-			"Kaylee",					// From FireFly
-			"Marcus",					// My second son's middle name
-			"O'Neill",				// From Stargate
-			"Ripley",					// From the Alien series
-			"Stilgar",				// From Dune
-			"Taggart",				// From Galaxy Quest
-			"Vansen",					// From Space: Above and Beyond
-			"Xizor",					// From Star Wars: Shadows of the Empire
-			"Ziyal",					// From ST: Deep Space 9
-			"Scorpion"				// dummy crew member used in opponent ship 
-		};
-		#endregion
-
-		#region DifficultyLevels
-		public static string[]	DifficultyLevels	= new string[]
-		{
-			"Beginner",
-			"Easy",
-			"Normal",
-			"Hard",
-			"Impossible"
 		};
 		#endregion
 
@@ -376,37 +273,6 @@ namespace Fryz.Apps.SpaceTrader
 				"The Fuel Compactor that you got as a reward for warning Gemulon of the invasion will increase the range of your ship by 3 parsecs.",
 				"These extra bays will not be detected during routine police searches. They may be detected if you are arrested and the police perform a more thorough search."
 			}
-		};
-		#endregion
-
-		#region EquipmentTypes
-		public static string[]	EquipmentTypes	= new string[]
-		{
-			"Weapon",
-			"Shield",
-			"Gadget"
-		};
-		#endregion
-
-		#region GadgetNames
-		public static string[]	GadgetNames	= new string[]
-		{
-			"5 Extra Cargo Bays",
-			"Auto-Repair System",
-			"Navigating System",
-			"Targeting System",
-			"Cloaking Device",
-			"Fuel Compactor",
-			"5 Hidden Cargo Bays"
-		};
-		#endregion
-
-		#region GameCompletionTypes
-		public static string[]	GameCompletionTypes	= new string[]
-		{
-			"Was killed",
-			"Retired",
-			"Claimed moon"
 		};
 		#endregion
 
@@ -575,149 +441,7 @@ namespace Fryz.Apps.SpaceTrader
 			"Jobless Rate at All-Time Low!"
 		};
 		#endregion
-
-		#region PoliceRecordNames
-		public static string[]	PoliceRecordNames	= new string[]
-		{
-			"Psychopath",
-			"Villain",
-			"Criminal",
-			"Crook",
-			"Dubious",
-			"Clean",
-			"Lawful",
-			"Trusted",
-			"Liked",
-			"Hero"
-		};
-		#endregion
-
-		#region PoliticalSystemNames
-		public static string[]	PoliticalSystemNames	= new string[]
-		{
-			"Anarchy",
-			"Capitalist State",
-			"Communist State",
-			"Confederacy",
-			"Corporate State",
-			"Cybernetic State",
-			"Democracy",
-			"Dictatorship",
-			"Fascist State",
-			"Feudal State",
-			"Military State",
-			"Monarchy",
-			"Pacifist State",
-			"Socialist State",
-			"State of Satori",
-			"Technocracy",
-			"Theocracy"
-		};
-		#endregion
-
-		#region ReputationNames
-		public static string[]	ReputationNames	= new string[]
-		{
-			"Harmless",
-			"Mostly harmless",
-			"Poor",
-			"Average",
-			"Above average",
-			"Competent",
-			"Dangerous",
-			"Deadly",
-			"Elite"
-		};
-		#endregion
-
-		#region ShieldNames
-		public static string[]	ShieldNames	= new string[]
-		{
-			"Energy Shield",
-			"Reflective Shield",
-			"Lightning Shield"
-		};
-		#endregion
-
-		#region ShipNames
-		public static string[]	ShipNames	= new string[]
-		{
-			"Flea",
-			"Gnat",
-			"Firefly",
-			"Mosquito",
-			"Bumblebee",
-			"Beetle",
-			"Hornet",
-			"Grasshopper",
-			"Termite",
-			"Wasp",
-			"Space Monster",
-			"Dragonfly",
-			"Mantis",
-			"Scarab",
-			"Bottle",
-			ShipNameCustomShip,
-			"Scorpion"
-		};
-		#endregion
-
-		#region ShipyardEngineers
-		public static string[]	ShipyardEngineers	= new string[]
-		{
-			"Wedge",
-			"Luke",
-			"Lando",
-			"Mara",
-			"Obi-Wan"
-	};
-		#endregion
-
-		#region ShipyardNames
-		public static string[]	ShipyardNames	= new string[]
-		{
-			"Corellian Engineering",
-			"Incom Corporation",
-			"Kuat Drive Yards",
-			"Sienar Fleet Systems",
-			"Sorosuub Engineering"
-		};
-		#endregion
-
-		#region ShipyardSkillDescriptions
-		public static string[]	ShipyardSkillDescriptions	= new string[]
-		{
-			"All ships constructed at this shipyard use 2 fewer units per crew quarter.",
-			"All ships constructed at this shipyard have 2 extra base fuel tanks.",
-			"All ships constructed at this shipyard have the hull points increment by 5 more than usual.",
-			"All ships constructed at this shipyard get shield slots for 2 fewer units.",
-			"All ships constructed at this shipyard get weapon slots for 2 fewer units."
-		};
-		#endregion
-
-		#region ShipyardSkills
-		public static string[]	ShipyardSkills	= new string[]
-		{
-			"Crew Quartering",
-			"Fuel Efficienty",
-			"Hull Strength",
-			"Shielding",
-			"Weaponry"
-		};
-		#endregion
-
-		#region Sizes
-		public static string[]	Sizes	= new string[]
-		{
-			"Tiny",
-			"Small",
-			"Medium",
-			"Large",
-			"Huge",
-			"Gargantuan"
-		};
-		#endregion
-
+		
 		#region SpecialEventStrings
 		public static string[]	SpecialEventStrings	= new string[]
 		{
@@ -822,24 +546,6 @@ namespace Fryz.Apps.SpaceTrader
 		};
 		#endregion
 
-		#region SpecialResources
-		public static string[]	SpecialResources	= new string[]
-		{
-			"Nothing Special",
-			"Mineral Rich",
-			"Mineral Poor",
-			"Desert",
-			"Sweetwater Oceans",
-			"Rich Soil",
-			"Poor Soil",
-			"Rich Fauna",
-			"Lifeless",
-			"Weird Mushrooms",
-			"Special Herbs",
-			"Artistic Populace",
-			"Warlike Populace"
-		};
-		#endregion
 
 		// *************************************************************************
 		// Many of these names are from Star Trek: The Next Generation, or are small changes
@@ -969,17 +675,7 @@ namespace Fryz.Apps.SpaceTrader
 			"Yojimbo",		// A film by Akira Kurosawa
 			"Zalkon",			// TNG "Transfigurations" (Zalcon)
 			"Zuul",				// From the first Ghostbusters movie
-
-			// The rest are systems I added - JAF
-			"Centauri",		// As in Alpha Centauri - the closest star outside our solar system 
-			"Galvon",			// Star Trek: The Next Generation "Data's Day"
-			"Inthara",		// Star Trek: Voyager "Retrospect"
-			"Meridian",		// Star Trek: Deep Space Nine "Meridian"
-			"Qonos",			// Star Trek - Klinon Homeworld (QonoS - Kronos)
-			"Rae",				// My wife's middle name
-			"Weytahn",		// Star Trek: Enterprise "Cease Fire"
-			"Zonama"			// From the Star Wars: New Jedi Order series (and Rogue Planet)
-		};
+			};
 		#endregion
 
 		#region SocietalPressures
@@ -996,36 +692,6 @@ namespace Fryz.Apps.SpaceTrader
 		};
 		#endregion
 
-		#region TechLevelNames
-		public static string[]	TechLevelNames	= new string[]
-		{
-			"Pre-Agricultural",
-			"Agricultural",
-			"Medieval",
-			"Renaissance",
-			"Early Industrial",
-			"Industrial",
-			"Post-Industrial",
-			"Hi-Tech"
-		};
-		#endregion
-
-		#region TradeItemNames
-		public static string[]	TradeItemNames	= new string[]
-		{
-			"Water",
-			"Furs",
-			"Food",
-			"Ore",
-			"Games",
-			"Firearms",
-			"Medicine",
-			"Machines",
-			"Narcotics",
-			"Robots"
-		};
-		#endregion
-
 		#region VeryRareEncounters
 		public static string[]	VeryRareEncounters	= new string[]
 		{
@@ -1035,18 +701,6 @@ namespace Fryz.Apps.SpaceTrader
 			"Captain Huie",
 			"Dated Tonic",
 			"Good Tonic"
-		};
-		#endregion
-
-		#region WeaponNames
-		public static string[]	WeaponNames	= new string[]
-		{
-			"Pulse Laser",
-			"Beam Laser",
-			"Military Laser",
-			"Morgan's Laser",
-			"Photon Disruptor",
-			"Quantum Disruptor"
 		};
 		#endregion
 
