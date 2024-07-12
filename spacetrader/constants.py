@@ -843,6 +843,12 @@ REPUTATION = {
 }
 
 
+# Gamestate codes
+class GameStateID(Enum):
+    SPLASH = 0
+    CHAR_CREATE = 1
+
+
 # TODO Unknown values/usage
 SCOREATTACKPIRATE = 0
 SCOREATTACKPOLICE = -3

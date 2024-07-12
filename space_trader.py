@@ -17,8 +17,8 @@ import os
 
 import pygame
 
-from constants import GameStateID
-from interface import commander, splash
+from spacetrader.constants import GameStateID
+from spacetrader.interface import commander, splash
 
 
 class Game:
