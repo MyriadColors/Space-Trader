@@ -10,7 +10,10 @@
 from math import floor, pow, sqrt
 from random import choice, randint
 
-from constants import GOVT_NAMES, SPECIALRESOURCES
+from constants import GOVT_NAMES, SPECIALRESOURCES, TRADEITEMS, TradeItemId
+from economy import TradeItems
+
+TMPGAMEDIFFICULTY = 1
 
 
 class Planet:
@@ -32,7 +35,17 @@ class Planet:
     #? params: shipyard_id - id of the shipyard in the system
     """
 
-    def __init__(self, name, x, y, size, govt_type, tech_level, soci_pressure, special_resource):
+    def __init__(
+        self,
+        name,
+        x: int,
+        y: int,
+        size: int,
+        govt_type: int,
+        tech_level: int,
+        soci_pressure: int,
+        special_resource: int,
+    ):
         self.name = name
         self.x = x
         self.y = y
@@ -89,10 +102,11 @@ class Planet:
 
     # TODO implement
     def dest_is_ok(self):
-        comm = Game.current_game.commander
-        return self != comm.current_system and (
-            self.get_distance() <= comm.ship.fuel or Functions.wormhole_exists(comm.current_system, self)
-        )
+        NotImplementedError
+        # comm = Game.current_game.commander
+        # return self != comm.current_system and (
+        #     self.get_distance() <= comm.ship.fuel or Functions.wormhole_exists(comm.current_system, self)
+        # )
 
     def get_distance(self, target_planet=None):
         return int(floor(sqrt(pow(self.x - target_planet.x, 2) + pow(self.y - target_planet.y, 2))))
@@ -109,7 +123,7 @@ class Planet:
         return GOVT_NAMES[self.govt_type]
 
     # Economic Interfaces
-    def get_pressure(self):
+    def get_pressure(self) -> int:
         """
         Societal pressures:
 
@@ -124,10 +138,10 @@ class Planet:
         """
         return self.soci_pressure
 
-    def set_pressure(self, value):
+    def set_pressure(self, value: int) -> None:
         self.soci_pressure = value
 
-    def get_special_resource(self):
+    def get_special_resource(self) -> int:
         """
         Special resources:
 
@@ -153,46 +167,55 @@ class Planet:
             return self.special_resource
 
     def initialize_trade_items(self):
-        for i in range(len(Consts.TradeItems)):
-            if not self.is_item_traded(Consts.TradeItems[i]):
-                self.trade_items[i] = 0
+        """
+        Set the starting quantity of each trade good for the planet
+        """
+
+        for item_id in TRADEITEMS:
+
+            # Make sure the item is allowed to be traded
+            if not self.is_item_traded(item_id):
+                self.trade_items[item_id] = 0
             else:
-                self.trade_items[i] = (self.size.cast_to_int() + 1) * (
-                    randint(9, 14)
-                    - abs(Consts.TradeItems[i].tech_top_production.cast_to_int() - self.tech_level.cast_to_int())
+                # Quantity is dictated by the planet tech level, size, and a bit of randomness
+                self.trade_items[item_id] = (self.size + 1) * (
+                    randint(9, 14) - abs(TradeItems[item_id].tech_level_max - self.tech_level)
                 )
 
-                if i >= TradeItemType.NARCOTICS.cast_to_int():
-                    self.trade_items[i] = (
-                        (self.trade_items[i] * (5 - Game.current_game.difficulty_id))
-                        / (6 - Game.current_game.difficulty_id)
-                    ) + 1
+            # Because of the enormous profits possible,
+            # there shouldn't be too many robots or narcotics available
+            if item_id >= TradeItemId.NARCOTICS:
+                self.trade_items[item_id] = (
+                    (self.trade_items[item_id] * (5 - TMPGAMEDIFFICULTY)) / (6 - TMPGAMEDIFFICULTY)
+                ) + 1
 
-                if self.special_resource == Consts.TradeItems[i].resource_low_price:
-                    self.trade_items[i] = self.trade_items[i] * 4 / 3
+            # Adjust for special resources and societal pressures
+            if self.special_resource == TradeItems[item_id].special_resource_drop:
+                self.trade_items[item_id] = self.trade_items[item_id] * 4 / 3
+            if self.special_resource == TradeItems[item_id].special_resource_hike:
+                self.trade_items[item_id] = self.trade_items[item_id] * 3 / 4
+            if self.soci_pressure == TradeItems[item_id].pressure:
+                self.trade_items[item_id] = self.trade_items[item_id] / 5
 
-                if self.special_resource == Consts.TradeItems[i].resource_high_price:
-                    self.trade_items[i] = self.trade_items[i] * 3 / 4
+            # Another small random factor
+            self.trade_items[item_id] = self.trade_items[item_id] - randint(1, 10) + randint(1, 10)
 
-                if self.system_pressure == Consts.TradeItems[i].pressure_price_hike:
-                    self.trade_items[i] = self.trade_items[i] / 5
-
-                self.trade_items[i] = self.trade_items[i] - randint(10) + randint(10)
-
-                if self.trade_items[i] < 0:
-                    self.trade_items[i] = 0
+            # Finally just make sure it's not negative
+            if self.trade_items[item_id] < 0:
+                self.trade_items[item_id] = 0
 
     def is_item_traded(self, item):
-        return (
-            (item.item_type != TradeItemType.NARCOTICS or self.get_political_system().is_drugs_ok())
-            and (item.item_type != TradeItemType.FIREARMS or self.get_political_system().is_firearms_ok())
-            and self.tech_level.cast_to_int() >= item.tech_production.cast_to_int()
-        )
+        NotImplementedError
+        # return (
+        #     (item.item_type != d.NARCOTICS or self.get_political_system().is_drugs_ok())
+        #     and (item.item_type != d.FIREARMS or self.get_political_system().is_firearms_ok())
+        #     and self.tech_level.cast_to_int() >= item.tech_production.cast_to_int()
+        # )
 
     def item_used(self, item):
         return (
-            (item.item_type != TradeItemType.NARCOTICS or self.get_political_system().is_drugs_ok())
-            and (item.item_type != TradeItemType.FIREARMS or self.get_political_system().is_firearms_ok())
+            (item.item_type != d.NARCOTICS or self.get_political_system().is_drugs_ok())
+            and (item.item_type != d.FIREARMS or self.get_political_system().is_firearms_ok())
             and self.tech_level.cast_to_int() >= item.tech_usage.cast_to_int()
         )
 

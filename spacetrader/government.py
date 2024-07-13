@@ -7,6 +7,8 @@
     respective traits as a result of the government.
 """
 
+from enum import Enum
+
 from constants import GOVT_NAMES, Activity, GovernmentId, TechLevel, TradeItemType
 
 

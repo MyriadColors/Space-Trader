@@ -7,6 +7,7 @@
 """
 
 from enum import Enum
+from random import randint
 
 COLORS = {
     "default": "brown",
@@ -42,7 +43,7 @@ SECTOR_DIAMETER = 13
 
 
 # Economy
-class TradeItemType(Enum):
+class TradeItemId:
     WATER = 0
     FURS = 1
     FOOD = 2
@@ -55,6 +56,20 @@ class TradeItemType(Enum):
     ROBOTS = 9
     NONE = 10
 
+
+TRADEITEMS = {
+    TradeItemId.WATER: "Water",
+    TradeItemId.FURS: "Furs",
+    TradeItemId.FOOD: "Food",
+    TradeItemId.ORE: "Ore",
+    TradeItemId.GAMES: "Games",
+    TradeItemId.FIREARMS: "Firearms",
+    TradeItemId.MEDICINE: "Medicine",
+    TradeItemId.MACHINERY: "Machinery",
+    TradeItemId.NARCOTICS: "Narcotics",
+    TradeItemId.ROBOTS: "Robots",
+    TradeItemId.NONE: "None",
+}
 
 INTEREST_RATE = 0.1
 INSURANCE_RATE = 0.0025
@@ -94,7 +109,7 @@ class CombatReputation(Enum):
 
 
 # System
-class PlanetId(Enum):
+class PlanetId:
     ACAMAR = 0
     ADAHN = 1
     ALDEA = 2
@@ -218,7 +233,7 @@ class PlanetId(Enum):
     ZUUL = 120
 
 
-class Activity(Enum):
+class Activity:
     ABSENT = 0
     MINIMAL = 1
     FEW = 2
@@ -230,7 +245,7 @@ class Activity(Enum):
     UNAVAILABLE = 100
 
 
-class GovernmentId(Enum):
+class GovernmentId:
     ANARCHY = 0
     CAPITALIST = 1
     COMMUNIST = 2
@@ -250,7 +265,7 @@ class GovernmentId(Enum):
     THEOCRACY = 16
 
 
-class TechLevel(Enum):
+class TechLevel:
     PRE_AGRICULTURAL = 0
     AGRICULTURAL = 1
     MEDIEVAL = 2
@@ -262,7 +277,7 @@ class TechLevel(Enum):
     UNAVAILABLE = 8
 
 
-class Size(Enum):
+class Size:
     TINY = 0
     SMALL = 1
     MEDIUM = 2
@@ -271,7 +286,7 @@ class Size(Enum):
     GARGANTUAN = 5
 
 
-class SpecialResource(Enum):
+class SpecialResource:
     NOTHING = 0
     MINERAL_RICH = 1
     MINERAL_POOR = 2
@@ -286,8 +301,11 @@ class SpecialResource(Enum):
     ARTISTIC = 11
     WARLIKE = 12
 
+    def random() -> int:
+        return randint(1, 12)
 
-class SocietalPressure(Enum):
+
+class SocietalPressure:
     NONE = 0
     WAR = 1
     PLAGUE = 2

@@ -42,25 +42,26 @@ class Universe:
         Generate the planets for the game world.
         """
 
-        for id, planet_name in PLANET_NAMES:
+        for id, planet_name in PLANET_NAMES.items():
 
-            planet_size = choice(Size)
-            planet_govt = choice(GovernmentId)
+            planet_size = randint(0, 5)
+            planet_govt = choice(GOVERNMENTS)
 
             # TODO can transition this to a choice of valid_tech_levels
-            tech_level = randint(GOVERNMENTS[planet_govt].minTech, GOVERNMENTS[planet_govt].maxTech)
+            print(planet_govt.minTech, planet_govt.maxTech)
+            tech_level = randint(planet_govt.minTech, planet_govt.maxTech)
 
             # As per the original code, ~15% of planets have no societal pressure
-            if randint(100) >= 15:
+            if randint(1, 100) >= 15:
                 soci_pressure = SocietalPressure.NONE
             else:
                 soci_pressure = choice([sp for sp in SocietalPressure if sp != SocietalPressure.NONE])
 
             # As per the original code, ~40% of planets have no special resource
-            if randint(5) < 3:
+            if randint(1, 5) < 3:
                 special_resource = SpecialResource.NOTHING
             else:
-                special_resource = choice([sr for sr in SpecialResource if sr != SpecialResource.NOTHING])
+                special_resource = SpecialResource.random()
 
             # Generate system position
             x, y = self.pick_valid_xy(id)
