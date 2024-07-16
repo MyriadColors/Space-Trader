@@ -205,7 +205,7 @@ class Planet:
                 self.trade_items[item_id] = 0
 
     def is_item_traded(self, item):
-        NotImplementedError
+        raise NotImplementedError
         # return (
         #     (item.item_type != d.NARCOTICS or self.get_political_system().is_drugs_ok())
         #     and (item.item_type != d.FIREARMS or self.get_political_system().is_firearms_ok())
@@ -213,11 +213,12 @@ class Planet:
         # )
 
     def item_used(self, item):
-        return (
-            (item.item_type != d.NARCOTICS or self.get_political_system().is_drugs_ok())
-            and (item.item_type != d.FIREARMS or self.get_political_system().is_firearms_ok())
-            and self.tech_level.cast_to_int() >= item.tech_usage.cast_to_int()
-        )
+        raise NotImplementedError
+        # return (
+        #     (item.item_type != d.NARCOTICS or self.get_political_system().is_drugs_ok())
+        #     and (item.item_type != d.FIREARMS or self.get_political_system().is_firearms_ok())
+        #     and self.tech_level.cast_to_int() >= item.tech_usage.cast_to_int()
+        # )
 
     def get_inventory(self):
         return self.trade_items

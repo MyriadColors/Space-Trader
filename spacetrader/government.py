@@ -9,14 +9,12 @@
 
 from enum import Enum
 
-from constants import GOVT_NAMES, Activity, GovernmentId, TechLevel, TradeItemType
+from constants import GOVT_NAMES, Activity, GovernmentId, TechLevel, TradeItemId
 
 
 class PoliticalSystem:
 
-    def __init__(
-        self, name, stability, law, crime, economy, minTech, maxTech, trade, tradeable, smuggle, tradeItemType
-    ):
+    def __init__(self, name, stability, law, crime, economy, minTech, maxTech, trade, tradeable, smuggle, tradeItemId):
         self.name = name
         self.stability = stability
         self.law = law
@@ -27,7 +25,7 @@ class PoliticalSystem:
         self.trade = trade
         self.tradeable = tradeable
         self.smuggle = smuggle
-        self.tradeItemType = tradeItemType
+        self.tradeItemId = tradeItemId
 
 
 GOVERNMENTS = {
@@ -42,7 +40,7 @@ GOVERNMENTS = {
         7,
         True,
         True,
-        TradeItemType.FOOD,
+        TradeItemId.FOOD,
     ),
     GovernmentId.CAPITALIST: PoliticalSystem(
         GOVT_NAMES[GovernmentId.CAPITALIST],
@@ -55,7 +53,7 @@ GOVERNMENTS = {
         1,
         True,
         True,
-        TradeItemType.ORE,
+        TradeItemId.ORE,
     ),
     GovernmentId.COMMUNIST: PoliticalSystem(
         GOVT_NAMES[GovernmentId.COMMUNIST],
@@ -68,7 +66,7 @@ GOVERNMENTS = {
         5,
         True,
         True,
-        TradeItemType.NONE,
+        TradeItemId.NONE,
     ),
     GovernmentId.CONFEDERACY: PoliticalSystem(
         GOVT_NAMES[GovernmentId.CONFEDERACY],
@@ -81,7 +79,7 @@ GOVERNMENTS = {
         3,
         True,
         True,
-        TradeItemType.GAMES,
+        TradeItemId.GAMES,
     ),
     GovernmentId.CORPORATE: PoliticalSystem(
         GOVT_NAMES[GovernmentId.CORPORATE],
@@ -94,7 +92,7 @@ GOVERNMENTS = {
         2,
         True,
         True,
-        TradeItemType.ROBOTS,
+        TradeItemId.ROBOTS,
     ),
     GovernmentId.CYBERNETIC: PoliticalSystem(
         GOVT_NAMES[GovernmentId.CYBERNETIC],
@@ -107,7 +105,7 @@ GOVERNMENTS = {
         0,
         False,
         False,
-        TradeItemType.ORE,
+        TradeItemId.ORE,
     ),
     GovernmentId.DEMOCRACY: PoliticalSystem(
         GOVT_NAMES[GovernmentId.DEMOCRACY],
@@ -120,7 +118,7 @@ GOVERNMENTS = {
         2,
         True,
         True,
-        TradeItemType.GAMES,
+        TradeItemId.GAMES,
     ),
     GovernmentId.DICTATORSHIP: PoliticalSystem(
         GOVT_NAMES[GovernmentId.DICTATORSHIP],
@@ -133,7 +131,7 @@ GOVERNMENTS = {
         2,
         True,
         True,
-        TradeItemType.NONE,
+        TradeItemId.NONE,
     ),
     GovernmentId.FASCIST: PoliticalSystem(
         GOVT_NAMES[GovernmentId.FASCIST],
@@ -146,7 +144,7 @@ GOVERNMENTS = {
         0,
         False,
         True,
-        TradeItemType.MACHINERY,
+        TradeItemId.MACHINERY,
     ),
     GovernmentId.FEUDAL: PoliticalSystem(
         GOVT_NAMES[GovernmentId.FEUDAL],
@@ -159,7 +157,7 @@ GOVERNMENTS = {
         6,
         True,
         True,
-        TradeItemType.FIREARMS,
+        TradeItemId.FIREARMS,
     ),
     GovernmentId.MILITARY: PoliticalSystem(
         GOVT_NAMES[GovernmentId.MILITARY],
@@ -172,7 +170,7 @@ GOVERNMENTS = {
         0,
         False,
         True,
-        TradeItemType.ROBOTS,
+        TradeItemId.ROBOTS,
     ),
     GovernmentId.MONARCHY: PoliticalSystem(
         GOVT_NAMES[GovernmentId.MONARCHY],
@@ -185,7 +183,7 @@ GOVERNMENTS = {
         4,
         True,
         True,
-        TradeItemType.MEDICINE,
+        TradeItemId.MEDICINE,
     ),
     GovernmentId.PACIFIST: PoliticalSystem(
         GOVT_NAMES[GovernmentId.PACIFIST],
@@ -198,7 +196,7 @@ GOVERNMENTS = {
         1,
         True,
         False,
-        TradeItemType.NONE,
+        TradeItemId.NONE,
     ),
     GovernmentId.SOCIALIST: PoliticalSystem(
         GOVT_NAMES[GovernmentId.SOCIALIST],
@@ -211,7 +209,7 @@ GOVERNMENTS = {
         6,
         True,
         True,
-        TradeItemType.NONE,
+        TradeItemId.NONE,
     ),
     GovernmentId.SATORI: PoliticalSystem(
         GOVT_NAMES[GovernmentId.SATORI],
@@ -224,7 +222,7 @@ GOVERNMENTS = {
         0,
         False,
         False,
-        TradeItemType.NONE,
+        TradeItemId.NONE,
     ),
     GovernmentId.TECHNOCRACY: PoliticalSystem(
         GOVT_NAMES[GovernmentId.TECHNOCRACY],
@@ -237,7 +235,7 @@ GOVERNMENTS = {
         2,
         True,
         True,
-        TradeItemType.WATER,
+        TradeItemId.WATER,
     ),
     GovernmentId.THEOCRACY: PoliticalSystem(
         GOVT_NAMES[GovernmentId.THEOCRACY],
@@ -250,6 +248,6 @@ GOVERNMENTS = {
         0,
         True,
         True,
-        TradeItemType.NARCOTICS,
+        TradeItemId.NARCOTICS,
     ),
 }

@@ -6,7 +6,7 @@
     This module contains the classes and functions for the game economy such as trade wares and prices.
 """
 
-from constants import SocietalPressure, SpecialResource, TechLevel, TradeItemType
+from constants import SocietalPressure, SpecialResource, TechLevel, TradeItemId
 
 
 # TODO min and max price descriptions need to be checked against code
@@ -15,7 +15,7 @@ class Ware:
     """
     Class containing the trade wares and their respective attributes.
 
-    params: id - enum TradeItemType
+    params: id - enum TradeItemId
     params: tech_level_prod - Tech level needed for production
     params: tech_level_min - Tech level needed to use
     params: tech_level_max - Tech level which produces this item the most
@@ -63,7 +63,7 @@ class Ware:
 
 
 TradeItems = {
-    TradeItemType.WATER: Ware(
+    TradeItemId.WATER: Ware(
         "Water",
         TechLevel.PRE_AGRICULTURAL,
         TechLevel.PRE_AGRICULTURAL,
@@ -78,7 +78,7 @@ TradeItems = {
         50,
         1,
     ),
-    TradeItemType.FURS: Ware(
+    TradeItemId.FURS: Ware(
         "Furs",
         TechLevel.PRE_AGRICULTURAL,
         TechLevel.PRE_AGRICULTURAL,
@@ -93,7 +93,7 @@ TradeItems = {
         280,
         5,
     ),
-    TradeItemType.FOOD: Ware(
+    TradeItemId.FOOD: Ware(
         "Food",
         TechLevel.AGRICULTURAL,
         TechLevel.PRE_AGRICULTURAL,
@@ -108,7 +108,7 @@ TradeItems = {
         160,
         5,
     ),
-    TradeItemType.ORE: Ware(
+    TradeItemId.ORE: Ware(
         "Ore",
         TechLevel.MEDIEVAL,
         TechLevel.MEDIEVAL,
@@ -123,7 +123,7 @@ TradeItems = {
         420,
         10,
     ),
-    TradeItemType.GAMES: Ware(
+    TradeItemId.GAMES: Ware(
         "Games",
         TechLevel.RENAISSANCE,
         TechLevel.AGRICULTURAL,
@@ -138,7 +138,7 @@ TradeItems = {
         270,
         5,
     ),
-    TradeItemType.FIREARMS: Ware(
+    TradeItemId.FIREARMS: Ware(
         "Firearms",
         TechLevel.RENAISSANCE,
         TechLevel.AGRICULTURAL,
@@ -153,7 +153,7 @@ TradeItems = {
         1100,
         25,
     ),
-    TradeItemType.MEDICINE: Ware(
+    TradeItemId.MEDICINE: Ware(
         "Medicine",
         TechLevel.EARLY_INDUSTRIAL,
         TechLevel.AGRICULTURAL,
@@ -168,7 +168,7 @@ TradeItems = {
         700,
         25,
     ),
-    TradeItemType.MACHINERY: Ware(
+    TradeItemId.MACHINERY: Ware(
         "Machinery",
         TechLevel.EARLY_INDUSTRIAL,
         TechLevel.RENAISSANCE,
@@ -183,7 +183,7 @@ TradeItems = {
         800,
         25,
     ),
-    TradeItemType.NARCOTICS: Ware(
+    TradeItemId.NARCOTICS: Ware(
         "Narrcotics",
         TechLevel.INDUSTRIAL,
         TechLevel.PRE_AGRICULTURAL,
@@ -198,7 +198,7 @@ TradeItems = {
         3000,
         50,
     ),
-    TradeItemType.ROBOTS: Ware(
+    TradeItemId.ROBOTS: Ware(
         "Robots",
         TechLevel.POST_INDUSTRIAL,
         TechLevel.EARLY_INDUSTRIAL,

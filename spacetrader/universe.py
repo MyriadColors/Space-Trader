@@ -55,13 +55,13 @@ class Universe:
             if randint(1, 100) >= 15:
                 soci_pressure = SocietalPressure.NONE
             else:
-                soci_pressure = choice([sp for sp in SocietalPressure if sp != SocietalPressure.NONE])
+                soci_pressure = randint(1, 7)
 
             # As per the original code, ~40% of planets have no special resource
             if randint(1, 5) < 3:
                 special_resource = SpecialResource.NOTHING
             else:
-                special_resource = SpecialResource.random()
+                special_resource = randint(1, 12)
 
             # Generate system position
             x, y = self.pick_valid_xy(id)
