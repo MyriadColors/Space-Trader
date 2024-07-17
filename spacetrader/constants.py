@@ -43,34 +43,6 @@ SECTOR_DIAMETER = 13
 
 
 # Economy
-class TradeItemId:
-    WATER = 0
-    FURS = 1
-    FOOD = 2
-    ORE = 3
-    GAMES = 4
-    FIREARMS = 5
-    MEDICINE = 6
-    MACHINERY = 7
-    NARCOTICS = 8
-    ROBOTS = 9
-    NONE = 10
-
-
-TRADEITEMS = {
-    TradeItemId.WATER: "Water",
-    TradeItemId.FURS: "Furs",
-    TradeItemId.FOOD: "Food",
-    TradeItemId.ORE: "Ore",
-    TradeItemId.GAMES: "Games",
-    TradeItemId.FIREARMS: "Firearms",
-    TradeItemId.MEDICINE: "Medicine",
-    TradeItemId.MACHINERY: "Machinery",
-    TradeItemId.NARCOTICS: "Narcotics",
-    TradeItemId.ROBOTS: "Robots",
-    TradeItemId.NONE: "None",
-}
-
 INTEREST_RATE = 0.1
 INSURANCE_RATE = 0.0025
 DEBT_WARN = 75000
@@ -243,26 +215,6 @@ class Activity:
     ABUNDANT = 6
     SWARMS = 7
     UNAVAILABLE = 100
-
-
-class GovernmentId:
-    ANARCHY = 0
-    CAPITALIST = 1
-    COMMUNIST = 2
-    CONFEDERACY = 3
-    CORPORATE = 4
-    CYBERNETIC = 5
-    DEMOCRACY = 6
-    DICTATORSHIP = 7
-    FASCIST = 8
-    FEUDAL = 9
-    MILITARY = 10
-    MONARCHY = 11
-    PACIFIST = 12
-    SOCIALIST = 13
-    SATORI = 14
-    TECHNOCRACY = 15
-    THEOCRACY = 16
 
 
 class TechLevel:
@@ -438,25 +390,6 @@ PLANET_NAMES = {
     PlanetId.YOJIMBO: "Yojimbo",
     PlanetId.ZALKON: "Zalkon",
     PlanetId.ZUUL: "Zuul",
-}
-GOVT_NAMES = {
-    GovernmentId.ANARCHY: "Anarchy",
-    GovernmentId.CAPITALIST: "Capitalist",
-    GovernmentId.COMMUNIST: "Communist",
-    GovernmentId.CONFEDERACY: "Confederacy",
-    GovernmentId.CORPORATE: "Corporate",
-    GovernmentId.CYBERNETIC: "Cybernetic",
-    GovernmentId.DEMOCRACY: "Democracy",
-    GovernmentId.DICTATORSHIP: "Dictatorship",
-    GovernmentId.FASCIST: "Facist",
-    GovernmentId.FEUDAL: "Feudal",
-    GovernmentId.MILITARY: "Military",
-    GovernmentId.MONARCHY: "Monarchy",
-    GovernmentId.PACIFIST: "Pacifist",
-    GovernmentId.SOCIALIST: "Socialist",
-    GovernmentId.SATORI: "Satori",
-    GovernmentId.TECHNOCRACY: "Technocracy",
-    GovernmentId.THEOCRACY: "Theocracy",
 }
 SYSTEMSIZE = {
     Size.TINY: "Tiny",

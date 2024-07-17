@@ -7,14 +7,46 @@
     respective traits as a result of the government.
 """
 
-from enum import Enum
+from constants import Activity, TechLevel
+from economy import TradeItemId
 
-from constants import GOVT_NAMES, Activity, GovernmentId, TechLevel, TradeItemId
+
+class GovernmentId:
+    ANARCHY = 0
+    CAPITALIST = 1
+    COMMUNIST = 2
+    CONFEDERACY = 3
+    CORPORATE = 4
+    CYBERNETIC = 5
+    DEMOCRACY = 6
+    DICTATORSHIP = 7
+    FASCIST = 8
+    FEUDAL = 9
+    MILITARY = 10
+    MONARCHY = 11
+    PACIFIST = 12
+    SOCIALIST = 13
+    SATORI = 14
+    TECHNOCRACY = 15
+    THEOCRACY = 16
 
 
 class PoliticalSystem:
 
-    def __init__(self, name, stability, law, crime, economy, minTech, maxTech, trade, tradeable, smuggle, tradeItemId):
+    def __init__(
+        self,
+        name,
+        stability,
+        law,
+        crime,
+        economy,
+        minTech,
+        maxTech,
+        bribe_difficulty,
+        drug_tolerance,
+        firearm_tolerance,
+        tradeItemId,
+    ):
         self.name = name
         self.stability = stability
         self.law = law
@@ -22,15 +54,27 @@ class PoliticalSystem:
         self.economy = economy
         self.minTech = minTech
         self.maxTech = maxTech
-        self.trade = trade
-        self.tradeable = tradeable
-        self.smuggle = smuggle
+        self.bribe_difficulty = bribe_difficulty
+        self.drug_tolerance = drug_tolerance
+        self.firearm_tolerance = firearm_tolerance
         self.tradeItemId = tradeItemId
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return f"{self.name} ({self.stability}, {self.law}, {self.crime}, {self.economy})"
+
+    def firearms_ok(self) -> bool:
+        return self.firearm_tolerance
+
+    def drugs_ok(self) -> bool:
+        return self.drug_tolerance
 
 
 GOVERNMENTS = {
     GovernmentId.ANARCHY: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.ANARCHY],
+        "Anarchy",
         0,
         Activity.ABSENT,
         Activity.SWARMS,
@@ -43,7 +87,7 @@ GOVERNMENTS = {
         TradeItemId.FOOD,
     ),
     GovernmentId.CAPITALIST: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.CAPITALIST],
+        "Capitalist",
         2,
         Activity.SOME,
         Activity.FEW,
@@ -56,7 +100,7 @@ GOVERNMENTS = {
         TradeItemId.ORE,
     ),
     GovernmentId.COMMUNIST: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.COMMUNIST],
+        "Communist",
         6,
         Activity.ABUNDANT,
         Activity.MODERATE,
@@ -69,7 +113,7 @@ GOVERNMENTS = {
         TradeItemId.NONE,
     ),
     GovernmentId.CONFEDERACY: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.CONFEDERACY],
+        "Confederacy",
         5,
         Activity.MODERATE,
         Activity.SOME,
@@ -82,7 +126,7 @@ GOVERNMENTS = {
         TradeItemId.GAMES,
     ),
     GovernmentId.CORPORATE: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.CORPORATE],
+        "Corporate",
         2,
         Activity.ABUNDANT,
         Activity.FEW,
@@ -95,7 +139,7 @@ GOVERNMENTS = {
         TradeItemId.ROBOTS,
     ),
     GovernmentId.CYBERNETIC: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.CYBERNETIC],
+        "Cybernetic",
         0,
         Activity.SWARMS,
         Activity.SWARMS,
@@ -108,7 +152,7 @@ GOVERNMENTS = {
         TradeItemId.ORE,
     ),
     GovernmentId.DEMOCRACY: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.DEMOCRACY],
+        "Democracy",
         4,
         Activity.SOME,
         Activity.FEW,
@@ -121,7 +165,7 @@ GOVERNMENTS = {
         TradeItemId.GAMES,
     ),
     GovernmentId.DICTATORSHIP: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.DICTATORSHIP],
+        "Dictatorship",
         3,
         Activity.MODERATE,
         Activity.MANY,
@@ -134,7 +178,7 @@ GOVERNMENTS = {
         TradeItemId.NONE,
     ),
     GovernmentId.FASCIST: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.FASCIST],
+        "Fascist",
         7,
         Activity.SWARMS,
         Activity.SWARMS,
@@ -147,7 +191,7 @@ GOVERNMENTS = {
         TradeItemId.MACHINERY,
     ),
     GovernmentId.FEUDAL: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.FEUDAL],
+        "Feudal",
         1,
         Activity.MINIMAL,
         Activity.ABUNDANT,
@@ -160,7 +204,7 @@ GOVERNMENTS = {
         TradeItemId.FIREARMS,
     ),
     GovernmentId.MILITARY: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.MILITARY],
+        "Military",
         7,
         Activity.SWARMS,
         Activity.ABSENT,
@@ -173,7 +217,7 @@ GOVERNMENTS = {
         TradeItemId.ROBOTS,
     ),
     GovernmentId.MONARCHY: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.MONARCHY],
+        "Monarchy",
         3,
         Activity.MODERATE,
         Activity.SOME,
@@ -186,7 +230,7 @@ GOVERNMENTS = {
         TradeItemId.MEDICINE,
     ),
     GovernmentId.PACIFIST: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.PACIFIST],
+        "Pacifist",
         7,
         Activity.FEW,
         Activity.MINIMAL,
@@ -199,7 +243,7 @@ GOVERNMENTS = {
         TradeItemId.NONE,
     ),
     GovernmentId.SOCIALIST: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.SOCIALIST],
+        "Socialist",
         4,
         Activity.FEW,
         Activity.MANY,
@@ -212,7 +256,7 @@ GOVERNMENTS = {
         TradeItemId.NONE,
     ),
     GovernmentId.SATORI: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.SATORI],
+        "Satori",
         0,
         Activity.MINIMAL,
         Activity.MINIMAL,
@@ -225,7 +269,7 @@ GOVERNMENTS = {
         TradeItemId.NONE,
     ),
     GovernmentId.TECHNOCRACY: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.TECHNOCRACY],
+        "Technocracy",
         1,
         Activity.ABUNDANT,
         Activity.SOME,
@@ -238,7 +282,7 @@ GOVERNMENTS = {
         TradeItemId.WATER,
     ),
     GovernmentId.THEOCRACY: PoliticalSystem(
-        GOVT_NAMES[GovernmentId.THEOCRACY],
+        "Theocracy",
         5,
         Activity.ABUNDANT,
         Activity.MINIMAL,
@@ -250,4 +294,24 @@ GOVERNMENTS = {
         True,
         TradeItemId.NARCOTICS,
     ),
+}
+
+GOVT_NAMES = {
+    GovernmentId.ANARCHY: "Anarchy",
+    GovernmentId.CAPITALIST: "Capitalist",
+    GovernmentId.COMMUNIST: "Communist",
+    GovernmentId.CONFEDERACY: "Confederacy",
+    GovernmentId.CORPORATE: "Corporate",
+    GovernmentId.CYBERNETIC: "Cybernetic",
+    GovernmentId.DEMOCRACY: "Democracy",
+    GovernmentId.DICTATORSHIP: "Dictatorship",
+    GovernmentId.FASCIST: "Facist",
+    GovernmentId.FEUDAL: "Feudal",
+    GovernmentId.MILITARY: "Military",
+    GovernmentId.MONARCHY: "Monarchy",
+    GovernmentId.PACIFIST: "Pacifist",
+    GovernmentId.SOCIALIST: "Socialist",
+    GovernmentId.SATORI: "Satori",
+    GovernmentId.TECHNOCRACY: "Technocracy",
+    GovernmentId.THEOCRACY: "Theocracy",
 }

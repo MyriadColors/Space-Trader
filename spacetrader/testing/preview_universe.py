@@ -6,7 +6,6 @@ from constants import Activity
 from universe import Universe
 
 if __name__ == "__main__":
-    print(Activity.ABSENT)
     testverse = Universe()
 
     print(testverse.planets)

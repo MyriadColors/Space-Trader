@@ -15,8 +15,6 @@ from constants import (
     MIN_DISTANCE,
     PLANET_NAMES,
     SECTOR_DIAMETER,
-    GovernmentId,
-    Size,
     SocietalPressure,
     SpecialResource,
 )
@@ -48,7 +46,7 @@ class Universe:
             planet_govt = choice(GOVERNMENTS)
 
             # TODO can transition this to a choice of valid_tech_levels
-            print(planet_govt.minTech, planet_govt.maxTech)
+            # print(planet_govt.minTech, planet_govt.maxTech)
             tech_level = randint(planet_govt.minTech, planet_govt.maxTech)
 
             # As per the original code, ~15% of planets have no societal pressure
@@ -101,11 +99,11 @@ class Universe:
                 while j < id and not too_close:
 
                     # Minimum distance between any two systems not to be accepted.
-                    if distance(Universe[j], x, y) < MIN_DISTANCE:
+                    if distance(self.planets[j], x, y) < MIN_DISTANCE:
                         too_close = True
 
                     # There should be at least one system which is close enough.
-                    if distance(Universe[j], x, y) < SECTOR_DIAMETER:
+                    if distance(self.planets[j], x, y) < SECTOR_DIAMETER:
                         close_found = True
 
                     j += 1

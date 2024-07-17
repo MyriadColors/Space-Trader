@@ -6,16 +6,32 @@
     This module contains the classes and functions for the game economy such as trade wares and prices.
 """
 
-from constants import SocietalPressure, SpecialResource, TechLevel, TradeItemId
+from constants import SocietalPressure, SpecialResource, TechLevel
 
 
-# TODO min and max price descriptions need to be checked against code
-# TODO min_prod and max_prod descriptions need to be checked against code, seem duplicated
+class TradeItemId:
+    WATER = 0
+    FURS = 1
+    FOOD = 2
+    ORE = 3
+    GAMES = 4
+    FIREARMS = 5
+    MEDICINE = 6
+    MACHINERY = 7
+    NARCOTICS = 8
+    ROBOTS = 9
+    NONE = 10
+
+    @staticmethod
+    def enum() -> list[int]:
+        return range(10)
+
+
 class Ware:
     """
     Class containing the trade wares and their respective attributes.
 
-    params: id - enum TradeItemId
+    params: name - Trade item name
     params: tech_level_prod - Tech level needed for production
     params: tech_level_min - Tech level needed to use
     params: tech_level_max - Tech level which produces this item the most
@@ -30,9 +46,11 @@ class Ware:
     params: quantity - Roundoff price for trade in orbit
     """
 
+    # TODO min and max price descriptions need to be checked against code
+    # TODO min_prod and max_prod descriptions need to be checked against code, seem duplicated
     def __init__(
         self,
-        id,
+        name,
         tech_level_prod,
         tech_level_min,
         tech_level_max,
@@ -47,7 +65,7 @@ class Ware:
         quantity,
     ):
 
-        self.id = id
+        self.name = name
         self.tech_level_prod = tech_level_prod
         self.tech_level_min = tech_level_min
         self.tech_level_max = tech_level_max
@@ -60,6 +78,12 @@ class Ware:
         self.min_prod = min_prod
         self.max_prod = max_prod
         self.quantity = quantity
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
 
 TradeItems = {

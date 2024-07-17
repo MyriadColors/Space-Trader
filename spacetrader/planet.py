@@ -10,8 +10,9 @@
 from math import floor, pow, sqrt
 from random import choice, randint
 
-from constants import GOVT_NAMES, SPECIALRESOURCES, TRADEITEMS, TradeItemId
-from economy import TradeItems
+from constants import SPECIALRESOURCES
+from economy import TradeItemId, TradeItems
+from government import GOVERNMENTS, PoliticalSystem
 
 TMPGAMEDIFFICULTY = 1
 
@@ -25,7 +26,7 @@ class Planet:
     params: y - y coordinate of the planet
     params: size - planet size
     params: tech_level - tech level of the planet
-    params: govt_type - political system type of the planet
+    params: government - political system type of the planet
     params: soci_pressure - current pressure on the planet
     params: special_resource - current special resource of the planet
     params: quest_system - whether the planet is a quest host
@@ -41,7 +42,7 @@ class Planet:
         x: int,
         y: int,
         size: int,
-        govt_type: int,
+        government: PoliticalSystem,
         tech_level: int,
         soci_pressure: int,
         special_resource: int,
@@ -50,7 +51,7 @@ class Planet:
         self.x = x
         self.y = y
         self.size = size
-        self.govt_type = govt_type
+        self.government = government
         self.tech_level = tech_level
         self.soci_pressure = soci_pressure
         self.special_resource = special_resource
@@ -101,8 +102,14 @@ class Planet:
         self.tech_level = value
 
     # TODO implement
-    def dest_is_ok(self):
-        NotImplementedError
+    def dest_is_ok(self) -> bool:
+        """
+        Check if the destination is reachable with the current fuel level
+        Also account for wormholes
+
+        return: bool - whether the destination is reachable
+        """
+        raise NotImplementedError("Planet.dest_is_ok not implemented")
         # comm = Game.current_game.commander
         # return self != comm.current_system and (
         #     self.get_distance() <= comm.ship.fuel or Functions.wormhole_exists(comm.current_system, self)
@@ -113,14 +120,14 @@ class Planet:
 
     # Political Interfaces
     # TODO maybe change to alter_ and handle political shift logic here
-    def set_govt_type(self, value):
-        self.govt_type = value
+    def set_govt_type(self, value) -> None:
+        self.government = value
 
-    def get_govt_type(self):
-        return self.govt_type
+    def get_govt_type(self) -> int:
+        return self.government
 
-    def get_government_name(self):
-        return GOVT_NAMES[self.govt_type]
+    def get_government_name(self) -> str:
+        return str(self.government)
 
     # Economic Interfaces
     def get_pressure(self) -> int:
@@ -171,7 +178,7 @@ class Planet:
         Set the starting quantity of each trade good for the planet
         """
 
-        for item_id in TRADEITEMS:
+        for item_id in TradeItemId.enum():
 
             # Make sure the item is allowed to be traded
             if not self.is_item_traded(item_id):
@@ -182,7 +189,7 @@ class Planet:
                     randint(9, 14) - abs(TradeItems[item_id].tech_level_max - self.tech_level)
                 )
 
-            # Because of the enormous profits possible,
+            # Because of the enormous profitssss possible,
             # there shouldn't be too many robots or narcotics available
             if item_id >= TradeItemId.NARCOTICS:
                 self.trade_items[item_id] = (
@@ -204,16 +211,30 @@ class Planet:
             if self.trade_items[item_id] < 0:
                 self.trade_items[item_id] = 0
 
-    def is_item_traded(self, item):
-        raise NotImplementedError
-        # return (
-        #     (item.item_type != d.NARCOTICS or self.get_political_system().is_drugs_ok())
-        #     and (item.item_type != d.FIREARMS or self.get_political_system().is_firearms_ok())
-        #     and self.tech_level.cast_to_int() >= item.tech_production.cast_to_int()
-        # )
+    def is_item_traded(self, item) -> bool:
+        """
+        Given an item ID, check with the planets political system to see if it can be traded
+
+        params: item - item ID to check
+
+        return: bool - whether the item can be traded
+        """
+
+        if item not in [TradeItemId.FIREARMS, TradeItemId.NARCOTICS]:
+            return True
+
+        if item == TradeItemId.FIREARMS:
+            print(f"Gov type {self.government}")
+            return self.government.firearms_ok()
+
+        elif item == TradeItemId.NARCOTICS:
+            return self.government.drugs_ok()
+
+        else:
+            raise ValueError(f"Item ID {item} not valid!")
 
     def item_used(self, item):
-        raise NotImplementedError
+        raise NotImplementedError("Planet.item_used not implemented")
         # return (
         #     (item.item_type != d.NARCOTICS or self.get_political_system().is_drugs_ok())
         #     and (item.item_type != d.FIREARMS or self.get_political_system().is_firearms_ok())
@@ -225,170 +246,171 @@ class Planet:
 
     # Misc Interfaces
     # TODO implement
-    def get_mercenaries_for_hire(self):
+    def get_mercenaries_for_hire(self) -> list:
         """
         Commander			cmdr		= Game.CurrentGame.Commander;
-                                CrewMember[]	mercs		= Game.CurrentGame.Mercenaries;
-                                ArrayList			forHire	= new ArrayList(3);
+        CrewMember[]	mercs		= Game.CurrentGame.Mercenaries;
+        ArrayList			forHire	= new ArrayList(3);
 
-                                for (int i = 1; i < mercs.Length; i++)
-                                {
-                                        if (mercs[i].CurrentSystem == cmdr.CurrentSystem && !cmdr.Ship.HasCrew(mercs[i].Id))
-                                                forHire.Add(mercs[i]);
-                                }
+        for (int i = 1; i < mercs.Length; i++)
+        {
+                if (mercs[i].CurrentSystem == cmdr.CurrentSystem && !cmdr.Ship.HasCrew(mercs[i].Id))
+                        forHire.Add(mercs[i]);
+        }
 
-                                return (CrewMember[])forHire.ToArray(typeof(CrewMember));
+        return (CrewMember[])forHire.ToArray(typeof(CrewMember));
         """
-        cmdr = Game.current_game.commander
-        return [
-            merc
-            for merc in Game.current_game.mercenaries.values()
-            if merc.is_mercenary() and merc.current_system == cmdr.current_system and not cmdr.ship.has_crew(merc.id)
-        ]
+        raise NotImplementedError("Planet.get_mercenaries_for_hire not implemented")
+        # cmdr = Game.current_game.commander
+        # return [
+        #     merc
+        #     for merc in Game.current_game.mercenaries.values()
+        #     if merc.is_mercenary() and merc.current_system == cmdr.current_system and not cmdr.ship.has_crew(merc.id)
+        # ]
 
-    def is_quest_system(self):
+    def is_quest_system(self) -> bool:
         return self.quest_system
 
-    def set_quest_system(self, value):
+    def set_quest_system(self, value) -> None:
         self.quest_system = value
 
     # TODO implement
     def show_quest_button(self):
         """
         public bool ShowSpecialButton()
-                {
-                        Game	game	= Game.CurrentGame;
-                        bool	show	= false;
+        {
+        Game	game	= Game.CurrentGame;
+        bool	show	= false;
 
-                        switch (SpecialEventType)
-                        {
-                                case SpecialEventType.Artifact:
-                                case SpecialEventType.Dragonfly:
-                                case SpecialEventType.Experiment:
-                                case SpecialEventType.Jarek:
-                                        show	= game.Commander.PoliceRecordScore >= Consts.PoliceRecordScoreDubious;
-                                        break;
-                                case SpecialEventType.ArtifactDelivery:
-                                        show	= game.Commander.Ship.ArtifactOnBoard;
-                                        break;
-                                case SpecialEventType.CargoForSale:
-                                        show	= game.Commander.Ship.FreeCargoBays >= 3;
-                                        break;
-                                case SpecialEventType.DragonflyBaratas:
-                                        show	= game.QuestStatusDragonfly > SpecialEvent.StatusDragonflyNotStarted &&
-                                                                        game.QuestStatusDragonfly < SpecialEvent.StatusDragonflyDestroyed;
-                                        break;
-                                case SpecialEventType.DragonflyDestroyed:
-                                        show	= game.QuestStatusDragonfly == SpecialEvent.StatusDragonflyDestroyed;
-                                        break;
-                                case SpecialEventType.DragonflyMelina:
-                                        show	= game.QuestStatusDragonfly > SpecialEvent.StatusDragonflyFlyBaratas &&
-                                                                        game.QuestStatusDragonfly < SpecialEvent.StatusDragonflyDestroyed;
-                                        break;
-                                case SpecialEventType.DragonflyRegulas:
-                                        show	= game.QuestStatusDragonfly > SpecialEvent.StatusDragonflyFlyMelina &&
-                                                                        game.QuestStatusDragonfly < SpecialEvent.StatusDragonflyDestroyed;
-                                        break;
-                                case SpecialEventType.DragonflyShield:
-                                case SpecialEventType.ExperimentFailed:
-                                case SpecialEventType.Gemulon:
-                                case SpecialEventType.GemulonFuel:
-                                case SpecialEventType.GemulonInvaded:
-                                case SpecialEventType.Lottery:
-                                case SpecialEventType.ReactorLaser:
-                                case SpecialEventType.PrincessQuantum:
-                                case SpecialEventType.SculptureHiddenBays:
-                                case SpecialEventType.Skill:
-                                case SpecialEventType.SpaceMonster:
-                                case SpecialEventType.Tribble:
-                                        show	= true;
-                                        break;
-                                case SpecialEventType.EraseRecord:
-                                case SpecialEventType.Wild:
-                                        show	= game.Commander.PoliceRecordScore < Consts.PoliceRecordScoreDubious;
-                                        break;
-                                case SpecialEventType.ExperimentStopped:
-                                        show	= game.QuestStatusExperiment > SpecialEvent.StatusExperimentNotStarted &&
-                                                                        game.QuestStatusExperiment < SpecialEvent.StatusExperimentPerformed;
-                                        break;
-                                case SpecialEventType.GemulonRescued:
-                                        show	= game.QuestStatusGemulon > SpecialEvent.StatusGemulonNotStarted &&
-                                                                        game.QuestStatusGemulon < SpecialEvent.StatusGemulonTooLate;
-                                        break;
-                                case SpecialEventType.Japori:
-                                        show	= game.QuestStatusJapori						== SpecialEvent.StatusJaporiNotStarted &&
-                                                                        game.Commander.PoliceRecordScore	>= Consts.PoliceRecordScoreDubious;
-                                        break;
-                                case SpecialEventType.JaporiDelivery:
-                                        show	= game.QuestStatusJapori == SpecialEvent.StatusJaporiInTransit;
-                                        break;
-                                case SpecialEventType.JarekGetsOut:
-                                        show	= game.Commander.Ship.JarekOnBoard;
-                                        break;
-                                case SpecialEventType.Moon:
-                                        show	= game.QuestStatusMoon == SpecialEvent.StatusMoonNotStarted &&
-                                                                        game.Commander.Worth >  SpecialEvent.MoonCost * .8;
-                                        break;
-                                case SpecialEventType.MoonRetirement:
-                                        show	= game.QuestStatusMoon == SpecialEvent.StatusMoonBought;
-                                        break;
-                                case SpecialEventType.Princess:
-                                        show	= game.Commander.PoliceRecordScore	>= Consts.PoliceRecordScoreLawful &&
-                                                                        game.Commander.ReputationScore		>= Consts.ReputationScoreAverage;
-                                        break;
-                                case SpecialEventType.PrincessCentauri:
-                                        show	= game.QuestStatusPrincess >= SpecialEvent.StatusPrincessFlyCentauri &&
-                                                                        game.QuestStatusPrincess <= SpecialEvent.StatusPrincessFlyQonos;
-                                        break;
-                                case SpecialEventType.PrincessInthara:
-                                        show	= game.QuestStatusPrincess >= SpecialEvent.StatusPrincessFlyInthara &&
-                                                                        game.QuestStatusPrincess <= SpecialEvent.StatusPrincessFlyQonos;
-                                        break;
-                                case SpecialEventType.PrincessQonos:
-                                        show	= game.QuestStatusPrincess == SpecialEvent.StatusPrincessRescued &&
-                                                !game.Commander.Ship.PrincessOnBoard;
-                                        break;
-                                case SpecialEventType.PrincessReturned:
-                                        show	= game.Commander.Ship.PrincessOnBoard;
-                                        break;
-                                case SpecialEventType.Reactor:
-                                        show	= game.QuestStatusReactor						== SpecialEvent.StatusReactorNotStarted &&
-                                                                        game.Commander.PoliceRecordScore	<  Consts.PoliceRecordScoreDubious &&
-                                                                        game.Commander.ReputationScore		>= Consts.ReputationScoreAverage;
-                                        break;
-                                case SpecialEventType.ReactorDelivered:
-                                        show	= game.Commander.Ship.ReactorOnBoard;
-                                        break;
-                                case SpecialEventType.Scarab:
-                                        show	= game.QuestStatusScarab					== SpecialEvent.StatusScarabNotStarted &&
-                                                                        game.Commander.ReputationScore	>= Consts.ReputationScoreAverage;
-                                        break;
-                                case SpecialEventType.ScarabDestroyed:
-                                case SpecialEventType.ScarabUpgradeHull:
-                                        show	= game.QuestStatusScarab == SpecialEvent.StatusScarabDestroyed;
-                                        break;
-                                case SpecialEventType.Sculpture:
-                                        show	= game.QuestStatusSculpture					== SpecialEvent.StatusSculptureNotStarted &&
-                                                                        game.Commander.PoliceRecordScore	<  Consts.PoliceRecordScoreDubious &&
-                                                                        game.Commander.ReputationScore		>= Consts.ReputationScoreAverage;
-                                        break;
-                                case SpecialEventType.SculptureDelivered:
-                                        show	= game.QuestStatusSculpture	== SpecialEvent.StatusSculptureInTransit;
-                                        break;
-                                case SpecialEventType.SpaceMonsterKilled:
-                                        show	= game.QuestStatusSpaceMonster == SpecialEvent.StatusSpaceMonsterDestroyed;
-                                        break;
-                                case SpecialEventType.TribbleBuyer:
-                                        show	= game.Commander.Ship.Tribbles > 0;
-                                        break;
-                                case SpecialEventType.WildGetsOut:
-                                        show	= game.Commander.Ship.WildOnBoard;
-                                        break;
-                                default:
-                                        break;
-                        }
+        switch (SpecialEventType)
+        {
+                case SpecialEventType.Artifact:
+                case SpecialEventType.Dragonfly:
+                case SpecialEventType.Experiment:
+                case SpecialEventType.Jarek:
+                        show	= game.Commander.PoliceRecordScore >= Consts.PoliceRecordScoreDubious;
+                        break;
+                case SpecialEventType.ArtifactDelivery:
+                        show	= game.Commander.Ship.ArtifactOnBoard;
+                        break;
+                case SpecialEventType.CargoForSale:
+                        show	= game.Commander.Ship.FreeCargoBays >= 3;
+                        break;
+                case SpecialEventType.DragonflyBaratas:
+                        show	= game.QuestStatusDragonfly > SpecialEvent.StatusDragonflyNotStarted &&
+                        game.QuestStatusDragonfly < SpecialEvent.StatusDragonflyDestroyed;
+                        break;
+                case SpecialEventType.DragonflyDestroyed:
+                        show	= game.QuestStatusDragonfly == SpecialEvent.StatusDragonflyDestroyed;
+                        break;
+                case SpecialEventType.DragonflyMelina:
+                        show	= game.QuestStatusDragonfly > SpecialEvent.StatusDragonflyFlyBaratas &&
+                        game.QuestStatusDragonfly < SpecialEvent.StatusDragonflyDestroyed;
+                        break;
+                case SpecialEventType.DragonflyRegulas:
+                        show	= game.QuestStatusDragonfly > SpecialEvent.StatusDragonflyFlyMelina &&
+                        game.QuestStatusDragonfly < SpecialEvent.StatusDragonflyDestroyed;
+                        break;
+                case SpecialEventType.DragonflyShield:
+                case SpecialEventType.ExperimentFailed:
+                case SpecialEventType.Gemulon:
+                case SpecialEventType.GemulonFuel:
+                case SpecialEventType.GemulonInvaded:
+                case SpecialEventType.Lottery:
+                case SpecialEventType.ReactorLaser:
+                case SpecialEventType.PrincessQuantum:
+                case SpecialEventType.SculptureHiddenBays:
+                case SpecialEventType.Skill:
+                case SpecialEventType.SpaceMonster:
+                case SpecialEventType.Tribble:
+                        show	= true;
+                        break;
+                case SpecialEventType.EraseRecord:
+                case SpecialEventType.Wild:
+                        show	= game.Commander.PoliceRecordScore < Consts.PoliceRecordScoreDubious;
+                        break;
+                case SpecialEventType.ExperimentStopped:
+                        show	= game.QuestStatusExperiment > SpecialEvent.StatusExperimentNotStarted &&
+                    game.QuestStatusExperiment < SpecialEvent.StatusExperimentPerformed;
+                        break;
+                case SpecialEventType.GemulonRescued:
+                        show	= game.QuestStatusGemulon > SpecialEvent.StatusGemulonNotStarted &&
+                        game.QuestStatusGemulon < SpecialEvent.StatusGemulonTooLate;
+                        break;
+                case SpecialEventType.Japori:
+                        show	= game.QuestStatusJapori						== SpecialEvent.StatusJaporiNotStarted &&
+                        game.Commander.PoliceRecordScore	>= Consts.PoliceRecordScoreDubious;
+                        break;
+                case SpecialEventType.JaporiDelivery:
+                        show	= game.QuestStatusJapori == SpecialEvent.StatusJaporiInTransit;
+                        break;
+                case SpecialEventType.JarekGetsOut:
+                        show	= game.Commander.Ship.JarekOnBoard;
+                        break;
+                case SpecialEventType.Moon:
+                        show	= game.QuestStatusMoon == SpecialEvent.StatusMoonNotStarted &&
+                        game.Commander.Worth >  SpecialEvent.MoonCost * .8;
+                        break;
+                case SpecialEventType.MoonRetirement:
+                        show	= game.QuestStatusMoon == SpecialEvent.StatusMoonBought;
+                        break;
+                case SpecialEventType.Princess:
+                        show	= game.Commander.PoliceRecordScore	>= Consts.PoliceRecordScoreLawful &&
+                        game.Commander.ReputationScore		>= Consts.ReputationScoreAverage;
+                        break;
+                case SpecialEventType.PrincessCentauri:
+                        show	= game.QuestStatusPrincess >= SpecialEvent.StatusPrincessFlyCentauri &&
+                        game.QuestStatusPrincess <= SpecialEvent.StatusPrincessFlyQonos;
+                        break;
+                case SpecialEventType.PrincessInthara:
+                        show	= game.QuestStatusPrincess >= SpecialEvent.StatusPrincessFlyInthara &&
+                        game.QuestStatusPrincess <= SpecialEvent.StatusPrincessFlyQonos;
+                        break;
+                case SpecialEventType.PrincessQonos:
+                        show	= game.QuestStatusPrincess == SpecialEvent.StatusPrincessRescued &&
+                                !game.Commander.Ship.PrincessOnBoard;
+                        break;
+                case SpecialEventType.PrincessReturned:
+                        show	= game.Commander.Ship.PrincessOnBoard;
+                        break;
+                case SpecialEventType.Reactor:
+                        show	= game.QuestStatusReactor						== SpecialEvent.StatusReactorNotStarted &&
+                        game.Commander.PoliceRecordScore	<  Consts.PoliceRecordScoreDubious &&
+                        game.Commander.ReputationScore		>= Consts.ReputationScoreAverage;
+                        break;
+                case SpecialEventType.ReactorDelivered:
+                        show	= game.Commander.Ship.ReactorOnBoard;
+                        break;
+                case SpecialEventType.Scarab:
+                        show	= game.QuestStatusScarab					== SpecialEvent.StatusScarabNotStarted &&
+                                                        game.Commander.ReputationScore	>= Consts.ReputationScoreAverage;
+                        break;
+                case SpecialEventType.ScarabDestroyed:
+                case SpecialEventType.ScarabUpgradeHull:
+                        show	= game.QuestStatusScarab == SpecialEvent.StatusScarabDestroyed;
+                        break;
+                case SpecialEventType.Sculpture:
+                        show	= game.QuestStatusSculpture					== SpecialEvent.StatusSculptureNotStarted &&
+                        game.Commander.PoliceRecordScore	<  Consts.PoliceRecordScoreDubious &&
+                        game.Commander.ReputationScore		>= Consts.ReputationScoreAverage;
+                        break;
+                case SpecialEventType.SculptureDelivered:
+                        show	= game.QuestStatusSculpture	== SpecialEvent.StatusSculptureInTransit;
+                        break;
+                case SpecialEventType.SpaceMonsterKilled:
+                        show	= game.QuestStatusSpaceMonster == SpecialEvent.StatusSpaceMonsterDestroyed;
+                        break;
+                case SpecialEventType.TribbleBuyer:
+                        show	= game.Commander.Ship.Tribbles > 0;
+                        break;
+                case SpecialEventType.WildGetsOut:
+                        show	= game.Commander.Ship.WildOnBoard;
+                        break;
+                default:
+                        break;
+        }
 
-                        return show;
-                }
+        return show;
+        }
         """
-        pass
+        raise NotImplementedError("Planet.show_quest_button not implemented")
