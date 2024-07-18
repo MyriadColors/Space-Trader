@@ -12,7 +12,7 @@ from random import choice, randint
 
 from constants import SPECIALRESOURCES
 from economy import TradeItemId, TradeItems
-from government import GOVERNMENTS, PoliticalSystem
+from government import PoliticalSystem
 
 TMPGAMEDIFFICULTY = 1
 

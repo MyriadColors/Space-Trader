@@ -20,7 +20,7 @@ from constants import (
 )
 from government import GOVERNMENTS
 from planet import Planet
-from utils import array_index_of, distance, wormhole_exists
+from utils import planet_distance, wormhole_exists
 
 
 class Universe:
@@ -30,8 +30,8 @@ class Universe:
     """
 
     def __init__(self):
-        self.planets = {}
-        self.wormholes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        self.planets: dict[int, Planet] = {}
+        self.wormholes: list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         self.generate_planets()
         self.extra_planet_shuffle()
 
@@ -99,11 +99,11 @@ class Universe:
                 while j < id and not too_close:
 
                     # Minimum distance between any two systems not to be accepted.
-                    if distance(self.planets[j], x, y) < MIN_DISTANCE:
+                    if planet_distance(self.planets[j].get_location(), x, y) < MIN_DISTANCE:
                         too_close = True
 
                     # There should be at least one system which is close enough.
-                    if distance(self.planets[j], x, y) < SECTOR_DIAMETER:
+                    if planet_distance(self.planets[j].get_location(), x, y) < SECTOR_DIAMETER:
                         close_found = True
 
                     j += 1
@@ -119,14 +119,14 @@ class Universe:
         of the alphabet are all clustered in the center of the galaxy.
         """
 
-        for _, planet in self.planets:
+        for planet in self.planets.values():
             i = randint(0, len(self.planets) - 1)
-            if not wormhole_exists(i, -1):
+            if not wormhole_exists(self.wormholes, i, -1):
                 planet.x, self.planets[i].x = self.planets[i].x, planet.x
                 planet.y, self.planets[i].y = self.planets[i].y, planet.y
-                w = array_index_of(self.wormholes, i)
-                if w >= 0:
-                    self.wormholes[w] = i
+                hole = self.wormholes.index(i) if i in self.wormholes else -1
+                if hole >= 0:
+                    self.wormholes[hole] = i
 
         # Randomize wormhole order
         for wh in self.wormholes:
