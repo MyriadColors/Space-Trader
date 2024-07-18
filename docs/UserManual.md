@@ -2,39 +2,107 @@
 
 ## Table of Contents
 
-    Introduction
-    Your Job as a Space Trader
-    Trading
-    Spaceships
-    Travelling through Space
-    Skills and Mercenaries: Pilot, Fighter, Trader, Engineer
-    An Encounter in Space: Trader, Pirate, Police, Destruction
-    Trade Goods: Water, Furs, Food, Ore, Games, Firearms, Medicine, Machines, Narcotics, Robots
-    Equipment: Weapons, Shields, Gadgets, Escape Pod, Insurance
-    Ship Types: Flea, Gnat, Firefly, Mosquito, Bumblebee, Beetle, Hornet, Grasshopper, Termite, Wasp
-    Tech Levels: Pre-agricultural, Agricultural, Medieval, Renaissance, Early Industrial, Industrial, Post-industrial, Hi-tech
-    Political Systems: Anarchy, Capitalist State, Communist State, Confederacy, Corporate State, Cybernetic State, Democracy, Dictatorship, Fascist State, Feudal State, Military State, Monarchy, Pacifist State, Socialist State, State of Satori, Technocracy, Theocracy
-    Tips
-    A Last Word
+- [Space Trader](#space-trader)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Your Job as a Space Trader](#your-job-as-a-space-trader)
+  - [Trading](#trading)
+  - [Spaceships](#spaceships)
+  - [Travelling through Space](#travelling-through-space)
+  - [Skills and Mercenaries](#skills-and-mercenaries)
+    - [Pilot](#pilot)
+    - [Fighter](#fighter)
+    - [Trader](#trader)
+    - [Engineer](#engineer)
+  - [Space Encounters](#space-encounters)
+    - [An Encounter with a Trader](#an-encounter-with-a-trader)
+    - [An Encounter with a Pirate](#an-encounter-with-a-pirate)
+    - [An Encounter with the Police](#an-encounter-with-the-police)
+    - [Destruction](#destruction)
+  - [Trade Goods](#trade-goods)
+    - [Water](#water)
+    - [Furs](#furs)
+    - [Food](#food)
+    - [Ore](#ore)
+    - [Games](#games)
+    - [Firearms](#firearms)
+    - [Medicine](#medicine)
+    - [Machines](#machines)
+    - [Narcotics](#narcotics)
+    - [Robots](#robots)
+  - [Equipment](#equipment)
+    - [Weapons](#weapons)
+    - [Shields](#shields)
+    - [Gadgets](#gadgets)
+    - [Escape Pod](#escape-pod)
+    - [Insurance](#insurance)
+  - [Ship Types](#ship-types)
+    - [Flea](#flea)
+    - [Gnat](#gnat)
+    - [Firefly](#firefly)
+    - [Mosquito](#mosquito)
+    - [Bumblebee](#bumblebee)
+    - [Beetle](#beetle)
+    - [Hornet](#hornet)
+    - [Grasshopper](#grasshopper)
+    - [Termite](#termite)
+    - [Wasp](#wasp)
+  - [Tech Levels](#tech-levels)
+    - [Pre-agricultural](#pre-agricultural)
+    - [Agricultural](#agricultural)
+    - [Medieval](#medieval)
+    - [Renaissance](#renaissance)
+    - [Early Industrial](#early-industrial)
+    - [Industrial](#industrial)
+    - [Post-industrial](#post-industrial)
+    - [Hi-tech](#hi-tech)
+  - [Political Systems](#political-systems)
+    - [Anarchy](#anarchy)
+    - [Capitalist State](#capitalist-state)
+    - [Communist State](#communist-state)
+    - [Confederacy](#confederacy)
+    - [Corporate State](#corporate-state)
+    - [Cybernetic State](#cybernetic-state)
+    - [Democracy](#democracy)
+    - [Dictatorship](#dictatorship)
+    - [Fascist State](#fascist-state)
+    - [Feudal State](#feudal-state)
+    - [Military State](#military-state)
+    - [Monarchy](#monarchy)
+    - [Pacifist State](#pacifist-state)
+    - [Socialist State](#socialist-state)
+    - [State of Satori](#state-of-satori)
+    - [Technocracy](#technocracy)
+    - [Theocracy](#theocracy)
+  - [Tips](#tips)
+  - [A Last Word](#a-last-word)
 
 ## Introduction
 
-You grew up as a member of a small colony on a planet in a solar system that is part of the Great Galactic Federation (GGF). You worked on your family's farm, dreaming about a life as an intergalactic trader. You imagined yourself buying goods on one system, selling them on another making huge profits, battling pirates, finding opportunities and perhaps, one day, buy your own moon to which you could retire to live a wealthy and peaceful life for the rest of your days.
+You grew up as a member of a small colony on a planet in a solar system that is part of the Great Galactic Federation (GGF). You worked on your family's farm, dreaming about a life as an intergalactic trader. You imagined yourself buying goods on one system, selling them on another making huge profits, battling pirates, finding opportunities and perhaps, one day, buy your own moon to which you could retire to live a wealthy and peaceful life for the rest of your days.  
+
 After your parents died, as their only child you inherited the farm. Since it would be too difficult to run it all on your own, you saw your chance clear and sold it to a neighbour. With the earnings, you bought a second-hand space ship of the Gnat type, equipped it with one pulse laser, and went to the local GGF space port to buy trade goods with your last 1000 credits. This is where your life as a space trader begins.
 
 ## Your Job as a Space Trader
 
-Your ultimate goal as a space trader is to amass enough money so you can buy your own moon, then claim that moon to retire to it. You need a lot of money for that, and will encounter many dangers, so along the way you might want to buy a better ship and better equipment.
-At first, the main point is to stay alive, and earn some money by trading. The GGF has a space port in every solar system, where goods locally produced are sold, and goods the locals need are bought. A good trader will judge, based on the systems tech level, government type, resources and current situation, which goods are cheap and which are expensive in a system, and will adapt his trading strategy accordingly.
+Your ultimate goal as a space trader is to amass enough money so you can buy your own moon, then claim that moon to retire to it. You need a lot of money for that, and will encounter many dangers, so along the way you might want to buy a better ship and better equipment.  
+
+At first, the main point is to stay alive, and earn some money by trading. The GGF has a space port in every solar system, where goods locally produced are sold, and goods the locals need are bought. A good trader will judge, based on the systems tech level, government type, resources and current situation, which goods are cheap and which are expensive in a system, and will adapt his trading strategy accordingly.  
+
 Later on, when you are better equipped, you might try to become a bounty hunter alongside your trading job. If you feel so inclined, you might also become a pirate and rob other traders of their goods. Being a pirate can be very profitable, but remember that the police will try to hunt you down, and that, as a pirate, you cannot sell goods out in the open (even those that you bought legally). You need an intermediary to sell your goods, and this sleazy person will take 10% of everything your cargo sells for. This makes the return to an honest life all the more difficult.
 
 ## Trading
 
-You usually start trading by selling the goods you currently have in your cargo holds, so you earn enough money to buy new goods. You can, of course, leave them stored in your holds if you expect it is worth your while to travel to another system to sell them.
-As long as you have empty cargo bays and cash, and as long as the space port has affordable goods available, you can buy goods. Before you choose what you are going to buy, however, it is best to consider which system you are going to sell them to. The Short Range Chart in your ship will show which systems are within range. Before you examine the Short Range Chart, you best get a full tank of fuel at the Ship Yard. This will make it easier for you to find out which systems you can travel to. The price for fuel depends on the type of ship. While you are at the Yard, you can make hull repairs if you feel that's necessary.
-The Short Range Chart is connected to an encyclopaedia which can tell you a few things about a system. Most important to decide which system you select as your next target is the Average Price List of that system. This shows you which goods might be expected to earn you a profit. Note that there is no guarantee that you will actually get the price shown in the list. It doesn't take into account special resources (unless you know about them) and special situations of the target system. And prices always fluctuate a bit.
-Another thing which might be of importance to you is how many pirates you might expect en route to your selected system. Especially early in your career, you might wish to avoid systems which are heavily infested with pirates. The same holds for the police when you are trafficking illegal goods.
-When you know which system you want to travel to, you can buy the appropriate cargo, and warp away.
+You usually start trading by selling the goods you currently have in your cargo holds, so you earn enough money to buy new goods. You can, of course, leave them stored in your holds if you expect it is worth your while to travel to another system to sell them.  
+
+As long as you have empty cargo bays and cash, and as long as the space port has affordable goods available, you can buy goods. Before you choose what you are going to buy, however, it is best to consider which system you are going to sell them to. The Short Range Chart in your ship will show which systems are within range. Before you examine the Short Range Chart, you best get a full tank of fuel at the Ship Yard. This will make it easier for you to find out which systems you can travel to. The price for fuel depends on the type of ship. While you are at the Yard, you can make hull repairs if you feel that's necessary.  
+
+The Short Range Chart is connected to an encyclopaedia which can tell you a few things about a system. Most important to decide which system you select as your next target is the Average Price List of that system. This shows you which goods might be expected to earn you a profit. Note that there is no guarantee that you will actually get the price shown in the list. It doesn't take into account special resources (unless you know about them) and special situations of the target system. And prices always fluctuate a bit.  
+
+Another thing which might be of importance to you is how many pirates you might expect en route to your selected system. Especially early in your career, you might wish to avoid systems which are heavily infested with pirates. The same holds for the police when you are trafficking illegal goods.  
+
+When you know which system you want to travel to, you can buy the appropriate cargo, and warp away.  
+
 When you feel you'd like to lend a bit of money so you can start off your trading career a bit faster, you can apply for a loan at the local bank. Depending on your police record and your current worth, the bank will probably be willing to help you out. Note, however, that 10% interest must be paid daily, which will be automatically deducted from your cash balance when you go into warp.
 
 ## Spaceships
@@ -53,10 +121,17 @@ The most important part of a spaceship is its hull. If the hull strength is redu
 
 Space travel consists of a four-step procedure:
 
-    Leaving the space port. After you have refuelled your ship, sold your cargo, bought new goods, and perhaps made some repairs, you simply ask the control tower for permission to depart, and fly your ship into space.
-    Warping to another system. As soon as you have left the space port area, you activate your warp engine. The warp engine creates a hyperspace bubble around your ship, and you get transported to your target system instantly. This is what actually consumes the fuel. You materialise at a safe distance from the target system's space port, usually about 20 clicks.
-    Approaching the target space port. The last few clicks en route to the target space port are the most dangerous of your journey. You may and very probably will encounter several other ships, among which there may be fellow traders, police ships, and pirates. Fellow traders won't attack unless provoked. The police might ask you to submit to an inspection, of which an honest trader, who doesn't deal in illegal goods (firearms and narcotics), has nothing to fear. Pirates will often attack you on sight.
-    Docking at the target space port. When you have reached the target space port, you are safe from interventions by other ships, and you can dock at your leisure after you have asked permission of the control tower.
+__Leaving Port__  
+After you have refuelled your ship, sold your cargo, bought new goods, and perhaps made some repairs, you simply ask the control tower for permission to depart, and fly your ship into space.  
+
+__Warping__  
+As soon as you have left the space port area, you activate your warp engine. The warp engine creates a hyperspace bubble around your ship, and you get transported to your target system instantly. This is what actually consumes the fuel. You materialise at a safe distance from the target system's space port, usually about 20 clicks.  
+
+__Space Port Approach__  
+The last few clicks en route to the target space port are the most dangerous of your journey. You may and very probably will encounter several other ships, among which there may be fellow traders, police ships, and pirates. Fellow traders won't attack unless provoked. The police might ask you to submit to an inspection, of which an honest trader, who doesn't deal in illegal goods (firearms and narcotics), has nothing to fear. Pirates will often attack you on sight.  
+
+__Docking__  
+When you have reached the target space port, you are safe from interventions by other ships, and you can dock at your leisure after you have asked permission of the control tower.
 
 A few solar systems are lucky to have a wormhole nearby. A wormhole is a rift in the space-time continuum, which leads directly from one place in the galaxy to another. You can use the wormhole to travel to another system in an instant, even if that other system is at the other end of the galaxy. You can only enter a wormhole from the space port of the system that owns it. That system will tax you for the use of the wormhole. The tax depends on your ship type: poor traders with a small ship pay considerably less than rich traders with a huge ship. On the plus side: you won't spend any fuel travelling through a wormhole, which compensates partly for the tax.
 
@@ -163,11 +238,15 @@ In the extended version of the game one more quest shield is available.
 
 There are five types of gadgets available. The tech level of a system determines whether and which gadgets are sold there.
 
-* For a beginning trader, the most interesting gadget is probably 5 extra cargo bays. These are fairly cheap and allow you to carry more cargo, so you probably earn them back quickly. If there is more than one gadget slot on your ship, you can even install more than one of this gadget, increasing your cargo bays even more.
-* A navigating system helps you piloting your ship.
-* An auto-repair system helps your engineering functions.
-* A targeting system helps you handle your weaponry.
-* A cloaking device is perhaps the most interesting gadget a trader can buy. It is very expensive, but it allows you to travel through space undetected, as long as you don't attack. However, a good engineer might detect a cloaked ship by its warp signature. The only way to avoid being detected is to employ your own engineering skills to fluctuate your warp signature. If a ship you pass has a better engineer than your own ship, you can't expect to stay undetected, though. But even if you are detected, your cloaking device is useful, since it makes you more difficult to hit and you can escape more easily.
+- The expanded cargo bays increace hauls for higher profitsss.
+- A navigating system helps you piloting your ship.
+- An auto-repair system helps your engineering functions.
+- A targeting system helps you handle your weaponry.
+- A cloaking device helps avoid detection during your travels.
+
+For a beginning trader, the most interesting gadget is probably 5 extra cargo bays. These are fairly cheap and allow you to carry more cargo, so you probably earn them back quickly. If there is more than one gadget slot on your ship, you can even install more than one of this gadget, increasing your cargo bays even more.
+
+A cloaking device is perhaps the most interesting gadget a trader can buy. It is very expensive, but it allows you to travel through space undetected, as long as you don't attack. However, a good engineer might detect a cloaked ship by its warp signature. The only way to avoid being detected is to employ your own engineering skills to fluctuate your warp signature. If a ship you pass has a better engineer than your own ship, you can't expect to stay undetected, though. But even if you are detected, your cloaking device is useful, since it makes you more difficult to hit and you can escape more easily.
 
 ### Escape Pod
 
@@ -331,12 +410,17 @@ A theocracy is organised around the worshipping of one or more gods. People live
 
 ## Tips
 
-It is best to travel with at least one of your cargo bays full, if only with a canister of water. That way, if you have to surrender to pirates, they will find at least something to steal and won't resort to extorting you. Besides, when one of the pirate ships in a system has robbed you, he will probably have sent the message to the other pirates in the system that you are picked clean, and in all likelihood the others will leave you alone after that.
-Special situations in a system, like war, a cold spell, or boredom, last a while. It may be worth your while to bring such a system the goods they require from neighbouring systems, since you can sell them with great profit. Newspapers may give information on special situations on nearby systems.
-When you find two systems close to each other which require goods which the other one produces cheaply, you might find it tempting to keep travelling between them. However, since it will take a while before the stock of a system is replenished, this usually works only for a few short days. After that, you better seek your luck elsewhere.
-Be warned that when you become richer, you will attract stronger types of pirates. Also, when the police starts to consider you a real villain, they will send more and stronger ships after you.
-Sometimes you get an offer to go on a special assignment for someone. You should remember, that if this assignment would be easy, the person who offers it to you would probably do it himself. So don't be too eager to follow up on such an assignment, unless you are fairly sure that you can stand your ground when things get a bit troublesome.
-Don't be a hero. You have only got one life. Fleeing is an option. 
+It is best to travel with at least one of your cargo bays full, if only with a canister of water. That way, if you have to surrender to pirates, they will find at least something to steal and won't resort to extorting you. Besides, when one of the pirate ships in a system has robbed you, he will probably have sent the message to the other pirates in the system that you are picked clean, and in all likelihood the others will leave you alone after that.  
+
+Special situations in a system, like war, a cold spell, or boredom, last a while. It may be worth your while to bring such a system the goods they require from neighbouring systems, since you can sell them with great profit. Newspapers may give information on special situations on nearby systems.  
+
+When you find two systems close to each other which require goods which the other one produces cheaply, you might find it tempting to keep travelling between them. However, since it will take a while before the stock of a system is replenished, this usually works only for a few short days. After that, you better seek your luck elsewhere.  
+
+Be warned that when you become richer, you will attract stronger types of pirates. Also, when the police starts to consider you a real villain, they will send more and stronger ships after you.  
+
+Sometimes you get an offer to go on a special assignment for someone. You should remember, that if this assignment would be easy, the person who offers it to you would probably do it himself. So don't be too eager to follow up on such an assignment, unless you are fairly sure that you can stand your ground when things get a bit troublesome.  
+
+___Don't be a hero. You have only got one life. Fleeing is an option.___
 
 ## A Last Word
 
