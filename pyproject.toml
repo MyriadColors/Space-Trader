@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build-backend"
+
+[project]
+name = "Space-Trader"
+version = "1.2.3"
+authors = [
+    {name = "RPINerd", email = ""}
+]
+description = "A space trading game"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pygame>=2.5.0",
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Environment :: Console",
+    "Environment :: X11 Applications",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: Pytest",
+    "Topic :: Games/Entertainment :: Role-Playing",
+    "Topic :: Games/Entertainment :: Simulation",
+    "Topic :: Games/Entertainment :: Turn Based Strategy",
+    "Natural Language :: English",
+]
+keywords = [
+    "space",
+    "trading",
+    "game",
+    "palmOS",
+    "palm pilot",
+    "rogue",
+    "space trader",
+    "spacetrader",
+    "dark void",
+    "pygame",
+    "rpg",
+    "simulation",
+]
+
+[project.urls]
+Homepage = "https://github.com/RPINerd/Space-Trader"
+Issues = "https://github.com/RPINerd/Space-Trader/issues"
+
+[tool.hatch]
