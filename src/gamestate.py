@@ -1,10 +1,8 @@
-from enum import Enum
-
 import pygame
 
 
 # Define the possible game states using an Enum
-class GameStateID(Enum):
+class GameStateID:
     SPLASH = 0
     CMD_MAKE = 1
     PAUSE = 2

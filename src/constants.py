@@ -9,30 +9,6 @@
 from enum import Enum
 from random import randint
 
-COLORS = {
-    "default": "brown",
-    "limit": "red",
-    "homeworld": "blue",
-    "visited": "green",
-    "target": "grey",
-    "selected": "brown",
-    "background": "lightgrey",
-}
-OVERVIEW = [
-    "Space Trader is a complex game, in which the player's aim",
-    "is to amass enough money to be able to buy a moon to retire",
-    "to. The player starts out with a small space ship, armed",
-    "with one simple laser, and 1000 credits in cash. The safest",
-    "and easiest way to earn money is to trade goods between",
-    "neighbouring solar systems. If the player chooses the goods",
-    "to trade wisely, it isn't too difficult to sell them with",
-    "a profit. There are other ways to get rich, though. You",
-    "might become a bounty hunter and hunt down pirates. It is",
-    "also possible to become a pirate yourself and rob honest",
-    "traders of their cargo. Beware, though: pirating is a way",
-    "to get rich quickly, but the police force will go after you.",
-]
-
 # Galaxy
 GALAXYWIDTH = 154
 GALAXYHEIGHT = 110
@@ -44,12 +20,17 @@ MAX_WORMHOLES = 10
 
 
 # Economy
+START_CREDITS = 1000
 INTEREST_RATE = 0.1
-INSURANCE_RATE = 0.0025
 DEBT_WARN = 75000
 DEBT_LIMIT = 100000
-MAX_NOCLAIM = 90  # TODO define
-START_CREDITS = 1000
+""" Insurance Info
+Insurance rate is the percentage of the ship's value that is paid as insurance daily.
+This rate begins at 100% and drops by 1% for each day without a claim
+MAX_NOCLAIM is the lowest rate that can be achieved
+"""
+INSURANCE_RATE = 0.0025
+MAX_NOCLAIM = 90
 
 
 # Crime
@@ -796,7 +777,7 @@ REPUTATION = {
 
 
 # Gamestate codes
-class GameStateID(Enum):
+class GameStateID:
     SPLASH = 0
     CHAR_CREATE = 1
 

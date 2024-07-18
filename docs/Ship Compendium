@@ -1,0 +1,184 @@
+9    Ship References
+   
+The ships will be listed with all their stats. The WSGC stands
+for weapon slots, shield slots, gadget slots, and crew quarters.
+
+
+9.1   FLEA
+
+A Flea is cheap and tiny. It is essentially your escape pod with
+a fuel tank and a cargo bay. It has ONLY 25 hull pts and 10 cargo
+spaces. However, it can jump 20 parsecs, the longest of all
+ships.
+
+If you eject from a dying ship, your escape pod can be converted
+into Flea for 500 credits.
+
+Hull: 25  Cargo: 10 Jump: 20  W/S/G/C: 0 / 0 / 0 / 1
+
+Suitable for: nothing, except getting you to a system where you
+can buy another ship
+
+Survivability: F (a kick in the shins will blow this ship up)
+
+Pros: cheap, long-range
+
+Cons: not likely to survive in this ship except in the quietest
+sectors.
+
+
+9.2   GNAT
+
+Gnat is your starting ship. It is a suitable ship for a starting
+trader, but lack of shields means it wouldn't last in anything
+except for the safest systems.
+
+Hull: 100 Cargo: 15 Jump: 14  W/S/G/C: 1 / 0 / 1 / 1
+
+Suitable for: trading
+
+Survivability: D (no shields!)
+
+Pros: you start with this ship for free, and it's... bearable
+
+Cons: no shields, low cargo
+
+
+9.3   FIREFLY
+
+Firefly is the ultimate small ship. It has an excellent jump range,
+large cargo bay, and a shield slot, making it far more survivable
+than the Gnat.
+
+Hull: 100 Cargo: 20 Jump: 17  W/S/G/C: 1 / 1 / 1 / 1
+
+Suitable for: trading
+
+Survivability: C (single shield slot)
+
+Pros: has some of everything, good all-around beginner's ship
+
+Cons: expensive for a small ship, no extra quarters for mercs and
+such
+
+
+9.4   MOSQUITO
+
+Mosquito is the smallest combat-oriented ship you can buy,
+excellent for bounty-hunting or pirating. Its main problem is its
+short legs, at only 13 parsecs.
+
+Hull: 100 Cargo: 15 Jump: 13  W/S/G/C: 2 / 1 / 1 / 1
+
+Suitable for: pirating / bounty-hunting
+
+Survivability: C
+
+Pros: 2 weapons put you ahead of other small ships (except other
+Mosquitos)
+
+Cons: low jump range, low cargo space
+
+
+9.5   BUMBLEBEE
+
+Bumblebee is a larger firefly, with slightly more cargo space,
+gadget slot, shield slot, AND crew quarter, so now you can
+finally, hire a mercenary.
+
+Hull: 100 Cargo: 25 Jump: 15  W/S/G/C: 1 / 2 / 2 / 2
+
+Suitable for: trading
+
+Survivability: B (double shields)
+
+Pros: survivable, lots of gadgets, room for mercenary
+
+Cons: small cargo space for a medium-size ship
+
+
+9.6   BEETLE
+
+The Beetle is a very weak freighter, with a weak hull, and NO weapons.
+It, however, has a huge cargo bay, and THREE crew quarters.
+Still, it is not really survivable, and thus not recommended. If
+you must use it, visit only safe systems.
+
+Hull: 50  Cargo: 50 Jump: 14  W/S/G/C: 0 / 1 / 1 / 3
+
+Suitable for: trading
+
+Survivability: C- (single shield)
+
+Pros: huge cargo bay, lots of crew
+
+Cons: lousy hull, no weapons, lousy jump range
+
+
+9.7   HORNET
+
+Hornet is mainly meant as a shooter, with 3 weapon slots. It can
+be a dangerous ship in hands of the right crew.
+
+Hull: 150 Cargo: 20 Jump: 16  W/S/G/C: 3 / 2 / 1 / 2
+
+Suitable for: pirating / bounty-hunting
+
+Survivability: B (double shields)
+
+Pros: 3 weapon slots for lots of firepower
+
+Cons: lousy cargo room, minimal gadget space
+
+
+9.8   GRASSHOPPER
+
+Grasshopper is a more "civilized" Hornet. It gave up one weapon
+for the larger cargo bay, 2 more gadget slots, and one more crew
+quarter.
+
+Hull: 150 Cargo 30  Jump: 15  W/S/G/C: 2 / 2 / 3 / 3
+
+Suitable for: everything
+
+Survivability: B+ (extra gadget slots)
+
+Pros: very "average" ship, okay in everything
+
+Cons: jack of all trades, expert at nothing
+
+
+9.9   TERMITE
+
+Termite is the largest trading ship you can get, and the only
+ship with 3 shield slots! With a monstrous 60 space cargo bay,
+you can buy out the entire inventory of a planet! Its only problem is
+its lack of range...
+
+Hull: 200 Cargo: 60 Jump: 13  W/S/G/C: 1 / 3 / 2 / 3
+
+Suitable for: trading
+
+Survivability: A+ (3 shield slots!)
+
+Pros: HUGE cargo bay, 3 shield slots
+
+Cons: lousy jump range, minimal weapons
+
+
+9.10  WASP
+
+Wasp is the ultimate ship, with a strong hull, 3 weapon slots, two
+shield slots, 2 gadget slots, and three crew quarters, AND 35
+spaces of cargo.
+
+Hull: 200 Cargo: 35 Jump: 14  W/S/G/C: 3 / 2 / 2 / 3
+
+Suitable for: everything
+
+Survivability: A- (2 shield slots, but lots of room for gadgets)
+
+Pros: 3 weapons AND 2 shield slots makes this the ultimate
+attacker
+
+Cons: extremely expensive, lousy jump range

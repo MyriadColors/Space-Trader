@@ -72,6 +72,7 @@ class Game:
         renders it to the screen.
         """
 
+        self.manager.get_state().render(self.canvas)
         transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
         self.screen.blit(transform, (0, 0))
         pygame.display.flip()
@@ -118,10 +119,10 @@ class GameStateManager:
         self.state = initial_state
         self.previous_state = None
 
-    def get_state(self) -> str:
+    def get_state(self) -> int:
         return self.state
 
-    def set_state(self, new_state) -> None:
+    def set_state(self, new_state: int) -> None:
         """
         Set the current game state.
 

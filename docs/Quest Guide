@@ -1,0 +1,227 @@
+11   Quest and Special Events
+   
+Note: You can have maximum of 4 quests active at once (except the
+final "go to your moon and claim it" quest, which counts
+separately).
+
+This list is by no means complete. If you spot one that's not
+here, or if you have more details, please contact me!
+
+
+11.1  QUESTS YOU GET ON PLANETS
+
+You get one of these quests when you click on the "special"
+button at the system information screen. Or you can get one of
+the special events (next section).
+
+
+11.1.1     Space Monster
+     
+Quest: Space Monster is attacking Acamar. Go destroy it.
+
+Opponent: The space monster is a pretty tough opponent. Do not
+tackle unless you have a Hornet or Wasp, 2 reflective shields, 3
+military lasers, and a GOOD fight rating.
+
+Reward: ??
+
+
+11.1.2     Scarab
+     
+Quest: The Scarab, an advanced ship with a hull coating that can
+ONLY be damaged by a pulse laser, has been stolen. Go destroy it.
+
+Opponent: Scarab can only be damaged by a pulse laser, and you'll
+have to chase it down
+
+Reward: You can get that coating applied to your ship. However,
+the coating cannot be transferred to another ship.
+
+
+11.1.3     Firefly
+     
+Quest: Firefly, the ship with an advanced lightning shield
+prototype, has been stolen. It was last seen at _____
+
+Opponent: Firefly is not a difficult ship to destroy if you have a
+fully outfitted warship (Hornet or Wasp, fight rating of 9 or
+higher, and so on)
+
+Reward: you get a lightning shield as reward
+
+
+11.1.4     Warn the doctor
+     
+Quest: Travel to _____ and warn the doctor not to perform the
+experiment, or the universe will be ripped apart!
+
+Opponent: just time... 6 days or less
+
+Reward: Portable Singularity for an instant jump to any planet
+
+Failure: if you warp between systems you may be thrown in a
+random direction and emerge elsewhere.
+
+
+11.1.5     Warn alien invasion
+     
+Quest: You must travel to _____ and warn the local defenses about
+an alien invasion.
+
+Opponent: just time
+
+Reward: fuel compactor? (gives any ship range 18 jumps)
+
+Failure: the planet gets blasted back into pre-agricultural
+anarchy
+
+
+11.1.6     Take the diplomat home
+     
+Quest: Take the diplomat home to Devidia.
+
+Requires: an available living quarter
+
+Reward: price haggling computer?
+
+
+11.1.7     Take the Criminal Home
+     
+Quest: Take the crimianl home to ________
+
+Requires: a free living quarter, negative reputation (you only
+get this quest if you have negative reputation. If you have
+positive reputation, you'll see the diplomat quest instead).
+
+Complications: the police will be after you all the way
+
+Reward: You get a Merc for free (supposedly?) and your record's
+reset to "neutral".
+
+
+11.1.8     Deliver medicine to plague planet
+     
+Quest: Deliever special medicine to a plague-stricken planet
+
+Requires: 10 cargo space
+
+Run the cargo to that colony
+
+Reward: _____
+
+
+11.1.9    Alien Artifact
+     
+Quest: Take this alien artifact, and search for the scientist,
+who only said he'll be visiting a hi-tech system (but not which
+one!)
+
+Requires: none
+
+Complications: Alien Mantis ships will be chasing you all over
+the place. If you can't fight them, surrender, and they'll take
+the artifact.
+
+Reward: just some more credits.
+
+
+11.1.10    Save the Princess
+
+Quest: Hunt down the Scorpion, disable with disruptors, then
+take the princess back to Galvon. 
+
+Requires: photon disruptor(s), a free living quarter (preferred),
+a clean police record (probably)
+
+Complications: Must NOT destroy the Scorpion, if you do not have a 
+available living quarter, one of your crew will be retired to make room. 
+
+Reward: Quantum disruptor
+
+NOTE: I never personally ran into this quest, but apparently it is 
+in the game and discovered by Scott Johnson who clued me in by examining
+the GPL'ed source code. 
+
+
+11.2  SPECIAL EVENTS
+
+
+11.2.1    Alien Learning Machine
+     
+You get to use the alien learning machine for 3000 cr, but you
+can't pick the skill to learn
+
+
+11.2.2    A Wondrous Item
+     
+Someone offers to sell you a "wondrous item" for 1000 cr.
+
+It turns out to be a tribble. And yes, just like the tribbles on
+Star Trek.
+
+If you load up any food, they multiply like crazy.
+
+If you load up any narcotics, some of them turn into fur.
+
+The only way to get rid of them permanently is to visit a planet
+where they'll pay you 5 cr per tribble onboard. However, to
+locate such a planet, you'll have to check the "News".
+
+
+11.2.3     Erase your Record
+     
+Someone offers to erase your police record if you pay him
+________
+
+It works, and if you trade or smuggle a lot, it may be worth it.
+
+
+11.2.4     Buy a Moon
+     
+If you pay 500000 cr, you can obtain a small moon at Utopia
+system, and retire to it. That would be the ultimate retirement.
+
+
+11.2.5     Sealed containers
+     
+A second-hand dealer wants to sell you 3 sealed cargo units for
+1000 cr. It could be anything from water to robots. Do you buy?
+
+
+11.3  SPACE WAY ENCOUNTERS
+
+There aren't that many space encounters, but they are usually
+beneficial.
+
+
+11.3.1    Captain needs shield
+     
+This only happen if you have at least one reflective shield
+onboard.
+
+A captain in a Wasp requests a meeting. He asks that you give him
+your reflective shield in exchange for some training.
+
+
+11.3.2    Captain needs laser
+     
+This only happen if you have at least one military laser onboard.
+
+A captain in a Wasp requests a meeting. He asks that you give him
+your military laser in exchange for some training.
+
+
+11.3.3    Marie Celeste
+     
+You ran into this tiny Flea that seem to be abandoned. It has 10
+units of cargo onboard. Do take a chance and grab it?
+
+If you grab the cargo, there's a GOOD chance cops will shop up
+and attempt to arrest you. You can flee. It's up to you.
+
+
+11.3.4    Enhancing Tonic
+     
+You may run into a bottle of enhancing tonic, with no readable
+expiration date. It will do something to your stats, but what it
+will do precisely is not known.
