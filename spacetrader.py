@@ -18,7 +18,8 @@ import os
 import pygame
 
 from src.constants import GameStateID
-from src.interface import commander, splash
+
+# from src.interface import commander, splash
 
 
 class Game:
@@ -51,7 +52,7 @@ class Game:
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Space Trader")
-        pygame.display.set_icon(pygame.image.load("images/App.ico"))
+        pygame.display.set_icon(pygame.image.load("assets/images/App.ico"))
         self.manager = GameStateManager(GameStateID.SPLASH)
 
         self.running = True
@@ -72,7 +73,7 @@ class Game:
         renders it to the screen.
         """
 
-        self.manager.get_state().render(self.canvas)
+        # self.manager.get_state().render(self.canvas)
         transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
         self.screen.blit(transform, (0, 0))
         pygame.display.flip()
@@ -94,19 +95,19 @@ class Game:
 
         # Load the configuration file
         self.config = configparser.ConfigParser()
-        self.config.read(os.path.join("config", "config.ini"))
+        self.config.read(os.path.join("src/config", "config.ini"))
 
         # Load the directories for the game assets
-        self.images = os.path.join("images")
-        self.resources = os.path.join("resources")
+        self.images = os.path.join("assets/images")
+        self.resources = os.path.join("assets/resources")
         # self.data = os.path.join("data")
-        self.font_sm = pygame.font.Font("fonts/palm-pilot-small.ttf", 8)
-        self.font_sm_bold = pygame.font.Font("fonts/palm-pilot-bold.ttf", 8)
-        self.font_lg = pygame.font.Font("fonts/palm-pilot-large.ttf", 8)
-        self.font_lg_bold = pygame.font.Font("fonts/palm-pilot-large-bold.ttf", 8)
+        self.font_sm = pygame.font.Font("assets/fonts/palm-pilot-small.ttf", 8)
+        self.font_sm_bold = pygame.font.Font("assets/fonts/palm-pilot-bold.ttf", 8)
+        self.font_lg = pygame.font.Font("assets/fonts/palm-pilot-large.ttf", 8)
+        self.font_lg_bold = pygame.font.Font("assets/fonts/palm-pilot-large-bold.ttf", 8)
 
     def update(self):
-        self.splash_image = pygame.image.load("images/splash.jpg")
+        self.splash_image = pygame.image.load("assets/images/splash.jpg")
         self.canvas.blit(self.splash_image, (0, 0))
 
 

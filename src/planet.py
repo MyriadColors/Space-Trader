@@ -10,9 +10,9 @@
 from math import floor, pow, sqrt
 from random import choice, randint
 
-from constants import SPECIALRESOURCES
-from economy import TradeItemId, TradeItems
-from government import PoliticalSystem
+from .constants import SPECIALRESOURCES, SYSTEMSIZE
+from .economy import TradeItemId, TradeItems
+from .government import PoliticalSystem
 
 TMPGAMEDIFFICULTY = 1
 
@@ -64,41 +64,36 @@ class Planet:
         self.initialize_trade_items()
 
     # Basic Info Interfaces
-    def get_location(self):
+    def __str__(self) -> str:
+        return self.name
+
+    def __repr__(self) -> str:
+        info = f"""---------------
+        Planet: {self.name} at ({self.x}, {self.y})\n \
+        Size: {SYSTEMSIZE[self.size]}\n \
+        Tech Level: {self.tech_level}\n \
+        Government: {self.get_government_name()}\n \
+        Resources: {SPECIALRESOURCES[self.special_resource]}\n \
+        Police: {self.government.law}\n \
+        Pirates: {self.government.crime}\n \
+        Pressure: {self.soci_pressure}\n \
+        ---------------
+        """
+        return info
+
+    def get_location(self) -> tuple[int, int]:
         return (self.x, self.y)
 
-    def get_size(self):
-        """
-        Planet sizes:
-
-        0 = Tiny
-        1 = Small
-        2 = Medium
-        3 = Large
-        4 = Huge
-        5 = Gargantuan
-        """
+    def get_size(self) -> int:
         return self.size
 
-    def set_visited(self):
-        self.visited = True
-
-    def get_tech_level(self):
-        """
-        Tech levels:
-
-        0 = Pre-Agricultural
-        1 = Agricultural
-        2 = Medieval
-        3 = Renaissance
-        4 = Early Industrial
-        5 = Industrial
-        6 = Post-Industrial
-        7 = Hi-Tech
-        """
+    def get_tech_level(self) -> int:
         return self.tech_level
 
-    def set_tech_level(self, value):
+    def set_visited(self) -> None:
+        self.visited = True
+
+    def set_tech_level(self, value) -> None:
         self.tech_level = value
 
     # TODO implement
@@ -224,7 +219,6 @@ class Planet:
             return True
 
         if item == TradeItemId.FIREARMS:
-            print(f"Gov type {self.government}")
             return self.government.firearms_ok()
 
         elif item == TradeItemId.NARCOTICS:

@@ -6,7 +6,7 @@
     This module contains the classes and functions for the game economy such as trade wares and prices.
 """
 
-from constants import SocietalPressure, SpecialResource, TechLevel
+from .constants import SocietalPressure, SpecialResource, TechLevel
 
 
 class TradeItemId:

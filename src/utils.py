@@ -7,7 +7,7 @@
     Likely could refactor these into the respective modules, but for now they are here.
 """
 
-from constants import MAX_WORMHOLES
+from .constants import MAX_WORMHOLES
 
 
 def planet_distance(planet: tuple[int, int], x2: int, y2: int) -> float:

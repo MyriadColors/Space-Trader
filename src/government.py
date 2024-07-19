@@ -7,8 +7,8 @@
     respective traits as a result of the government.
 """
 
-from constants import Activity, TechLevel
-from economy import TradeItemId
+from .constants import Activity, TechLevel
+from .economy import TradeItemId
 
 
 class GovernmentId:

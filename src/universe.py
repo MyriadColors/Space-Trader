@@ -9,7 +9,7 @@
 
 from random import choice, randint
 
-from constants import (
+from .constants import (
     GALAXYHEIGHT,
     GALAXYWIDTH,
     MIN_DISTANCE,
@@ -18,9 +18,9 @@ from constants import (
     SocietalPressure,
     SpecialResource,
 )
-from government import GOVERNMENTS
-from planet import Planet
-from utils import planet_distance, wormhole_exists
+from .government import GOVERNMENTS
+from .planet import Planet
+from .utils import planet_distance, wormhole_exists
 
 
 class Universe:

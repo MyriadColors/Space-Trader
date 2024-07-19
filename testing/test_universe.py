@@ -7,4 +7,5 @@ from src.universe import Universe
 if __name__ == "__main__":
     testverse = Universe()
 
-    print(testverse.planets)
+    for i in testverse.planets:
+        print(f"{i}: {testverse.planets[i]}")
