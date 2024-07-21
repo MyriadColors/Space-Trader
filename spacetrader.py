@@ -17,9 +17,10 @@ import os
 
 import pygame
 
-from src.constants import GameStateID
-
-# from src.interface import commander, splash
+from src.constants import INTERNAL_RES, GameStateID
+from src.interface.char_create import CharacterCreation
+from src.interface.splash import Splash
+from src.interface.state import State
 
 
 class Game:
@@ -48,15 +49,20 @@ class Game:
         # Set up the game window
         self.screen_width = int(self.config["graphics"]["screen_width"])
         self.screen_height = int(self.config["graphics"]["screen_height"])
-        self.canvas = pygame.Surface((160, 160))
+        self.canvas = pygame.Surface((INTERNAL_RES, INTERNAL_RES))
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Space Trader")
         pygame.display.set_icon(pygame.image.load("assets/images/App.ico"))
-        self.manager = GameStateManager(GameStateID.SPLASH)
+
+        # Establish the state management
+        self.current_state = GameStateID.SPLASH
+        self.previous_state = None
+        self.build_states()
 
         self.running = True
 
+    # Core Loop
     def run(self):
         """
         Main game loop.
@@ -67,18 +73,6 @@ class Game:
             self.update()
             self.render()
 
-    def render(self):
-        """
-        Transforms the current canvas to the desired resolution and then
-        renders it to the screen.
-        """
-
-        # self.manager.get_state().render(self.canvas)
-        transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
-        self.screen.blit(transform, (0, 0))
-        pygame.display.flip()
-        self.clock.tick(30)
-
     def handle_events(self):
         """
         Handles all events in the event queue.
@@ -87,7 +81,26 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+            elif event.type == pygame.KEYDOWN:
+                print(event.key)
+                self.get_state().handle_events(event)
 
+    def update(self):
+        pass
+
+    def render(self):
+        """
+        Transforms the current canvas to the desired resolution and then
+        renders it to the screen.
+        """
+
+        self.canvas = self.get_state().render(self.canvas)
+        transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
+        self.screen.blit(transform, (0, 0))
+        pygame.display.flip()
+        self.clock.tick(30)
+
+    # Asset Management
     def load_assets(self):
         """
         Loads all game assets, currently just pointers to directories
@@ -98,45 +111,43 @@ class Game:
         self.config.read(os.path.join("src/config", "config.ini"))
 
         # Load the directories for the game assets
-        self.images = os.path.join("assets/images")
-        self.resources = os.path.join("assets/resources")
+        self.images = os.path.join("assets/images/")
+        self.resources = os.path.join("assets/resources/")
         # self.data = os.path.join("data")
         self.font_sm = pygame.font.Font("assets/fonts/palm-pilot-small.ttf", 8)
         self.font_sm_bold = pygame.font.Font("assets/fonts/palm-pilot-bold.ttf", 8)
         self.font_lg = pygame.font.Font("assets/fonts/palm-pilot-large.ttf", 8)
         self.font_lg_bold = pygame.font.Font("assets/fonts/palm-pilot-large-bold.ttf", 8)
 
-    def update(self):
-        self.splash_image = pygame.image.load("assets/images/splash.jpg")
-        self.canvas.blit(self.splash_image, (0, 0))
-
-
-class GameStateManager:
-    """
-    Class to manage different game states.
-    """
-
-    def __init__(self, initial_state):
-        self.state = initial_state
-        self.previous_state = None
-
-    def get_state(self) -> int:
-        return self.state
-
-    def set_state(self, new_state: int) -> None:
+    # State Management
+    def get_state(self) -> State:
         """
-        Set the current game state.
-
-        param state: The new game state.
+        Returns the current gamestate
         """
-        try:
-            self.previous_state = self.state
-            self.state = new_state
-        except ValueError:
-            print(f"Invalid state: {new_state}")
+        return self.__states[self.current_state]
 
-    def get_previous_state(self) -> str:
-        return self.previous_state
+    def get_previous_state(self) -> State:
+        """
+        Returns the previous gamestate
+        """
+        return self.__states[self.previous_state]
+
+    def set_state(self, new_state) -> None:
+        """
+        Sets the new gamestate
+        """
+        self.previous_state = self.current_state
+        self.current_state = new_state
+
+    def build_states(self):
+        """
+        Builds the states for the game.
+        """
+
+        self.__states = {
+            GameStateID.SPLASH: Splash(self),
+            GameStateID.CHAR_CREATE: CharacterCreation(self),
+        }
 
 
 def main():

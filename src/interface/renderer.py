@@ -7,14 +7,14 @@ class TextRender:
     A self aware object that can render itself to the screen.
     """
 
-    def __init__(self, text, pos, **options):
+    def __init__(self, text, pos, font, **options):
         self.text = text
         self.pos = pos
-
-        self.fontname = "../fonts/palm-pilot-small.ttf"
-        self.fontsize = 10
+        self.font = font
+        # self.fontname = "../fonts/palm-pilot-small.ttf"
+        # self.fontsize = 10
         self.fontcolor = Color("black")
-        self.set_font()
+        # self.set_font()
         self.render()
 
     def set_font(self):

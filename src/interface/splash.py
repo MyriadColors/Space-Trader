@@ -6,26 +6,27 @@
 
 import pygame
 
+from ..constants import GameStateID
 from .state import State
 
 
 class Splash(State):
 
     def __init__(self, game) -> None:
+        self.game = game
         super().__init__(game)
-        self.background_image = pygame.image.load("assets/splash.png")
+        self.background_image = pygame.image.load(self.game.images + "/splash.jpg")
+
+    def handle_events(self, event: pygame.event) -> None:
+        if event.type == pygame.QUIT:
+            self.game.running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                self.game.set_state(GameStateID.CHAR_CREATE)
 
     def update(self, actions) -> None:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.game.running = False
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    self.game.manager.set_state(1)
+        pass
 
-    def render(self, canvas):
-        self.canvas.blit(self.background_image, (0, 0))
-        transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
-        self.screen.blit(transform, (0, 0))
-        pygame.display.flip()
-        self.clock.tick(30)
+    def render(self, canvas: pygame.Surface) -> pygame.Surface:
+        canvas.blit(self.background_image, (0, 0))
+        return canvas

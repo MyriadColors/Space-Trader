@@ -775,6 +775,9 @@ REPUTATION = {
     CombatReputation.BORG: 3000,
 }
 
+# Display
+INTERNAL_RES = 160
+
 
 # Gamestate codes
 class GameStateID:
