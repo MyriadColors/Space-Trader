@@ -777,12 +777,18 @@ REPUTATION = {
 
 # Display
 INTERNAL_RES = 160
+# INTERNAL_RES = 1024
 
 
 # Gamestate codes
 class GameStateID:
     SPLASH = 0
     CHAR_CREATE = 1
+    SYSTEM_INFO = 2
+    B_CARGO = 3
+    S_CARGO = 4
+    Y_SHIPYARD = 5
+    W_SHORTRANGE = 6
 
 
 # TODO Unknown values/usage

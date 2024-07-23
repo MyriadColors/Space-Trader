@@ -21,6 +21,7 @@ from src.constants import INTERNAL_RES, GameStateID
 from src.interface.char_create import CharacterCreation
 from src.interface.splash import Splash
 from src.interface.state import State
+from src.interface.system_info import SystemInfo
 
 
 class Game:
@@ -47,10 +48,10 @@ class Game:
         self.load_assets()
 
         # Set up the game window
-        self.screen_width = int(self.config["graphics"]["screen_width"])
-        self.screen_height = int(self.config["graphics"]["screen_height"])
+        self.screen_res = INTERNAL_RES * 5
         self.canvas = pygame.Surface((INTERNAL_RES, INTERNAL_RES))
-        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        self.screen = pygame.display.set_mode((self.screen_res, self.screen_res))
+        # self.screen = pygame.display.set_mode((INTERNAL_RES, INTERNAL_RES))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Space Trader")
         pygame.display.set_icon(pygame.image.load("assets/images/App.ico"))
@@ -95,8 +96,12 @@ class Game:
         """
 
         self.canvas = self.get_state().render(self.canvas)
-        transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
+        # self.screen.blit(self.canvas, (0, 0))
+
+        # transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
+        transform = pygame.transform.scale_by(self.canvas, 5)
         self.screen.blit(transform, (0, 0))
+
         pygame.display.flip()
         self.clock.tick(30)
 
@@ -114,10 +119,10 @@ class Game:
         self.images = os.path.join("assets/images/")
         self.resources = os.path.join("assets/resources/")
         # self.data = os.path.join("data")
-        self.font_sm = pygame.font.Font("assets/fonts/palm-pilot-small.ttf", 8)
-        self.font_sm_bold = pygame.font.Font("assets/fonts/palm-pilot-bold.ttf", 8)
-        self.font_lg = pygame.font.Font("assets/fonts/palm-pilot-large.ttf", 8)
-        self.font_lg_bold = pygame.font.Font("assets/fonts/palm-pilot-large-bold.ttf", 8)
+        self.font_sm = pygame.font.Font("assets/fonts/palm-pilot-small.ttf", 16)
+        self.font_sm_bold = pygame.font.Font("assets/fonts/palm-pilot-bold.ttf", 16)
+        self.font_lg = pygame.font.Font("assets/fonts/palm-pilot-large.ttf", 24)
+        self.font_lg_bold = pygame.font.Font("assets/fonts/palm-pilot-large-bold.ttf", 24)
 
     # State Management
     def get_state(self) -> State:
@@ -147,6 +152,7 @@ class Game:
         self.__states = {
             GameStateID.SPLASH: Splash(self),
             GameStateID.CHAR_CREATE: CharacterCreation(self),
+            GameStateID.SYSTEM_INFO: SystemInfo(self),
         }
 
 
