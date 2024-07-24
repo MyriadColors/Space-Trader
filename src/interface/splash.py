@@ -1,6 +1,6 @@
 """
     Space Trader (PalmOS) | RPINerd, 2024
-    
+
     The splash screen is the inital screen that is displayed when the game is started.
 """
 

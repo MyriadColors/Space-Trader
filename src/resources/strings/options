@@ -1,0 +1,20 @@
+
+## Java version
+
+formOptions.title=Options
+formOptions.fuelCheckBox.text=Get full fuel tanks on arrival
+formOptions.repairCheckBox.text=Get full hull repairs on arrival
+formOptions.newspaperCheckBox.text=Always pay for newspaper
+formOptions.showNewspaperCheckBox.text=Show newspaper on arrival
+formOptions.rangeCheckBox.text=Show range to tracked system
+formOptions.stopTrackingCheckBox.text=Stop tracking on arrival
+formOptions.reserveMoneyCheckBox.text=Reserve money for warp costs
+formOptions.loanCheckBox.text=Remind about loans
+formOptions.ignoreLabel.text=Always ignore when it is safe:
+formOptions.ignorePiratesCheckBox.text=Pirates
+formOptions.ignorePoliceCheckBox.text=Police
+formOptions.ignoreTradersCheckBox.text=Traders
+formOptions.ignoreDealingTradersCheckBox.text=Ignore dealing traders
+formOptions.continuousAttackCheckBox.text=Continuous attack and flight
+formOptions.attackFleeingCheckBox.text=Continue attacking fleeing ship
+formOptions.disableOpponentsCheckBox.text=Attempt to disable opponents when possible

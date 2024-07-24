@@ -1,0 +1,153 @@
+"""
+    
+"""
+
+# News Events
+"""
+    News Events can have up to 3 formatted insertions:
+
+    {0} - Commander Name
+    {1} - Current System
+    {2} - Currently flown ship
+"""
+"Scientist Adds Alien Artifact to Museum Collection.",
+"Police Trace Orbiting Space Litter to ^1.",
+"Experimental Craft Stolen! Critics Demand Security Review.",
+"Investigators Report Strange Craft.",
+"Spectacular Display as Stolen Ship Destroyed in Fierce Space Battle.",
+"Rumors Continue: Melina Orbitted by Odd Starcraft.",
+"Strange Ship Observed in Regulas Orbit.",
+"Unidentified Ship: A Threat to Zalkon?",
+"Huge Explosion Reported at Research Facility.",
+"Travelers Report Timespace Damage, Warp Problems!",
+"Scientists Cancel High-profile Test! Committee to Investigate Design.",
+"Travelers Claim Sighting of Ship Materializing in Orbit!",
+"Editorial: Who Will Warn Gemulon?",
+"Alien Invasion Devastates Planet!",
+"Invasion Imminent! Plans in Place to Repel Hostile Invaders.",
+"Thug Assaults Captain Ahab!",
+"Destruction of Captain Ahab's Ship Causes Anger!",
+"Captain Conrad Comes Under Attack By Criminal!",
+"Captain Conrad's Ship Destroyed by Villain!",
+"Famed Captain Huie Attacked by Brigand!",
+"Citizens Mourn Destruction of Captain Huie's Ship!",
+"Editorial: We Must Help Japori!",
+"Disease Antidotes Arrive! Health Officials Optimistic.",
+"Ambassador Jarek Returns from Crisis.",
+"Security Scandal: Test Craft Confirmed Stolen.",
+"Wormhole Traffic Delayed as Stolen Craft Destroyed.",
+"Wormhole Travelers Harassed by Unusual Ship!",
+"Space Monster Threatens Homeworld!",
+"Hero Slays Space Monster! Parade, Honors Planned for Today.",
+"Notorious Criminal Jonathan Wild Arrested!",
+"Rumors Suggest Known Criminal J. Wild May Come to Kravat!",
+"Priceless collector's item stolen from home of Geurge Locas!",
+"Space Corps follows ^3 with alleged stolen sculpture to ^2.",
+"Member of Royal Family kidnapped!",
+"Aggressive Ship Seen in Orbit Around Centauri",
+"Dangerous Scorpion Damages Several Other Ships Near Inthara",
+"Kidnappers Holding Out at Qonos",
+"Scorpion Defeated! Kidnapped Member of Galvon Royal Family Freed!",
+"Beloved Royal Returns Home!"
+
+# Headlines
+""" No particular insertions for headlines """
+new string[] { "Riots, Looting Mar Factional Negotiations.", "Communities Seek Consensus.", "Successful Bakunin Day Rally!", "Major Faction Conflict Expected for the Weekend!" },
+new string[] { "Editorial: Taxes Too High!", "Market Indices Read Record Levels!", "Corporate Profits Up!", "Restrictions on Corporate Freedom Abolished by Courts!" },
+new string[] { "Party Reports Productivity Increase.", "Counter-Revolutionary Bureaucrats Purged from Party!", "Party: Bold New Future Predicted!", "Politburo Approves New 5-Year Plan!" },
+new string[] { "States Dispute Natural Resource Rights!", "States Denied Federal Funds over Local Laws!", "Southern States Resist Federal Taxation for Capital Projects!", "States Request Federal Intervention in Citrus Conflict!" },
+new string[] { "Robot Shortages Predicted for Q4.", "Profitable Quarter Predicted.", "CEO: Corporate Rebranding Progressing.", "Advertising Budgets to Increase." },
+new string[] { "Olympics: Software Beats Wetware in All Events!", "New Network Protocols To Be Deployed.", "Storage Banks to be Upgraded!", "System Backup Rescheduled." },
+new string[] { "Local Elections on Schedule!", "Polls: Voter Satisfaction High!", "Campaign Spending Aids Economy!", "Police, Politicians Vow Improvements." },
+new string[] { "New Palace Planned; Taxes Increase.", "Future Presents More Opportunities for Sacrifice!", "Insurrection Crushed: Rebels Executed!", "Police Powers to Increase!" },
+new string[] { "Drug Smugglers Sentenced to Death!", "Aliens Required to Carry Visible Identification at All Times!", "Foreign Sabotage Suspected.", "Stricter Immigration Laws Installed." },
+new string[] { "Farmers Drafted to Defend Lord's Castle!", "Report: Kingdoms Near Flashpoint!", "Baron Ignores Ultimatum!", "War of Succession Threatens!" },
+new string[] { "Court-Martials Up 2% This Year.", "Editorial: Why Wait to Invade?", "HQ: Invasion Plans Reviewed.", "Weapons Research Increases Kill-Ratio!" },
+new string[] { "King to Attend Celebrations.", "Queen's Birthday Celebration Ends in Riots!", "King Commissions New Artworks.", "Prince Exiled for Palace Plot!" },
+new string[] { "Dialog Averts Eastern Conflict!", "Universal Peace: Is it Possible?", "Editorial: Life in Harmony.", "Polls: Happiness Quotient High!" },
+new string[] { "Government Promises Increased Welfare Benefits!", "State Denies Food Rationing Required to Prevent Famine.", "'Welfare Actually Boosts Economy,' Minister Says.", "Hoarder Lynched by Angry Mob!" },
+new string[] { "Millions at Peace.", "Sun Rises.", "Countless Hearts Awaken.", "Serenity Reigns." },
+new string[] { "New Processor Hits 10 ZettaHerz!", "Nanobot Output Exceeds Expectation.", "Last Human Judge Retires.", "Software Bug Causes Mass Confusion." },
+new string[] { "High Priest to Hold Special Services.", "Temple Restoration Fund at 81%.", "Sacred Texts on Public Display.", "Dozen Blasphemers Excommunicated!" }
+
+# Mastheads
+""" Single insertion for mastheads contain the current system name """
+new string[] { "The ^1 Arsenal", "The Grassroot", "Kick It!" },
+new string[] { "The Objectivist", "The ^1 Market", "The Invisible Hand" },
+new string[] { "The Daily Worker", "The People's Voice", "The ^1 Proletariat" },
+new string[] { "Planet News", "The ^1 Times", "Interstate Update" },
+new string[] { "^1 Memo", "News From The Board", "Status Report" },
+new string[] { "Pulses", "Binary Stream", "The System Clock" },
+new string[] { "The Daily Planet", "The ^1 Majority", "Unanimity" },
+new string[] { "The Command", "Leader's Voice", "The ^1 Mandate" },
+new string[] { "State Tribune", "Motherland News", "Homeland Report" },
+new string[] { "News from the Keep", "The Town Crier", "The ^1 Herald" },
+new string[] { "General Report", "^1 Dispatch", "The ^1 Sentry" },
+new string[] { "Royal Times", "The Loyal Subject", "The Fanfare" },
+new string[] { "Pax Humani", "Principle", "The ^1 Chorus" },
+new string[] { "All for One", "Brotherhood", "The People's Syndicate" },
+new string[] { "The Daily Koan", "Haiku", "One Hand Clapping" },
+new string[] { "The Future", "Hardware Dispatch", "TechNews" },
+new string[] { "The Spiritual Advisor", "Church Tidings", "The Temple Tribune" }
+
+# Police Blotter
+"""
+    Police announcements have up to 2 insertions:
+
+    {0} Commander Name 
+    {1} Current System
+"""
+"Locals Welcome Visiting Hero ^1!",
+"Famed Hero ^1 to Visit System!",
+"Large Turnout At Spaceport to Welcome ^1!"
+"Police Warning: ^1 Will Dock At ^2!",
+"Notorious Criminal ^1 Sighted in ^2!",
+"Locals Rally to Deny Spaceport Access to ^1!",
+"Terror Strikes Locals on Arrival of ^1!"
+
+# Rumors
+"""
+    Rumors have 2 insertions:
+
+    {0} - Pressure
+    {1} - Current System
+    
+    Pressures are the following:
+    "",
+    "Strife and War",
+    "Plague Outbreaks",
+    "Severe Drought",
+    "Terrible Boredom",
+    "Cold Weather",
+    "Crop Failures",
+    "Labor Shortages"
+"""
+"Reports of ^1 in the ^2 System.",
+"News of ^1 in the ^2 System.",
+"New Rumors of ^1 in the ^2 System.",
+"Sources report ^1 in the ^2 System.",
+"Notice: ^1 in the ^2 System.",
+"Evidence Suggests ^1 in the ^2 System."
+
+# Internal Pressures
+""" Internal pressures do not have insertions """
+"",
+"War News: Offensives Continue!",
+"Plague Spreads! Outlook Grim.",
+"No Rain in Sight!",
+"Editors: Won't Someone Entertain Us?",
+"Cold Snap Continues!",
+"Serious Crop Failure! Must We Ration?",
+"Jobless Rate at All-Time Low!"
+
+# Descriptors
+#? Probably not used
+""" Descriptors do not have an insertion """
+"under no particular pressure",		// Uneventful
+"at war",							// Ore and Weapons in demand
+"ravaged by a plague",				// Medicine in demand
+"suffering from a drought",			// Water in demand
+"suffering from extreme boredom",	// Games and Narcotics in demand
+"suffering from a cold spell",		// Furs in demand
+"suffering from a crop failure",	// Food in demand
+"lacking enough workers"			// Machinery and Robots in demand

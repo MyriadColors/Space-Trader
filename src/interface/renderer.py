@@ -1,3 +1,11 @@
+"""
+    Space Trader (PalmOS) | RPINerd, 2024
+
+    The renderer module contains classes for rendering text and UI elements to the screen.
+    Elements like the header, and BSYW bar are fairly universal elements and
+    can be abstracted away here to keep the individual screens' classes clean.
+"""
+
 import pygame
 from pygame.locals import Color
 
