@@ -1,7 +1,7 @@
 """
     Space Trader (PalmOS) | RPINerd, 2024
 
-    Basic system information screen
+    
 """
 
 import pygame
@@ -11,7 +11,7 @@ from .renderer import Header, TextRender, TitleBar
 from .state import State
 
 
-class SystemInfo(State):
+class <state>(State):
 
     def __init__(self, game) -> None:
         self.game = game
@@ -37,20 +37,7 @@ class SystemInfo(State):
         # Draw the header
         header = Header(canvas)
         header.render()
-        title = TitleBar("System Info", self.head_font, canvas)
+        title = TitleBar("<state>", self.head_font, canvas)
         title.render()
-
-        # Category headers
-        categories: list[TextRender] = []
-        categories.append(TextRender("Name:", (1, 18), self.head_font))
-        categories.append(TextRender("Size:", (1, 38), self.head_font))
-        categories.append(TextRender("Tech Level:", (1, 58), self.head_font))
-        categories.append(TextRender("Government:", (1, 78), self.head_font))
-        categories.append(TextRender("Resources:", (1, 98), self.head_font))
-        categories.append(TextRender("Police:", (1, 118), self.head_font))
-        categories.append(TextRender("Pirates:", (1, 138), self.head_font))
-
-        for category in categories:
-            category.draw(canvas)
 
         return canvas

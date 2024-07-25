@@ -58,7 +58,7 @@ class CharacterCreation(State):
         )
         header_text.draw(canvas)
 
-        prompt_text = []
+        prompt_text: list[TextRender] = []
         prompt_text.append(TextRender("Name:", (10, 28), self.font))
         prompt_text.append(TextRender("Difficulty:", (10, 48), self.font))
         prompt_text.append(TextRender("Skill Points:", (10, 68), self.font))

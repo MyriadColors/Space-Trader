@@ -789,6 +789,18 @@ class GameStateID:
     S_CARGO = 4
     Y_SHIPYARD = 5
     W_SHORTRANGE = 6
+    BUY_SHIP = 7
+    BUY_EQUIPMENT = 8
+    SELL_EQUIPMENT = 9
+    PERSONNEL = 10
+    BANK = 11
+    STATUS = 12
+    QUESTS = 13
+    SHIP_INFO = 14
+    SPECIAL_CARGO = 15
+    GALACTIC_CHART = 16
+    TARGET_SYSTEM = 17
+    AVG_PRICES = 18
 
 
 # TODO Unknown values/usage
