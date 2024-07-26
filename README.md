@@ -6,7 +6,7 @@ An elite-inspired space trading RPG originally on PalmOS.
 
 There is currently another active (and I believe playable?) project to re-create Space Trader into a python native, modern game. I am following it with keen interest but have created this repository to follow a different path.  
 
-My goal is to recreate the original Space Trader game as closely as possible, with the same mechanics and gameplay, but most crucially with the same look and feel. I grew up playing on my dads' Palm III and I want to recreate that experience as closely as possible.  
+My goal is to recreate the original Space Trader game as closely as possible, with the same mechanics and gameplay, but most crucially with the same look and feel. I grew up playing on my dads' Palm V and I want to recreate that experience as closely as possible.  
 
 To this end, my build will conform only to the state of the game as it existed in version 1.2.0/1 for PalmOS. I'm using lots of others' ports and remakes as reference but the logic should follow as nearly identically as possible to the original game.
 
