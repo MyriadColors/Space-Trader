@@ -6,7 +6,7 @@
 
 import pygame
 
-from ..constants import INTERNAL_RES, GameStateID
+from ..constants import GameStateID
 from .renderer import Header, TextRender, TitleBar
 from .state import State
 

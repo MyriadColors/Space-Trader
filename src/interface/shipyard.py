@@ -1,17 +1,19 @@
 """
     Space Trader (PalmOS) | RPINerd, 2024
 
-    
+    Shipyard Screen
+    Counterintuitively, not actually where you buy ships.
+    Houses refuel, repair, escape pod purchase and then link to ship sales.
 """
 
 import pygame
 
-from ..constants import INTERNAL_RES, GameStateID
+from ..constants import GameStateID
 from .renderer import Header, TextRender, TitleBar
 from .state import State
 
 
-class <state>(State):
+class Shipyard(State):
 
     def __init__(self, game) -> None:
         self.game = game
@@ -37,7 +39,7 @@ class <state>(State):
         # Draw the header
         header = Header(canvas)
         header.render()
-        title = TitleBar("<state>", self.head_font, canvas)
+        title = TitleBar("Shipyard", self.head_font, canvas)
         title.render()
 
         return canvas

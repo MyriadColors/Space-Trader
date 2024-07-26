@@ -1,7 +1,7 @@
 """
     Space Trader (PalmOS) | RPINerd, 2024
 
-    
+    Buy Cargo Screen
 """
 
 import pygame
@@ -11,7 +11,7 @@ from .renderer import Header, TextRender, TitleBar
 from .state import State
 
 
-class <state>(State):
+class BuyCargo(State):
 
     def __init__(self, game) -> None:
         self.game = game
@@ -37,7 +37,7 @@ class <state>(State):
         # Draw the header
         header = Header(canvas)
         header.render()
-        title = TitleBar("<state>", self.head_font, canvas)
+        title = TitleBar("Buy Cargo", self.head_font, canvas)
         title.render()
 
         return canvas

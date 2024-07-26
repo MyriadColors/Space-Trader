@@ -1,17 +1,19 @@
 """
     Space Trader (PalmOS) | RPINerd, 2024
 
-    
+    Galactic Chart Screen
+    Shows the entire galaxy and the current range of the ship.
+    Also allows for systems to be tracked and wormholes to be previewed.
 """
 
 import pygame
 
-from ..constants import INTERNAL_RES, GameStateID
+from ..constants import GameStateID
 from .renderer import Header, TextRender, TitleBar
 from .state import State
 
 
-class <state>(State):
+class LongRange(State):
 
     def __init__(self, game) -> None:
         self.game = game
@@ -37,7 +39,7 @@ class <state>(State):
         # Draw the header
         header = Header(canvas)
         header.render()
-        title = TitleBar("<state>", self.head_font, canvas)
+        title = TitleBar("Galactic Chart", self.head_font, canvas)
         title.render()
 
         return canvas
