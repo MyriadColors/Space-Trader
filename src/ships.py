@@ -9,35 +9,52 @@
 from constants import Activity, GadgetID, SheildID, ShipID, Size, Skills, TechLevel, WeaponID
 
 
-class Weapon:
+class Equipment:
 
-    def __init__(self, id, damage, unk_bool, price, tech_level, unknown):
+    def __init__(self, id, price, tech_level):
         self.id = id
-        self.damage = damage
-        self.unk_bool = unk_bool
         self.price = price
         self.tech_level = tech_level
+
+    @staticmethod
+    def sale_list() -> list[str]:
+        return [
+            "Pulse laser",
+            "Beam laser",
+            "Military laser",
+            "Energy shield",
+            "Reflective shield",
+            "5 extra cargo bays",
+            "Auto-repair system",
+            "Navigation system",
+            "Targeting system",
+            "Cloaking device",
+        ]
+
+
+class Weapon(Equipment):
+
+    def __init__(self, id, damage, unk_bool, price, tech_level, unknown):
+        super().__init__(id, price, tech_level)
+        self.damage = damage
+        self.unk_bool = unk_bool
         self.unknown = unknown
 
 
-class Shield:
+class Shield(Equipment):
 
     # TODO what are points and unknown?
     def __init__(self, id, points, price, tech_level, unknown):
-        self.id = id
+        super().__init__(id, price, tech_level)
         self.points = points
-        self.price = price
-        self.tech_level = tech_level
         self.unknown = unknown
 
 
-class Gadget:
+class Gadget(Equipment):
 
     def __init__(self, id, skill, price, tech_level, unknown):
-        self.id = id
+        super().__init__(id, price, tech_level)
         self.skill = skill
-        self.price = price
-        self.tech_level = tech_level
         self.unknown = unknown
 
 
@@ -106,7 +123,7 @@ GADGETS = {
     GadgetID.SMUGGLERHOLD: Gadget(GadgetID.SMUGGLERHOLD, Skills.NONE, 60000, TechLevel.UNAVAILABLE, 0),
 }
 SHIPS = {
-    ShipID.FLEA: (
+    ShipID.FLEA: Ship(
         ShipID.FLEA,
         Size.TINY,
         10,
@@ -125,7 +142,7 @@ SHIPS = {
         Activity.ABSENT,
         TechLevel.EarlyIndustrial,
     ),
-    ShipID.GNAT: (
+    ShipID.GNAT: Ship(
         ShipID.GNAT,
         Size.SMALL,
         15,
@@ -144,7 +161,7 @@ SHIPS = {
         Activity.ABSENT,
         TechLevel.Industrial,
     ),
-    ShipID.FIREFLY: (
+    ShipID.FIREFLY: Ship(
         ShipID.FIREFLY,
         Size.SMALL,
         20,
@@ -163,7 +180,7 @@ SHIPS = {
         Activity.ABSENT,
         TechLevel.Industrial,
     ),
-    ShipID.MOSQUITO: (
+    ShipID.MOSQUITO: Ship(
         ShipID.MOSQUITO,
         Size.SMALL,
         15,
@@ -182,7 +199,7 @@ SHIPS = {
         Activity.ABSENT,
         TechLevel.Industrial,
     ),
-    ShipID.BUMBLEBEE: (
+    ShipID.BUMBLEBEE: Ship(
         ShipID.BUMBLEBEE,
         Size.MEDIUM,
         25,
@@ -201,7 +218,7 @@ SHIPS = {
         Activity.ABSENT,
         TechLevel.Industrial,
     ),
-    ShipID.BEETLE: (
+    ShipID.BEETLE: Ship(
         ShipID.BEETLE,
         Size.MEDIUM,
         50,
@@ -220,7 +237,7 @@ SHIPS = {
         Activity.ABSENT,
         TechLevel.Industrial,
     ),
-    ShipID.HORNET: (
+    ShipID.HORNET: Ship(
         ShipID.HORNET,
         Size.LARGE,
         20,
@@ -239,7 +256,7 @@ SHIPS = {
         Activity.MINIMAL,
         TechLevel.PostIndustrial,
     ),
-    ShipID.GRASSHOPPER: (
+    ShipID.GRASSHOPPER: Ship(
         ShipID.GRASSHOPPER,
         Size.LARGE,
         30,
@@ -258,7 +275,7 @@ SHIPS = {
         Activity.FEW,
         TechLevel.PostIndustrial,
     ),
-    ShipID.TERMITE: (
+    ShipID.TERMITE: Ship(
         ShipID.TERMITE,
         Size.HUGE,
         60,
@@ -277,7 +294,7 @@ SHIPS = {
         Activity.SOME,
         TechLevel.HiTech,
     ),
-    ShipID.WASP: (
+    ShipID.WASP: Ship(
         ShipID.WASP,
         Size.HUGE,
         35,
@@ -297,7 +314,7 @@ SHIPS = {
         TechLevel.HiTech,
     ),
     # The ships below can't be bought (mostly)
-    ShipID.SPACEMONSTER: (
+    ShipID.SPACEMONSTER: Ship(
         ShipID.SPACEMONSTER,
         Size.HUGE,
         0,
@@ -316,7 +333,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         TechLevel.UNAVAILABLE,
     ),
-    ShipID.DRAGONFLY: (
+    ShipID.DRAGONFLY: Ship(
         ShipID.DRAGONFLY,
         Size.SMALL,
         0,
@@ -335,7 +352,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         TechLevel.UNAVAILABLE,
     ),
-    ShipID.MANTIS: (
+    ShipID.MANTIS: Ship(
         ShipID.MANTIS,
         Size.MEDIUM,
         0,
@@ -354,7 +371,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         TechLevel.UNAVAILABLE,
     ),
-    ShipID.SCARAB: (
+    ShipID.SCARAB: Ship(
         ShipID.SCARAB,
         Size.LARGE,
         20,
@@ -373,7 +390,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         TechLevel.UNAVAILABLE,
     ),
-    ShipID.BOTTLE: (
+    ShipID.BOTTLE: Ship(
         ShipID.BOTTLE,
         Size.SMALL,
         0,
@@ -392,7 +409,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         TechLevel.UNAVAILABLE,
     ),
-    ShipID.CUSTOM: (
+    ShipID.CUSTOM: Ship(
         ShipID.CUSTOM,
         Size.HUGE,
         0,
@@ -411,7 +428,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         TechLevel.UNAVAILABLE,
     ),
-    ShipID.SCORPION: (
+    ShipID.SCORPION: Ship(
         ShipID.SCORPION,
         Size.HUGE,
         30,
