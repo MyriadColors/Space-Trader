@@ -6,7 +6,7 @@
     This module contains the classes and functions for the game ships, weapons, shields and gadgets.
 """
 
-from constants import Activity, GadgetID, SheildID, ShipID, Size, Skills, TechLevel, WeaponID
+from .constants import Activity, GadgetID, SheildID, ShipID, Size, Skills, TechLevel, WeaponID
 
 
 class Equipment:
@@ -140,7 +140,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         Activity.UNAVAILABLE,
         Activity.ABSENT,
-        TechLevel.EarlyIndustrial,
+        TechLevel.EARLY_INDUSTRIAL,
     ),
     ShipID.GNAT: Ship(
         ShipID.GNAT,
@@ -159,7 +159,7 @@ SHIPS = {
         Activity.ABSENT,
         Activity.ABSENT,
         Activity.ABSENT,
-        TechLevel.Industrial,
+        TechLevel.INDUSTRIAL,
     ),
     ShipID.FIREFLY: Ship(
         ShipID.FIREFLY,
@@ -178,7 +178,7 @@ SHIPS = {
         Activity.ABSENT,
         Activity.ABSENT,
         Activity.ABSENT,
-        TechLevel.Industrial,
+        TechLevel.INDUSTRIAL,
     ),
     ShipID.MOSQUITO: Ship(
         ShipID.MOSQUITO,
@@ -197,7 +197,7 @@ SHIPS = {
         Activity.ABSENT,
         Activity.MINIMAL,
         Activity.ABSENT,
-        TechLevel.Industrial,
+        TechLevel.INDUSTRIAL,
     ),
     ShipID.BUMBLEBEE: Ship(
         ShipID.BUMBLEBEE,
@@ -216,7 +216,7 @@ SHIPS = {
         Activity.MINIMAL,
         Activity.MINIMAL,
         Activity.ABSENT,
-        TechLevel.Industrial,
+        TechLevel.INDUSTRIAL,
     ),
     ShipID.BEETLE: Ship(
         ShipID.BEETLE,
@@ -235,7 +235,7 @@ SHIPS = {
         Activity.UNAVAILABLE,
         Activity.UNAVAILABLE,
         Activity.ABSENT,
-        TechLevel.Industrial,
+        TechLevel.INDUSTRIAL,
     ),
     ShipID.HORNET: Ship(
         ShipID.HORNET,
@@ -254,7 +254,7 @@ SHIPS = {
         Activity.FEW,
         Activity.SOME,
         Activity.MINIMAL,
-        TechLevel.PostIndustrial,
+        TechLevel.POST_INDUSTRIAL,
     ),
     ShipID.GRASSHOPPER: Ship(
         ShipID.GRASSHOPPER,
@@ -273,7 +273,7 @@ SHIPS = {
         Activity.SOME,
         Activity.MODERATE,
         Activity.FEW,
-        TechLevel.PostIndustrial,
+        TechLevel.POST_INDUSTRIAL,
     ),
     ShipID.TERMITE: Ship(
         ShipID.TERMITE,
@@ -292,7 +292,7 @@ SHIPS = {
         Activity.MODERATE,
         Activity.MANY,
         Activity.SOME,
-        TechLevel.HiTech,
+        TechLevel.HI_TECH,
     ),
     ShipID.WASP: Ship(
         ShipID.WASP,
@@ -311,7 +311,7 @@ SHIPS = {
         Activity.MANY,
         Activity.ABUNDANT,
         Activity.MODERATE,
-        TechLevel.HiTech,
+        TechLevel.HI_TECH,
     ),
     # The ships below can't be bought (mostly)
     ShipID.SPACEMONSTER: Ship(

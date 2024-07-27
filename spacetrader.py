@@ -18,10 +18,19 @@ import os
 import pygame
 
 from src.constants import INTERNAL_RES, GameStateID
+from src.interface.average_prices import AvgPrices
+from src.interface.bank import Bank
+from src.interface.buy_cargo import BuyCargo
+from src.interface.buy_equip import BuyEquipment
 from src.interface.char_create import CharacterCreation
+from src.interface.quests import Quests
+from src.interface.sell_cargo import SellCargo
+from src.interface.sell_equip import SellEquipment
+from src.interface.shipyard import Shipyard
 from src.interface.splash import Splash
 from src.interface.state import State
 from src.interface.system_info import SystemInfo
+from src.interface.target_system import TargetSystem
 
 
 class Game:
@@ -153,6 +162,15 @@ class Game:
             GameStateID.SPLASH: Splash(self),
             GameStateID.CHAR_CREATE: CharacterCreation(self),
             GameStateID.SYSTEM_INFO: SystemInfo(self),
+            GameStateID.TARGET_SYSTEM: TargetSystem(self),
+            GameStateID.AVG_PRICES: AvgPrices(self),
+            GameStateID.BANK: Bank(self),
+            GameStateID.QUESTS: Quests(self),
+            GameStateID.Y_SHIPYARD: Shipyard(self),
+            GameStateID.B_CARGO: BuyCargo(self),
+            GameStateID.S_CARGO: SellCargo(self),
+            GameStateID.BUY_EQUIPMENT: BuyEquipment(self),
+            GameStateID.SELL_EQUIPMENT: SellEquipment(self),
         }
 
 

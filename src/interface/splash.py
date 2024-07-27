@@ -6,7 +6,7 @@
 
 import pygame
 
-from ..constants import GameStateID
+from ..constants import BKG_COLOR, GameStateID
 from .state import State
 
 

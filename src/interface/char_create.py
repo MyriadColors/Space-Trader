@@ -6,7 +6,7 @@
 
 import pygame
 
-from ..constants import INTERNAL_RES, GameStateID
+from ..constants import BKG_COLOR, FRG_COLOR, INTERNAL_RES, GameStateID
 from .renderer import TextRender
 from .state import State
 
@@ -36,12 +36,12 @@ class CharacterCreation(State):
     def render(self, canvas: pygame.Surface) -> pygame.Surface:
 
         # Background
-        canvas.fill((240, 240, 240))
+        canvas.fill(BKG_COLOR)
 
         # Border
         pygame.draw.rect(
             canvas,
-            (0, 0, 0),
+            FRG_COLOR,
             pygame.Rect(1, 1, INTERNAL_RES - 2, INTERNAL_RES - 2),
             2,
             border_radius=3,
@@ -50,11 +50,11 @@ class CharacterCreation(State):
         # Header
         pygame.draw.rect(
             canvas,
-            (0, 0, 0),
+            FRG_COLOR,
             pygame.Rect(3, 1, INTERNAL_RES - 6, 14),
         )
         header_text = TextRender(
-            "New Commander", (INTERNAL_RES // 2, 8), self.head_font, center=True, fontcolor=(240, 240, 240)
+            "New Commander", (INTERNAL_RES // 2, 8), self.head_font, ref="center", fontcolor=BKG_COLOR
         )
         header_text.draw(canvas)
 

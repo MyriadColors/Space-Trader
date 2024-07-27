@@ -26,6 +26,21 @@ class TradeItemId:
     def enum() -> list[int]:
         return range(10)
 
+    @staticmethod
+    def lst() -> list[str]:
+        return [
+            "Water",
+            "Furs",
+            "Food",
+            "Ore",
+            "Games",
+            "Firearms",
+            "Medicine",
+            "Machinery",
+            "Narcotics",
+            "Robots",
+        ]
+
 
 class Ware:
     """

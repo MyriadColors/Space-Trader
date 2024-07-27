@@ -6,7 +6,7 @@
 
 import pygame
 
-from ..constants import INTERNAL_RES, GameStateID
+from ..constants import BKG_COLOR, GameStateID
 from .renderer import Header, TextRender, TitleBar
 from .state import State
 
@@ -32,10 +32,10 @@ class <state>(State):
         pass
 
     def render(self, canvas: pygame.Surface) -> pygame.Surface:
-        canvas.fill((240, 240, 240))
+        canvas.fill(BKG_COLOR)
 
         # Draw the header
-        header = Header(canvas)
+        header = Header(canvas, self.font)
         header.render()
         title = TitleBar("<state>", self.head_font, canvas)
         title.render()

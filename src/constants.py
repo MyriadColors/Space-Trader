@@ -441,7 +441,7 @@ class SheildID(Enum):
 
 
 # Ships
-class ShipID(Enum):
+class ShipID:
     # ESCAPEPOD = 0 #? Not in source
     FLEA = 0
     GNAT = 1
@@ -460,6 +460,47 @@ class ShipID(Enum):
     BOTTLE = 14
     CUSTOM = 15
     SCORPION = 16
+
+    @staticmethod
+    def enum() -> list[int]:
+        return range(17)
+
+    @staticmethod
+    def lst() -> list[str]:
+        return [
+            "Flea",
+            "Gnat",
+            "Firefly",
+            "Mosquito",
+            "Bumblebee",
+            "Beetle",
+            "Hornet",
+            "Grasshopper",
+            "Termite",
+            "Wasp",
+            "Space Monster",
+            "Dragonfly",
+            "Mantis",
+            "Scarab",
+            "Bottle",
+            "Custom",
+            "Scorpion",
+        ]
+
+    @staticmethod
+    def sale_lst() -> list[str]:
+        return [
+            "Flea",
+            "Gnat",
+            "Firefly",
+            "Mosquito",
+            "Bumblebee",
+            "Beetle",
+            "Hornet",
+            "Grasshopper",
+            "Termite",
+            "Wasp",
+        ]
 
 
 SHIPTYPES = {
@@ -777,6 +818,8 @@ REPUTATION = {
 
 # Display
 INTERNAL_RES = 160
+BKG_COLOR = (134, 134, 104)
+FRG_COLOR = (0, 0, 0)
 # INTERNAL_RES = 1024
 
 
