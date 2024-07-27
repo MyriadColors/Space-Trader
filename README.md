@@ -36,11 +36,11 @@ Someday something beautiful will be here!
 ## Requirements
 
 Game is being built with Python 3.12.x  
-Utilizing Pygame 2.5.x
+Utilizing Pygame 2.6.x
 
 ## How to Play
 
-Currently the game is barely into development, but you can see the progress by running the main file `python space_trader.py`
+Currently the game is barely into development, but you can see the progress by running the main file `python spacetrader.py`
 
 I recomend using a virtual environment to run the game, as it will help keep your system clean and prevent any conflicts with other python projects.
 
