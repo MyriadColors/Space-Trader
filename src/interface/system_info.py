@@ -57,10 +57,8 @@ class SystemInfo(State):
         canvas.fill(BKG_COLOR)
 
         # Draw the header
-        header = Header(canvas, self.font)
-        # header.render()
-        title = TitleBar("System Info", self.head_font, canvas)
-        title.render()
+        Header(canvas, self.font)
+        TitleBar("System Info", self.head_font, canvas)
 
         # Category headers
         categories: list[TextRender] = []

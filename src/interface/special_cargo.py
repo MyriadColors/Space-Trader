@@ -12,7 +12,7 @@ from .renderer import Header, TextRender, TitleBar
 from .state import State
 
 
-class SpecialCarg(State):
+class SpecialCargo(State):
 
     def __init__(self, game) -> None:
         self.game = game

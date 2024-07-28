@@ -6,7 +6,7 @@
 
 import pygame
 
-from ..constants import BKG_COLOR, GameStateID
+from ..constants import GameStateID
 from .state import State
 
 
@@ -21,6 +21,8 @@ class Splash(State):
         if event.type == pygame.QUIT:
             self.game.running = False
         if event.type == pygame.KEYDOWN:
+            if event.key in (pygame.K_ESCAPE, pygame.K_q):
+                self.game.running = False
             if event.key == pygame.K_RETURN:
                 self.game.set_state(GameStateID.CHAR_CREATE)
 
