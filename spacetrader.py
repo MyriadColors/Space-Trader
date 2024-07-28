@@ -22,11 +22,18 @@ from src.interface.average_prices import AvgPrices
 from src.interface.bank import Bank
 from src.interface.buy_cargo import BuyCargo
 from src.interface.buy_equip import BuyEquipment
+from src.interface.buy_ship import BuyShip
 from src.interface.char_create import CharacterCreation
+from src.interface.char_status import CharInfo
+from src.interface.longrange import LongRange
+from src.interface.personnel import Personnel
 from src.interface.quests import Quests
 from src.interface.sell_cargo import SellCargo
 from src.interface.sell_equip import SellEquipment
+from src.interface.ship_info import ShipInfo
 from src.interface.shipyard import Shipyard
+from src.interface.shortrange import ShortRange
+from src.interface.special_cargo import SpecialCargo
 from src.interface.splash import Splash
 from src.interface.state import State
 from src.interface.system_info import SystemInfo
@@ -92,7 +99,6 @@ class Game:
             if event.type == pygame.QUIT:
                 self.running = False
             elif event.type == pygame.KEYDOWN:
-                print(event.key)
                 self.get_state().handle_events(event)
 
     def update(self):
@@ -105,12 +111,8 @@ class Game:
         """
 
         self.canvas = self.get_state().render(self.canvas)
-        # self.screen.blit(self.canvas, (0, 0))
-
-        # transform = pygame.transform.scale(self.canvas, (self.screen_width, self.screen_height))
         transform = pygame.transform.scale_by(self.canvas, 5)
         self.screen.blit(transform, (0, 0))
-
         pygame.display.flip()
         self.clock.tick(30)
 
@@ -171,6 +173,13 @@ class Game:
             GameStateID.S_CARGO: SellCargo(self),
             GameStateID.BUY_EQUIPMENT: BuyEquipment(self),
             GameStateID.SELL_EQUIPMENT: SellEquipment(self),
+            GameStateID.W_SHORTRANGE: ShortRange(self),
+            GameStateID.GALACTIC_CHART: LongRange(self),
+            GameStateID.PERSONNEL: Personnel(self),
+            GameStateID.STATUS: CharInfo(self),
+            GameStateID.BUY_SHIP: BuyShip(self),
+            GameStateID.SHIP_INFO: ShipInfo(self),
+            GameStateID.SPECIAL_CARGO: SpecialCargo(self),
         }
 
 
