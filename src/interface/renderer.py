@@ -20,27 +20,33 @@ class Button:
         self.width, self.height = size
         self.text = text
         self.font = font
-        self.reference = options.get("ref", "topleft")
+        self.reference = options.get("reference", "topleft")
         self.render()
 
     def render(self) -> None:
         """Render the text into an image."""
+        self.border = pygame.Rect(0, 0, self.width, self.height)
         self.img = self.font.render(self.text, False, FRG_COLOR)
-        self.rect = self.img.get_rect(center=(self.pos[0] + self.width // 2, self.pos[1] + self.height // 2))
+        self.txtarea = self.img.get_rect()
         if self.reference == "center":
-            self.rect.center = self.pos
+            self.border.center = self.pos
+            self.txtarea.center = (self.pos[0], self.pos[1])
         elif self.reference == "topright":
-            self.rect.topright = self.pos
+            self.border.topright = self.pos
+            self.txtarea.center = (self.pos[0] - self.width // 2, self.pos[1] + self.height // 2)
         elif self.reference == "bottomright":
-            self.rect.bottomright = self.pos
+            self.border.bottomright = self.pos
+            self.txtarea.center = (self.pos[0] + self.width // 2, self.pos[1] - self.height // 2)
         elif self.reference == "bottomleft":
-            self.rect.bottomleft = self.pos
+            self.border.bottomleft = self.pos
+            self.txtarea.center = (self.pos[0] + self.width // 2, self.pos[1] - self.height // 2)
         else:
-            self.rect.topleft = self.pos
+            self.border.topleft = self.pos
+            self.txtarea.center = (self.pos[0] + self.width // 2, self.pos[1] + self.height // 2)
 
     def draw(self, canvas: pygame.Surface) -> None:
-        pygame.draw.rect(canvas, FRG_COLOR, (self.pos[0], self.pos[1], self.width, self.height), 1)
-        canvas.blit(self.img, self.rect)
+        pygame.draw.rect(canvas, FRG_COLOR, self.border, 1)
+        canvas.blit(self.img, self.txtarea)
 
 
 class TextRender:
@@ -99,22 +105,40 @@ class Header:
         self.canvas = canvas
         self.underline = pygame.Rect(1, 14, 158, 2)
 
-        self.buttonB = Button("B", (INTERNAL_RES - 1, 1), (14, 13), font, reference="topright")
-        self.buttonS = pygame.Rect(0, 0, 14, 13)
-        self.buttonY = pygame.Rect(0, 0, 14, 13)
-        self.buttonW = pygame.Rect(0, 0, 14, 13)
-        self.buttonS.topright = (self.buttonB.rect.topleft[0] + 1, self.buttonB.rect.topleft[1])
-        self.buttonY.topright = (self.buttonS.topleft[0] + 1, self.buttonS.topleft[1])
-        self.buttonW.topright = (self.buttonY.topleft[0] + 1, self.buttonY.topleft[1])
+        self.buttonW = Button("W", (INTERNAL_RES - 1, 1), (14, 13), font, reference="topright")
+        self.buttonY = Button(
+            "Y",
+            (self.buttonW.border.topleft[0] + 1, self.buttonW.border.topleft[1]),
+            (14, 13),
+            font,
+            reference="topright",
+        )
+        self.buttonS = Button(
+            "S",
+            (self.buttonY.border.topleft[0] + 1, self.buttonY.border.topleft[1]),
+            (14, 13),
+            font,
+            reference="topright",
+        )
+        self.buttonB = Button(
+            "B",
+            (self.buttonS.border.topleft[0] + 1, self.buttonS.border.topleft[1]),
+            (14, 13),
+            font,
+            reference="topright",
+        )
         self.render()
 
     def render(self) -> None:
         pygame.draw.rect(self.canvas, FRG_COLOR, self.underline)
-        # pygame.draw.rect(self.canvas, FRG_COLOR, self.buttonB, 1)
+        # print(self.buttonW.rect)
+        # print(self.buttonY.rect)
+        # print(self.buttonS.rect)
+        # print(self.buttonB.rect)
+        self.buttonW.draw(self.canvas)
+        self.buttonY.draw(self.canvas)
+        self.buttonS.draw(self.canvas)
         self.buttonB.draw(self.canvas)
-        pygame.draw.rect(self.canvas, FRG_COLOR, self.buttonS, 1)
-        pygame.draw.rect(self.canvas, FRG_COLOR, self.buttonY, 1)
-        pygame.draw.rect(self.canvas, FRG_COLOR, self.buttonW, 1)
 
 
 class TitleBar:
@@ -138,8 +162,14 @@ class TitleBar:
         self.text.draw(self.canvas)
 
 
+class RoundedButton(Button):
+    """This will be a button with the roughly rounded corners."""
+
+    pass
+
+
 def divider(canvas: pygame.Surface, y: int) -> None:
     """
     Draws a horizontal divider line on the screen at the specified y position.
     """
-    pygame.draw.line(canvas, FRG_COLOR, (1, y), (INTERNAL_RES - 1, y), 2)
+    pygame.draw.line(canvas, FRG_COLOR, (1, y), (INTERNAL_RES - 2, y), 2)

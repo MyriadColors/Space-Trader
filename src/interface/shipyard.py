@@ -78,6 +78,6 @@ class Shipyard(State):
         TextRender(FULL_HULL, (2, 90), self.font).draw(canvas)
         TextRender(SHIP_SALES, (2, 110), self.font).draw(canvas)
         TextRender(ESCAPE_POD, (2, 130), self.font).draw(canvas)
-        TextRender("Cash: {} cr.", (154, 158), self.font, ref="bottomleft").draw(canvas)
+        TextRender("Cash: {} cr.", (154, 158), self.font, ref="bottomright").draw(canvas)
 
         return canvas
