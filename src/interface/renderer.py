@@ -12,9 +12,13 @@ from ..constants import BKG_COLOR, FRG_COLOR, INTERNAL_RES
 
 
 class Button:
-
     def __init__(
-        self, text: str, pos: tuple[int, int], size: tuple[int, int], font: pygame.font.Font, **options
+        self,
+        text: str,
+        pos: tuple[int, int],
+        size: tuple[int, int],
+        font: pygame.font.Font,
+        **options,
     ) -> None:
         self.pos = pos
         self.width, self.height = size
@@ -28,25 +32,48 @@ class Button:
         self.border = pygame.Rect(0, 0, self.width, self.height)
         self.img = self.font.render(self.text, False, FRG_COLOR)
         self.txtarea = self.img.get_rect()
+
+        # Set the position of the button based on the reference point. For the text area, we need to center
+        # it within the button so the position is adjusted based on the half-width and height of the border position.
         if self.reference == "center":
             self.border.center = self.pos
             self.txtarea.center = (self.pos[0], self.pos[1])
         elif self.reference == "topright":
             self.border.topright = self.pos
-            self.txtarea.center = (self.pos[0] - self.width // 2, self.pos[1] + self.height // 2)
+            self.txtarea.center = (
+                self.pos[0] - self.width // 2,
+                self.pos[1] + self.height // 2,
+            )
         elif self.reference == "bottomright":
             self.border.bottomright = self.pos
-            self.txtarea.center = (self.pos[0] + self.width // 2, self.pos[1] - self.height // 2)
+            self.txtarea.center = (
+                self.pos[0] + self.width // 2,
+                self.pos[1] - self.height // 2,
+            )
         elif self.reference == "bottomleft":
             self.border.bottomleft = self.pos
-            self.txtarea.center = (self.pos[0] + self.width // 2, self.pos[1] - self.height // 2)
+            self.txtarea.center = (
+                self.pos[0] + self.width // 2,
+                self.pos[1] - self.height // 2,
+            )
         else:
             self.border.topleft = self.pos
-            self.txtarea.center = (self.pos[0] + self.width // 2, self.pos[1] + self.height // 2)
+            self.txtarea.center = (
+                self.pos[0] + self.width // 2,
+                self.pos[1] + self.height // 2,
+            )
 
     def draw(self, canvas: pygame.Surface) -> None:
         pygame.draw.rect(canvas, FRG_COLOR, self.border, 1)
         canvas.blit(self.img, self.txtarea)
+
+    def is_clicked(self, pos: tuple[int, int]) -> bool:
+        #! Debugging print statements
+        print(self.border.topleft, self.border.bottomright)
+        print(pos)
+        print(self.border.collidepoint(pos))
+
+        return self.border.collidepoint(pos)
 
 
 class TextRender:
@@ -58,9 +85,10 @@ class TextRender:
         pos (tuple[int, int]): The position to render the text.
         font (pygame.font.Font): The font to render the text in.
         pos_center (bool): Flag to center the text on the position.
-        fontcolor (pygame.Color): The color of the text.
+        fontcolor (pygame.Color or RGB tuple): The color of the text.
         img (pygame.Surface): The rendered text image.
         rect (pygame.Rect): The bounding rectangle
+
     """
 
     def __init__(self, text: str, pos: tuple[int, int], font: pygame.font.Font, **options) -> None:
@@ -129,12 +157,11 @@ class Header:
         )
         self.render()
 
+    def get_buttons(self) -> tuple[Button, Button, Button, Button]:
+        return self.buttonB, self.buttonS, self.buttonY, self.buttonW
+
     def render(self) -> None:
         pygame.draw.rect(self.canvas, FRG_COLOR, self.underline)
-        # print(self.buttonW.rect)
-        # print(self.buttonY.rect)
-        # print(self.buttonS.rect)
-        # print(self.buttonB.rect)
         self.buttonW.draw(self.canvas)
         self.buttonY.draw(self.canvas)
         self.buttonS.draw(self.canvas)

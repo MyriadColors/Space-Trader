@@ -50,13 +50,12 @@ class Game:
         screen_width (int): The width of the game window.
         screen_height (int): The height of the game window.
         canvas (pygame.Surface): The surface to draw the game on.
-        screen (pygame.Surface): The game window surface.
+        screen (pygame.Surface): The game window.
         config (configparser.ConfigParser): The configuration file for the game.
         running (bool): Flag to indicate if the game is running.
     """
 
     def __init__(self):
-
         # Initialize pygame
         pygame.init()
 
@@ -67,7 +66,6 @@ class Game:
         self.screen_res = INTERNAL_RES * 5
         self.canvas = pygame.Surface((INTERNAL_RES, INTERNAL_RES))
         self.screen = pygame.display.set_mode((self.screen_res, self.screen_res))
-        # self.screen = pygame.display.set_mode((INTERNAL_RES, INTERNAL_RES))
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Space Trader")
         pygame.display.set_icon(pygame.image.load("assets/images/App.ico"))
@@ -100,6 +98,10 @@ class Game:
                 self.running = False
             elif event.type == pygame.KEYDOWN:
                 self.get_state().handle_events(event)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_event = event
+                mouse_event.pos = (mouse_event.pos[0] // 5, mouse_event.pos[1] // 5)
+                self.get_state().handle_events(mouse_event)
 
     def update(self):
         pass
@@ -114,7 +116,7 @@ class Game:
         transform = pygame.transform.scale_by(self.canvas, 5)
         self.screen.blit(transform, (0, 0))
         pygame.display.flip()
-        self.clock.tick(30)
+        self.clock.tick(10)
 
     # Asset Management
     def load_assets(self):
@@ -193,5 +195,4 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()

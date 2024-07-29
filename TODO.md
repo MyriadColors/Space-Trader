@@ -10,4 +10,4 @@ Whenever I think of something to improve but don't need another rabit hole, it g
 - [ ] Header is universal height, could be a constant for alignment use
 - [ ] Import all the src.interface files at once, maybe with the init py file?
 - [ ] Create a dict of pygame shortcuts in the interface init file
-- [ ] 
+- [ ] Look into pre-commit and pre-commmit-ci and dependabot

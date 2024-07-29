@@ -777,7 +777,7 @@ class Skills(Enum):
     ENGINEER = 4
 
 
-class Difficulty(Enum):
+class Difficulty:
     BEGINNER = 0
     EASY = 1
     NORMAL = 2
@@ -818,8 +818,10 @@ REPUTATION = {
 
 # Display
 INTERNAL_RES = 160
+HALF_RES = INTERNAL_RES // 2
 BKG_COLOR = (134, 134, 104)
 FRG_COLOR = (0, 0, 0)
+CIRCLE_XY = (14, 14)
 # INTERNAL_RES = 1024
 
 

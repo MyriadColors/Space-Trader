@@ -19,6 +19,9 @@ class SystemInfo(State):
         self.font: pygame.font.Font = game.font_sm
         super().__init__(game)
 
+        self.header = Header(self.game.canvas, self.font)
+        self.buttonB, self.buttonS, self.buttonY, self.buttonW = self.header.get_buttons()
+
     def handle_events(self, event: pygame.event) -> None:
         if event.type == pygame.QUIT:
             self.game.running = False
@@ -49,6 +52,19 @@ class SystemInfo(State):
                 self.game.current_state = GameStateID.W_SHORTRANGE
             if event.key == pygame.K_o:
                 NotImplemented
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if self.buttonB.is_clicked(event.pos):
+                print("Clicked B")
+                self.game.current_state = GameStateID.B_CARGO
+            if self.buttonS.is_clicked(event.pos):
+                print("Clicked S")
+                self.game.current_state = GameStateID.S_CARGO
+            if self.buttonY.is_clicked(event.pos):
+                print("Clicked Y")
+                self.game.current_state = GameStateID.Y_SHIPYARD
+            if self.buttonW.is_clicked(event.pos):
+                print("Clicked W")
+                self.game.current_state = GameStateID.W_SHORTRANGE
 
     def update(self, actions) -> None:
         pass
@@ -57,7 +73,8 @@ class SystemInfo(State):
         canvas.fill(BKG_COLOR)
 
         # Draw the header
-        Header(canvas, self.font)
+        # Header(canvas, self.font)
+        self.header.render()
         TitleBar("System Info", self.head_font, canvas)
 
         # Category headers
