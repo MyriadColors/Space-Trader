@@ -6,7 +6,8 @@
 
 import pygame
 
-from ..constants import BKG_COLOR, GameStateID, ShipID
+from ..constants import BKG_COLOR, GameStateID
+from ..game_data import ShipID
 from .renderer import Header, TextRender, TitleBar
 from .state import State
 

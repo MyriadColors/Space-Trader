@@ -11,7 +11,8 @@ from math import floor, pow, sqrt
 from random import choice, randint
 
 from .constants import SPECIALRESOURCES, SYSTEMSIZE
-from .economy import TradeItemId, TradeItems
+from .economy import TradeItemId
+from .game_data import TRADEITEMS
 from .government import PoliticalSystem
 
 TMPGAMEDIFFICULTY = 1
@@ -181,7 +182,7 @@ class Planet:
             else:
                 # Quantity is dictated by the planet tech level, size, and a bit of randomness
                 self.trade_items[item_id] = (self.size + 1) * (
-                    randint(9, 14) - abs(TradeItems[item_id].tech_level_max - self.tech_level)
+                    randint(9, 14) - abs(TRADEITEMS[item_id].tech_level_max - self.tech_level)
                 )
 
             # Because of the enormous profitssss possible,
@@ -192,11 +193,11 @@ class Planet:
                 ) + 1
 
             # Adjust for special resources and societal pressures
-            if self.special_resource == TradeItems[item_id].special_resource_drop:
+            if self.special_resource == TRADEITEMS[item_id].special_resource_drop:
                 self.trade_items[item_id] = self.trade_items[item_id] * 4 / 3
-            if self.special_resource == TradeItems[item_id].special_resource_hike:
+            if self.special_resource == TRADEITEMS[item_id].special_resource_hike:
                 self.trade_items[item_id] = self.trade_items[item_id] * 3 / 4
-            if self.soci_pressure == TradeItems[item_id].pressure:
+            if self.soci_pressure == TRADEITEMS[item_id].pressure:
                 self.trade_items[item_id] = self.trade_items[item_id] / 5
 
             # Another small random factor

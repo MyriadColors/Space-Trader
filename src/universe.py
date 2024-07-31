@@ -18,7 +18,7 @@ from .constants import (
     SocietalPressure,
     SpecialResource,
 )
-from .government import GOVERNMENTS
+from .game_data import GOVERNMENTS
 from .planet import Planet
 from .utils import planet_distance, wormhole_exists
 
