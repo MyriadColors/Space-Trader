@@ -9,16 +9,8 @@
 
 from random import choice, randint
 
-from .constants import (
-    GALAXYHEIGHT,
-    GALAXYWIDTH,
-    MIN_DISTANCE,
-    PLANET_NAMES,
-    SECTOR_DIAMETER,
-    SocietalPressure,
-    SpecialResource,
-)
-from .game_data import GOVERNMENTS
+from .constants import GALAXYHEIGHT, GALAXYWIDTH, MIN_DISTANCE, SECTOR_DIAMETER, SocietalPressure, SpecialResource
+from .game_data import GOVERNMENTS, PLANET_NAMES
 from .planet import Planet
 from .utils import planet_distance, wormhole_exists
 

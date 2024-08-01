@@ -8,9 +8,9 @@
 """
 
 from math import floor, pow, sqrt
-from random import choice, randint
+from random import randint
 
-from .constants import SPECIALRESOURCES, SYSTEMSIZE
+from .constants import Size, SpecialResource
 from .economy import TradeItemId
 from .game_data import TRADEITEMS
 from .government import PoliticalSystem
@@ -71,10 +71,10 @@ class Planet:
     def __repr__(self) -> str:
         info = f"""---------------
         Planet: {self.name} at ({self.x}, {self.y})\n \
-        Size: {SYSTEMSIZE[self.size]}\n \
+        Size: {Size.name(self.size)}\n \
         Tech Level: {self.tech_level}\n \
         Government: {self.get_government_name()}\n \
-        Resources: {SPECIALRESOURCES[self.special_resource]}\n \
+        Resources: {SpecialResource.name(self.special_resource)}\n \
         Police: {self.government.law}\n \
         Pirates: {self.government.crime}\n \
         Pressure: {self.soci_pressure}\n \
@@ -166,7 +166,7 @@ class Planet:
             return self.special_resource
         # TODO maybe not random here?
         else:
-            self.special_resource = choice(SPECIALRESOURCES)
+            self.special_resource = SpecialResource.random()
             return self.special_resource
 
     def initialize_trade_items(self):

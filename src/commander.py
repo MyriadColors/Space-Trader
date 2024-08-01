@@ -8,7 +8,34 @@
 
 import random
 
-from constants import INSURANCE_RATE, INTEREST_RATE, MAXSKILL, MERCENARYNAMES, Skills
+from .constants import INSURANCE_RATE, INTEREST_RATE, MAXSKILL, MERCENARYNAMES, Skills
+
+
+class CriminalRecord:
+    PSYCHOPATH = 0
+    VILLAIN = 1
+    CRIMINAL = 2
+    CROOK = 3
+    DUBIOUS = 4
+    CLEAN = 5
+    LAWFUL = 6
+    TRUSTED = 7
+    LIKED = 8
+    HERO = 9
+    ERRNO = 10
+
+
+class CombatReputation:
+    HARMLESS = 0
+    MOSTLY_HARMLESS = 1
+    POOR = 2
+    AVERAGE = 3
+    ABOVE_AVERAGE = 4
+    COMPETENT = 5
+    DANGEROUS = 6
+    DEADLY = 7
+    ELITE = 8
+    BORG = 9
 
 
 class Commander:

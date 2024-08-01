@@ -3,11 +3,17 @@
     An elite-inspired space trading RPG originally on PalmOS
 
     Constants Module
-    Game constants and enums, to be imported by other modules.
+    Game constants, to be imported by other modules.
 """
 
-from enum import Enum
 from random import randint
+
+# Display
+INTERNAL_RES = 160
+HALF_RES = INTERNAL_RES // 2
+BKG_COLOR = (134, 134, 104)
+FRG_COLOR = (0, 0, 0)
+CIRCLE_XY = (14, 14)
 
 # Galaxy
 GALAXYWIDTH = 154
@@ -17,7 +23,6 @@ MAX_DISTANCE = 20
 WORMHOLE_DISTANCE = 25
 SECTOR_DIAMETER = 13
 MAX_WORMHOLES = 10
-
 
 # Economy
 START_CREDITS = 1000
@@ -32,162 +37,52 @@ MAX_NOCLAIM is the lowest rate that can be achieved
 INSURANCE_RATE = 0.0025
 MAX_NOCLAIM = 90
 
+# Character
+MAXTRIBBLES = 100000
+MAXSKILL = 10
+SKILLBONUS = 3
+CLOAKBONUS = 2
+BOUNTYMOD = 1000  # Price paid by govt for each neg police point
 
-# Crime
-class CriminalRecord(Enum):
-    PSYCHOPATH = 0
-    VILLAIN = 1
-    CRIMINAL = 2
-    CROOK = 3
-    DUBIOUS = 4
-    CLEAN = 5
-    LAWFUL = 6
-    TRUSTED = 7
-    LIKED = 8
-    HERO = 9
-    ERRNO = 10
-
-
-# Combat
-class CombatReputation(Enum):
-    HARMLESS = 0
-    MOSTLY_HARMLESS = 1
-    POOR = 2
-    AVERAGE = 3
-    ABOVE_AVERAGE = 4
-    COMPETENT = 5
-    DANGEROUS = 6
-    DEADLY = 7
-    ELITE = 8
-    BORG = 9
-
-
-# System
-class PlanetId:
-    ACAMAR = 0
-    ADAHN = 1
-    ALDEA = 2
-    ANDEVIAN = 3
-    ANTEDI = 4
-    BALOSNEE = 5
-    BARATAS = 6
-    BOB = 7
-    BRAX = 8
-    BRETEL = 9
-    CALONDIA = 10
-    CAMPOR = 11
-    CAPELLE = 12
-    CARZON = 13
-    CASTOR = 14
-    CESTUS = 15
-    CHERON = 16
-    COURTENEY = 17
-    DALED = 18
-    DAMAST = 19
-    DAVLOS = 20
-    DENEB = 21
-    DENEVA = 22
-    DEVIDIA = 23
-    DRAYLON = 24
-    DREMA = 25
-    ENDOR = 26
-    ESMEE = 27
-    EXO = 28
-    FERRIS = 29
-    FESTEN = 30
-    FOURMI = 31
-    FROLIX = 32
-    GEMULON = 33
-    GUINIFER = 34
-    HADES = 35
-    HAMLET = 36
-    HELENA = 37
-    HULST = 38
-    IODINE = 39
-    IRALIUS = 40
-    JANUS = 41
-    JAPORI = 42
-    JARADA = 43
-    JASON = 44
-    KAYLON = 45
-    KHEFKA = 46
-    KIRA = 47
-    KLAATU = 48
-    KLAESTRON = 49
-    KORMA = 50
-    KRAVAT = 51
-    KRIOS = 52
-    LAERTES = 53
-    LARGO = 54
-    LAVE = 55
-    LIGON = 56
-    LOWRY = 57
-    MAGRAT = 58
-    MALCORIA = 59
-    MELINA = 60
-    MENTAR = 61
-    MERIK = 62
-    MINTAKA = 63
-    MONTOR = 64
-    MORDAN = 65
-    MYRTHE = 66
-    NELVANA = 67
-    NIX = 68
-    NYLE = 69
-    ODET = 70
-    OG = 71
-    OMEGA = 72
-    OMPHALOS = 73
-    ORIAS = 74
-    OTHELLO = 75
-    PARADE = 76
-    PENTHARA = 77
-    PICARD = 78
-    POLLUX = 79
-    QUATOR = 80
-    RAKHAR = 81
-    RAN = 82
-    REGULAS = 83
-    RELVA = 84
-    RHYMUS = 85
-    ROCHANI = 86
-    RUBICUM = 87
-    RUTIA = 88
-    SARPEIDON = 89
-    SEFALLA = 90
-    SELTRICE = 91
-    SIGMA = 92
-    SOL = 93
-    SOMARI = 94
-    STAKORON = 95
-    STYRIS = 96
-    TALANI = 97
-    TAMUS = 98
-    TANTALOS = 99
-    TANUGA = 100
-    TARCHANNEN = 101
-    TEROSA = 102
-    THERA = 103
-    TITAN = 104
-    TORIN = 105
-    TRIACUS = 106
-    TURKANA = 107
-    TYRUS = 108
-    UMBERLEE = 109
-    UTOPIA = 110
-    VADERA = 111
-    VAGRA = 112
-    VANDOR = 113
-    VENTAX = 114
-    XENON = 115
-    XERXES = 116
-    YEW = 117
-    YOJIMBO = 118
-    ZALKON = 119
-    ZUUL = 120
+MERCENARYNAMES = {
+    1: "Alyssa",
+    2: "Armatur",
+    3: "Bentos",
+    4: "C2U2",
+    5: "Chi'Ti",
+    6: "Crystal",
+    7: "Dane",
+    8: "Deirdre",
+    9: "Doc",
+    10: "Draco",
+    11: "Iranda",
+    12: "Jeremiah",
+    13: "Jujubal",
+    14: "Krydon",
+    15: "Luis",
+    16: "Mercedez",
+    17: "Milete",
+    18: "Muri-L",
+    19: "Mystyc",
+    20: "Nandi",
+    21: "Orestes",
+    22: "Pancho",
+    23: "PS37",
+    24: "Quarck",
+    25: "Sosumi",
+    26: "Uma",
+    27: "Wesley",
+    28: "Wonton",
+    29: "Yorvick",
+    30: "Zeethibal",  # anagram of Elizabeth
+}
 
 
 class Activity:
+    """
+    General class to associate an int with a level of activity
+    """
+
     ABSENT = 0
     MINIMAL = 1
     FEW = 2
@@ -212,12 +107,24 @@ class TechLevel:
 
 
 class Size:
+    """
+    General class to associate an int with the size of a planet
+    """
+
     TINY = 0
     SMALL = 1
     MEDIUM = 2
     LARGE = 3
     HUGE = 4
     GARGANTUAN = 5
+
+    NAMES = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
+
+    @classmethod
+    def name(cls, size: int) -> str:
+        if size < 0 or size >= len(cls.NAMES):
+            raise ValueError(f"Invalid size: {size}")
+        return cls.NAMES[size]
 
 
 class SpecialResource:
@@ -235,6 +142,29 @@ class SpecialResource:
     ARTISTIC = 11
     WARLIKE = 12
 
+    NAMES = [
+        "Nothing special",  # Uneventful
+        "Mineral rich",  # produce Ore
+        "Mineral poor",  # Ore in demand
+        "Desert",  # Water in demand
+        "Sweetwater oceans",  # produce Water
+        "Rich soil",  # produce Food
+        "Poor soil",  # Food in demand
+        "Rich fauna",  # produce Fur
+        "Lifeless",  # Water and Food in demand
+        "Weird mushrooms",  # produce Narcotics
+        "Special herbs",  # produce Narcotics
+        "Artistic populace",  # Narcotics in demand
+        "Warlike populace",  # Weapons in demand
+    ]
+
+    @classmethod
+    def name(cls, resource: int) -> str:
+        if resource < 0 or resource >= len(cls.NAMES):
+            raise ValueError(f"Invalid resource: {resource}")
+        return cls.NAMES[resource]
+
+    @staticmethod
     def random() -> int:
         return randint(1, 12)
 
@@ -249,235 +179,30 @@ class SocietalPressure:
     CROPFAILURE = 6
     EMPLOYMENT = 7
 
+    NAMES = [
+        "under no particular pressure",  # Uneventful
+        "at war",  # Ore and Weapons in demand
+        "ravaged by a plague",  # Medicine in demand
+        "suffering from a drought",  # Water in demand
+        "suffering from extreme boredom",  # Games and Narcotics in demand
+        "suffering from a cold spell",  # Furs in demand
+        "suffering from a crop failure",  # Food in demand
+        "lacking enough workers",  # Machinery and Robots in demand
+    ]
 
-PLANET_NAMES = {
-    PlanetId.ACAMAR: "Acamar",
-    PlanetId.ADAHN: "Adahn",
-    PlanetId.ALDEA: "Aldea",
-    PlanetId.ANDEVIAN: "Andevian",
-    PlanetId.ANTEDI: "Antedi",
-    PlanetId.BALOSNEE: "Balosnee",
-    PlanetId.BARATAS: "Baratas",
-    PlanetId.BOB: "Bob",
-    PlanetId.BRAX: "Brax",
-    PlanetId.BRETEL: "Bretel",
-    PlanetId.CALONDIA: "Calondia",
-    PlanetId.CAMPOR: "Campor",
-    PlanetId.CAPELLE: "Capelle",
-    PlanetId.CARZON: "Carzon",
-    PlanetId.CASTOR: "Castor",
-    PlanetId.CESTUS: "Cestus",
-    PlanetId.CHERON: "Cheron",
-    PlanetId.COURTENEY: "Courteney",
-    PlanetId.DALED: "Daled",
-    PlanetId.DAMAST: "Damast",
-    PlanetId.DAVLOS: "Davlos",
-    PlanetId.DENEB: "Deneb",
-    PlanetId.DENEVA: "Deneva",
-    PlanetId.DEVIDIA: "Devidia",
-    PlanetId.DRAYLON: "Draylon",
-    PlanetId.DREMA: "Drema",
-    PlanetId.ENDOR: "Endor",
-    PlanetId.ESMEE: "Esmee",
-    PlanetId.EXO: "Exo",
-    PlanetId.FERRIS: "Ferris",
-    PlanetId.FESTEN: "Festen",
-    PlanetId.FOURMI: "Fourmi",
-    PlanetId.FROLIX: "Frolix",
-    PlanetId.GEMULON: "Gemulon",
-    PlanetId.GUINIFER: "Guinifer",
-    PlanetId.HADES: "Hades",
-    PlanetId.HAMLET: "Hamlet",
-    PlanetId.HELENA: "Helena",
-    PlanetId.HULST: "Hulst",
-    PlanetId.IODINE: "Iodine",
-    PlanetId.IRALIUS: "Iralius",
-    PlanetId.JANUS: "Janus",
-    PlanetId.JAPORI: "Japori",
-    PlanetId.JARADA: "Jarada",
-    PlanetId.JASON: "Jason",
-    PlanetId.KAYLON: "Kaylon",
-    PlanetId.KHEFKA: "Khefka",
-    PlanetId.KIRA: "Kira",
-    PlanetId.KLAATU: "Klaatu",
-    PlanetId.KLAESTRON: "Klaestron",
-    PlanetId.KORMA: "Korma",
-    PlanetId.KRAVAT: "Kravat",
-    PlanetId.KRIOS: "Krios",
-    PlanetId.LAERTES: "Laertes",
-    PlanetId.LARGO: "Largo",
-    PlanetId.LAVE: "Lave",
-    PlanetId.LIGON: "Ligon",
-    PlanetId.LOWRY: "Lowry",
-    PlanetId.MAGRAT: "Magrat",
-    PlanetId.MALCORIA: "Malcoria",
-    PlanetId.MELINA: "Melina",
-    PlanetId.MENTAR: "Mentar",
-    PlanetId.MERIK: "Merik",
-    PlanetId.MINTAKA: "Mintaka",
-    PlanetId.MONTOR: "Montor",
-    PlanetId.MORDAN: "Mordan",
-    PlanetId.MYRTHE: "Myrthe",
-    PlanetId.NELVANA: "Nelvana",
-    PlanetId.NIX: "Nix",
-    PlanetId.NYLE: "Nyle",
-    PlanetId.ODET: "Odet",
-    PlanetId.OG: "Og",
-    PlanetId.OMEGA: "Omega",
-    PlanetId.OMPHALOS: "Omphalos",
-    PlanetId.ORIAS: "Orias",
-    PlanetId.OTHELLO: "Othello",
-    PlanetId.PARADE: "Parade",
-    PlanetId.PENTHARA: "Penthara",
-    PlanetId.PICARD: "Picard",
-    PlanetId.POLLUX: "Pollux",
-    PlanetId.QUATOR: "Quator",
-    PlanetId.RAKHAR: "Rakhar",
-    PlanetId.RAN: "Ran",
-    PlanetId.REGULAS: "Regulas",
-    PlanetId.RELVA: "Relva",
-    PlanetId.RHYMUS: "Rhymus",
-    PlanetId.ROCHANI: "Rochani",
-    PlanetId.RUBICUM: "Rubicum",
-    PlanetId.RUTIA: "Rutia",
-    PlanetId.SARPEIDON: "Sarpeidon",
-    PlanetId.SEFALLA: "Sefalla",
-    PlanetId.SELTRICE: "Seltrice",
-    PlanetId.SIGMA: "Sigma",
-    PlanetId.SOL: "Sol",
-    PlanetId.SOMARI: "Somari",
-    PlanetId.STAKORON: "Stakoron",
-    PlanetId.STYRIS: "Styris",
-    PlanetId.TALANI: "Talani",
-    PlanetId.TAMUS: "Tamus",
-    PlanetId.TANTALOS: "Tantalos",
-    PlanetId.TANUGA: "Tanuga",
-    PlanetId.TARCHANNEN: "Tarchannen",
-    PlanetId.TEROSA: "Terosa",
-    PlanetId.THERA: "Thera",
-    PlanetId.TITAN: "Titan",
-    PlanetId.TORIN: "Torin",
-    PlanetId.TRIACUS: "Triacus",
-    PlanetId.TURKANA: "Turkana",
-    PlanetId.TYRUS: "Tyrus",
-    PlanetId.UMBERLEE: "Umberlee",
-    PlanetId.UTOPIA: "Utopia",
-    PlanetId.VADERA: "Vadera",
-    PlanetId.VAGRA: "Vagra",
-    PlanetId.VANDOR: "Vandor",
-    PlanetId.VENTAX: "Ventax",
-    PlanetId.XENON: "Xenon",
-    PlanetId.XERXES: "Xerxes",
-    PlanetId.YEW: "Yew",
-    PlanetId.YOJIMBO: "Yojimbo",
-    PlanetId.ZALKON: "Zalkon",
-    PlanetId.ZUUL: "Zuul",
-}
-SYSTEMSIZE = {
-    Size.TINY: "Tiny",
-    Size.SMALL: "Small",
-    Size.MEDIUM: "Medium",
-    Size.LARGE: "Large",
-    Size.HUGE: "Huge",
-    Size.GARGANTUAN: "Gargantuan",
-}
-SPECIALRESOURCES = {
-    SpecialResource.NOTHING: "Nothing special",  # Uneventful
-    SpecialResource.MINERAL_RICH: "Mineral rich",  # produce Ore
-    SpecialResource.MINERAL_POOR: "Mineral poor",  # Ore in demand
-    SpecialResource.DESERT: "Desert",  # Water in demand
-    SpecialResource.SWEETOCEANS: "Sweetwater oceans",  # produce Water
-    SpecialResource.RICHSOIL: "Rich soil",  # produce Food
-    SpecialResource.POORSOIL: "Poor soil",  # Food in demand
-    SpecialResource.RICHFAUNA: "Rich fauna",  # produce Fur
-    SpecialResource.LIFELESS: "Lifeless",  # Water and Food in demand
-    SpecialResource.WEIRDMUSHROOMS: "Weird mushrooms",  # produce Narcotics
-    SpecialResource.SPECIALHERBS: "Special herbs",  # produce Narcotics
-    SpecialResource.ARTISTIC: "Artistic populace",  # Narcotics in demand
-    SpecialResource.WARLIKE: "Warlike populace",  # Weapons in demand
-}
-PRESSURE = {
-    SocietalPressure.NONE: "under no particular pressure",  # Uneventful
-    SocietalPressure.WAR: "at war",  # Ore and Weapons in demand
-    SocietalPressure.PLAGUE: "ravaged by a plague",  # Medicine in demand
-    SocietalPressure.DROUGHT: "suffering from a drought",  # Water in demand
-    SocietalPressure.BOREDOM: "suffering from extreme boredom",  # Games and Narcotics in demand
-    SocietalPressure.COLD: "suffering from a cold spell",  # Furs in demand
-    SocietalPressure.CROPFAILURE: "suffering from a crop failure",  # Food in demand
-    SocietalPressure.EMPLOYMENT: "lacking enough workers",
-}  # Machinery and Robots in demand
+    @classmethod
+    def name(cls, pressure: int) -> str:
+        if pressure < 0 or pressure >= len(cls.NAMES):
+            raise ValueError(f"Invalid pressure: {pressure}")
+        return cls.NAMES[pressure]
 
-
-# Names
-class Merc(Enum):
-    ALYSSA = 1
-    ARMATUR = 2
-    BENTOS = 3
-    C2U2 = 4
-    CHITI = 5
-    CRYSTAL = 6
-    DANE = 7
-    DEIRDRE = 8
-    DOC = 9
-    DRACO = 10
-    IRANDA = 11
-    JEREMIAH = 12
-    JUJUBAL = 13
-    KRYDON = 14
-    LUIS = 15
-    MERCEDZ = 16
-    MILETE = 17
-    MURIL = 18
-    MYSTYC = 19
-    NANDI = 20
-    ORESTES = 21
-    PANCHO = 22
-    PS37 = 23
-    QUARCK = 24
-    SOSUMI = 25
-    UMA = 26
-    WESLEY = 27
-    WONTON = 28
-    YORVICK = 29
-    ZEETHIBAL = 30
-
-
-MERCENARYNAMES = {
-    Merc.ALYSSA: "Alyssa",
-    Merc.ARMATUR: "Armatur",
-    Merc.BENTOS: "Bentos",
-    Merc.C2U2: "C2U2",
-    Merc.CHITI: "Chi'Ti",
-    Merc.CRYSTAL: "Crystal",
-    Merc.DANE: "Dane",
-    Merc.DEIRDRE: "Deirdre",
-    Merc.DOC: "Doc",
-    Merc.DRACO: "Draco",
-    Merc.IRANDA: "Iranda",
-    Merc.JEREMIAH: "Jeremiah",
-    Merc.JUJUBAL: "Jujubal",
-    Merc.KRYDON: "Krydon",
-    Merc.LUIS: "Luis",
-    Merc.MERCEDZ: "Mercedez",
-    Merc.MILETE: "Milete",
-    Merc.MURIL: "Muri-L",
-    Merc.MYSTYC: "Mystyc",
-    Merc.NANDI: "Nandi",
-    Merc.ORESTES: "Orestes",
-    Merc.PANCHO: "Pancho",
-    Merc.PS37: "PS37",
-    Merc.QUARCK: "Quarck",
-    Merc.SOSUMI: "Sosumi",
-    Merc.UMA: "Uma",
-    Merc.WESLEY: "Wesley",
-    Merc.WONTON: "Wonton",
-    Merc.YORVICK: "Yorvick",
-    Merc.ZEETHIBAL: "Zeethibal",  # anagram of Elizabeth
-}
+    @staticmethod
+    def random() -> int:
+        return randint(1, 7)
 
 
 # Character
-class Skills(Enum):
+class Skills:
     NONE = 0
     PILOT = 1
     FIGHTER = 2
@@ -491,46 +216,6 @@ class Difficulty:
     NORMAL = 2
     HARD = 3
     IMPOSSIBLE = 4
-
-
-MAXTRIBBLES = 100000
-MAXSKILL = 10
-SKILLBONUS = 3
-CLOAKBONUS = 2
-BOUNTYMOD = 1000  # Price paid by govt for each neg police point
-POLICE_RECORDS = {
-    CriminalRecord.PSYCHOPATH: -100,
-    CriminalRecord.VILLAIN: -70,
-    CriminalRecord.CRIMINAL: -30,
-    CriminalRecord.CROOK: -10,
-    CriminalRecord.DUBIOUS: -5,
-    CriminalRecord.CLEAN: 0,
-    CriminalRecord.LAWFUL: 5,
-    CriminalRecord.TRUSTED: 10,
-    CriminalRecord.LIKED: 25,
-    CriminalRecord.HERO: 75,
-    CriminalRecord.ERRNO: 100,
-}
-REPUTATION = {
-    CombatReputation.HARMLESS: 0,
-    CombatReputation.MOSTLY_HARMLESS: 10,
-    CombatReputation.POOR: 20,
-    CombatReputation.AVERAGE: 40,
-    CombatReputation.ABOVE_AVERAGE: 80,
-    CombatReputation.COMPETENT: 150,
-    CombatReputation.DANGEROUS: 300,
-    CombatReputation.DEADLY: 600,
-    CombatReputation.ELITE: 1500,
-    CombatReputation.BORG: 3000,
-}
-
-# Display
-INTERNAL_RES = 160
-HALF_RES = INTERNAL_RES // 2
-BKG_COLOR = (134, 134, 104)
-FRG_COLOR = (0, 0, 0)
-CIRCLE_XY = (14, 14)
-# INTERNAL_RES = 1024
 
 
 # Gamestate codes
