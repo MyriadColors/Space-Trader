@@ -6,8 +6,8 @@
 
 import pygame
 
-from ..constants import BKG_COLOR, CIRCLE_XY, FRG_COLOR, HALF_RES, INTERNAL_RES, GameStateID
-from .renderer import Button, TextRender
+from ..constants import BKG_COLOR, CIRCLE_XY, FRG_COLOR, HALF_RES, INTERNAL_RES, Difficulty, GameStateID
+from .renderer import Button, TextInput, TextRender
 from .state import State
 
 
@@ -19,6 +19,9 @@ class CharacterCreation(State):
         self.font: pygame.font.Font = game.font_sm
         super().__init__(game)
 
+        self._cmdr_name = "Jameson"
+        self._cmdr_input = TextInput(55, 20, 80, self.font)
+        self.sprite_group = pygame.sprite.Group(self._cmdr_input)
         self._curr_difficulty = 2
         self._curr_points = 16
         self._curr_pilot = 1
@@ -68,6 +71,25 @@ class CharacterCreation(State):
                 self.game.current_state = GameStateID.SPLASH
             if event.key == pygame.K_RETURN:
                 self.game.current_state = GameStateID.SYSTEM_INFO
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            for index, button in enumerate(self._buttons):
+                if button.is_clicked(event.pos) and index < 2:
+                    if button.text == "+":
+                        self._curr_difficulty += 1
+                    elif button.text == "-":
+                        self._curr_difficulty -= 1
+                    else:
+                        raise ValueError(f"Invalid button text! Expected '+' or '-' but got {button.text}")
+                elif button.is_clicked(event.pos) and index >= 2:
+                    if button.text == "+":
+                        self._curr_points -= 1
+                        self._curr_values[index // 2] += 1
+                    elif button.text == "-":
+                        self._curr_points += 1
+                        self._curr_values[index // 2] -= 1
+                    else:
+                        raise ValueError(f"Invalid button text! Expected '+' or '-' but got {button.text}")
+        self.sprite_group.update(event)
 
     def update(self, actions) -> None:
         pass
@@ -114,6 +136,9 @@ class CharacterCreation(State):
             button.draw(canvas)
 
         # Draw the current values
+        self.sprite_group.draw(canvas)
+        difficulty_text = TextRender(Difficulty.name(self._curr_difficulty), (HALF_RES, 40), self.font)
+        difficulty_text.draw(canvas)
         for idx, value in enumerate(self._curr_values):
             value_text = TextRender(str(value), (HALF_RES, 65 + (idx * 14)), self.font)
             value_text.draw(canvas)
