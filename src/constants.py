@@ -217,6 +217,14 @@ class Difficulty:
     HARD = 3
     IMPOSSIBLE = 4
 
+    NAMES = ["Beginner", "Easy", "Normal", "Hard", "Impossible"]
+
+    @staticmethod
+    def name(difficulty: int) -> str:
+        if difficulty < 0 or difficulty >= len(Difficulty.NAMES):
+            raise ValueError(f"Invalid difficulty: {difficulty}")
+        return Difficulty.NAMES[difficulty]
+
 
 # Gamestate codes
 class GameStateID:
