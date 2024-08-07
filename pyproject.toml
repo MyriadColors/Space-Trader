@@ -6,7 +6,7 @@ build-backend = "hatchling.build-backend"
 name = "Space-Trader"
 version = "1.2.3"
 authors = [
-    {name = "RPINerd", email = ""}
+    {name = "RPINerd"}
 ]
 description = "A space trading game"
 readme = "README.md"
