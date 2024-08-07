@@ -71,12 +71,13 @@ class Universe:
         good exercise in algorithm design!
         """
 
-        x, y = 0, 0
+        x: int = 0
+        y: int = 0
 
         # Place the first planet somewhere in the center of the galaxy
         if id < len(self.wormholes):
-            x = ((GALAXYWIDTH * (1 + 2 * (id % 3))) / 6) - randint(-SECTOR_DIAMETER + 1, SECTOR_DIAMETER)
-            y = ((GALAXYHEIGHT * (1 if id < 3 else 3)) / 4) - randint(-SECTOR_DIAMETER + 1, SECTOR_DIAMETER)
+            x = int(((GALAXYWIDTH * (1 + 2 * (id % 3))) / 6) - randint(-SECTOR_DIAMETER + 1, SECTOR_DIAMETER))
+            y = int(((GALAXYHEIGHT * (1 if id < 3 else 3)) / 4) - randint(-SECTOR_DIAMETER + 1, SECTOR_DIAMETER))
             self.wormholes[id] = id
 
         else:
@@ -90,12 +91,13 @@ class Universe:
                 j = 0
                 while j < id and not too_close:
 
+                    system_distance = planet_distance(self.planets[j].get_location(), x, y)
                     # Minimum distance between any two systems not to be accepted.
-                    if planet_distance(self.planets[j].get_location(), x, y) < MIN_DISTANCE:
+                    if system_distance < MIN_DISTANCE:
                         too_close = True
 
                     # There should be at least one system which is close enough.
-                    if planet_distance(self.planets[j].get_location(), x, y) < SECTOR_DIAMETER:
+                    if system_distance < SECTOR_DIAMETER:
                         close_found = True
 
                     j += 1
