@@ -69,6 +69,13 @@ class Planet:
         return self.name
 
     def __repr__(self) -> str:
+        repr_str = f"{self.name} ({self.x}, {self.y}), \
+            {Size.name(self.size)}, {self.get_government_name()}, \
+            {self.get_tech_level()}, {SpecialResource.name(self.special_resource)}, \
+            {self.soci_pressure}, {self.government.law}, {self.government.crime}"
+        return repr_str
+
+    def pprint(self) -> str:
         info = f"""---------------
         Planet: {self.name} at ({self.x}, {self.y})\n \
         Size: {Size.name(self.size)}\n \
@@ -119,7 +126,7 @@ class Planet:
     def set_govt_type(self, value) -> None:
         self.government = value
 
-    def get_govt_type(self) -> int:
+    def get_govt_type(self) -> PoliticalSystem:
         return self.government
 
     def get_government_name(self) -> str:
