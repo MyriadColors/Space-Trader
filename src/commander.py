@@ -40,12 +40,12 @@ class CombatReputation:
 
 class Commander:
 
-    def __init__(self, name):
+    def __init__(self, name, pilot_skill, fighter_skill, trader_skill, engineer_skill):
         self.name = name
-        self.pilotSkill = None
-        self.fighterSkill = None
-        self.traderSkill = None
-        self.engineerSkill = None
+        self.pilotSkill = pilot_skill
+        self.fighterSkill = fighter_skill
+        self.traderSkill = trader_skill
+        self.engineerSkill = engineer_skill
         self.credits = 1000
         self.debt = 0
         self.ship = None
@@ -53,6 +53,21 @@ class Commander:
         self.reputation = 0
         self.policeRecord = 0
         self.timePlayed = 0
+
+    def __str__(self) -> str:
+        return self.name
+
+    def pprint(self) -> str:
+        cmdr_string = f"Name: {self.name}\n \
+            Skills: {self.pilotSkill}/{self.fighterSkill}/{self.traderSkill}/{self.engineerSkill}\n \
+            Credits: {self.credits}\n \
+            Debt: {self.debt}\n \
+            Ship: {self.ship}\n \
+            Kills: {self.kills}\n \
+            Reputation: {self.reputation}\n \
+            Police Record: {self.policeRecord}\n \
+            Time Played: {self.timePlayed}"
+        return cmdr_string
 
     def get_net_worth(self):
         # TODO include moon value eventually
