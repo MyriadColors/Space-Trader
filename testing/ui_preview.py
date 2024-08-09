@@ -50,6 +50,6 @@ if __name__ == "__main__":
                 sys.exit(0)
             state.handle_events(event)
 
-        screen.fill((240, 240, 240))
+        screen.fill(BKG_COLOR)
         state.render(screen)
         pygame.display.flip()
