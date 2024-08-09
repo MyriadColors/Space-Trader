@@ -12,7 +12,9 @@ from random import randint
 INTERNAL_RES = 160
 HALF_RES = INTERNAL_RES // 2
 BKG_COLOR = (134, 134, 104)
+BKG_HEX = "#868668"
 FRG_COLOR = (0, 0, 0)
+FRG_HEX = "#000000"
 CIRCLE_XY = (14, 14)
 
 # Galaxy
