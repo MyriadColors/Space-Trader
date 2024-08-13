@@ -127,7 +127,7 @@ window = tk.Tk()
 window.title("Space Trader")
 window.minsize("160", "160")
 window.geometry("160x160")
-
+window.configure(bg=c.BKG_HEX)
 
 # Title Bar
 header = ttk.Label(window, text="New Commander", font=("Helvetica", 8))
@@ -188,10 +188,15 @@ engineer_dec = ttk.Button(skills_frame, text="-", width=2, command=dec_engineer)
 engineer_inc = ttk.Button(skills_frame, text="+", width=2, command=inc_engineer)
 
 points_current = ttk.Label(skills_frame, textvariable=points_pool)
+points_current.grid(row=0, column=1)
 pilot_current = ttk.Label(skills_frame, textvariable=pilot_points)
+pilot_current.grid(row=1, column=2)
 fighter_current = ttk.Label(skills_frame, textvariable=fighter_points)
+fighter_current.grid(row=2, column=2)
 trader_current = ttk.Label(skills_frame, textvariable=trader_points)
+trader_current.grid(row=3, column=2)
 engineer_current = ttk.Label(skills_frame, textvariable=engineer_points)
+engineer_current.grid(row=4, column=2)
 
 points_label.grid(row=0, column=0, columnspan=2)
 points_current.grid(row=0, column=2)
