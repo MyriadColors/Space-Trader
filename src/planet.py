@@ -10,7 +10,7 @@
 from math import floor, pow, sqrt
 from random import randint
 
-from .constants import Size, SpecialResource
+from .constants import Activity, Size, SpecialResource, TechLevel
 from .economy import TradeItemId
 from .game_data import TRADEITEMS
 from .government import PoliticalSystem
@@ -88,6 +88,31 @@ class Planet:
         ---------------
         """
         return info
+
+    @staticmethod
+    def system_info_headers() -> list[str]:
+        """Reference for making window"""
+        # ? Maybe should be in a "UI" data module?
+        return [
+            "Name:",
+            "Size:",
+            "Tech level:",
+            "Government:",
+            "Resources:",
+            "Police:",
+            "Pirates:",
+        ]
+
+    def system_info(self) -> list[str]:
+        return [
+            self.name,
+            Size.name(self.size),
+            TechLevel.name(self.tech_level),
+            self.get_government_name(),
+            SpecialResource.name(self.special_resource),
+            Activity.name(self.government.law),
+            Activity.name(self.government.crime),
+        ]
 
     def get_location(self) -> tuple[int, int]:
         return (self.x, self.y)

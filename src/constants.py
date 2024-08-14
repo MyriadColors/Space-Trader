@@ -16,6 +16,7 @@ BKG_HEX = "#868668"
 FRG_COLOR = (0, 0, 0)
 FRG_HEX = "#000000"
 CIRCLE_XY = (14, 14)
+SCALAR = 2
 
 # Galaxy
 GALAXYWIDTH = 154
@@ -95,6 +96,24 @@ class Activity:
     SWARMS = 7
     UNAVAILABLE = 100
 
+    NAMES = [
+        "Absent",
+        "Minimal",
+        "Few",
+        "Some",
+        "Moderate",
+        "Many",
+        "Abundant",
+        "Swarms",
+        "Unavailable",
+    ]
+
+    @classmethod
+    def name(cls, activity: int) -> str:
+        if activity < 0 or activity >= len(cls.NAMES):
+            raise ValueError(f"Invalid activity: {activity}")
+        return cls.NAMES[activity]
+
 
 class TechLevel:
     PRE_AGRICULTURAL = 0
@@ -106,6 +125,24 @@ class TechLevel:
     POST_INDUSTRIAL = 6
     HI_TECH = 7
     UNAVAILABLE = 8
+
+    NAMES = [
+        "Pre-Agricultural",
+        "Agricultural",
+        "Medieval",
+        "Renaissance",
+        "Early Industrial",
+        "Industrial",
+        "Post-Industrial",
+        "Hi-Tech",
+        "Unavailable",
+    ]
+
+    @classmethod
+    def name(cls, tech: int) -> str:
+        if tech < 0 or tech >= len(cls.NAMES):
+            raise ValueError(f"Invalid tech level: {tech}")
+        return cls.NAMES[tech]
 
 
 class Size:
@@ -221,11 +258,11 @@ class Difficulty:
 
     NAMES = ["Beginner", "Easy", "Normal", "Hard", "Impossible"]
 
-    @staticmethod
-    def name(difficulty: int) -> str:
-        if difficulty < 0 or difficulty >= len(Difficulty.NAMES):
+    @classmethod
+    def name(cls, difficulty: int) -> str:
+        if difficulty < 0 or difficulty >= len(cls.NAMES):
             raise ValueError(f"Invalid difficulty: {difficulty}")
-        return Difficulty.NAMES[difficulty]
+        return cls.NAMES[difficulty]
 
 
 # Gamestate codes
