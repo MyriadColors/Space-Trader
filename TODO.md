@@ -12,3 +12,5 @@ Whenever I think of something to improve but don't need another rabit hole, it g
 - [ ] Create a dict of pygame shortcuts in the interface init file
 - [ ] Look into pre-commit and pre-commmit-ci and dependabot
 - [ ] Maybe have state -> corestates -> gamestates where the core states are just the BSYW states that share the button bar
+- [ ] Lock window to 160x160, but have a scale int that allows for 2x, 3x, 4x, etc. scaling
+  - [ ] Need to also have some sort of scaling for the font
