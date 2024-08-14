@@ -85,6 +85,15 @@ class Commander:
                 self.credits = 0
         self.debt = self.debt * 1.1
 
+    def pay_insurance(self):
+        #! AI generated placeholder
+        insurance = self.ship.get_value() * INSURANCE_RATE
+        if self.credits > insurance:
+            self.credits -= insurance
+        else:
+            self.debt += insurance - self.credits
+            self.credits = 0
+
     def get_debt(self):
         return self.debt
 
