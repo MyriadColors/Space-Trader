@@ -7,12 +7,13 @@
 """
 
 import tkinter as tk
-from tkinter import ttk
 
 import src.constants as c
 
 # import src.game_data as gd
 from src.screens.char_create import CreateCommander
+
+# from tkinter import ttk
 
 
 class SpaceTrader(tk.Tk):

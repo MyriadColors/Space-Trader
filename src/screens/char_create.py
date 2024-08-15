@@ -20,9 +20,10 @@ class StatAdjuster(ttk.Frame):
     A frame that contains a label, a decrement button, a value label, and an increment button.
     """
 
-    def __init__(self, master, label_text, initial_value, row, column, **kwargs):
-        super().__init__(master, **kwargs)
+    def __init__(self, parent, label_text, initial_value, row, column, **kwargs) -> None:
+        super().__init__(parent, **kwargs)
 
+        global points_pool
         self.value = tk.IntVar(value=initial_value)
 
         self.label = ttk.Label(self, text=label_text)
@@ -35,26 +36,32 @@ class StatAdjuster(ttk.Frame):
         self.value_label.grid(row=row, column=column + 2)
         self.increment.grid(row=row, column=column + 3)
 
-    def decrement_value(self):
-        self.value.set(max(self.value.get() - 1, 1))
+    def get_value(self) -> int:
+        return self.value.get()
 
-    def increment_value(self):
+    def decrement_value(self) -> None:
+        if self.value.get() == 1:
+            return
+        self.value.set(max(self.value.get() - 1, 1))
+        points_pool.set(points_pool.get() + 1)
+
+    def increment_value(self) -> None:
+        if points_pool.get() == 0 or self.value.get() == 10:
+            return
         self.value.set(min(self.value.get() + 1, 10))
+        points_pool.set(points_pool.get() - 1)
 
 
 class CreateCommander(ttk.Frame):
 
-    def __init__(self, master=None):
-        super().__init__(master)
+    def __init__(self, parent) -> None:
+        super().__init__(parent)
 
         # Initial values
         self.cmdr_name = tk.StringVar(value="Jameson")
         self.diff_current_value = 2
-        self.points_pool = tk.IntVar(value=16)
-        self.pilot_points = tk.IntVar(value=1)
-        self.fighter_points = tk.IntVar(value=1)
-        self.trader_points = tk.IntVar(value=1)
-        self.engineer_points = tk.IntVar(value=1)
+        global points_pool
+        points_pool = tk.IntVar(value=16)
 
         # Title Bar
         self.header = ttk.Label(self, text="New Commander", font=("Helvetica", 8))
@@ -85,67 +92,18 @@ class CreateCommander(ttk.Frame):
 
         self.skills_frame = ttk.Frame(self)
         self.points_label = ttk.Label(self.skills_frame, text="Skill Points:")
+        self.points_current = ttk.Label(self.skills_frame, textvariable=points_pool)
         self.pilot_skill = StatAdjuster(self.skills_frame, "Pilot:", 1, 0, 0)
         self.fighter_skill = StatAdjuster(self.skills_frame, "Fighter:", 1, 1, 0)
         self.trader_skill = StatAdjuster(self.skills_frame, "Trader:", 1, 2, 0)
         self.engineer_skill = StatAdjuster(self.skills_frame, "Engineer:", 1, 3, 0)
 
         self.points_label.pack(expand=True, fill="x")
+        self.points_current.pack(expand=True, fill="x")
         self.pilot_skill.pack(expand=True, fill="x")
         self.fighter_skill.pack(expand=True, fill="x")
         self.trader_skill.pack(expand=True, fill="x")
         self.engineer_skill.pack(expand=True, fill="x")
-
-        # self.skills_frame = ttk.Frame(self, height=55, width=80)
-
-        # self.points_label = ttk.Label(self.skills_frame, text="Skill Points:", justify="left")
-        # self.pilot_label = ttk.Label(self.skills_frame, text="Pilot:", justify="left")
-        # self.fighter_label = ttk.Label(self.skills_frame, text="Fighter:", justify="left")
-        # self.trader_label = ttk.Label(self.skills_frame, text="Trader:", justify="left")
-        # self.engineer_label = ttk.Label(self.skills_frame, text="Engineer:", justify="left")
-
-        # self.pilot_dec = ttk.Button(self.skills_frame, text="-", width=2, command=self.dec_pilot)
-        # self.pilot_inc = ttk.Button(self.skills_frame, text="+", width=2, command=self.inc_pilot)
-        # self.fighter_dec = ttk.Button(self.skills_frame, text="-", width=2, command=self.dec_fighter)
-        # self.fighter_inc = ttk.Button(self.skills_frame, text="+", width=2, command=self.inc_fighter)
-        # self.trader_dec = ttk.Button(self.skills_frame, text="-", width=2, command=self.dec_trader)
-        # self.trader_inc = ttk.Button(self.skills_frame, text="+", width=2, command=self.inc_trader)
-        # self.engineer_dec = ttk.Button(self.skills_frame, text="-", width=2, command=self.dec_engineer)
-        # self.engineer_inc = ttk.Button(self.skills_frame, text="+", width=2, command=self.inc_engineer)
-
-        # self.points_current = ttk.Label(self.skills_frame, textvariable=self.points_pool)
-        # self.points_current.grid(row=0, column=1)
-        # self.pilot_current = ttk.Label(self.skills_frame, textvariable=self.pilot_points)
-        # self.pilot_current.grid(row=1, column=2)
-        # self.fighter_current = ttk.Label(self.skills_frame, textvariable=self.fighter_points)
-        # self.fighter_current.grid(row=2, column=2)
-        # self.trader_current = ttk.Label(self.skills_frame, textvariable=self.trader_points)
-        # self.trader_current.grid(row=3, column=2)
-        # self.engineer_current = ttk.Label(self.skills_frame, textvariable=self.engineer_points)
-        # self.engineer_current.grid(row=4, column=2)
-
-        # self.points_label.grid(row=0, column=0, columnspan=2)
-        # self.points_current.grid(row=0, column=2)
-
-        # self.pilot_label.grid(row=1, column=0, sticky="nsew")
-        # self.pilot_dec.grid(row=1, column=1, sticky="nsew")
-        # self.pilot_current.grid(row=1, column=2, sticky="nsew")
-        # self.pilot_inc.grid(row=1, column=3, sticky="nsew")
-
-        # self.fighter_label.grid(row=2, column=0, sticky="nsew")
-        # self.fighter_dec.grid(row=2, column=1, sticky="nsew")
-        # self.fighter_current.grid(row=2, column=2, sticky="nsew")
-        # self.fighter_inc.grid(row=2, column=3, sticky="nsew")
-
-        # self.trader_label.grid(row=3, column=0)
-        # self.trader_dec.grid(row=3, column=1)
-        # self.trader_current.grid(row=3, column=2)
-        # self.trader_inc.grid(row=3, column=3)
-
-        # self.engineer_label.grid(row=4, column=0)
-        # self.engineer_dec.grid(row=4, column=1)
-        # self.engineer_current.grid(row=4, column=2)
-        # self.engineer_inc.grid(row=4, column=3)
 
         # Button to start the game
         self.start_button = ttk.Button(self, text="OK", command=self.cmdr_create, width=15)
@@ -171,86 +129,13 @@ class CreateCommander(ttk.Frame):
         self.difficulty_dec["state"] = "enabled"
         self.difficulty_current["text"] = Difficulty.name(diff_current_value)
 
-    def refill_pool(self) -> None:
-        pts = self.points_pool.get()
-        pts += 1
-        self.points_pool.set(pts)
-
-    def spend_pool(self) -> bool:
-        pts = self.points_pool.get()
-        if pts == 0:
-            return False
-        pts -= 1
-        self.points_pool.set(pts)
-        return True
-
-    def dec_pilot(self) -> None:
-        pts = self.pilot_points.get()
-        if pts - 1 > 0:
-            self.refill_pool()
-            pts -= 1
-            self.pilot_points.set(pts)
-
-    def inc_pilot(self) -> None:
-        pts = self.pilot_points.get()
-        if pts == 10:
-            return
-        if self.spend_pool():
-            pts += 1
-            self.pilot_points.set(pts)
-
-    def dec_fighter(self) -> None:
-        pts = self.fighter_points.get()
-        if pts - 1 > 0:
-            self.refill_pool()
-            pts -= 1
-            self.fighter_points.set(pts)
-
-    def inc_fighter(self) -> None:
-        pts = self.fighter_points.get()
-        if pts == 10:
-            return
-        if self.spend_pool():
-            pts += 1
-            self.fighter_points.set(pts)
-
-    def dec_trader(self) -> None:
-        pts = self.trader_points.get()
-        if pts - 1 > 0:
-            self.refill_pool()
-            pts -= 1
-            self.trader_points.set(pts)
-
-    def inc_trader(self) -> None:
-        pts = self.trader_points.get()
-        if pts == 10:
-            return
-        if self.spend_pool():
-            pts += 1
-            self.trader_points.set(pts)
-
-    def dec_engineer(self) -> None:
-        pts = self.engineer_points.get()
-        if pts - 1 > 0:
-            self.refill_pool()
-            pts -= 1
-            self.engineer_points.set(pts)
-
-    def inc_engineer(self) -> None:
-        pts = self.engineer_points.get()
-        if pts == 10:
-            return
-        if self.spend_pool():
-            pts += 1
-            self.engineer_points.set(pts)
-
     def cmdr_create(self):
         cmdr = Commander(
             self.cmdr_name.get(),
-            self.pilot_points.get(),
-            self.fighter_points.get(),
-            self.trader_points.get(),
-            self.engineer_points.get(),
+            self.pilot_skill.get_value(),
+            self.fighter_skill.get_value(),
+            self.trader_skill.get_value(),
+            self.engineer_skill.get_value(),
         )
         print(cmdr.pprint())
         self.destroy()
