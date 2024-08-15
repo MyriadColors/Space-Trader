@@ -21,8 +21,7 @@ class StatAdjuster(ttk.Frame):
 
         global points_pool
         self.value = tk.IntVar(value=initial_value)
-
-        self.label = ttk.Label(self, text=label_text)
+        self.label = ttk.Label(self, text=label_text, font=("palm-pilot-small", 6))
         self.decrement = ttk.Button(self, text="-", command=self.decrement_value)
         self.value_label = ttk.Label(self, textvariable=self.value)
         self.increment = ttk.Button(self, text="+", command=self.increment_value)
@@ -52,6 +51,7 @@ class CreateCommander(ttk.Frame):
 
     def __init__(self, parent) -> None:
         super().__init__(parent)
+        self.pack(expand=True, fill="both")
 
         # Initial values
         self.cmdr_name = tk.StringVar(value="Jameson")
@@ -60,7 +60,8 @@ class CreateCommander(ttk.Frame):
         points_pool = tk.IntVar(value=16)
 
         # Title Bar
-        self.header = ttk.Label(self, text="New Commander", font=("Helvetica", 8))
+        self.header = ttk.Label(self, text="New Commander")
+        self.header["font"] = "PalmPilotLargeBold"
         self.header.pack()
 
         # Commander name
@@ -85,7 +86,6 @@ class CreateCommander(ttk.Frame):
         self.difficulty_inc.pack(side="left")
 
         # Skill points allocation grid
-
         self.skills_frame = ttk.Frame(self)
         self.points_label = ttk.Label(self.skills_frame, text="Skill Points:")
         self.points_current = ttk.Label(self.skills_frame, textvariable=points_pool)
