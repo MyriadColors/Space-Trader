@@ -8,7 +8,7 @@
 
 import pygame
 
-from ..constants import BKG_COLOR, FRG_COLOR, INTERNAL_RES
+from ..constants import FRG_COLOR, INTERNAL_RES
 
 
 class Button:
@@ -117,82 +117,6 @@ class TextRender:
     def draw(self, canvas: pygame.Surface) -> None:
         """Draw the text to the screen."""
         canvas.blit(self.img, self.rect)
-
-
-class Header:
-    """
-    Renders the core header for vast majority of screens in the game.
-    This includes the underline, as well as the BSYW button
-    outlines for the top right.
-
-    Underline - 2px thick, starts 14px from the top of the screen
-    BSYW Button - 14px by 13px squares, 1px from the top right corner
-    """
-
-    def __init__(self, canvas: pygame.Surface, font: pygame.font.Font) -> None:
-        self.canvas = canvas
-        self.underline = pygame.Rect(1, 14, 158, 2)
-
-        self.buttonW = Button("W", (INTERNAL_RES - 1, 1), (14, 13), font, reference="topright")
-        self.buttonY = Button(
-            "Y",
-            (self.buttonW.border.topleft[0] + 1, self.buttonW.border.topleft[1]),
-            (14, 13),
-            font,
-            reference="topright",
-        )
-        self.buttonS = Button(
-            "S",
-            (self.buttonY.border.topleft[0] + 1, self.buttonY.border.topleft[1]),
-            (14, 13),
-            font,
-            reference="topright",
-        )
-        self.buttonB = Button(
-            "B",
-            (self.buttonS.border.topleft[0] + 1, self.buttonS.border.topleft[1]),
-            (14, 13),
-            font,
-            reference="topright",
-        )
-        self.render()
-
-    def get_buttons(self) -> tuple[Button, Button, Button, Button]:
-        return self.buttonB, self.buttonS, self.buttonY, self.buttonW
-
-    def render(self) -> None:
-        pygame.draw.rect(self.canvas, FRG_COLOR, self.underline)
-        self.buttonW.draw(self.canvas)
-        self.buttonY.draw(self.canvas)
-        self.buttonS.draw(self.canvas)
-        self.buttonB.draw(self.canvas)
-
-
-class TitleBar:
-    """
-    Renders the title bar for the top of the screen (e.g. Sell Cargo, System Info, etc.)
-    """
-
-    def __init__(self, title: str, font: pygame.font.Font, canvas: pygame.Surface) -> None:
-        self.canvas = canvas
-        self.title = title
-        self.font = font
-        self.text = TextRender(title, (4, 3), font, fontcolor=BKG_COLOR)
-        self.text_width = self.text.rect.size[0]
-        self.bar = pygame.Rect(1, 2, self.text_width + 5, 14)
-        self.top_bar = pygame.Rect(2, 1, self.text_width + 3, 1)
-        self.render()
-
-    def render(self) -> None:
-        pygame.draw.rect(self.canvas, FRG_COLOR, self.bar)
-        pygame.draw.rect(self.canvas, FRG_COLOR, self.top_bar)
-        self.text.draw(self.canvas)
-
-
-class RoundedButton(Button):
-    """This will be a button with the roughly rounded corners."""
-
-    pass
 
 
 class TextInput(pygame.sprite.Sprite):
