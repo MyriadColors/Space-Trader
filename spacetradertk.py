@@ -9,10 +9,11 @@
 import os
 import tkinter as tk
 
-from customtkinter import FontManager
-
 import src.constants as c
 from src.screens.char_create import CreateCommander
+
+# from customtkinter import FontManager
+from src.utils import FontManager
 
 # from time import sleep
 # from tkinter import font
@@ -36,7 +37,8 @@ class SpaceTrader(tk.Tk):
         # splash.pack(expand=True, fill="both")
         # sleep(4)
         # splash.pack_forget()
-        self.create_commander = CreateCommander(self)
+        # self.create_commander = CreateCommander(self)
+        tk.Label(self, text="Space Trader", font=("palm-pilot-bold", 20)).pack(expand=True, fill="both")
 
     def _load_assets(self):
         """
@@ -51,10 +53,13 @@ class SpaceTrader(tk.Tk):
         self.images = os.path.join("assets/images/")
         self.resources = os.path.join("assets/resources/")
         # self.data = os.path.join("data")
-        FontManager.load_font("assets/fonts/palm-pilot-small.ttf")
-        FontManager.load_font("assets/fonts/palm-pilot-bold.ttf")
-        FontManager.load_font("assets/fonts/palm-pilot-large.ttf")
-        FontManager.load_font("assets/fonts/palm-pilot-large-bold.ttf")
+        FontManager.init_font_manager()
+        a = FontManager.load_font("assets/fonts/palm-pilot-small.ttf")
+        b = FontManager.load_font("assets/fonts/palm-pilot-bold.ttf")
+        c = FontManager.load_font("assets/fonts/palm-pilot-large.ttf")
+        d = FontManager.load_font("assets/fonts/palm-pilot-large-bold.ttf")
+        if a and b and c and d:
+            print("Fonts loaded successfully")
 
 
 game = SpaceTrader()
