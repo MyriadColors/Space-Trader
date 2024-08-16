@@ -9,10 +9,13 @@
 import os
 import tkinter as tk
 
-from customtkinter import FontManager
-
 import src.constants as c
 from src.screens.char_create import CreateCommander
+from src.utils import FontManager
+
+# import customtkinter as ctk
+# from customtkinter import FontManager
+
 
 # from time import sleep
 # from tkinter import font
@@ -30,14 +33,6 @@ class SpaceTrader(tk.Tk):
         self.configure(bg=c.BKG_HEX)
         self._load_assets()
 
-        # Splash screen
-        # splash_img = tk.PhotoImage(file=os.path.join(self.images, "splash.png"))
-        # splash = tk.Label(self, image=splash_img)
-        # splash.pack(expand=True, fill="both")
-        # sleep(4)
-        # splash.pack_forget()
-        self.create_commander = CreateCommander(self)
-
     def _load_assets(self):
         """
         Loads all game assets, currently just pointers to directories
@@ -50,12 +45,15 @@ class SpaceTrader(tk.Tk):
         # Load the directories for the game assets
         self.images = os.path.join("assets/images/")
         self.resources = os.path.join("assets/resources/")
+        self.fonts = os.path.join("assets/fonts/")
         # self.data = os.path.join("data")
-        FontManager.load_font("assets/fonts/palm-pilot-small.ttf")
-        FontManager.load_font("assets/fonts/palm-pilot-bold.ttf")
-        FontManager.load_font("assets/fonts/palm-pilot-large.ttf")
-        FontManager.load_font("assets/fonts/palm-pilot-large-bold.ttf")
+        FontManager.load_font(f"{self.fonts}palm-pilot-small.ttf")
+        FontManager.load_font(f"{self.fonts}palm-pilot-bold.ttf")
+        FontManager.load_font(f"{self.fonts}palm-pilot-large.ttf")
+        FontManager.load_font(f"{self.fonts}palm-pilot-large-bold.ttf")
 
 
 game = SpaceTrader()
+
+CreateCommander(game)
 game.mainloop()

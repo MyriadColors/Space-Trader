@@ -8,7 +8,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from ..commander import Commander
-from ..constants import Difficulty
+from ..constants import BKG_HEX, FRG_HEX, Difficulty
 
 
 class StatAdjuster(ttk.Frame):
@@ -21,7 +21,7 @@ class StatAdjuster(ttk.Frame):
 
         global points_pool
         self.value = tk.IntVar(value=initial_value)
-        self.label = ttk.Label(self, text=label_text, font=("palm-pilot-small", 6))
+        self.label = ttk.Label(self, text=label_text, font=("Palm Pilot Small", 42))
         self.decrement = ttk.Button(self, text="-", command=self.decrement_value)
         self.value_label = ttk.Label(self, textvariable=self.value)
         self.increment = ttk.Button(self, text="+", command=self.increment_value)
@@ -60,9 +60,15 @@ class CreateCommander(ttk.Frame):
         points_pool = tk.IntVar(value=16)
 
         # Title Bar
-        self.header = ttk.Label(self, text="New Commander")
-        self.header["font"] = "PalmPilotLargeBold"
-        self.header.pack()
+        self.header = ttk.Label(
+            self,
+            text="New Commander",
+            font=("Palm Pilot Bold", 28),
+            anchor="center",
+            background=FRG_HEX,
+            foreground=BKG_HEX,
+        )
+        self.header.pack(expand=True, fill="x")
 
         # Commander name
         self.name_frame = ttk.Frame(self)

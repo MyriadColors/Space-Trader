@@ -7,14 +7,11 @@
 import tkinter as tk
 from tkinter import ttk
 
-from header import Heading
-
-from ..constants import BKG_COLOR, GameStateID
-from .renderer import Header, TextRender, TitleBar
-from .state import State
+from .header import Heading
+from .screen import Screen
 
 
-class SystemInfo(ttk.frame):
+class SystemInfo(Screen):
 
     def __init__(self, parent) -> None:
         super().__init__(parent)
@@ -25,6 +22,9 @@ class SystemInfo(ttk.frame):
         self.info_frame = ttk.Frame(self)
         self.pressure_frame = ttk.Frame(self)
         self.shortcut_frame = ttk.Frame(self)
+
+    def change_screen(self, event):
+        print(f"Changing screen to {event}")
 
 
 # class SystemInfo(State):
