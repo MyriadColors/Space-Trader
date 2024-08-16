@@ -11,11 +11,9 @@ import tkinter as tk
 
 import src.constants as c
 from src.screens.char_create import CreateCommander
-from src.utils import FontManager
 
-# import customtkinter as ctk
 # from customtkinter import FontManager
-
+from src.utils import FontManager
 
 # from time import sleep
 # from tkinter import font
