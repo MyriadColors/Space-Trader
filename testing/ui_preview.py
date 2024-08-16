@@ -10,46 +10,47 @@
 
 import os
 import sys
+import tkinter as tk
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import pygame
+from src import constants as c
+from src.screen_manager import screens
+from src.screens.system_info import SystemInfo
+from src.utils import FontManager
+
+
+def main(state):
+
+    preview = tk.Tk()
+    preview.title("Space Trader")
+    preview.minsize(str(160 * c.SCALAR), str(160 * c.SCALAR))
+    preview.geometry(f"{str(160 * c.SCALAR)}x{str(160 * c.SCALAR)}")
+    preview.resizable(False, False)
+    preview.configure(bg=c.BKG_HEX)
+
+    fonts = os.path.join("assets/fonts/")
+    FontManager.load_font(f"{fonts}palm-pilot-small.ttf")
+    FontManager.load_font(f"{fonts}palm-pilot-bold.ttf")
+    FontManager.load_font(f"{fonts}palm-pilot-large.ttf")
+    FontManager.load_font(f"{fonts}palm-pilot-large-bold.ttf")
+
+    if state == "I":
+        SystemInfo(preview)
+    else:
+        print(f"Invalid state: {state}")
+    preview.mainloop()
+
 
 if __name__ == "__main__":
-    pygame.init()
-    pygame.font.init()
-    pygame.display.set_caption("UI Previewer | RPINerd, 2024")
-    screen = pygame.display.set_mode((320, 320))
 
-    from src.constants import INTERNAL_RES
-    from src.interface.char_create import CharacterCreation
-    from src.interface.renderer import Header, TextRender, TitleBar
-    from src.interface.state import State
-    from src.interface.system_info import SystemInfo
+    print("Select a state to preview...")
+    for state in screens:
+        print(f"{state}: {screens[state]['title']}")
+    print("\n")
+    state = input("Enter the state to preview: ").upper()
 
-    game = State(None)
-    game.font_sm_bold = pygame.font.Font("assets/fonts/PressStart2P-Regular.ttf", 12)
-    game.font_sm = pygame.font.Font("assets/fonts/PressStart2P-Regular.ttf", 8)
-
-    if len(sys.argv) < 2:
-        print("Usage: python ui_preview.py <state>")
-        sys.exit(1)
-
-    state = sys.argv[1]
-
-    if state == "info":
-        state = SystemInfo(game)
-    elif state == "char":
-        state = CharacterCreation(game)
+    if state in screens:
+        main(state)
     else:
-        print("Invalid state")
+        print(f"Invalid state: {state}")
         sys.exit(1)
-
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit(0)
-            state.handle_events(event)
-
-        screen.fill(BKG_COLOR)
-        state.render(screen)
-        pygame.display.flip()
