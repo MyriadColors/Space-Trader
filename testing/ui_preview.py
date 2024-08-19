@@ -1,11 +1,11 @@
 """
     UI Previewer | RPINerd, 2024
-    
-    This script is a simple UI previewer for the Space Trader game. It allows you to request a state and see what the current UI would look like.
-    
+
+    This script is a simple UI previewer for the Space Trader game.
+    It allows you to request a state and see what the current UI would look like.
+
     Usage:
         python ui_preview.py <state>
-        
 """
 
 import os
@@ -14,7 +14,7 @@ import tkinter as tk
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src import constants as c
-from src.screen_manager import screens
+from src.screens.screen_manager import SCREENS
 from src.screens.system_info import SystemInfo
 from src.utils import FontManager
 
@@ -44,12 +44,12 @@ def main(state):
 if __name__ == "__main__":
 
     print("Select a state to preview...")
-    for state in screens:
-        print(f"{state}: {screens[state]['title']}")
+    for state in SCREENS:
+        print(f"{state}: {SCREENS[state]['title']}")
     print("\n")
     state = input("Enter the state to preview: ").upper()
 
-    if state in screens:
+    if state in SCREENS:
         main(state)
     else:
         print(f"Invalid state: {state}")

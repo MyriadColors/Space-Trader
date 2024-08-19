@@ -11,13 +11,8 @@ import tkinter as tk
 
 import src.constants as c
 from src.screens.char_create import CreateCommander
-
-# from customtkinter import FontManager
+from src.screens.screen_manager import ScreenManager
 from src.utils import FontManager
-
-# from time import sleep
-# from tkinter import font
-# from PIL import ImageFont
 
 
 class SpaceTrader(tk.Tk):
@@ -30,6 +25,8 @@ class SpaceTrader(tk.Tk):
         self.resizable(False, False)
         self.configure(bg=c.BKG_HEX)
         self._load_assets()
+
+        self.manager = ScreenManager(self)
 
     def _load_assets(self):
         """
@@ -51,7 +48,8 @@ class SpaceTrader(tk.Tk):
         FontManager.load_font(f"{self.fonts}palm-pilot-large-bold.ttf")
 
 
-game = SpaceTrader()
+window = SpaceTrader()
 
-CreateCommander(game)
-game.mainloop()
+CreateCommander(window).tkraise()
+
+window.mainloop()

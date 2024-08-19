@@ -7,14 +7,29 @@
     have to worry about rewriting the game logic.
 """
 
+from random import randint
+
+import src.constants as c
+
 
 # Disordered list of user interactions
+def get_system_info():
+    global current_system
+
+    # Format system pressure
+    #!pressure = current_system.pressure
+    pressure = randint(0, 7)  # Placeholder
+    pressure_str = f"System is {c.SocietalPressure.name(pressure)}"
+
+    return pressure_str
+
+
 def buy_fuel():
     pass
 
 
 def buy_news():
-    pass
+    print("Buying news!")
 
 
 def warp():
