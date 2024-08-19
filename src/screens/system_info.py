@@ -4,106 +4,105 @@
     Basic system information screen
 """
 
-import tkinter as tk
 from tkinter import ttk
 
-from .header import Heading
-from .screen import Screen
+import src.ui_actions as actions
+
+from .screens import Screen
 
 
 class SystemInfo(Screen):
 
-    def __init__(self, parent) -> None:
-        super().__init__(parent)
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
         self.pack(expand=True, fill="both")
+        # self.create_widgets()
 
-        self.header = Heading(self, "System Info")
+    def create_widgets(self):
 
+        # Info Frame
         self.info_frame = ttk.Frame(self)
+        self.info_frame.columnconfigure(0, weight=1)
+        self.info_frame.columnconfigure(1, weight=1)
+        info_headings = ["Name:", "Size:", "Tech Level:", "Government:", "Resources:", "Police:", "Pirates:"]
+        for i, heading in enumerate(info_headings):
+            ttk.Label(self.info_frame, text=heading, font=("Palm Pilot Bold", 14), justify="left").grid(
+                row=i, column=0, sticky="ew"
+            )
+        #! Placeholder content
+        for i in range(0, 7):
+            ttk.Label(self.info_frame, text="Placeholder", font=("Palm Pilot Small", 14), justify="left").grid(
+                row=i, column=1, sticky="ew"
+            )
+        self.info_frame.pack(fill="x", expand=True)
+
+        # Pressure Frame
         self.pressure_frame = ttk.Frame(self)
+        ttk.Label(self.pressure_frame, text=actions.get_system_info(), font=("Palm Pilot Small", 14)).grid(
+            row=0, column=0
+        )
+        self.pressure_frame.pack(side="top", fill="both", expand=True)
+
+        # Shortcut Frame
         self.shortcut_frame = ttk.Frame(self)
+        ttk.Button(self.shortcut_frame, text="News", command=actions.buy_news).pack(side="left")
+        self.shortcut_frame.pack(side="top", fill="both", expand=True)
 
     def change_screen(self, event):
         print(f"Changing screen to {event}")
 
 
-# class SystemInfo(State):
+class ShortRange(Screen):
 
-#     def __init__(self, game) -> None:
-#         self.game = game
-#         self.head_font: pygame.font.Font = game.font_sm_bold
-#         self.font: pygame.font.Font = game.font_sm
-#         super().__init__(game)
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+        self.pack(expand=True, fill="both")
+        # self.create_widgets()
 
-#         self.header = Header(self.game.canvas, self.font)
-#         self.buttonB, self.buttonS, self.buttonY, self.buttonW = self.header.get_buttons()
+    def create_widgets(self):
 
-#     def handle_events(self, event: pygame.event) -> None:
-#         if event.type == pygame.QUIT:
-#             self.game.running = False
-#         if event.type == pygame.KEYDOWN:
-#             if event.key == pygame.K_ESCAPE:
-#                 self.game.current_state = GameStateID.SPLASH
-#             if event.key == pygame.K_b:
-#                 self.game.current_state = GameStateID.B_CARGO
-#             if event.key == pygame.K_s:
-#                 self.game.current_state = GameStateID.S_CARGO
-#             if event.key == pygame.K_y:
-#                 self.game.current_state = GameStateID.Y_SHIPYARD
-#             if event.key == pygame.K_e:
-#                 self.game.current_state = GameStateID.BUY_EQUIPMENT
-#             if event.key == pygame.K_q:
-#                 self.game.current_state = GameStateID.SELL_EQUIPMENT
-#             if event.key == pygame.K_p:
-#                 self.game.current_state = GameStateID.PERSONNEL
-#             if event.key == pygame.K_k:
-#                 self.game.current_state = GameStateID.BANK
-#             if event.key == pygame.K_i:
-#                 self.game.current_state = GameStateID.SYSTEM_INFO
-#             if event.key == pygame.K_c:
-#                 self.game.current_state = GameStateID.STATUS
-#             if event.key == pygame.K_g:
-#                 self.game.current_state = GameStateID.GALACTIC_CHART
-#             if event.key == pygame.K_w:
-#                 self.game.current_state = GameStateID.W_SHORTRANGE
-#             if event.key == pygame.K_o:
-#                 NotImplemented
-#         if event.type == pygame.MOUSEBUTTONDOWN:
-#             if self.buttonB.is_clicked(event.pos):
-#                 print("Clicked B")
-#                 self.game.current_state = GameStateID.B_CARGO
-#             if self.buttonS.is_clicked(event.pos):
-#                 print("Clicked S")
-#                 self.game.current_state = GameStateID.S_CARGO
-#             if self.buttonY.is_clicked(event.pos):
-#                 print("Clicked Y")
-#                 self.game.current_state = GameStateID.Y_SHIPYARD
-#             if self.buttonW.is_clicked(event.pos):
-#                 print("Clicked W")
-#                 self.game.current_state = GameStateID.W_SHORTRANGE
+        #! Placeholder id frame
+        self.id_frame = ttk.Frame(self)
+        ttk.Label(self.id_frame, text="Short Range Chart", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
-#     def update(self, actions) -> None:
-#         pass
 
-#     def render(self, canvas: pygame.Surface) -> pygame.Surface:
-#         canvas.fill(BKG_COLOR)
+class LongRange(Screen):
 
-#         # Draw the header
-#         # Header(canvas, self.font)
-#         self.header.render()
-#         TitleBar("System Info", self.head_font, canvas)
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+        self.pack(expand=True, fill="both")
+        # self.create_widgets()
 
-#         # Category headers
-#         categories: list[TextRender] = []
-#         categories.append(TextRender("Name:", (1, 18), self.head_font))
-#         categories.append(TextRender("Size:", (1, 38), self.head_font))
-#         categories.append(TextRender("Tech Level:", (1, 58), self.head_font))
-#         categories.append(TextRender("Government:", (1, 78), self.head_font))
-#         categories.append(TextRender("Resources:", (1, 98), self.head_font))
-#         categories.append(TextRender("Police:", (1, 118), self.head_font))
-#         categories.append(TextRender("Pirates:", (1, 138), self.head_font))
+    def create_widgets(self):
 
-#         for category in categories:
-#             category.draw(canvas)
+        #! Placeholder id frame
+        self.id_frame = ttk.Frame(self)
+        ttk.Label(self.id_frame, text="Long Range Chart", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
-#         return canvas
+
+class TargetSystem(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+        self.pack(expand=True, fill="both")
+        # self.create_widgets()
+
+    def create_widgets(self):
+
+        #! Placeholder id frame
+        self.id_frame = ttk.Frame(self)
+        ttk.Label(self.id_frame, text="Target System", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
+
+
+class AvgPrices(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+        self.pack(expand=True, fill="both")
+        # self.create_widgets()
+
+    def create_widgets(self):
+
+        #! Placeholder id frame
+        self.id_frame = ttk.Frame(self)
+        ttk.Label(self.id_frame, text="Average Prices", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)

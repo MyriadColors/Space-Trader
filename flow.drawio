@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="MHgG_1ywKcmWRNOXNOMy" name="Game Logic Heirarchy">
-        <mxGraphModel dx="866" dy="618" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="804" dy="586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -116,64 +116,64 @@
         </mxGraphModel>
     </diagram>
     <diagram id="iz4vHOTl2idNePC7w-vi" name="TKinter Loop Ideas">
-        <mxGraphModel dx="866" dy="618" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="804" dy="586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-1" value="&lt;h1&gt;Main Loop Thing?&lt;/h1&gt;&lt;div&gt;Need a way to hand off the drawing of widgets depending on which screen should be presented&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-1" value="&lt;h1&gt;Main Loop Thing?&lt;/h1&gt;&lt;div&gt;Need a way to hand off the drawing of widgets depending on which screen should be presented&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="10" y="10" width="260" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-5" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-2" target="EO7PyRb0VE1PsmMynTPy-4">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-5" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;" parent="1" source="EO7PyRb0VE1PsmMynTPy-2" target="EO7PyRb0VE1PsmMynTPy-4" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-2" value="Launch app" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-2" value="Launch app" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="40" y="125" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-11" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=0;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-3" target="EO7PyRb0VE1PsmMynTPy-6">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-11" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=0;" parent="1" source="EO7PyRb0VE1PsmMynTPy-3" target="EO7PyRb0VE1PsmMynTPy-6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-3" value="Splash" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-3" value="Splash" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="365" y="200" width="250" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-31" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-6" target="EO7PyRb0VE1PsmMynTPy-12">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-31" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="EO7PyRb0VE1PsmMynTPy-6" target="EO7PyRb0VE1PsmMynTPy-12" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="140" y="265"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-6" value="Create Char" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-6" value="Create Char" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="365" y="250" width="250" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-10" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=0;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-4" target="EO7PyRb0VE1PsmMynTPy-3">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-10" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=0;" parent="1" source="EO7PyRb0VE1PsmMynTPy-4" target="EO7PyRb0VE1PsmMynTPy-3" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-4" value="Build Main Window" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;size=0.03125;rounded=0;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-4" value="Build Main Window" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;size=0.03125;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="170" y="110" width="640" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-8" value="States&lt;br&gt;&lt;br&gt;1&lt;br&gt;2&lt;br&gt;3&lt;br&gt;4&lt;br&gt;5&lt;br&gt;6&lt;br&gt;7&lt;br&gt;...&lt;br&gt;99" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;rounded=0;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-8" value="States&lt;br&gt;&lt;br&gt;1&lt;br&gt;2&lt;br&gt;3&lt;br&gt;4&lt;br&gt;5&lt;br&gt;6&lt;br&gt;7&lt;br&gt;...&lt;br&gt;99" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="170" y="370" width="60" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-9" value="Screen Object" style="swimlane;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-9" value="Screen Object" style="swimlane;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="370" y="320" width="440" height="260" as="geometry">
                         <mxRectangle x="360" y="320" width="120" height="30" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-7" value="Build widgets" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EO7PyRb0VE1PsmMynTPy-9">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-7" value="Build widgets" style="rounded=0;whiteSpace=wrap;html=1;" parent="EO7PyRb0VE1PsmMynTPy-9" vertex="1">
                     <mxGeometry x="30" y="50" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-14" value="Raise new gamestate" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="EO7PyRb0VE1PsmMynTPy-9">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-14" value="Raise new gamestate" style="rounded=0;whiteSpace=wrap;html=1;" parent="EO7PyRb0VE1PsmMynTPy-9" vertex="1">
                     <mxGeometry x="350" y="230" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-19" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-12" target="EO7PyRb0VE1PsmMynTPy-20">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-19" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="EO7PyRb0VE1PsmMynTPy-12" target="EO7PyRb0VE1PsmMynTPy-20" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="350" y="340" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-12" value="While loop running" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=0;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-12" value="While loop running" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="65" y="300" width="150" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-15" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-14" target="EO7PyRb0VE1PsmMynTPy-22">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-15" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="EO7PyRb0VE1PsmMynTPy-14" target="EO7PyRb0VE1PsmMynTPy-22" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="200" y="680" as="targetPoint"/>
                         <Array as="points">
@@ -181,35 +181,35 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-21" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-20" target="EO7PyRb0VE1PsmMynTPy-9">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-21" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="EO7PyRb0VE1PsmMynTPy-20" target="EO7PyRb0VE1PsmMynTPy-9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-20" value="Activate Screen" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-20" value="Activate Screen" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="260" y="300" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-23" style="html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=0;endArrow=oval;endFill=1;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-22" target="EO7PyRb0VE1PsmMynTPy-8">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-23" style="html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=0;endArrow=oval;endFill=1;" parent="1" source="EO7PyRb0VE1PsmMynTPy-22" target="EO7PyRb0VE1PsmMynTPy-8" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-28" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-22" target="EO7PyRb0VE1PsmMynTPy-26">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-28" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="EO7PyRb0VE1PsmMynTPy-22" target="EO7PyRb0VE1PsmMynTPy-26" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-22" value="Lookup state" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-22" value="Lookup state" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="600" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-29" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-26" target="EO7PyRb0VE1PsmMynTPy-27">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-29" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="EO7PyRb0VE1PsmMynTPy-26" target="EO7PyRb0VE1PsmMynTPy-27" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-26" value="Forget existing widgets" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-26" value="Forget existing widgets" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="10" y="600" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-30" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="1" source="EO7PyRb0VE1PsmMynTPy-27" target="EO7PyRb0VE1PsmMynTPy-12">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-30" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="EO7PyRb0VE1PsmMynTPy-27" target="EO7PyRb0VE1PsmMynTPy-12" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="50" y="340"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="EO7PyRb0VE1PsmMynTPy-27" value="Set new screen" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="EO7PyRb0VE1PsmMynTPy-27" value="Set new screen" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="10" y="380" width="80" height="80" as="geometry"/>
                 </mxCell>
             </root>

@@ -140,4 +140,5 @@ class CreateCommander(ttk.Frame):
             self.engineer_skill.get_value(),
         )
         print(cmdr.pprint())
+        self.manager.go_to_screen("system_info")
         self.destroy()
