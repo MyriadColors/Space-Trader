@@ -15,7 +15,7 @@ class SystemInfo(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -56,7 +56,7 @@ class ShortRange(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -70,7 +70,7 @@ class LongRange(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -84,7 +84,7 @@ class TargetSystem(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -98,7 +98,7 @@ class AvgPrices(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):

@@ -1,9 +1,7 @@
+from .commander_status import CommanderInfo, Personnel, Quests, ShipInfo, SpecialCargo
 from .markets import Bank, BuyCargo, BuyEquipment, SellCargo, SellEquipment
-
-# from .commander_status import CommanderInfo, Personnel, Quests, ShipInfo, SpecialCargo
 from .screens import Screen
-
-# from .shipyard import BuyShip, Shipyard
+from .shipyard import BuyShip, Shipyard
 from .system_info import AvgPrices, LongRange, ShortRange, SystemInfo, TargetSystem
 
 SCREENS = {
@@ -68,33 +66,30 @@ class ScreenManager:
         self.current_screen = None
         # self.go_to_screen(self.current_screen)
 
-    def set_screen(self, screen):
-        self.current_screen = screen
-
     def get_screen(self, screen):
         return self.screens[screen]
 
     def go_to_screen(self, key):
-        screen = self.get_screen(key)
-        screen.tkraise()
+        self.screens[key].tkraise()
 
     def build_screens(self) -> dict[str, Screen]:
         screen_dict = {
             "I": SystemInfo(self.window, "System Info", self),
             "B": BuyCargo(self.window, "Buy Cargo", self),
             "S": SellCargo(self.window, "Sell Cargo", self),
-            # "Y": Shipyard,
+            "Y": Shipyard(self.window, "Shipyard", self),
             "W": ShortRange(self.window, "Short Range Chart", self),
             "E": BuyEquipment(self.window, "Buy Equipment", self),
             "Q": SellEquipment(self.window, "Sell Equipment", self),
-            # "P": Personnel,
+            "P": Personnel(self.window, "Personnel", self),
             "K": Bank(self.window, "Bank", self),
-            # "C": CharInfo,
+            "C": CommanderInfo(self.window, "Character Info", self),
             "G": LongRange(self.window, "Long Range Chart", self),
-            # "O": Quests,
-            # "A": ShipInfo,
-            # "U": SpecialCargo,
+            "O": Quests(self.window, "Quests", self),
+            "A": ShipInfo(self.window, "Ship Info", self),
+            "U": SpecialCargo(self.window, "Special Cargo", self),
             "T": TargetSystem(self.window, "Target System", self),
             "V": AvgPrices(self.window, "Average Prices", self),
+            "Z": BuyShip(self.window, "Buy Ship", self),
         }
         return screen_dict

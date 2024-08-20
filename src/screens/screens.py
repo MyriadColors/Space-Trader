@@ -82,7 +82,7 @@ class Screen(tk.Frame):
         s = ttk.Style()
         s.configure("TFrame", background=BKG_HEX)
         super().__init__(parent, background=BKG_HEX, height=INTERNAL_RES * SCALAR, width=INTERNAL_RES * SCALAR)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
 
         self.header = Heading(self, screen_title)
 

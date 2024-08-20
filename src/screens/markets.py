@@ -15,7 +15,7 @@ class BuyCargo(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -29,7 +29,7 @@ class SellCargo(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -43,7 +43,7 @@ class BuyEquipment(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -57,7 +57,7 @@ class SellEquipment(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
@@ -71,7 +71,7 @@ class Bank(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        self.pack(expand=True, fill="both")
+        # self.pack(expand=True, fill="both")
         # self.create_widgets()
 
     def create_widgets(self):
