@@ -12,7 +12,5 @@ __pycache__/
 venv/
 
 # Scratch/temp files
-*.sln
-scratch*
 *.tmp
 Notes.md

@@ -35,8 +35,7 @@ Someday something beautiful will be here!
 
 ## Requirements
 
-Game is being built with Python 3.12.x  
-Utilizing Pygame 2.6.x
+Game is being built with Python 3.12.x but other than python, there are no dependencies!
 
 ## How to Play
 

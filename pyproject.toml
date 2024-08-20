@@ -11,9 +11,7 @@ authors = [
 description = "A space trading game"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = [
-    "pygame>=2.5.0",
-]
+dependencies = []
 classifiers = [
     "Development Status :: 1 - Planning",
     "Environment :: Console",

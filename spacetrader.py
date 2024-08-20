@@ -1,29 +1,122 @@
 """
-    Space Trader (PalmOS) | RPINerd, 06/27/24
+    Space Trader (PalmOS) | RPINerd, 08/20/24
 
-    An early strategy RPG game for PalmOS, Space Trader is a game where you are a
-    freelance captain, buying and selling goods to make a profit, fending off pirates,
-    dealing with sector police, and occasionally ending up on intergalactic quests.
+    An early space strategy RPG game inspired by Elite and Solar Wars for PalmOS.
 
-    You can travel to different planets, each with their own economy for trade. You can
-    also upgrade your ship, hire crew, and take on missions to make money.
-
-    The game is over when you run out of money, your ship is destroyed or you
-    retire with the spoils of your adventures.
+    This file is the main game file. It shows the splash screen, creates the main window and starts the game.
 """
 
-import pygame
+import os
+import tkinter as tk
+from tkinter import ttk
 
-from src.game import Game
+import src.constants as c
+from src.screens.char_create import CreateCommander
+from src.screens.screen_manager import ScreenManager
+from src.utils import FontManager
+
+
+class SpaceTrader(tk.Tk):
+
+    def __init__(self, screen_x: int, screen_y: int) -> None:
+        super().__init__()
+        self.title("Space Trader")
+        self.resizable(False, False)
+        self.geometry(self._center_window(screen_x, screen_y))
+        self.bind_all("<KeyPress-Escape>", lambda e: self.quit())
+        self._load_assets()
+        self._build_styles()
+        self.manager = ScreenManager(self)
+
+        # TODO eventually check for existing game and load or start new game
+        self.boot()
+
+    def _center_window(self, screen_x: int, screen_y: int) -> str:
+        """
+        Builds a geometry string to center window on the monitor
+        """
+        res = c.INTERNAL_RES * c.SCALAR
+        x_adj = int((screen_x / 2) - (res / 2))
+        y_adj = int((screen_y / 2) - (res / 2))
+
+        return f"{str(res)}x{str(res)}+{x_adj}+{y_adj}"
+
+    def _load_assets(self):
+        """
+        Loads all game assets, currently just pointers to directories
+        """
+
+        # Load the configuration file
+        # self.config = configparser.ConfigParser()
+        # self.config.read(os.path.join("src/config", "config.ini"))
+
+        # Load the directories for the game assets
+        self.images = os.path.join("assets/images/")
+        self.resources = os.path.join("assets/resources/")
+        self.fonts = os.path.join("assets/fonts/")
+        # self.data = os.path.join("data")
+        FontManager.load_font(f"{self.fonts}palm-pilot-small.ttf")
+        FontManager.load_font(f"{self.fonts}palm-pilot-bold.ttf")
+        FontManager.load_font(f"{self.fonts}palm-pilot-large.ttf")
+        FontManager.load_font(f"{self.fonts}palm-pilot-large-bold.ttf")
+
+    def _build_styles(self):
+        """
+        Builds the custom styles for the game
+        """
+        normal_fontsize = int(12 * c.SCALAR)
+        title_fontsize = int(14 * c.SCALAR)
+        s = ttk.Style()
+        s.theme_use("alt")
+        s.configure(
+            "TEntry", background=c.BKG_HEX, fieldbackground=c.BKG_HEX, font=("Palm Pilot Small", normal_fontsize)
+        )
+        s.configure("TFrame", background=c.BKG_HEX, font=("Palm Pilot Small", normal_fontsize))
+        s.configure("TButton", background=c.BKG_HEX, font=("Palm Pilot Small", normal_fontsize))
+        s.configure("TLabel", background=c.BKG_HEX, font=("Palm Pilot Small", normal_fontsize))
+        s.configure(
+            "Title.TLabel", background=c.FRG_HEX, foreground=c.BKG_HEX, font=("Palm Pilot Bold", title_fontsize)
+        )
+        s.configure("Heading.TLabel", background=c.BKG_HEX, font=("Palm Pilot Bold", normal_fontsize))
+
+    def boot(self):
+        """
+        Starts the game
+        """
+        CreateCommander(self).tkraise()
+
+
+def splash() -> tuple[int, int]:
+    """Splash screen"""
+    splash = tk.Tk()
+    splash.overrideredirect(True)
+    splash.resizable(False, False)
+
+    # Place the splash screen in the center
+    screen_x = splash.winfo_screenwidth()
+    screen_y = splash.winfo_screenheight()
+    x_adj = int((screen_x / 2) - (160 / 2))
+    y_adj = int((screen_y / 2) - (160 / 2))
+    splash.geometry(f"160x160+{x_adj}+{y_adj}")
+
+    splash_image = tk.PhotoImage(file=os.path.join("assets/images", "splash.png"))
+    splash_label = tk.Label(splash, image=splash_image)
+    splash_label.pack(expand=True, fill="both")
+    splash.after(1500, lambda: [splash.destroy(), print("Splash screen closed")])
+    splash.mainloop()
+
+    # Return the monitor resolution just to reduce the re-polling in main window
+    return screen_x, screen_y
 
 
 def main():
-    """ """
 
-    space_trader = Game()
-    while space_trader.running:
-        space_trader.run()
-    pygame.quit()
+    # Show the splash screen
+    screen_x, screen_y = splash()
+
+    # Start the main game window
+    window = SpaceTrader(screen_x, screen_y)
+    window.mainloop()
 
 
 if __name__ == "__main__":
