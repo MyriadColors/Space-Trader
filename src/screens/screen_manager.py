@@ -61,16 +61,26 @@ class ScreenManager:
 
     def __init__(self, window):
         self.window = window
-
         self.screens = self.build_screens()
-        self.current_screen = None
-        # self.go_to_screen(self.current_screen)
+        print(f"Screens: {self.screens}")
+        self.current_screen = "I"
+        self.go_to_screen(self.current_screen)
 
     def get_screen(self, screen):
         return self.screens[screen]
 
     def go_to_screen(self, key):
-        self.screens[key].tkraise()
+        try:
+            self.screens[key].tkraise()
+        except KeyError:
+            raise KeyError(f"Key {key} not found in screens")
+        except AttributeError:
+            # self.screens[key].place(x=0, y=0, relwidth=1, relheight=1)
+            raise AttributeError(f"{self.screens} at {key} does not have a tkraise method")
+        except Exception as e:
+            raise Exception(f"Unexpected error in go_to_screen: {e}")
+        else:
+            print(f"Switched to screen {key} ({self.screens[key]})")
 
     def build_screens(self) -> dict[str, Screen]:
         screen_dict = {

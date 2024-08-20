@@ -50,8 +50,12 @@ class StatAdjuster(ttk.Frame):
 class CreateCommander(ttk.Frame):
 
     def __init__(self, parent) -> None:
+        self.parent = parent
         super().__init__(parent)
         self.pack(expand=True, fill="both")
+        self.create_widgets()
+
+    def create_widgets(self):
 
         # Initial values
         self.cmdr_name = tk.StringVar(value="Jameson")
@@ -140,5 +144,5 @@ class CreateCommander(ttk.Frame):
             self.engineer_skill.get_value(),
         )
         print(cmdr.pprint())
-        self.manager.go_to_screen("system_info")
         self.destroy()
+        self.parent.manager.go_to_screen("I")

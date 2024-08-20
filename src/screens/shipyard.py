@@ -24,25 +24,9 @@ class Shipyard(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Shipyard", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class BuyShip(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Buy Ship", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)

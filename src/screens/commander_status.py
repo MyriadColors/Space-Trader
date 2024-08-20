@@ -18,67 +18,27 @@ class CommanderInfo(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Commander Info", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class ShipInfo(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Ship Info", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class SpecialCargo(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Special Cargo", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class Personnel(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Personnel", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class Quests(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Quests", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)

@@ -72,19 +72,20 @@ class Heading(tk.Frame):
         # for attrib in getattr(event, "__dict__", {}):
         #     print(f"attrib: {attrib}")
         print(f"Shortcut triggered: {key}")
-        self.parent.change_screen(event)
+        self.parent.manager.go_to_screen(key)
 
 
 class Screen(tk.Frame):
 
     def __init__(self, parent, screen_title: str, manager) -> None:
         self.manager = manager
+        self.screen_title = screen_title
         s = ttk.Style()
         s.configure("TFrame", background=BKG_HEX)
         super().__init__(parent, background=BKG_HEX, height=INTERNAL_RES * SCALAR, width=INTERNAL_RES * SCALAR)
-        # self.pack(expand=True, fill="both")
+        self.place(x=0, y=0, relwidth=1, relheight=1)
 
-        self.header = Heading(self, screen_title)
+        self.header = Heading(self, self.screen_title)
 
         # Bind the game shortcut keys
         self.bind_all("<Escape>", self.quit)
@@ -107,11 +108,14 @@ class Screen(tk.Frame):
         self.destroy()
 
     def change_screen(self, event):
-        print(f"Changing screen to {event.keysym.upper()}")
+        print(f"Changing screen to {event.keysym}")
         self.manager.go_to_screen(event.keysym.upper())
 
     def create_widgets(self):
-        pass
+        #! Placeholder id frame
+        self.id_frame = ttk.Frame(self)
+        ttk.Label(self.id_frame, text=self.screen_title, font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
+        self.id_frame.pack(fill="both", expand=True)
 
 
 class Popup(tk.Frame):

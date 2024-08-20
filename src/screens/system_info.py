@@ -15,8 +15,6 @@ class SystemInfo(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
 
     def create_widgets(self):
 
@@ -49,60 +47,29 @@ class SystemInfo(Screen):
         self.shortcut_frame.pack(side="top", fill="both", expand=True)
 
     def change_screen(self, event):
-        print(f"Changing screen to {event}")
+        # TODO probably can be a super method
+        pass
 
 
 class ShortRange(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Short Range Chart", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class LongRange(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Long Range Chart", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class TargetSystem(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Target System", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
 
 
 class AvgPrices(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
-        # self.pack(expand=True, fill="both")
-        # self.create_widgets()
-
-    def create_widgets(self):
-
-        #! Placeholder id frame
-        self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text="Average Prices", font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
