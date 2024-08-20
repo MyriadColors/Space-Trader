@@ -21,7 +21,7 @@ class StatAdjuster(ttk.Frame):
 
         global points_pool
         self.value = tk.IntVar(value=initial_value)
-        self.label = ttk.Label(self, text=label_text, font=("Palm Pilot Small", 42))
+        self.label = ttk.Label(self, text=label_text)
         self.decrement = ttk.Button(self, text="-", command=self.decrement_value)
         self.value_label = ttk.Label(self, textvariable=self.value)
         self.increment = ttk.Button(self, text="+", command=self.increment_value)
@@ -52,7 +52,7 @@ class CreateCommander(ttk.Frame):
     def __init__(self, parent) -> None:
         self.parent = parent
         super().__init__(parent)
-        self.pack(expand=True, fill="both")
+        self.place(x=0, y=0, relwidth=1, relheight=1)
         self.create_widgets()
 
     def create_widgets(self):
@@ -61,7 +61,7 @@ class CreateCommander(ttk.Frame):
         self.cmdr_name = tk.StringVar(value="Jameson")
         self.diff_current_value = 2
         global points_pool
-        points_pool = tk.IntVar(value=16)
+        points_pool = tk.IntVar(value=0)
 
         # Title Bar
         self.header = ttk.Label(
@@ -84,7 +84,7 @@ class CreateCommander(ttk.Frame):
         # Game difficulty selection
         self.difficulty_frame = ttk.Frame(self)
         self.difficulty_label = ttk.Label(self.difficulty_frame, text="Difficulty:")
-        self.difficulty_dec = ttk.Button(self.difficulty_frame, text="-", command=self.dec_difficulty)
+        self.difficulty_dec = ttk.Button(self.difficulty_frame, style="TButton", text="-", command=self.dec_difficulty)
         self.difficulty_current = ttk.Label(
             self.difficulty_frame,
             text="Normal",
@@ -99,10 +99,10 @@ class CreateCommander(ttk.Frame):
         self.skills_frame = ttk.Frame(self)
         self.points_label = ttk.Label(self.skills_frame, text="Skill Points:")
         self.points_current = ttk.Label(self.skills_frame, textvariable=points_pool)
-        self.pilot_skill = StatAdjuster(self.skills_frame, "Pilot:", 1, 0, 0)
-        self.fighter_skill = StatAdjuster(self.skills_frame, "Fighter:", 1, 1, 0)
-        self.trader_skill = StatAdjuster(self.skills_frame, "Trader:", 1, 2, 0)
-        self.engineer_skill = StatAdjuster(self.skills_frame, "Engineer:", 1, 3, 0)
+        self.pilot_skill = StatAdjuster(self.skills_frame, "Pilot:", 5, 0, 0)
+        self.fighter_skill = StatAdjuster(self.skills_frame, "Fighter:", 5, 1, 0)
+        self.trader_skill = StatAdjuster(self.skills_frame, "Trader:", 5, 2, 0)
+        self.engineer_skill = StatAdjuster(self.skills_frame, "Engineer:", 5, 3, 0)
 
         self.points_label.pack(expand=True, fill="x")
         self.points_current.pack(expand=True, fill="x")
@@ -135,14 +135,23 @@ class CreateCommander(ttk.Frame):
         self.difficulty_dec["state"] = "enabled"
         self.difficulty_current["text"] = Difficulty.name(diff_current_value)
 
-    def cmdr_create(self):
-        cmdr = Commander(
-            self.cmdr_name.get(),
-            self.pilot_skill.get_value(),
-            self.fighter_skill.get_value(),
-            self.trader_skill.get_value(),
-            self.engineer_skill.get_value(),
-        )
-        print(cmdr.pprint())
-        self.destroy()
-        self.parent.manager.go_to_screen("I")
+    def cmdr_create(self) -> None:
+
+        # TODO Show a message box for invalid submissions
+        if points_pool.get() != 0:
+            print("You have unspent skill points!")
+            return
+        elif self.cmdr_name.get() == "":
+            print("You must enter a name!")
+            return
+        else:
+            cmdr = Commander(
+                self.cmdr_name.get(),
+                self.pilot_skill.get_value(),
+                self.fighter_skill.get_value(),
+                self.trader_skill.get_value(),
+                self.engineer_skill.get_value(),
+            )
+            print(cmdr.pprint())
+            self.destroy()
+            self.parent.manager.go_to_screen("I")

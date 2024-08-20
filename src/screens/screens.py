@@ -4,61 +4,49 @@ from tkinter import ttk
 from src.constants import BKG_HEX, FRG_HEX, INTERNAL_RES, SCALAR
 
 
-class Heading(tk.Frame):
+class Heading(ttk.Frame):
 
     def __init__(self, parent, heading: str):
-        super().__init__(parent)
         self.parent = parent
+        super().__init__(parent)
         self.heading = heading
-        self.pack()
         self.create_widgets()
+        self.pack()
 
     def create_widgets(self):
 
-        self.heading = tk.Label(self, text=self.heading, font=("Palm Pilot Bold", 16), fg=BKG_HEX, bg=FRG_HEX)
+        self.heading = ttk.Label(self, text=self.heading, style="Title.TLabel")
         self.heading.pack(side="left")
 
-        self.b = tk.Button(
+        self.b = ttk.Button(
             self,
             text="B",
-            font=("Palm Pilot Small", 14),
-            fg=FRG_HEX,
-            bg=BKG_HEX,
             width=2,
-            height=1,
+            # height=1,
             command=lambda: self.shortcut_trigger(self, "B"),
         )
         self.b.pack(side="right")
-        self.s = tk.Button(
+        self.s = ttk.Button(
             self,
             text="S",
-            font=("Palm Pilot Small", 14),
-            fg=FRG_HEX,
-            bg=BKG_HEX,
             width=2,
-            height=1,
+            # height=1,
             command=lambda: self.shortcut_trigger(self, "S"),
         )
         self.s.pack(side="right")
-        self.y = tk.Button(
+        self.y = ttk.Button(
             self,
             text="Y",
-            font=("Palm Pilot Small", 14),
-            fg=FRG_HEX,
-            bg=BKG_HEX,
             width=2,
-            height=1,
+            # height=1,
             command=lambda: self.shortcut_trigger(self, "Y"),
         )
         self.y.pack(side="right")
-        self.w = tk.Button(
+        self.w = ttk.Button(
             self,
             text="W",
-            font=("Palm Pilot Small", 14),
-            fg=FRG_HEX,
-            bg=BKG_HEX,
             width=2,
-            height=1,
+            # height=1,
             command=lambda: self.shortcut_trigger(self, "W"),
         )
         self.w.pack(side="right")
@@ -75,20 +63,17 @@ class Heading(tk.Frame):
         self.parent.manager.go_to_screen(key)
 
 
-class Screen(tk.Frame):
+class Screen(ttk.Frame):
 
     def __init__(self, parent, screen_title: str, manager) -> None:
         self.manager = manager
         self.screen_title = screen_title
-        s = ttk.Style()
-        s.configure("TFrame", background=BKG_HEX)
-        super().__init__(parent, background=BKG_HEX, height=INTERNAL_RES * SCALAR, width=INTERNAL_RES * SCALAR)
+        super().__init__(parent)
         self.place(x=0, y=0, relwidth=1, relheight=1)
 
         self.header = Heading(self, self.screen_title)
 
         # Bind the game shortcut keys
-        self.bind_all("<Escape>", self.quit)
         self.bind_all("<KeyPress-b>", self.change_screen)
         self.bind_all("<KeyPress-s>", self.change_screen)
         self.bind_all("<KeyPress-y>", self.change_screen)
@@ -104,9 +89,6 @@ class Screen(tk.Frame):
 
         self.create_widgets()
 
-    def quit(self, event):
-        self.destroy()
-
     def change_screen(self, event):
         print(f"Changing screen to {event.keysym}")
         self.manager.go_to_screen(event.keysym.upper())
@@ -114,13 +96,14 @@ class Screen(tk.Frame):
     def create_widgets(self):
         #! Placeholder id frame
         self.id_frame = ttk.Frame(self)
-        ttk.Label(self.id_frame, text=self.screen_title, font=("Palm Pilot Small", 24)).pack(fill="both", expand=True)
+        ttk.Label(self.id_frame, text=self.screen_title, justify="center").pack(fill="x", expand=True)
+        ttk.Label(self.id_frame, text="Not Implemented", justify="center").pack(fill="x", expand=True)
         self.id_frame.pack(fill="both", expand=True)
 
 
-class Popup(tk.Frame):
+class Popup(ttk.Frame):
 
-    def __init__(self, parent, title, content: tk.Frame, height: int = INTERNAL_RES * SCALAR):
+    def __init__(self, parent, title, content: ttk.Frame, height: int = INTERNAL_RES * SCALAR):
         super().__init__(parent, bg=BKG_HEX, height=height, width=INTERNAL_RES * SCALAR)
         self.pack(expand=True, fill="both")
         self.title = title
@@ -128,9 +111,9 @@ class Popup(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        self.title = tk.Label(self, text=self.title)
+        self.title = ttk.Label(self, text=self.title)
         self.title.pack()
-        self.message = tk.Label(self, text=self.message)
+        self.message = ttk.Label(self, text=self.message)
         self.message.pack()
-        self.ok = tk.Button(self, text="OK", command=self.destroy)
+        self.ok = ttk.Button(self, text="OK", command=self.destroy)
         self.ok.pack()

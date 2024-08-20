@@ -4,6 +4,7 @@
     Basic system information screen
 """
 
+import tkinter as tk
 from tkinter import ttk
 
 import src.ui_actions as actions
@@ -24,21 +25,17 @@ class SystemInfo(Screen):
         self.info_frame.columnconfigure(1, weight=1)
         info_headings = ["Name:", "Size:", "Tech Level:", "Government:", "Resources:", "Police:", "Pirates:"]
         for i, heading in enumerate(info_headings):
-            ttk.Label(self.info_frame, text=heading, font=("Palm Pilot Bold", 14), justify="left").grid(
+            ttk.Label(self.info_frame, text=heading, style="Heading.TLabel", justify="left").grid(
                 row=i, column=0, sticky="ew"
             )
         #! Placeholder content
         for i in range(0, 7):
-            ttk.Label(self.info_frame, text="Placeholder", font=("Palm Pilot Small", 14), justify="left").grid(
-                row=i, column=1, sticky="ew"
-            )
+            ttk.Label(self.info_frame, text="Placeholder", justify="left").grid(row=i, column=1, sticky="ew")
         self.info_frame.pack(fill="x", expand=True)
 
         # Pressure Frame
         self.pressure_frame = ttk.Frame(self)
-        ttk.Label(self.pressure_frame, text=actions.get_system_info(), font=("Palm Pilot Small", 14)).grid(
-            row=0, column=0
-        )
+        ttk.Label(self.pressure_frame, text=actions.get_system_info()).grid(row=0, column=0)
         self.pressure_frame.pack(side="top", fill="both", expand=True)
 
         # Shortcut Frame

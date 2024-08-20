@@ -5,6 +5,7 @@
     Shows your stats, time played, etc.
 """
 
+import tkinter as tk
 from tkinter import ttk
 
 # from ..constants import BKG_COLOR, GameStateID

@@ -62,7 +62,7 @@ class ScreenManager:
     def __init__(self, window):
         self.window = window
         self.screens = self.build_screens()
-        print(f"Screens: {self.screens}")
+        # print(f"Screens: {self.screens}")
         self.current_screen = "I"
         self.go_to_screen(self.current_screen)
 
