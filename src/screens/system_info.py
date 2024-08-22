@@ -19,6 +19,8 @@ class SystemInfo(Screen):
 
     def create_widgets(self):
 
+        system_info, pressure = actions.get_system_info()
+
         # Info Frame
         self.info_frame = ttk.Frame(self)
         self.info_frame.columnconfigure(0, weight=1)
@@ -29,13 +31,13 @@ class SystemInfo(Screen):
                 row=i, column=0, sticky="ew"
             )
         #! Placeholder content
-        for i in range(0, 7):
-            ttk.Label(self.info_frame, text="Placeholder", justify="left").grid(row=i, column=1, sticky="ew")
+        for i, stat in enumerate(system_info):
+            ttk.Label(self.info_frame, text=stat, justify="left").grid(row=i, column=1, sticky="ew")
         self.info_frame.pack(fill="x", expand=True)
 
         # Pressure Frame
         self.pressure_frame = ttk.Frame(self)
-        ttk.Label(self.pressure_frame, text=actions.get_system_info()).grid(row=0, column=0)
+        ttk.Label(self.pressure_frame, text=pressure).grid(row=0, column=0)
         self.pressure_frame.pack(side="top", fill="both", expand=True)
 
         # Shortcut Frame

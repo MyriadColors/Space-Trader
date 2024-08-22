@@ -7,21 +7,20 @@
     have to worry about rewriting the game logic.
 """
 
-from random import randint
-
 import src.constants as c
 
 
 # Disordered list of user interactions
-def get_system_info():
-    global current_system
+def get_system_info() -> tuple[list[str], str]:
+    current_planet = c.GAME["universe"].planets[c.GAME["commander"].currentSystem]
+
+    sys_info = current_planet.system_info()
 
     # Format system pressure
-    #!pressure = current_system.pressure
-    pressure = randint(0, 7)  # Placeholder
+    pressure = current_planet.get_pressure()
     pressure_str = f"System is {c.SocietalPressure.name(pressure)}"
 
-    return pressure_str
+    return sys_info, pressure_str
 
 
 def buy_fuel():

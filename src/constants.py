@@ -8,6 +8,10 @@
 
 from random import randint
 
+# Player Game Instance
+GAME = {}
+
+
 # Display
 INTERNAL_RES = 160
 HALF_RES = INTERNAL_RES // 2

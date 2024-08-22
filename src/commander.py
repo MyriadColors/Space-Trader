@@ -48,11 +48,12 @@ class Commander:
         self.engineerSkill = engineer_skill
         self.credits = 1000
         self.debt = 0
-        self.ship = None
+        self.ship = 1
         self.kills = 0
         self.reputation = 0
         self.policeRecord = 0
         self.timePlayed = 0
+        self.currentSystem = random.randint(0, 120)
 
     def __str__(self) -> str:
         return self.name

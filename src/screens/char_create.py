@@ -8,7 +8,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from ..commander import Commander
-from ..constants import BKG_HEX, FRG_HEX, Difficulty
+from ..constants import BKG_HEX, FRG_HEX, GAME, Difficulty
 
 
 class StatAdjuster(ttk.Frame):
@@ -152,6 +152,7 @@ class CreateCommander(ttk.Frame):
                 self.trader_skill.get_value(),
                 self.engineer_skill.get_value(),
             )
+            GAME["commander"] = cmdr
             print(cmdr.pprint())
             self.destroy()
-            self.parent.manager.go_to_screen("I")
+            self.parent.manager.build_screens()
