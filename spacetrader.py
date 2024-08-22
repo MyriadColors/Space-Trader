@@ -13,6 +13,7 @@ from tkinter import ttk
 import src.constants as c
 from src.screens.char_create import CreateCommander
 from src.screens.screen_manager import ScreenManager
+from src.universe import Universe
 from src.utils import FontManager
 
 
@@ -102,7 +103,8 @@ def splash() -> tuple[int, int]:
     splash_image = tk.PhotoImage(file=os.path.join("assets/images", "splash.png"))
     splash_label = tk.Label(splash, image=splash_image)
     splash_label.pack(expand=True, fill="both")
-    splash.after(1500, lambda: [splash.destroy(), print("Splash screen closed")])
+    c.GAME["universe"] = Universe()
+    splash.after(1000, lambda: [splash.destroy(), print("Splash screen closed")])
     splash.mainloop()
 
     # Return the monitor resolution just to reduce the re-polling in main window

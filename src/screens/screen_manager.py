@@ -61,10 +61,7 @@ class ScreenManager:
 
     def __init__(self, window):
         self.window = window
-        self.screens = self.build_screens()
-        # print(f"Screens: {self.screens}")
         self.current_screen = "I"
-        self.go_to_screen(self.current_screen)
 
     def get_screen(self, screen):
         return self.screens[screen]
@@ -82,8 +79,8 @@ class ScreenManager:
         else:
             print(f"Switched to screen {key} ({self.screens[key]})")
 
-    def build_screens(self) -> dict[str, Screen]:
-        screen_dict = {
+    def build_screens(self):
+        self.screens: dict[str, Screen] = {
             "I": SystemInfo(self.window, "System Info", self),
             "B": BuyCargo(self.window, "Buy Cargo", self),
             "S": SellCargo(self.window, "Sell Cargo", self),
@@ -102,4 +99,3 @@ class ScreenManager:
             "V": AvgPrices(self.window, "Average Prices", self),
             "Z": BuyShip(self.window, "Buy Ship", self),
         }
-        return screen_dict
