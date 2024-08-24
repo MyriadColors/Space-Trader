@@ -23,6 +23,28 @@ def get_system_info() -> tuple[list[str], str]:
     return sys_info, pressure_str
 
 
+def get_commander_info() -> dict:
+    """
+    Returns a dictionary of the commander's information
+    """
+    commander = c.GAME["commander"]
+    return {
+        "name": commander.name,
+        "pilot": (commander.pilotSkill, commander.pilotSkill),
+        "fighter": (commander.fighterSkill, commander.fighterSkill),
+        "trader": (commander.traderSkill, commander.traderSkill),
+        "engineer": (commander.engineerSkill, commander.engineerSkill),
+        "kills": commander.kills,
+        "time": commander.timePlayed,
+        "cash": commander.credits,
+        "debt": commander.debt,
+        "net_worth": commander.get_net_worth(),
+        "rep": commander.get_reputation(),
+        "record": commander.get_police_record(),
+        "difficulty": c.GAME["difficulty"],
+    }
+
+
 def buy_fuel():
     pass
 

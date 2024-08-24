@@ -24,6 +24,24 @@ class CriminalRecord:
     HERO = 9
     ERRNO = 10
 
+    NAMES = {
+        PSYCHOPATH: "Psychopath",
+        VILLAIN: "Villain",
+        CRIMINAL: "Criminal",
+        CROOK: "Crook",
+        DUBIOUS: "Dubious",
+        CLEAN: "Clean",
+        LAWFUL: "Lawful",
+        TRUSTED: "Trusted",
+        LIKED: "Liked",
+        HERO: "Hero",
+        ERRNO: "ERRNO",
+    }
+
+    @staticmethod
+    def get_record_string(record: int) -> str:
+        return CriminalRecord.NAMES[record]
+
 
 class CombatReputation:
     HARMLESS = 0
@@ -36,6 +54,23 @@ class CombatReputation:
     DEADLY = 7
     ELITE = 8
     BORG = 9
+
+    NAMES = {
+        HARMLESS: "Harmless",
+        MOSTLY_HARMLESS: "Mostly Harmless",
+        POOR: "Poor",
+        AVERAGE: "Average",
+        ABOVE_AVERAGE: "Above Average",
+        COMPETENT: "Competent",
+        DANGEROUS: "Dangerous",
+        DEADLY: "Deadly",
+        ELITE: "Elite",
+        BORG: "Borg",
+    }
+
+    @staticmethod
+    def get_reputation_string(reputation: int) -> str:
+        return CombatReputation.NAMES[reputation]
 
 
 class Commander:
@@ -73,6 +108,12 @@ class Commander:
     def get_net_worth(self):
         # TODO include moon value eventually
         return self.credits + self.ship.get_value() - self.debt
+
+    def get_reputation(self) -> str:
+        return CombatReputation.get_reputation_string(self.reputation)
+
+    def get_police_record(self):
+        return CriminalRecord.get_record_string(self.policeRecord)
 
     def pay_interest(self):
 
