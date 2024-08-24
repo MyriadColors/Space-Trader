@@ -67,7 +67,8 @@ class CreateCommander(ttk.Frame):
         self.header = ttk.Label(
             self,
             text="New Commander",
-            font=("Palm Pilot Bold", 28),
+            style="Title.TLabel",
+            # font=("Palm Pilot Bold", 28),
             anchor="center",
             background=FRG_HEX,
             foreground=BKG_HEX,
@@ -115,7 +116,7 @@ class CreateCommander(ttk.Frame):
         self.start_button = ttk.Button(self, text="OK", command=self.cmdr_create, width=15)
 
         self.name_frame.pack(expand=True, fill="x")
-        self.difficulty_frame.pack(expand=True)
+        self.difficulty_frame.pack(expand=True, fill="x")
         self.skills_frame.pack(expand=True, fill="x")
         self.start_button.pack(expand=True)
 

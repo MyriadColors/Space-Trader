@@ -92,7 +92,7 @@ class ScreenManager:
             "K": Bank(self.window, "Bank", self),
             "C": CommanderInfo(self.window, "Character Info", self),
             "G": LongRange(self.window, "Long Range Chart", self),
-            "O": Quests(self.window, "Quests", self),
+            "L": Quests(self.window, "Quests", self),
             "A": ShipInfo(self.window, "Ship Info", self),
             "U": SpecialCargo(self.window, "Special Cargo", self),
             "T": TargetSystem(self.window, "Target System", self),

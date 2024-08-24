@@ -65,8 +65,8 @@ class SpaceTrader(tk.Tk):
         """
         Builds the custom styles for the game
         """
-        normal_fontsize = int(12 * c.SCALAR)
-        title_fontsize = int(14 * c.SCALAR)
+        normal_fontsize = int(-14 * c.SCALAR)
+        title_fontsize = int(-16 * c.SCALAR)
         s = ttk.Style()
         s.theme_use("alt")
         s.configure(
