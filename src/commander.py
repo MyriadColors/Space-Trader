@@ -8,69 +8,8 @@
 
 import random
 
-from .constants import INSURANCE_RATE, INTEREST_RATE, MAXSKILL, MERCENARYNAMES, Skills
-
-
-class CriminalRecord:
-    PSYCHOPATH = 0
-    VILLAIN = 1
-    CRIMINAL = 2
-    CROOK = 3
-    DUBIOUS = 4
-    CLEAN = 5
-    LAWFUL = 6
-    TRUSTED = 7
-    LIKED = 8
-    HERO = 9
-    ERRNO = 10
-
-    NAMES = {
-        PSYCHOPATH: "Psychopath",
-        VILLAIN: "Villain",
-        CRIMINAL: "Criminal",
-        CROOK: "Crook",
-        DUBIOUS: "Dubious",
-        CLEAN: "Clean",
-        LAWFUL: "Lawful",
-        TRUSTED: "Trusted",
-        LIKED: "Liked",
-        HERO: "Hero",
-        ERRNO: "ERRNO",
-    }
-
-    @staticmethod
-    def get_record_string(record: int) -> str:
-        return CriminalRecord.NAMES[record]
-
-
-class CombatReputation:
-    HARMLESS = 0
-    MOSTLY_HARMLESS = 1
-    POOR = 2
-    AVERAGE = 3
-    ABOVE_AVERAGE = 4
-    COMPETENT = 5
-    DANGEROUS = 6
-    DEADLY = 7
-    ELITE = 8
-    BORG = 9
-
-    NAMES = {
-        HARMLESS: "Harmless",
-        MOSTLY_HARMLESS: "Mostly Harmless",
-        POOR: "Poor",
-        AVERAGE: "Average",
-        ABOVE_AVERAGE: "Above Average",
-        COMPETENT: "Competent",
-        DANGEROUS: "Dangerous",
-        DEADLY: "Deadly",
-        ELITE: "Elite",
-        BORG: "Borg",
-    }
-
-    @staticmethod
-    def get_reputation_string(reputation: int) -> str:
-        return CombatReputation.NAMES[reputation]
+from .constants import INSURANCE_RATE, INTEREST_RATE, MAXSKILL, MERCENARYNAMES, CombatReputation, CriminalRecord, Skills
+from .economy import SHIPS, Ship
 
 
 class Commander:
@@ -83,7 +22,7 @@ class Commander:
         self.engineerSkill = engineer_skill
         self.credits = 1000
         self.debt = 0
-        self.ship = 1
+        self.ship = SHIPS[Ship.GNAT]
         self.kills = 0
         self.reputation = 0
         self.policeRecord = 0
@@ -98,7 +37,7 @@ class Commander:
             Skills: {self.pilotSkill}/{self.fighterSkill}/{self.traderSkill}/{self.engineerSkill}\n \
             Credits: {self.credits}\n \
             Debt: {self.debt}\n \
-            Ship: {self.ship}\n \
+            Ship: {self.ship.name}\n \
             Kills: {self.kills}\n \
             Reputation: {self.reputation}\n \
             Police Record: {self.policeRecord}\n \

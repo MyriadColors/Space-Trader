@@ -4,8 +4,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import src.constants as c
 import src.game_data as gd
-from src.planet import Planet
-from src.universe import Universe
+from src.universe import Planet, Universe
 
 testverse = Universe()
 

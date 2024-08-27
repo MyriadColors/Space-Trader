@@ -8,6 +8,7 @@
 """
 
 import src.constants as c
+import src.economy as e
 
 
 # Disordered list of user interactions
@@ -80,6 +81,10 @@ def repair():
 
 def buy_pod():
     pass
+
+
+def get_ware_list() -> list[str]:
+    return e.Ware.lst()
 
 
 def buy_good():

@@ -1,20 +1,167 @@
-"""
-    Space Trader (PalmOS) | RPINerd, 2024
-
-    Commander Status Screen
-    Shows your stats, time played, etc.
-"""
-
 import tkinter as tk
+from random import randint
 from tkinter import ttk
 
 import src.ui_actions as actions
 
-# from ..constants import BKG_COLOR, GameStateID
 from .screens import Screen
 
+FUEL_STATUS = "You have fuel to fly {0} parsecs."
+FULL_TANK = "Your tank cannot hold more fuel."
+HULL_STATUS = "Your hull strength is at {0}%."
+FULL_HULL = "No repairs are needed."
+SHIP_SALES = "No new ships are for sale."
+ESCAPE_POD = "No escape pods are for sale."
 NO_QUARTER = "No quarters available"
 NO_HIRE = "No one for hire"
+
+
+class SystemInfo(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+    def create_widgets(self):
+
+        system_info, pressure = actions.get_system_info()
+
+        # Info Frame
+        self.info_frame = ttk.Frame(self)
+        self.info_frame.columnconfigure(0, weight=1)
+        self.info_frame.columnconfigure(1, weight=1)
+        info_headings = ["Name:", "Size:", "Tech Level:", "Government:", "Resources:", "Police:", "Pirates:"]
+        for i, heading in enumerate(info_headings):
+            ttk.Label(self.info_frame, text=heading, style="Heading.TLabel", justify="left").grid(
+                row=i, column=0, sticky="ew"
+            )
+        #! Placeholder content
+        for i, stat in enumerate(system_info):
+            ttk.Label(self.info_frame, text=stat, justify="left").grid(row=i, column=1, sticky="ew")
+        self.info_frame.pack(fill="x", expand=True)
+
+        # Pressure Frame
+        self.pressure_frame = ttk.Frame(self)
+        ttk.Label(self.pressure_frame, text=pressure).grid(row=0, column=0)
+        self.pressure_frame.pack(side="top", fill="both", expand=True)
+
+        # Shortcut Frame
+        self.shortcut_frame = ttk.Frame(self)
+        ttk.Button(self.shortcut_frame, text="News", command=actions.buy_news).pack(side="left")
+        self.shortcut_frame.pack(side="top", fill="both", expand=True)
+
+    def change_screen(self, event):
+        # TODO probably can be a super method
+        pass
+
+
+class ShortRange(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+
+class LongRange(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+
+class TargetSystem(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+
+class AvgPrices(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+
+class BuyCargo(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+    def create_widgets(self):
+        self.table_frame = ttk.Frame(self)
+        for i, value in enumerate(actions.get_ware_list()):
+            ttk.Button(self.table_frame, text=randint(0, 42)).grid(row=i, column=0)
+            ttk.Label(self.table_frame, text=value).grid(row=i, column=1)
+            ttk.Button(self.table_frame, text="Max", command=actions.buy_good).grid(row=i, column=2)
+            ttk.Label(self.table_frame, text="1234 cr.").grid(row=i, column=3)
+        self.table_frame.pack(fill="both", expand=True)
+
+
+class SellCargo(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+    def create_widgets(self):
+        self.table_frame = ttk.Frame(self)
+        for i, value in enumerate(actions.get_ware_list()):
+            ttk.Button(self.table_frame, text="0").grid(row=i, column=0)
+            ttk.Label(self.table_frame, text=value).grid(row=i, column=1)
+            ttk.Button(self.table_frame, text="All", command=actions.sell_good).grid(row=i, column=2)
+            ttk.Label(self.table_frame, text="15cr").grid(row=i, column=3)
+        self.table_frame.pack(fill="both", expand=True)
+
+
+class BuyEquipment(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+
+class SellEquipment(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+
+class Bank(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+
+class Shipyard(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
+
+    def create_widgets(self):
+
+        # Fuel Frame
+        self.fuel_frame = ttk.Frame(self)
+        ttk.Label(self.fuel_frame, text=FUEL_STATUS.format(0), font=("Palm Pilot Small", 14)).pack()
+        ttk.Button(self.fuel_frame, text="Refuel", command=actions.buy_fuel).pack()
+        self.fuel_frame.pack(side="top", fill="both", expand=True)
+
+        # Hull Frame
+        self.hull_frame = ttk.Frame(self)
+        ttk.Label(self.hull_frame, text=HULL_STATUS.format(0), font=("Palm Pilot Small", 14)).pack()
+        ttk.Button(self.hull_frame, text="Repair", command=actions.repair).pack()
+        self.hull_frame.pack(side="top", fill="both", expand=True)
+
+        # Escape Pod Frame
+        self.escape_pod_frame = ttk.Frame(self)
+        ttk.Label(self.escape_pod_frame, text=ESCAPE_POD, font=("Palm Pilot Small", 14)).pack()
+        ttk.Button(self.escape_pod_frame, text="Buy Escape Pod", command=actions.buy_pod).pack()
+        self.escape_pod_frame.pack(side="top", fill="both", expand=True)
+
+        # Ship Sales Frame
+        self.ship_sales_frame = ttk.Frame(self)
+        ttk.Label(self.ship_sales_frame, text=SHIP_SALES, font=("Palm Pilot Small", 14)).pack()
+        ttk.Button(self.ship_sales_frame, text="Buy Ship", command=actions.buy_ship).pack()
+        self.ship_sales_frame.pack(side="top", fill="both", expand=True)
+
+
+class BuyShip(Screen):
+
+    def __init__(self, parent, screen_title, manager) -> None:
+        super().__init__(parent, screen_title, manager)
 
 
 class CommanderInfo(Screen):

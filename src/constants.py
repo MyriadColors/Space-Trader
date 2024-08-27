@@ -269,27 +269,93 @@ class Difficulty:
         return cls.NAMES[difficulty]
 
 
-# Gamestate codes
-class GameStateID:
-    SPLASH = 0
-    CHAR_CREATE = 1
-    SYSTEM_INFO = 2
-    B_CARGO = 3
-    S_CARGO = 4
-    Y_SHIPYARD = 5
-    W_SHORTRANGE = 6
-    BUY_SHIP = 7
-    BUY_EQUIPMENT = 8
-    SELL_EQUIPMENT = 9
-    PERSONNEL = 10
-    BANK = 11
-    STATUS = 12
-    QUESTS = 13
-    SHIP_INFO = 14
-    SPECIAL_CARGO = 15
-    GALACTIC_CHART = 16
-    TARGET_SYSTEM = 17
-    AVG_PRICES = 18
+class CriminalRecord:
+    PSYCHOPATH = 0
+    VILLAIN = 1
+    CRIMINAL = 2
+    CROOK = 3
+    DUBIOUS = 4
+    CLEAN = 5
+    LAWFUL = 6
+    TRUSTED = 7
+    LIKED = 8
+    HERO = 9
+    ERRNO = 10
+
+    NAMES = {
+        PSYCHOPATH: "Psychopath",
+        VILLAIN: "Villain",
+        CRIMINAL: "Criminal",
+        CROOK: "Crook",
+        DUBIOUS: "Dubious",
+        CLEAN: "Clean",
+        LAWFUL: "Lawful",
+        TRUSTED: "Trusted",
+        LIKED: "Liked",
+        HERO: "Hero",
+        ERRNO: "ERRNO",
+    }
+
+    SCORES = {
+        PSYCHOPATH: -100,
+        VILLAIN: -70,
+        CRIMINAL: -30,
+        CROOK: -10,
+        DUBIOUS: -5,
+        CLEAN: 0,
+        LAWFUL: 5,
+        TRUSTED: 10,
+        LIKED: 25,
+        HERO: 75,
+        ERRNO: 100,
+    }
+
+    @staticmethod
+    def get_record_string(record: int) -> str:
+        return CriminalRecord.NAMES[record]
+
+
+class CombatReputation:
+    HARMLESS = 0
+    MOSTLY_HARMLESS = 1
+    POOR = 2
+    AVERAGE = 3
+    ABOVE_AVERAGE = 4
+    COMPETENT = 5
+    DANGEROUS = 6
+    DEADLY = 7
+    ELITE = 8
+    BORG = 9
+
+    NAMES = {
+        HARMLESS: "Harmless",
+        MOSTLY_HARMLESS: "Mostly Harmless",
+        POOR: "Poor",
+        AVERAGE: "Average",
+        ABOVE_AVERAGE: "Above Average",
+        COMPETENT: "Competent",
+        DANGEROUS: "Dangerous",
+        DEADLY: "Deadly",
+        ELITE: "Elite",
+        BORG: "Borg",
+    }
+
+    SCORES = {
+        HARMLESS: 0,
+        MOSTLY_HARMLESS: 10,
+        POOR: 20,
+        AVERAGE: 40,
+        ABOVE_AVERAGE: 80,
+        COMPETENT: 150,
+        DANGEROUS: 300,
+        DEADLY: 600,
+        ELITE: 1500,
+        BORG: 3000,
+    }
+
+    @staticmethod
+    def get_reputation_string(reputation: int) -> str:
+        return CombatReputation.NAMES[reputation]
 
 
 # TODO Unknown values/usage

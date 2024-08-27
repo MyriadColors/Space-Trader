@@ -88,7 +88,7 @@ class CreateCommander(ttk.Frame):
         self.difficulty_dec = ttk.Button(self.difficulty_frame, style="TButton", text="-", command=self.dec_difficulty)
         self.difficulty_current = ttk.Label(
             self.difficulty_frame,
-            text="Normal",
+            text=Difficulty.name(self.diff_current_value),
         )
         self.difficulty_inc = ttk.Button(self.difficulty_frame, text="+", command=self.inc_difficulty)
         self.difficulty_label.pack(side="left")
@@ -121,20 +121,26 @@ class CreateCommander(ttk.Frame):
         self.start_button.pack(expand=True)
 
     def dec_difficulty(self) -> None:
-        self.diff_current_value
-        diff_current_value = max(self.diff_current_value - 1, 0)
-        if diff_current_value == 0:
+        print("Decreasing difficulty")
+        print("Current value:", self.diff_current_value)
+        new_difficulty = max(self.diff_current_value - 1, 0)
+        print("New value:", new_difficulty)
+        if new_difficulty == 0:
             self.difficulty_dec["state"] = "disabled"
         self.difficulty_inc["state"] = "enabled"
-        self.difficulty_current["text"] = Difficulty.name(diff_current_value)
+        self.difficulty_current["text"] = Difficulty.name(new_difficulty)
+        self.diff_current_value = new_difficulty
 
     def inc_difficulty(self) -> None:
-        self.diff_current_value
-        diff_current_value = min(self.diff_current_value + 1, 4)
-        if diff_current_value == 4:
+        print("Increasing difficulty")
+        print("Current value:", self.diff_current_value)
+        new_difficulty = min(self.diff_current_value + 1, 4)
+        print("New value:", new_difficulty)
+        if new_difficulty == 4:
             self.difficulty_inc["state"] = "disabled"
         self.difficulty_dec["state"] = "enabled"
-        self.difficulty_current["text"] = Difficulty.name(diff_current_value)
+        self.difficulty_current["text"] = Difficulty.name(new_difficulty)
+        self.diff_current_value = new_difficulty
 
     def cmdr_create(self) -> None:
 
@@ -154,6 +160,7 @@ class CreateCommander(ttk.Frame):
                 self.engineer_skill.get_value(),
             )
             GAME["commander"] = cmdr
+            GAME["difficulty"] = self.diff_current_value
             print(cmdr.pprint())
             self.destroy()
             self.parent.manager.build_screens()
