@@ -96,6 +96,12 @@ def get_ware_list() -> list[str]:
     return e.Ware.lst()
 
 
+def get_bays() -> str:
+    # TODO placeholder value, not currently tracked
+    #return f"{c.GAME["commander"].ship.bays} bays"
+    return "Bays: 3/25"
+
+
 def buy_good():
     pass
 

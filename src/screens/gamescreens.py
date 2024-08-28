@@ -90,7 +90,15 @@ class BuyCargo(Screen):
             ttk.Label(self.table_frame, text=value).grid(row=i, column=1)
             ttk.Button(self.table_frame, text="Max", command=actions.buy_good).grid(row=i, column=2)
             ttk.Label(self.table_frame, text="1234 cr.").grid(row=i, column=3)
-        self.table_frame.pack(fill="both", expand=True)
+        self.table_frame.pack(fill="x", expand=True)
+
+        # Current bays
+        self.bays_label = ttk.Label(self, text=actions.get_bays())
+        self.bays_label.place(relx=0, rely=1, anchor="sw")
+
+        # Current credits
+        self.credits_label = ttk.Label(self, text=actions.get_credits())
+        self.credits_label.place(relx=1, rely=1, anchor="se")
 
 
 class SellCargo(Screen):
@@ -105,7 +113,15 @@ class SellCargo(Screen):
             ttk.Label(self.table_frame, text=value).grid(row=i, column=1)
             ttk.Button(self.table_frame, text="All", command=actions.sell_good).grid(row=i, column=2)
             ttk.Label(self.table_frame, text="15cr").grid(row=i, column=3)
-        self.table_frame.pack(fill="both", expand=True)
+        self.table_frame.pack(fill="x", expand=True)
+
+        # Current bays
+        self.bays_label = ttk.Label(self, text=actions.get_bays())
+        self.bays_label.place(relx=0, rely=1, anchor="sw")
+
+        # Current credits
+        self.credits_label = ttk.Label(self, text=actions.get_credits())
+        self.credits_label.place(relx=1, rely=1, anchor="se")
 
 
 class BuyEquipment(Screen):
