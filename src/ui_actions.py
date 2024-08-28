@@ -75,6 +75,15 @@ def orbit_trade():
     pass
 
 
+def get_debt() -> str:
+    return f"{c.GAME["commander"].debt} cr."
+
+
+def get_max_loan() -> str:
+    # TODO this is a placeholder, figure out how this is calculated in soruce
+    return f"{c.GAME["commander"].get_net_worth()} cr."
+
+
 def repair():
     pass
 
@@ -115,9 +124,30 @@ def fire_crew():
     pass
 
 
+def get_credits() -> str:
+    current_balance = c.GAME["commander"].credits
+    print(f"Current balance: {current_balance}")
+    return f"Cash: {current_balance} cr."
+
+
+def get_ship_value() -> str:
+    return f"{c.GAME["commander"].ship.get_value()} cr."
+
+
+def get_no_claim() -> str:
+    # TODO placeholder until I figure out how this is calculated in source
+    return f"0%"
+
+
+def get_insurance_rate() -> str:
+    return f"{c.INSURANCE_RATE * c.GAME["commander"].ship.get_value()} cr. daily"
+
+
 def buy_insurance():
-    pass
+    # TODO
+    print("Buying insurance!")
 
 
 def get_loan():
-    pass
+    # TODO
+    print("Getting a loan!")

@@ -125,6 +125,42 @@ class Bank(Screen):
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
 
+    def create_widgets(self):
+
+        # Loan Frame
+        self.loan_frame = ttk.Frame(self)
+        ttk.Label(self.loan_frame, text="Loan").pack()
+
+        self.loan_grid = ttk.Frame(self.loan_frame)
+        ttk.Label(self.loan_grid, text="Current debt:").grid(row=0, column=0, sticky="w")
+        ttk.Label(self.loan_grid, text=actions.get_debt()).grid(row=0, column=1, sticky="w")
+        ttk.Label(self.loan_grid, text="Maximum loan:").grid(row=1, column=0)
+        ttk.Label(self.loan_grid, text=actions.get_max_loan()).grid(row=1, column=1)
+
+        self.loan_grid.pack(expand=True, fill="x")
+        ttk.Button(self.loan_frame, text="Get Loan", command=actions.get_loan).pack()
+        self.loan_frame.pack(expand=True, fill="x")
+
+        # Insurance Frame
+        self.insurance_frame = ttk.Frame(self)
+        ttk.Label(self.insurance_frame, text="Insurance").pack()
+
+        self.insurance_grid = ttk.Frame(self.insurance_frame)
+        ttk.Label(self.insurance_grid, text="Current ship:").grid(row=0, column=0)
+        ttk.Label(self.insurance_grid, text="No-claim:").grid(row=1, column=0)
+        ttk.Label(self.insurance_grid, text="Costs:").grid(row=2, column=0)
+        ttk.Label(self.insurance_grid, text=actions.get_ship_value()).grid(row=0, column=1)
+        ttk.Label(self.insurance_grid, text=actions.get_no_claim()).grid(row=1, column=1)
+        ttk.Label(self.insurance_grid, text=actions.get_insurance_rate()).grid(row=2, column=1)
+
+        self.insurance_grid.pack(expand=True, fill="x")
+        ttk.Button(self.insurance_frame, text="Buy Insurance", command=actions.buy_insurance).pack()
+        self.insurance_frame.pack(expand=True, fill="x")
+
+        # Current credits
+        self.credits_label = ttk.Label(self, text=actions.get_credits())
+        self.credits_label.place(relx=1, rely=1, anchor="se")
+
 
 class Shipyard(Screen):
 
