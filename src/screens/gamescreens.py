@@ -83,7 +83,7 @@ class BuyCargo(Screen):
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
 
-    def create_widgets(self):
+    def create_widgets(self) -> None:
         self.table_frame = ttk.Frame(self)
         for i, value in enumerate(actions.get_ware_list()):
             ttk.Button(self.table_frame, text=randint(0, 42)).grid(row=i, column=0)
@@ -106,7 +106,7 @@ class SellCargo(Screen):
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
 
-    def create_widgets(self):
+    def create_widgets(self) -> None:
         self.table_frame = ttk.Frame(self)
         for i, value in enumerate(actions.get_ware_list()):
             ttk.Button(self.table_frame, text="0").grid(row=i, column=0)
@@ -128,6 +128,34 @@ class BuyEquipment(Screen):
 
     def __init__(self, parent, screen_title, manager) -> None:
         super().__init__(parent, screen_title, manager)
+
+    def create_widgets(self) -> None:
+        self.table_frame = ttk.Frame(self)
+
+        sold_equipment = actions.get_equip_sold()
+        for i, value in enumerate(sold_equipment):
+
+            sold = value[0] == ""
+            # First column are Buy buttons for each equipment
+            if sold:
+                ttk.Button(self.table_frame, text="Buy", command=actions.buy_equipment).grid(row=i, column=0)
+            else:
+                ttk.Label(self.table_frame, text="   ").grid(
+                    row=i,
+                    column=0,
+                )
+
+            # Second column is the equipment name
+            ttk.Label(self.table_frame, text=value[1]).grid(row=i, column=1, sticky="w")
+
+            # Third column is the cost for each equipment
+            ttk.Label(self.table_frame, text=value[2]).grid(row=i, column=2)
+
+        self.table_frame.pack(fill="x", expand=True)
+
+        # Current credits
+        self.credits_label = ttk.Label(self, text=actions.get_credits())
+        self.credits_label.place(relx=1, rely=1, anchor="se")
 
 
 class SellEquipment(Screen):

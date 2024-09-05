@@ -114,6 +114,21 @@ def buy_ship():
     pass
 
 
+def get_equip_sold() -> list[str]:
+    # Make an list of equipment sold by the current system, with 'x' for ones not sold
+    current_system_tech = c.GAME["universe"].planets[c.GAME["commander"].currentSystem].tech_level
+    sold_equipment: list[tuple[str, str, str]] = []
+    for equips in [e.WEAPONS, e.SHIELDS, e.GADGETS]:
+        for _, equip in equips.items():
+            if equip.tech_level == e.TechLevel.UNAVAILABLE:
+                continue
+            elif equip.tech_level <= current_system_tech:
+                sold_equipment.append(("", equip.name, f"{equip.price} cr."))
+            else:
+                sold_equipment.append(("x", equip.name, "not sold"))
+    return sold_equipment
+
+
 def buy_equipment():
     pass
 
