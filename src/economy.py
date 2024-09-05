@@ -161,8 +161,8 @@ class Equipment:
     SHIELD = 1
     GADGET = 2
 
-    def __init__(self, id, price, tech_level):
-        self.id = id
+    def __init__(self, name, price, tech_level):
+        self.name = name
         self.price = price
         self.tech_level = tech_level
 
@@ -176,7 +176,7 @@ class Equipment:
             "Reflective shield",
             "5 extra cargo bays",
             "Auto-repair system",
-            "Navigation system",
+            "Navigating system",
             "Targeting system",
             "Cloaking device",
         ]
@@ -191,8 +191,8 @@ class Weapon(Equipment):
     PHOTONDISRUPTOR = 4
     QUANTUMDISRUPTOR = 5
 
-    def __init__(self, id, damage, unk_bool, price, tech_level, unknown):
-        super().__init__(id, price, tech_level)
+    def __init__(self, name, damage, unk_bool, price, tech_level, unknown):
+        super().__init__(name, price, tech_level)
         self.damage = damage
         self.unk_bool = unk_bool
         self.unknown = unknown
@@ -204,8 +204,8 @@ class Shield(Equipment):
     LIGHTNING = 2
 
     # TODO what are points and unknown?
-    def __init__(self, id, points, price, tech_level, unknown):
-        super().__init__(id, price, tech_level)
+    def __init__(self, name, points, price, tech_level, unknown):
+        super().__init__(name, price, tech_level)
         self.points = points
         self.unknown = unknown
 
@@ -219,8 +219,8 @@ class Gadget(Equipment):
     FUELCOMPACTOR = 5
     SMUGGLERHOLD = 6
 
-    def __init__(self, id, skill, price, tech_level, unknown):
-        super().__init__(id, price, tech_level)
+    def __init__(self, name, skill, price, tech_level, unknown):
+        super().__init__(name, price, tech_level)
         self.skill = skill
         self.unknown = unknown
 
@@ -619,27 +619,27 @@ SHIPS = {
 }
 
 WEAPONS = {
-    Weapon.PULSELASER: Weapon(Weapon.PULSELASER, 15, False, 2000, TechLevel.INDUSTRIAL, 50),
-    Weapon.BEAMLASER: Weapon(Weapon.BEAMLASER, 25, False, 12500, TechLevel.POST_INDUSTRIAL, 35),
-    Weapon.MILITARYLASER: Weapon(Weapon.MILITARYLASER, 35, False, 35000, TechLevel.HI_TECH, 15),
-    Weapon.MORGANSLASER: Weapon(Weapon.MORGANSLASER, 85, False, 50000, TechLevel.UNAVAILABLE, 0),
-    Weapon.PHOTONDISRUPTOR: Weapon(Weapon.PHOTONDISRUPTOR, 20, True, 15000, TechLevel.UNAVAILABLE, 0),
-    Weapon.QUANTUMDISRUPTOR: Weapon(Weapon.QUANTUMDISRUPTOR, 60, True, 50000, TechLevel.UNAVAILABLE, 0),
+    Weapon.PULSELASER: Weapon("Pulse laser", 15, False, 2000, TechLevel.INDUSTRIAL, 50),
+    Weapon.BEAMLASER: Weapon("Beam laser", 25, False, 12500, TechLevel.POST_INDUSTRIAL, 35),
+    Weapon.MILITARYLASER: Weapon("Military laser", 35, False, 35000, TechLevel.HI_TECH, 15),
+    Weapon.MORGANSLASER: Weapon("Weapon.MORGANSLASER", 85, False, 50000, TechLevel.UNAVAILABLE, 0),
+    Weapon.PHOTONDISRUPTOR: Weapon("Weapon.PHOTONDISRUPTOR", 20, True, 15000, TechLevel.UNAVAILABLE, 0),
+    Weapon.QUANTUMDISRUPTOR: Weapon("Weapon.QUANTUMDISRUPTOR", 60, True, 50000, TechLevel.UNAVAILABLE, 0),
 }
 
 SHIELDS = {
-    Shield.ENERGY: Shield(Shield.ENERGY, 100, 5000, TechLevel.INDUSTRIAL, 70),
-    Shield.REFLECTIVE: Shield(Shield.REFLECTIVE, 200, 20000, TechLevel.POST_INDUSTRIAL, 30),
-    Shield.LIGHTNING: Shield(Shield.LIGHTNING, 350, 45000, TechLevel.UNAVAILABLE, 0),
+    Shield.ENERGY: Shield("Energy shield", 100, 5000, TechLevel.INDUSTRIAL, 70),
+    Shield.REFLECTIVE: Shield("Reflective shield", 200, 20000, TechLevel.POST_INDUSTRIAL, 30),
+    Shield.LIGHTNING: Shield("Lightning shield", 350, 45000, TechLevel.UNAVAILABLE, 0),
 }
 
 GADGETS = {
-    Gadget.CARGOBAYS: Gadget(Gadget.CARGOBAYS, Skills.NONE, 2500, TechLevel.EARLY_INDUSTRIAL, 35),
-    Gadget.AUTOREPAIR: Gadget(Gadget.AUTOREPAIR, Skills.ENGINEER, 7500, TechLevel.INDUSTRIAL, 20),
-    Gadget.NAVIGATION: Gadget(Gadget.NAVIGATION, Skills.PILOT, 15000, TechLevel.POST_INDUSTRIAL, 20),
-    Gadget.TARGETING: Gadget(Gadget.TARGETING, Skills.FIGHTER, 2500, TechLevel.POST_INDUSTRIAL, 20),
-    Gadget.CLOAKING: Gadget(Gadget.CLOAKING, Skills.PILOT, 100000, TechLevel.HI_TECH, 5),
+    Gadget.CARGOBAYS: Gadget("5 extra cargo bays", Skills.NONE, 2500, TechLevel.EARLY_INDUSTRIAL, 35),
+    Gadget.AUTOREPAIR: Gadget("Auto-repair system", Skills.ENGINEER, 7500, TechLevel.INDUSTRIAL, 20),
+    Gadget.NAVIGATION: Gadget("Navigating system", Skills.PILOT, 15000, TechLevel.POST_INDUSTRIAL, 20),
+    Gadget.TARGETING: Gadget("Targeting system", Skills.FIGHTER, 2500, TechLevel.POST_INDUSTRIAL, 20),
+    Gadget.CLOAKING: Gadget("Cloaking device", Skills.PILOT, 100000, TechLevel.HI_TECH, 5),
     # Gadgets below can't be bought
-    Gadget.FUELCOMPACTOR: Gadget(Gadget.FUELCOMPACTOR, Skills.NONE, 30000, TechLevel.UNAVAILABLE, 0),
-    Gadget.SMUGGLERHOLD: Gadget(Gadget.SMUGGLERHOLD, Skills.NONE, 60000, TechLevel.UNAVAILABLE, 0),
+    Gadget.FUELCOMPACTOR: Gadget("Gadget.FUELCOMPACTOR", Skills.NONE, 30000, TechLevel.UNAVAILABLE, 0),
+    Gadget.SMUGGLERHOLD: Gadget("Gadget.SMUGGLERHOLD", Skills.NONE, 60000, TechLevel.UNAVAILABLE, 0),
 }
