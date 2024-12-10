@@ -12,6 +12,7 @@ from ..constants import BKG_HEX, FRG_HEX, GAME, Difficulty
 
 
 class StatAdjuster(ttk.Frame):
+
     """
     A frame that contains a label, a decrement button, a value label, and an increment button.
     """
@@ -148,19 +149,18 @@ class CreateCommander(ttk.Frame):
         if points_pool.get() != 0:
             print("You have unspent skill points!")
             return
-        elif self.cmdr_name.get() == "":
+        if self.cmdr_name.get() == "":
             print("You must enter a name!")
             return
-        else:
-            cmdr = Commander(
-                self.cmdr_name.get(),
-                self.pilot_skill.get_value(),
-                self.fighter_skill.get_value(),
-                self.trader_skill.get_value(),
-                self.engineer_skill.get_value(),
-            )
-            GAME["commander"] = cmdr
-            GAME["difficulty"] = self.diff_current_value
-            print(cmdr.pprint())
-            self.destroy()
-            self.parent.manager.build_screens()
+        cmdr = Commander(
+            self.cmdr_name.get(),
+            self.pilot_skill.get_value(),
+            self.fighter_skill.get_value(),
+            self.trader_skill.get_value(),
+            self.engineer_skill.get_value(),
+        )
+        GAME["commander"] = cmdr
+        GAME["difficulty"] = self.diff_current_value
+        print(cmdr.pprint())
+        self.destroy()
+        self.parent.manager.build_screens()

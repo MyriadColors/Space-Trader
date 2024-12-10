@@ -1,5 +1,6 @@
 """
     Space Trader | RPINerd, 2024
+
     An elite-inspired space trading RPG originally on PalmOS
 
     Universe Module
@@ -526,6 +527,7 @@ TRADEITEMS = {
 
 
 class Planet:
+
     """
     Object representing a single planet in the game world.
 
@@ -704,15 +706,13 @@ class Planet:
         if self.visited:
             return self.special_resource
         # TODO maybe not random here?
-        else:
-            self.special_resource = SpecialResource.random()
-            return self.special_resource
+        self.special_resource = SpecialResource.random()
+        return self.special_resource
 
     def initialize_trade_items(self):
         """
         Set the starting quantity of each trade good for the planet
         """
-
         for item_id in Ware.enum():
 
             # Make sure the item is allowed to be traded
@@ -743,8 +743,7 @@ class Planet:
             self.trade_items[item_id] = self.trade_items[item_id] - randint(1, 10) + randint(1, 10)
 
             # Finally just make sure it's not negative
-            if self.trade_items[item_id] < 0:
-                self.trade_items[item_id] = 0
+            self.trade_items[item_id] = max(self.trade_items[item_id], 0)
 
     def is_item_traded(self, item) -> bool:
         """
@@ -754,18 +753,16 @@ class Planet:
 
         return: bool - whether the item can be traded
         """
-
         if item not in [Ware.FIREARMS, Ware.NARCOTICS]:
             return True
 
         if item == Ware.FIREARMS:
             return self.government.firearms_ok()
 
-        elif item == Ware.NARCOTICS:
+        if item == Ware.NARCOTICS:
             return self.government.drugs_ok()
 
-        else:
-            raise ValueError(f"Item ID {item} not valid!")
+        raise ValueError(f"Item ID {item} not valid!")
 
     def item_used(self, item):
         raise NotImplementedError("Planet.item_used not implemented")
@@ -951,6 +948,7 @@ class Planet:
 
 
 class Universe:
+
     """
     Responsible for managing the game world, including
     planets locations and attributes.
@@ -966,7 +964,6 @@ class Universe:
         """
         Generate the planets for the game world.
         """
-
         for id, planet_name in PLANET_NAMES.items():
 
             planet_size = randint(0, 5)
@@ -1005,7 +1002,6 @@ class Universe:
         there is likely a good way to refactor this, if nothing else as a
         good exercise in algorithm design!
         """
-
         x: int = 0
         y: int = 0
 
@@ -1047,7 +1043,6 @@ class Universe:
         Apparently without this extra step, the planets with names at the beginning
         of the alphabet are all clustered in the center of the galaxy.
         """
-
         for planet in self.planets.values():
             i = randint(0, len(self.planets) - 1)
             if not wormhole_exists(self.wormholes, i, -1):
@@ -1100,7 +1095,6 @@ def wormhole_exists(wormholes: list[int], a: int, b: int) -> bool:
 
     returns: True if wormhole exists, False otherwise
     """
-
     # TODO bit of a mess, probably should have small separate functions for each check
     if a in wormholes:
 

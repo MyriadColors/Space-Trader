@@ -98,7 +98,7 @@ def get_ware_list() -> list[str]:
 
 def get_bays() -> str:
     # TODO placeholder value, not currently tracked
-    #return f"{c.GAME["commander"].ship.bays} bays"
+    # return f"{c.GAME["commander"].ship.bays} bays"
     return "Bays: 3/25"
 
 
@@ -122,7 +122,7 @@ def get_equip_sold() -> list[str]:
         for _, equip in equips.items():
             if equip.tech_level == e.TechLevel.UNAVAILABLE:
                 continue
-            elif equip.tech_level <= current_system_tech:
+            if equip.tech_level <= current_system_tech:
                 sold_equipment.append(("", equip.name, f"{equip.price} cr."))
             else:
                 sold_equipment.append(("x", equip.name, "not sold"))
@@ -157,7 +157,7 @@ def get_ship_value() -> str:
 
 def get_no_claim() -> str:
     # TODO placeholder until I figure out how this is calculated in source
-    return f"0%"
+    return "0%"
 
 
 def get_insurance_rate() -> str:

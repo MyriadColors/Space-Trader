@@ -40,13 +40,12 @@ class SpaceTrader(tk.Tk):
         x_adj = int((screen_x / 2) - (res / 2))
         y_adj = int((screen_y / 2) - (res / 2))
 
-        return f"{str(res)}x{str(res)}+{x_adj}+{y_adj}"
+        return f"{res!s}x{res!s}+{x_adj}+{y_adj}"
 
     def _load_assets(self):
         """
         Loads all game assets, currently just pointers to directories
         """
-
         # Load the configuration file
         # self.config = configparser.ConfigParser()
         # self.config.read(os.path.join("src/config", "config.ini"))

@@ -1,5 +1,6 @@
 """
     Space Trader | RPINerd, 2024
+
     An elite-inspired space trading RPG originally on PalmOS
 
     Utils Module
@@ -39,7 +40,6 @@ class FontManager:
         Function taken from:
         https://stackoverflow.com/questions/11993290/truly-custom-font-in-tkinter/30631309#30631309
         """
-
         from ctypes import byref, create_string_buffer, create_unicode_buffer, windll
 
         FR_PRIVATE = 0x10
@@ -65,7 +65,7 @@ class FontManager:
             return cls.windows_load_font(font_path, private=True, enumerable=False)
 
         # Linux
-        elif sys.platform.startswith("linux"):
+        if sys.platform.startswith("linux"):
             try:
                 shutil.copy(font_path, os.path.expanduser(cls.linux_font_path))
                 return True

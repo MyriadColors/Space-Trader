@@ -1,5 +1,6 @@
 """
     Space Trader | RPINerd, 2024
+
     An elite-inspired space trading RPG originally on PalmOS
 
     Commander Module
@@ -67,7 +68,7 @@ class Commander:
         self.debt = self.debt * 1.1
 
     def pay_insurance(self):
-        #! AI generated placeholder
+        # ! AI generated placeholder
         insurance = self.ship.get_value() * INSURANCE_RATE
         if self.credits > insurance:
             self.credits -= insurance
@@ -145,16 +146,14 @@ class Crew:
 
         param amount: The amount to modify the skill by.
         """
-
         # Create a sublist of skills that will be within the bounds
         skills = [skill for skill in self.get_skills() if 1 <= skill + amount <= MAXSKILL]
 
         # If there are no skills that can be modified, return
         if not skills:
             return
-        else:
-            # Choose a random skill from the sublist
-            skill = random.choice(skills)
+        # Choose a random skill from the sublist
+        skill = random.choice(skills)
 
-            # Modify the skill by the given amount
-            skill += amount
+        # Modify the skill by the given amount
+        skill += amount

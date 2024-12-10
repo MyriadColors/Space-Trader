@@ -1,4 +1,3 @@
-import tkinter as tk
 from random import randint
 from tkinter import ttk
 
@@ -34,7 +33,7 @@ class SystemInfo(Screen):
             ttk.Label(self.info_frame, text=heading, style="Heading.TLabel", justify="left").grid(
                 row=i, column=0, sticky="ew"
             )
-        #! Placeholder content
+        # ! Placeholder content
         for i, stat in enumerate(system_info):
             ttk.Label(self.info_frame, text=stat, justify="left").grid(row=i, column=1, sticky="ew")
         self.info_frame.pack(fill="x", expand=True)

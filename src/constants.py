@@ -1,5 +1,6 @@
 """
     Space Trader | RPINerd, 2024
+
     An elite-inspired space trading RPG originally on PalmOS
 
     Constants Module
@@ -86,9 +87,8 @@ MERCENARYNAMES = {
 
 
 class Activity:
-    """
-    General class to associate an int with a level of activity
-    """
+
+    """Enum-esque class to associate an int with an activity level"""
 
     ABSENT = 0
     MINIMAL = 1
@@ -100,7 +100,7 @@ class Activity:
     SWARMS = 7
     UNAVAILABLE = 100
 
-    NAMES = [
+    NAMES = (
         "Absent",
         "Minimal",
         "Few",
@@ -110,16 +110,25 @@ class Activity:
         "Abundant",
         "Swarms",
         "Unavailable",
-    ]
+    )
 
     @classmethod
     def name(cls, activity: int) -> str:
+        """
+        Provides the name of the activity level
+
+        Raises:
+            ValueError on invalid index given
+        """
         if activity < 0 or activity >= len(cls.NAMES):
             raise ValueError(f"Invalid activity: {activity}")
         return cls.NAMES[activity]
 
 
 class TechLevel:
+
+    """Enum-esque class to associate an int with a tech level"""
+
     PRE_AGRICULTURAL = 0
     AGRICULTURAL = 1
     MEDIEVAL = 2
@@ -130,7 +139,7 @@ class TechLevel:
     HI_TECH = 7
     UNAVAILABLE = 8
 
-    NAMES = [
+    NAMES = (
         "Pre-Agricultural",
         "Agricultural",
         "Medieval",
@@ -140,19 +149,24 @@ class TechLevel:
         "Post-Industrial",
         "Hi-Tech",
         "Unavailable",
-    ]
+    )
 
     @classmethod
     def name(cls, tech: int) -> str:
+        """
+        Provides the name of the tech level
+
+        Raises:
+            ValueError on invalid index given
+        """
         if tech < 0 or tech >= len(cls.NAMES):
             raise ValueError(f"Invalid tech level: {tech}")
         return cls.NAMES[tech]
 
 
 class Size:
-    """
-    General class to associate an int with the size of a planet
-    """
+
+    """Enum-esque class to associate an int with a size"""
 
     TINY = 0
     SMALL = 1
@@ -161,16 +175,25 @@ class Size:
     HUGE = 4
     GARGANTUAN = 5
 
-    NAMES = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
+    NAMES = ("Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan")
 
     @classmethod
     def name(cls, size: int) -> str:
+        """
+        Provides the name of the size
+
+        Raises:
+            ValueError on invalid index given
+        """
         if size < 0 or size >= len(cls.NAMES):
             raise ValueError(f"Invalid size: {size}")
         return cls.NAMES[size]
 
 
 class SpecialResource:
+
+    """Enum-esque class to associate an int with a special resource"""
+
     NOTHING = 0
     MINERAL_RICH = 1
     MINERAL_POOR = 2
@@ -185,7 +208,7 @@ class SpecialResource:
     ARTISTIC = 11
     WARLIKE = 12
 
-    NAMES = [
+    NAMES = (
         "Nothing special",  # Uneventful
         "Mineral rich",  # produce Ore
         "Mineral poor",  # Ore in demand
@@ -199,20 +222,30 @@ class SpecialResource:
         "Special herbs",  # produce Narcotics
         "Artistic populace",  # Narcotics in demand
         "Warlike populace",  # Weapons in demand
-    ]
+    )
 
     @classmethod
     def name(cls, resource: int) -> str:
+        """
+        Provides the name of the special resource
+
+        Raises:
+            ValueError on invalid index given
+        """
         if resource < 0 or resource >= len(cls.NAMES):
             raise ValueError(f"Invalid resource: {resource}")
         return cls.NAMES[resource]
 
     @staticmethod
     def random() -> int:
+        """Gives the index value of a random special resource"""
         return randint(1, 12)
 
 
 class SocietalPressure:
+
+    """Enum-esque class to associate an int with a societal pressure"""
+
     NONE = 0
     WAR = 1
     PLAGUE = 2
@@ -222,7 +255,7 @@ class SocietalPressure:
     CROPFAILURE = 6
     EMPLOYMENT = 7
 
-    NAMES = [
+    NAMES = (
         "under no particular pressure",  # Uneventful
         "at war",  # Ore and Weapons in demand
         "ravaged by a plague",  # Medicine in demand
@@ -231,21 +264,37 @@ class SocietalPressure:
         "suffering from a cold spell",  # Furs in demand
         "suffering from a crop failure",  # Food in demand
         "lacking enough workers",  # Machinery and Robots in demand
-    ]
+    )
 
     @classmethod
     def name(cls, pressure: int) -> str:
+        """
+        Provides the flavor text of the societal pressure
+
+        Args:
+            pressure: int
+
+        Raises:
+            ValueError on invalid index given
+
+        Returns:
+            str: Flavor text for the corresponding societal pressure
+        """
         if pressure < 0 or pressure >= len(cls.NAMES):
             raise ValueError(f"Invalid pressure: {pressure}")
         return cls.NAMES[pressure]
 
     @staticmethod
     def random() -> int:
+        """Gives the index value of a random societal pressure"""
         return randint(1, 7)
 
 
 # Character
 class Skills:
+
+    """Enum-esque class to associate an int with a skill"""
+
     NONE = 0
     PILOT = 1
     FIGHTER = 2
@@ -254,22 +303,40 @@ class Skills:
 
 
 class Difficulty:
+
+    """Enum-esque class to associate an int with a difficulty level"""
+
     BEGINNER = 0
     EASY = 1
     NORMAL = 2
     HARD = 3
     IMPOSSIBLE = 4
 
-    NAMES = ["Beginner", "Easy", "Normal", "Hard", "Impossible"]
+    NAMES = ("Beginner", "Easy", "Normal", "Hard", "Impossible")
 
     @classmethod
     def name(cls, difficulty: int) -> str:
+        """
+        Provides the name of the difficulty level
+
+        Args:
+            difficulty: int
+
+        Raises:
+            ValueError on invalid index given
+
+        Returns:
+            str: Name of the difficulty level
+        """
         if difficulty < 0 or difficulty >= len(cls.NAMES):
             raise ValueError(f"Invalid difficulty: {difficulty}")
         return cls.NAMES[difficulty]
 
 
 class CriminalRecord:
+
+    """Enum-esque class to associate an int with a criminal record"""
+
     PSYCHOPATH = 0
     VILLAIN = 1
     CRIMINAL = 2
@@ -282,40 +349,44 @@ class CriminalRecord:
     HERO = 9
     ERRNO = 10
 
-    NAMES = {
-        PSYCHOPATH: "Psychopath",
-        VILLAIN: "Villain",
-        CRIMINAL: "Criminal",
-        CROOK: "Crook",
-        DUBIOUS: "Dubious",
-        CLEAN: "Clean",
-        LAWFUL: "Lawful",
-        TRUSTED: "Trusted",
-        LIKED: "Liked",
-        HERO: "Hero",
-        ERRNO: "ERRNO",
-    }
+    NAMES = (
+        "Psychopath",
+        "Villain",
+        "Criminal",
+        "Crook",
+        "Dubious",
+        "Clean",
+        "Lawful",
+        "Trusted",
+        "Liked",
+        "Hero",
+        "ERRNO",
+    )
 
-    SCORES = {
-        PSYCHOPATH: -100,
-        VILLAIN: -70,
-        CRIMINAL: -30,
-        CROOK: -10,
-        DUBIOUS: -5,
-        CLEAN: 0,
-        LAWFUL: 5,
-        TRUSTED: 10,
-        LIKED: 25,
-        HERO: 75,
-        ERRNO: 100,
-    }
+    SCORES = (
+        -100,
+        -70,
+        -30,
+        -10,
+        -5,
+        0,
+        5,
+        10,
+        25,
+        75,
+        100,
+    )
 
     @staticmethod
     def get_record_string(record: int) -> str:
+        """Provides the name of the criminal record"""
         return CriminalRecord.NAMES[record]
 
 
 class CombatReputation:
+
+    """Enum-esque class to associate an int with a combat reputation"""
+
     HARMLESS = 0
     MOSTLY_HARMLESS = 1
     POOR = 2
@@ -327,34 +398,35 @@ class CombatReputation:
     ELITE = 8
     BORG = 9
 
-    NAMES = {
-        HARMLESS: "Harmless",
-        MOSTLY_HARMLESS: "Mostly Harmless",
-        POOR: "Poor",
-        AVERAGE: "Average",
-        ABOVE_AVERAGE: "Above Average",
-        COMPETENT: "Competent",
-        DANGEROUS: "Dangerous",
-        DEADLY: "Deadly",
-        ELITE: "Elite",
-        BORG: "Borg",
-    }
+    NAMES = (
+        "Harmless",
+        "Mostly Harmless",
+        "Poor",
+        "Average",
+        "Above Average",
+        "Competent",
+        "Dangerous",
+        "Deadly",
+        "Elite",
+        "Borg",
+    )
 
-    SCORES = {
-        HARMLESS: 0,
-        MOSTLY_HARMLESS: 10,
-        POOR: 20,
-        AVERAGE: 40,
-        ABOVE_AVERAGE: 80,
-        COMPETENT: 150,
-        DANGEROUS: 300,
-        DEADLY: 600,
-        ELITE: 1500,
-        BORG: 3000,
-    }
+    SCORES = (
+        0,
+        10,
+        20,
+        40,
+        80,
+        150,
+        300,
+        600,
+        1500,
+        3000,
+    )
 
     @staticmethod
     def get_reputation_string(reputation: int) -> str:
+        """Provides the name of the combat reputation"""
         return CombatReputation.NAMES[reputation]
 
 
