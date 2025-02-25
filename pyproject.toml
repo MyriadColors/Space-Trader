@@ -1,7 +1,3 @@
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build-backend"
-
 [project]
 name = "Space-Trader"
 version = "1.2.3"
@@ -11,7 +7,9 @@ authors = [
 description = "A space trading game"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "pytest>=8.3.4",
+]
 classifiers = [
     "Development Status :: 1 - Planning",
     "Environment :: Console",
@@ -22,6 +20,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Framework :: Pytest",
     "Topic :: Games/Entertainment :: Role-Playing",
     "Topic :: Games/Entertainment :: Simulation",
@@ -46,5 +45,3 @@ keywords = [
 [project.urls]
 Homepage = "https://github.com/RPINerd/Space-Trader"
 Issues = "https://github.com/RPINerd/Space-Trader/issues"
-
-[tool.hatch]
