@@ -16,10 +16,13 @@ from typing import Union
 
 class FontManager:
 
+    """"""
+
     linux_font_path = "~/.fonts/"
 
     @classmethod
-    def init_font_manager(cls):
+    def init_font_manager(cls) -> bool:
+        """"""
         # Linux
         if sys.platform.startswith("linux"):
             try:
@@ -30,17 +33,19 @@ class FontManager:
                 sys.stderr.write("FontManager error: " + str(err) + "\n")
                 return False
 
-        # other platforms
+        # Other platforms
         else:
             return True
 
     @classmethod
     def windows_load_font(cls, font_path: Union[str, bytes], private: bool = True, enumerable: bool = False) -> bool:
         """
+        Load font on Windows OS (hopefully)
+
         Function taken from:
         https://stackoverflow.com/questions/11993290/truly-custom-font-in-tkinter/30631309#30631309
         """
-        from ctypes import byref, create_string_buffer, create_unicode_buffer, windll
+        from ctypes import byref, create_string_buffer, create_unicode_buffer, windll  # noqa
 
         FR_PRIVATE = 0x10
         FR_NOT_ENUM = 0x20
@@ -60,6 +65,7 @@ class FontManager:
 
     @classmethod
     def load_font(cls, font_path: str) -> bool:
+        """"""
         # Windows
         if sys.platform.startswith("win"):
             return cls.windows_load_font(font_path, private=True, enumerable=False)

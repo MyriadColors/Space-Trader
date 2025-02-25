@@ -24,7 +24,7 @@ def main(state):
     preview = tk.Tk()
     preview.title("Space Trader")
     preview.minsize(str(160 * c.SCALAR), str(160 * c.SCALAR))
-    preview.geometry(f"{str(160 * c.SCALAR)}x{str(160 * c.SCALAR)}")
+    preview.geometry(f"{160 * c.SCALAR!s}x{160 * c.SCALAR!s}")
     preview.resizable(False, False)
     preview.configure(bg=c.BKG_HEX)
 

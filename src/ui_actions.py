@@ -13,6 +13,7 @@ import src.economy as e
 
 # Disordered list of user interactions
 def get_system_info() -> tuple[list[str], str]:
+    """"""
     current_planet = c.GAME["universe"].planets[c.GAME["commander"].currentSystem]
 
     sys_info = current_planet.system_info()
