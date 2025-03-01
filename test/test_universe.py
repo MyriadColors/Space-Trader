@@ -1,9 +1,5 @@
 """"""
 
-import sys
-from pathlib import Path
-
-sys.path.append(Path.absolute(Path.parent(Path(__file__))))
 import src.constants as c
 from src.universe import GOVERNMENTS, PLANET_NAMES, Planet, Universe
 
