@@ -1,16 +1,17 @@
-import os
-import sys
+""""""
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+import sys
+from pathlib import Path
+
+sys.path.append(Path.absolute(Path.parent(Path(__file__))))
 import src.constants as c
-import src.game_data as gd
-from src.universe import Planet, Universe
+from src.universe import GOVERNMENTS, PLANET_NAMES, Planet, Universe
 
 testverse = Universe()
 
 
 def test_planetcounts():
-    assert len(testverse.planets) == len(gd.PLANET_NAMES)
+    assert len(testverse.planets) == len(PLANET_NAMES)
     assert len(testverse.wormholes) == 10
 
 
@@ -23,9 +24,9 @@ def test_planetproperties():
     assert all(isinstance(x, Planet) for x in testverse.planets.values())
 
     for i in testverse.planets:
-        assert testverse.planets[i].name in gd.PLANET_NAMES.values()
+        assert testverse.planets[i].name in PLANET_NAMES.values()
         assert testverse.planets[i].size in range(6)
-        assert testverse.planets[i].get_govt_type() in gd.GOVERNMENTS.values()
+        assert testverse.planets[i].get_govt_type() in GOVERNMENTS.values()
         assert testverse.planets[i].tech_level in range(
             testverse.planets[i].government.minTech, testverse.planets[i].government.maxTech + 1
         )

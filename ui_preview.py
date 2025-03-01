@@ -14,8 +14,8 @@ import tkinter as tk
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src import constants as c
+from src.screens.gamescreens import SystemInfo
 from src.screens.screen_manager import SCREENS
-from src.screens.system_info import SystemInfo
 from src.utils import FontManager
 
 

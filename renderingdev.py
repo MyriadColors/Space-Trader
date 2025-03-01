@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 
 from src.constants import BKG_HEX, FRG_HEX, INTERNAL_RES, SCALAR
 from src.universe import Universe

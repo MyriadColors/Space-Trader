@@ -8,6 +8,7 @@
 
 import os
 import tkinter as tk
+from pathlib import Path
 from tkinter import ttk
 
 import src.constants as c
@@ -80,9 +81,7 @@ class SpaceTrader(tk.Tk):
         s.configure("Heading.TLabel", background=c.BKG_HEX, font=("Palm Pilot Bold", normal_fontsize))
 
     def boot(self):
-        """
-        Starts the game
-        """
+        """Starts the game"""
         CreateCommander(self).tkraise()
 
 
@@ -91,7 +90,6 @@ def splash() -> tuple[int, int]:
     splash = tk.Tk()
     splash.overrideredirect(True)
     splash.resizable(False, False)
-
     # Place the splash screen in the center
     screen_x = splash.winfo_screenwidth()
     screen_y = splash.winfo_screenheight()
@@ -99,9 +97,10 @@ def splash() -> tuple[int, int]:
     y_adj = int((screen_y / 2) - (160 / 2))
     splash.geometry(f"160x160+{x_adj}+{y_adj}")
 
-    splash_image = tk.PhotoImage(file=os.path.join("assets/images", "splash.png"))
+    splash_image = tk.PhotoImage(file=Path(Path.cwd() / "assets" / "images" / "splash.png"))
     splash_label = tk.Label(splash, image=splash_image)
     splash_label.pack(expand=True, fill="both")
+
     c.GAME["universe"] = Universe()
     splash.after(1000, lambda: [splash.destroy(), print("Splash screen closed")])
     splash.mainloop()

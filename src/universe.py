@@ -949,21 +949,17 @@ class Planet:
 
 class Universe:
 
-    """
-    Responsible for managing the game world, including
-    planets locations and attributes.
-    """
+    """Responsible for managing the game world, including planet locations and attributes."""
 
     def __init__(self):
         self.planets: dict[int, Planet] = {}
         self.wormholes: list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        print("Generating Universe...")
         self.generate_planets()
         self.extra_planet_shuffle()
 
     def generate_planets(self):
-        """
-        Generate the planets for the game world.
-        """
+        """Generate the planets for the game world."""
         for id, planet_name in PLANET_NAMES.items():
 
             planet_size = randint(0, 5)
