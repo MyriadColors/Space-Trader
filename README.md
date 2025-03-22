@@ -4,7 +4,7 @@
 ![commits](https://badgen.net/github/commits/RPINerd/Space-Trader?color=purple&icon=github)
 ![forks](https://badgen.net/github/forks/RPINerd/Space-Trader?color=green&icon=git)
 ![commits](https://badgen.net/github/last-commit/RPINerd/Space-Trader?color=cyan&icon=codebeat)
-
+![dependabot](https://badgen.net/github/dependabot/RPINerd/Space-Trader?color=yellow)
 
 An elite-inspired space trading RPG originally on PalmOS.
 
