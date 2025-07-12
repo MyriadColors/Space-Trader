@@ -5,7 +5,7 @@ from tkinter import ttk
 
 import src.ui_actions as actions
 
-from .screens import Screen
+from .screens import Screen, render_bank_account
 
 FUEL_STATUS = "You have fuel to fly {0} parsecs."
 FULL_TANK = "Your tank cannot hold more fuel."
@@ -97,9 +97,8 @@ class BuyCargo(Screen):
         self.bays_label = ttk.Label(self, text=actions.get_bays())
         self.bays_label.place(relx=0, rely=1, anchor="sw")
 
-        # Current credits
-        self.credits_label = ttk.Label(self, text=actions.get_credits())
-        self.credits_label.place(relx=1, rely=1, anchor="se")
+        # Bank account display
+        self.bank_account = render_bank_account(self)
 
 
 class SellCargo(Screen):
@@ -120,9 +119,8 @@ class SellCargo(Screen):
         self.bays_label = ttk.Label(self, text=actions.get_bays())
         self.bays_label.place(relx=0, rely=1, anchor="sw")
 
-        # Current credits
-        self.credits_label = ttk.Label(self, text=actions.get_credits())
-        self.credits_label.place(relx=1, rely=1, anchor="se")
+        # Bank account display
+        self.bank_account = render_bank_account(self)
 
 
 class BuyEquipment(Screen):
@@ -154,9 +152,8 @@ class BuyEquipment(Screen):
 
         self.table_frame.pack(fill="x", expand=True)
 
-        # Current credits
-        self.credits_label = ttk.Label(self, text=actions.get_credits())
-        self.credits_label.place(relx=1, rely=1, anchor="se")
+        # Bank account display
+        self.bank_account = render_bank_account(self)
 
 
 class SellEquipment(Screen):
@@ -202,9 +199,9 @@ class Bank(Screen):
         ttk.Button(self.insurance_frame, text="Buy Insurance", command=actions.buy_insurance).pack()
         self.insurance_frame.pack(expand=True, fill="x")
 
-        # Current credits
-        self.credits_label = ttk.Label(self, text=actions.get_credits())
-        self.credits_label.place(relx=1, rely=1, anchor="se")
+        # Bank account display with debt information
+        self.bank_account = render_bank_account(self, show_debt=True, position="inline")
+        self.bank_account['frame'].pack(side="bottom", pady=10)
 
 
 class Shipyard(Screen):
@@ -334,10 +331,16 @@ class CommanderInfo(Screen):
         self.kills_label.grid(row=0, column=1)
         self.time_title.grid(row=1, column=0)
         self.time_label.grid(row=1, column=1)
+        
+        # Use centralized bank account renderer for grid layout
+        self.cash_title = ttk.Label(self.right_top_grid, text="Cash:")
+        self.debt_title = ttk.Label(self.right_top_grid, text="Debt:")
+        self.bank_account = render_bank_account(self.right_top_grid, show_debt=True, position="grid")
+        
         self.cash_title.grid(row=2, column=0)
-        self.cash_label.grid(row=2, column=1)
+        self.bank_account['cash_label'].grid(row=2, column=1)
         self.debt_title.grid(row=3, column=0)
-        self.debt_label.grid(row=3, column=1)
+        self.bank_account['debt_label'].grid(row=3, column=1)
 
         self.right_top_grid.pack()
 

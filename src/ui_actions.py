@@ -152,6 +152,29 @@ def get_credits() -> str:
     return f"Cash: {current_balance} cr."
 
 
+def get_formatted_credits() -> str:
+    """Return just the credit amount with currency suffix"""
+    return f"{c.GAME['commander'].credits} cr."
+
+
+def get_formatted_debt() -> str:
+    """Return just the debt amount with currency suffix"""
+    return f"{c.GAME['commander'].debt} cr."
+
+
+def get_financial_status() -> dict:
+    """Return complete financial status for comprehensive display"""
+    commander = c.GAME["commander"]
+    return {
+        "credits": commander.credits,
+        "debt": commander.debt,
+        "net_worth": commander.get_net_worth(),
+        "credits_text": f"Cash: {commander.credits} cr.",
+        "debt_text": f"Debt: {commander.debt} cr.",
+        "net_worth_text": f"Net Worth: {commander.get_net_worth()} cr."
+    }
+
+
 def get_ship_value() -> str:
     return f"{c.GAME["commander"].ship.get_value()} cr."
 

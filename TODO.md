@@ -3,7 +3,7 @@
 Whenever I think of something to improve but don't need another rabit hole, it goes here.
 
 - [x] Combine the header and title bar rendering together
-- [ ] Rendering the bank account can be a single renderer function
+- [x] Rendering the bank account can be a single renderer function
 - [ ] Import all the src.screens files at once, maybe with the init py file?
 - [ ] Look into pre-commit and pre-commmit-ci and dependabot
 - [x] Lock window to 160x160, but have a scale int that allows for 2x, 3x, 4x, etc. scaling

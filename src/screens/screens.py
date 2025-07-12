@@ -1,7 +1,54 @@
 import tkinter as tk
 from tkinter import ttk
 
+import src.ui_actions as actions
 from src.constants import BKG_HEX, FRG_HEX, INTERNAL_RES, SCALAR
+
+
+def render_bank_account(parent, show_debt=False, position="bottom_right"):
+    """
+    Centralized bank account renderer function.
+
+    Args:
+        parent: The parent widget to attach the bank account display to
+        show_debt: Whether to also display debt information
+        position: Where to position the bank account info ("bottom_right", "grid", "inline")
+
+    Returns:
+        dict: Dictionary containing the created labels for potential updates
+    """
+    bank_info = {}
+
+    if position == "grid":
+        # For use in grid layouts (like CommanderInfo screen)
+        if show_debt:
+            bank_info["cash_label"] = ttk.Label(parent, text=actions.get_formatted_credits())
+            bank_info["debt_label"] = ttk.Label(parent, text=actions.get_formatted_debt())
+        else:
+            bank_info["credits_label"] = ttk.Label(parent, text=actions.get_credits())
+
+    elif position == "inline":
+        # For inline display within frames
+        frame = ttk.Frame(parent)
+        bank_info["frame"] = frame
+
+        if show_debt:
+            cash_text = f"Cash: {actions.get_formatted_credits()}"
+            debt_text = f"Debt: {actions.get_formatted_debt()}"
+            bank_info["cash_label"] = ttk.Label(frame, text=cash_text)
+            bank_info["debt_label"] = ttk.Label(frame, text=debt_text)
+            bank_info["cash_label"].pack(side="left", padx=5)
+            bank_info["debt_label"].pack(side="left", padx=5)
+        else:
+            bank_info["credits_label"] = ttk.Label(frame, text=actions.get_credits())
+            bank_info["credits_label"].pack()
+
+    else:  # bottom_right (default)
+        # Standard bottom-right positioning for most screens
+        bank_info["credits_label"] = ttk.Label(parent, text=actions.get_credits())
+        bank_info["credits_label"].place(relx=1, rely=1, anchor="se")
+
+    return bank_info
 
 
 class Heading(ttk.Frame):
